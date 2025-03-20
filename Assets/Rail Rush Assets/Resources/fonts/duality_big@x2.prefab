@@ -1,0 +1,5389 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1194931171592987
+GameObject:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Component:
+  - component: {fileID: 4653601037424761}
+  - component: {fileID: 114392925613981134}
+  m_Layer: 0
+  m_Name: duality_big@x2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4653601037424761
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1194931171592987}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!114 &114392925613981134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1194931171592987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a91176cd3f46d45bc05306a7f11b833b, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  fontName: duality_big@x2
+  fontFace: Duality
+  fontSize: 60
+  lineHeight: 73
+  chars:
+  - code: 23
+    rect:
+      serializedVersion: 2
+      x: 1010
+      y: 0
+      width: 8
+      height: 8
+    offset: {x: -3, y: 57}
+    batchIndex: 0
+    xAdvance: 17
+  - code: 32
+    rect:
+      serializedVersion: 2
+      x: 1017
+      y: 0
+      width: 8
+      height: 8
+    offset: {x: -3, y: 57}
+    batchIndex: 0
+    xAdvance: 14
+  - code: 33
+    rect:
+      serializedVersion: 2
+      x: 562
+      y: 336
+      width: 19
+      height: 62
+    offset: {x: 0, y: 5}
+    batchIndex: 0
+    xAdvance: 18
+  - code: 48
+    rect:
+      serializedVersion: 2
+      x: 122
+      y: 413
+      width: 38
+      height: 58
+    offset: {x: -2, y: 9}
+    batchIndex: 0
+    xAdvance: 34
+  - code: 49
+    rect:
+      serializedVersion: 2
+      x: 811
+      y: 450
+      width: 28
+      height: 56
+    offset: {x: -2, y: 10}
+    batchIndex: 0
+    xAdvance: 23
+  - code: 50
+    rect:
+      serializedVersion: 2
+      x: 350
+      y: 458
+      width: 42
+      height: 56
+    offset: {x: -2, y: 10}
+    batchIndex: 0
+    xAdvance: 37
+  - code: 51
+    rect:
+      serializedVersion: 2
+      x: 905
+      y: 392
+      width: 36
+      height: 57
+    offset: {x: -2, y: 10}
+    batchIndex: 0
+    xAdvance: 31
+  - code: 52
+    rect:
+      serializedVersion: 2
+      x: 84
+      y: 413
+      width: 39
+      height: 58
+    offset: {x: -3, y: 9}
+    batchIndex: 0
+    xAdvance: 33
+  - code: 53
+    rect:
+      serializedVersion: 2
+      x: 940
+      y: 392
+      width: 35
+      height: 57
+    offset: {x: -2, y: 10}
+    batchIndex: 0
+    xAdvance: 31
+  - code: 54
+    rect:
+      serializedVersion: 2
+      x: 869
+      y: 393
+      width: 37
+      height: 57
+    offset: {x: -2, y: 10}
+    batchIndex: 0
+    xAdvance: 32
+  - code: 55
+    rect:
+      serializedVersion: 2
+      x: 759
+      y: 394
+      width: 38
+      height: 57
+    offset: {x: -3, y: 10}
+    batchIndex: 0
+    xAdvance: 32
+  - code: 56
+    rect:
+      serializedVersion: 2
+      x: 511
+      y: 456
+      width: 40
+      height: 56
+    offset: {x: -2, y: 10}
+    batchIndex: 0
+    xAdvance: 35
+  - code: 57
+    rect:
+      serializedVersion: 2
+      x: 833
+      y: 393
+      width: 37
+      height: 57
+    offset: {x: -2, y: 9}
+    batchIndex: 0
+    xAdvance: 32
+  - code: 63
+    rect:
+      serializedVersion: 2
+      x: 196
+      y: 411
+      width: 35
+      height: 58
+    offset: {x: -2, y: 9}
+    batchIndex: 0
+    xAdvance: 32
+  - code: 65
+    rect:
+      serializedVersion: 2
+      x: 265
+      y: 466
+      width: 44
+      height: 56
+    offset: {x: -3, y: 9}
+    batchIndex: 0
+    xAdvance: 38
+  - code: 66
+    rect:
+      serializedVersion: 2
+      x: 627
+      y: 451
+      width: 38
+      height: 56
+    offset: {x: -3, y: 9}
+    batchIndex: 0
+    xAdvance: 34
+  - code: 67
+    rect:
+      serializedVersion: 2
+      x: 230
+      y: 410
+      width: 34
+      height: 58
+    offset: {x: -2, y: 9}
+    batchIndex: 0
+    xAdvance: 30
+  - code: 68
+    rect:
+      serializedVersion: 2
+      x: 683
+      y: 394
+      width: 39
+      height: 57
+    offset: {x: -3, y: 9}
+    batchIndex: 0
+    xAdvance: 34
+  - code: 69
+    rect:
+      serializedVersion: 2
+      x: 882
+      y: 449
+      width: 37
+      height: 55
+    offset: {x: -3, y: 9}
+    batchIndex: 0
+    xAdvance: 32
+  - code: 70
+    rect:
+      serializedVersion: 2
+      x: 775
+      y: 450
+      width: 37
+      height: 56
+    offset: {x: -3, y: 10}
+    batchIndex: 0
+    xAdvance: 30
+  - code: 71
+    rect:
+      serializedVersion: 2
+      x: 44
+      y: 413
+      width: 41
+      height: 58
+    offset: {x: -3, y: 9}
+    batchIndex: 0
+    xAdvance: 35
+  - code: 72
+    rect:
+      serializedVersion: 2
+      x: 475
+      y: 400
+      width: 44
+      height: 57
+    offset: {x: -3, y: 9}
+    batchIndex: 0
+    xAdvance: 38
+  - code: 73
+    rect:
+      serializedVersion: 2
+      x: 28
+      y: 470
+      width: 28
+      height: 57
+    offset: {x: -3, y: 9}
+    batchIndex: 0
+    xAdvance: 22
+  - code: 74
+    rect:
+      serializedVersion: 2
+      x: 796
+      y: 394
+      width: 38
+      height: 57
+    offset: {x: -3, y: 10}
+    batchIndex: 0
+    xAdvance: 32
+  - code: 75
+    rect:
+      serializedVersion: 2
+      x: 838
+      y: 449
+      width: 45
+      height: 55
+    offset: {x: -3, y: 10}
+    batchIndex: 0
+    xAdvance: 38
+  - code: 76
+    rect:
+      serializedVersion: 2
+      x: 471
+      y: 456
+      width: 41
+      height: 56
+    offset: {x: -3, y: 9}
+    batchIndex: 0
+    xAdvance: 33
+  - code: 77
+    rect:
+      serializedVersion: 2
+      x: 421
+      y: 400
+      width: 55
+      height: 57
+    offset: {x: -3, y: 9}
+    batchIndex: 0
+    xAdvance: 49
+  - code: 78
+    rect:
+      serializedVersion: 2
+      x: 132
+      y: 470
+      width: 47
+      height: 56
+    offset: {x: -3, y: 9}
+    batchIndex: 0
+    xAdvance: 40
+  - code: 79
+    rect:
+      serializedVersion: 2
+      x: 159
+      y: 412
+      width: 38
+      height: 58
+    offset: {x: -3, y: 9}
+    batchIndex: 0
+    xAdvance: 32
+  - code: 80
+    rect:
+      serializedVersion: 2
+      x: 550
+      y: 455
+      width: 40
+      height: 56
+    offset: {x: -3, y: 9}
+    batchIndex: 0
+    xAdvance: 34
+  - code: 81
+    rect:
+      serializedVersion: 2
+      x: 982
+      y: 335
+      width: 42
+      height: 58
+    offset: {x: -3, y: 9}
+    batchIndex: 0
+    xAdvance: 33
+  - code: 82
+    rect:
+      serializedVersion: 2
+      x: 222
+      y: 468
+      width: 44
+      height: 56
+    offset: {x: -3, y: 9}
+    batchIndex: 0
+    xAdvance: 37
+  - code: 83
+    rect:
+      serializedVersion: 2
+      x: 807
+      y: 335
+      width: 36
+      height: 59
+    offset: {x: -2, y: 9}
+    batchIndex: 0
+    xAdvance: 31
+  - code: 84
+    rect:
+      serializedVersion: 2
+      x: 561
+      y: 397
+      width: 42
+      height: 57
+    offset: {x: -5, y: 9}
+    batchIndex: 0
+    xAdvance: 34
+  - code: 85
+    rect:
+      serializedVersion: 2
+      x: 643
+      y: 394
+      width: 41
+      height: 57
+    offset: {x: -3, y: 9}
+    batchIndex: 0
+    xAdvance: 34
+  - code: 86
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 413
+      width: 45
+      height: 58
+    offset: {x: -4, y: 9}
+    batchIndex: 0
+    xAdvance: 38
+  - code: 87
+    rect:
+      serializedVersion: 2
+      x: 626
+      y: 336
+      width: 62
+      height: 59
+    offset: {x: -4, y: 9}
+    batchIndex: 0
+    xAdvance: 55
+  - code: 88
+    rect:
+      serializedVersion: 2
+      x: 308
+      y: 458
+      width: 43
+      height: 56
+    offset: {x: -4, y: 10}
+    batchIndex: 0
+    xAdvance: 36
+  - code: 89
+    rect:
+      serializedVersion: 2
+      x: 178
+      y: 469
+      width: 45
+      height: 56
+    offset: {x: -4, y: 10}
+    batchIndex: 0
+    xAdvance: 38
+  - code: 90
+    rect:
+      serializedVersion: 2
+      x: 589
+      y: 453
+      width: 39
+      height: 56
+    offset: {x: -3, y: 9}
+    batchIndex: 0
+    xAdvance: 32
+  - code: 97
+    rect:
+      serializedVersion: 2
+      x: 957
+      y: 602
+      width: 32
+      height: 40
+    offset: {x: -3, y: 25}
+    batchIndex: 0
+    xAdvance: 25
+  - code: 98
+    rect:
+      serializedVersion: 2
+      x: 263
+      y: 409
+      width: 34
+      height: 58
+    offset: {x: -4, y: 7}
+    batchIndex: 0
+    xAdvance: 27
+  - code: 99
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 679
+      width: 29
+      height: 40
+    offset: {x: -2, y: 25}
+    batchIndex: 0
+    xAdvance: 24
+  - code: 100
+    rect:
+      serializedVersion: 2
+      x: 328
+      y: 401
+      width: 33
+      height: 58
+    offset: {x: -2, y: 7}
+    batchIndex: 0
+    xAdvance: 26
+  - code: 101
+    rect:
+      serializedVersion: 2
+      x: 28
+      y: 679
+      width: 28
+      height: 40
+    offset: {x: -2, y: 25}
+    batchIndex: 0
+    xAdvance: 24
+  - code: 102
+    rect:
+      serializedVersion: 2
+      x: 974
+      y: 392
+      width: 29
+      height: 57
+    offset: {x: -3, y: 8}
+    batchIndex: 0
+    xAdvance: 22
+  - code: 103
+    rect:
+      serializedVersion: 2
+      x: 391
+      y: 400
+      width: 31
+      height: 58
+    offset: {x: -2, y: 18}
+    batchIndex: 0
+    xAdvance: 24
+  - code: 104
+    rect:
+      serializedVersion: 2
+      x: 738
+      y: 450
+      width: 38
+      height: 56
+    offset: {x: -3, y: 8}
+    batchIndex: 0
+    xAdvance: 31
+  - code: 105
+    rect:
+      serializedVersion: 2
+      x: 389
+      y: 614
+      width: 22
+      height: 51
+    offset: {x: -2, y: 13}
+    batchIndex: 0
+    xAdvance: 17
+  - code: 106
+    rect:
+      serializedVersion: 2
+      x: 485
+      y: 338
+      width: 27
+      height: 63
+    offset: {x: -9, y: 13}
+    batchIndex: 0
+    xAdvance: 15
+  - code: 107
+    rect:
+      serializedVersion: 2
+      x: 664
+      y: 450
+      width: 38
+      height: 56
+    offset: {x: -2, y: 8}
+    batchIndex: 0
+    xAdvance: 31
+  - code: 108
+    rect:
+      serializedVersion: 2
+      x: 1002
+      y: 392
+      width: 23
+      height: 57
+    offset: {x: -3, y: 7}
+    batchIndex: 0
+    xAdvance: 16
+  - code: 109
+    rect:
+      serializedVersion: 2
+      x: 625
+      y: 609
+      width: 51
+      height: 41
+    offset: {x: -2, y: 24}
+    batchIndex: 0
+    xAdvance: 45
+  - code: 110
+    rect:
+      serializedVersion: 2
+      x: 854
+      y: 606
+      width: 38
+      height: 40
+    offset: {x: -3, y: 24}
+    batchIndex: 0
+    xAdvance: 32
+  - code: 111
+    rect:
+      serializedVersion: 2
+      x: 799
+      y: 606
+      width: 29
+      height: 41
+    offset: {x: -2, y: 24}
+    batchIndex: 0
+    xAdvance: 24
+  - code: 112
+    rect:
+      serializedVersion: 2
+      x: 634
+      y: 506
+      width: 34
+      height: 52
+    offset: {x: -4, y: 24}
+    batchIndex: 0
+    xAdvance: 27
+  - code: 113
+    rect:
+      serializedVersion: 2
+      x: 976
+      y: 552
+      width: 32
+      height: 51
+    offset: {x: -3, y: 24}
+    batchIndex: 0
+    xAdvance: 25
+  - code: 114
+    rect:
+      serializedVersion: 2
+      x: 988
+      y: 602
+      width: 31
+      height: 40
+    offset: {x: -3, y: 24}
+    batchIndex: 0
+    xAdvance: 24
+  - code: 115
+    rect:
+      serializedVersion: 2
+      x: 827
+      y: 606
+      width: 28
+      height: 41
+    offset: {x: -3, y: 25}
+    batchIndex: 0
+    xAdvance: 22
+  - code: 116
+    rect:
+      serializedVersion: 2
+      x: 579
+      y: 612
+      width: 24
+      height: 49
+    offset: {x: -4, y: 16}
+    batchIndex: 0
+    xAdvance: 16
+  - code: 117
+    rect:
+      serializedVersion: 2
+      x: 891
+      y: 604
+      width: 35
+      height: 40
+    offset: {x: -4, y: 25}
+    batchIndex: 0
+    xAdvance: 28
+  - code: 118
+    rect:
+      serializedVersion: 2
+      x: 765
+      y: 606
+      width: 35
+      height: 41
+    offset: {x: -4, y: 24}
+    batchIndex: 0
+    xAdvance: 27
+  - code: 119
+    rect:
+      serializedVersion: 2
+      x: 675
+      y: 607
+      width: 48
+      height: 41
+    offset: {x: -3, y: 24}
+    batchIndex: 0
+    xAdvance: 42
+  - code: 120
+    rect:
+      serializedVersion: 2
+      x: 76
+      y: 678
+      width: 35
+      height: 39
+    offset: {x: -3, y: 25}
+    batchIndex: 0
+    xAdvance: 29
+  - code: 121
+    rect:
+      serializedVersion: 2
+      x: 667
+      y: 505
+      width: 34
+      height: 52
+    offset: {x: -3, y: 24}
+    batchIndex: 0
+    xAdvance: 27
+  - code: 122
+    rect:
+      serializedVersion: 2
+      x: 925
+      y: 604
+      width: 33
+      height: 40
+    offset: {x: -4, y: 25}
+    batchIndex: 0
+    xAdvance: 26
+  - code: 192
+    rect:
+      serializedVersion: 2
+      x: 707
+      y: 137
+      width: 44
+      height: 68
+    offset: {x: -3, y: -3}
+    batchIndex: 0
+    xAdvance: 38
+  - code: 193
+    rect:
+      serializedVersion: 2
+      x: 922
+      y: 137
+      width: 44
+      height: 68
+    offset: {x: -3, y: -3}
+    batchIndex: 0
+    xAdvance: 38
+  - code: 194
+    rect:
+      serializedVersion: 2
+      x: 750
+      y: 137
+      width: 44
+      height: 68
+    offset: {x: -3, y: -3}
+    batchIndex: 0
+    xAdvance: 38
+  - code: 195
+    rect:
+      serializedVersion: 2
+      x: 610
+      y: 204
+      width: 44
+      height: 67
+    offset: {x: -3, y: -2}
+    batchIndex: 0
+    xAdvance: 38
+  - code: 196
+    rect:
+      serializedVersion: 2
+      x: 653
+      y: 204
+      width: 44
+      height: 67
+    offset: {x: -3, y: -2}
+    batchIndex: 0
+    xAdvance: 38
+  - code: 197
+    rect:
+      serializedVersion: 2
+      x: 879
+      y: 137
+      width: 44
+      height: 68
+    offset: {x: -3, y: -3}
+    batchIndex: 0
+    xAdvance: 38
+  - code: 198
+    rect:
+      serializedVersion: 2
+      x: 81
+      y: 470
+      width: 52
+      height: 56
+    offset: {x: -4, y: 9}
+    batchIndex: 0
+    xAdvance: 45
+  - code: 199
+    rect:
+      serializedVersion: 2
+      x: 674
+      y: 270
+      width: 34
+      height: 67
+    offset: {x: -2, y: 9}
+    batchIndex: 0
+    xAdvance: 30
+  - code: 200
+    rect:
+      serializedVersion: 2
+      x: 422
+      y: 272
+      width: 37
+      height: 67
+    offset: {x: -3, y: -3}
+    batchIndex: 0
+    xAdvance: 32
+  - code: 201
+    rect:
+      serializedVersion: 2
+      x: 386
+      y: 272
+      width: 37
+      height: 67
+    offset: {x: -3, y: -3}
+    batchIndex: 0
+    xAdvance: 32
+  - code: 202
+    rect:
+      serializedVersion: 2
+      x: 350
+      y: 272
+      width: 37
+      height: 67
+    offset: {x: -3, y: -3}
+    batchIndex: 0
+    xAdvance: 32
+  - code: 203
+    rect:
+      serializedVersion: 2
+      x: 36
+      y: 348
+      width: 37
+      height: 66
+    offset: {x: -3, y: -2}
+    batchIndex: 0
+    xAdvance: 32
+  - code: 204
+    rect:
+      serializedVersion: 2
+      x: 225
+      y: 138
+      width: 28
+      height: 69
+    offset: {x: -3, y: -3}
+    batchIndex: 0
+    xAdvance: 22
+  - code: 205
+    rect:
+      serializedVersion: 2
+      x: 252
+      y: 138
+      width: 28
+      height: 69
+    offset: {x: -3, y: -3}
+    batchIndex: 0
+    xAdvance: 22
+  - code: 206
+    rect:
+      serializedVersion: 2
+      x: 144
+      y: 146
+      width: 28
+      height: 69
+    offset: {x: -3, y: -3}
+    batchIndex: 0
+    xAdvance: 22
+  - code: 207
+    rect:
+      serializedVersion: 2
+      x: 389
+      y: 205
+      width: 30
+      height: 68
+    offset: {x: -4, y: -2}
+    batchIndex: 0
+    xAdvance: 22
+  - code: 209
+    rect:
+      serializedVersion: 2
+      x: 564
+      y: 204
+      width: 47
+      height: 67
+    offset: {x: -3, y: -2}
+    batchIndex: 0
+    xAdvance: 40
+  - code: 210
+    rect:
+      serializedVersion: 2
+      x: 973
+      y: 0
+      width: 38
+      height: 70
+    offset: {x: -3, y: -3}
+    batchIndex: 0
+    xAdvance: 32
+  - code: 211
+    rect:
+      serializedVersion: 2
+      x: 899
+      y: 0
+      width: 38
+      height: 70
+    offset: {x: -3, y: -3}
+    batchIndex: 0
+    xAdvance: 32
+  - code: 212
+    rect:
+      serializedVersion: 2
+      x: 936
+      y: 0
+      width: 38
+      height: 70
+    offset: {x: -3, y: -3}
+    batchIndex: 0
+    xAdvance: 32
+  - code: 213
+    rect:
+      serializedVersion: 2
+      x: 37
+      y: 147
+      width: 38
+      height: 69
+    offset: {x: -3, y: -2}
+    batchIndex: 0
+    xAdvance: 32
+  - code: 214
+    rect:
+      serializedVersion: 2
+      x: 74
+      y: 147
+      width: 38
+      height: 69
+    offset: {x: -3, y: -2}
+    batchIndex: 0
+    xAdvance: 32
+  - code: 217
+    rect:
+      serializedVersion: 2
+      x: 587
+      y: 69
+      width: 41
+      height: 69
+    offset: {x: -3, y: -3}
+    batchIndex: 0
+    xAdvance: 34
+  - code: 218
+    rect:
+      serializedVersion: 2
+      x: 627
+      y: 69
+      width: 41
+      height: 69
+    offset: {x: -3, y: -3}
+    batchIndex: 0
+    xAdvance: 34
+  - code: 219
+    rect:
+      serializedVersion: 2
+      x: 667
+      y: 69
+      width: 41
+      height: 69
+    offset: {x: -3, y: -3}
+    batchIndex: 0
+    xAdvance: 34
+  - code: 220
+    rect:
+      serializedVersion: 2
+      x: 86
+      y: 215
+      width: 41
+      height: 68
+    offset: {x: -3, y: -2}
+    batchIndex: 0
+    xAdvance: 34
+  - code: 221
+    rect:
+      serializedVersion: 2
+      x: 287
+      y: 70
+      width: 45
+      height: 69
+    offset: {x: -4, y: -3}
+    batchIndex: 0
+    xAdvance: 38
+  - code: 223
+    rect:
+      serializedVersion: 2
+      x: 687
+      y: 336
+      width: 41
+      height: 59
+    offset: {x: -3, y: 6}
+    batchIndex: 0
+    xAdvance: 35
+  - code: 256
+    rect:
+      serializedVersion: 2
+      x: 129
+      y: 348
+      width: 44
+      height: 65
+    offset: {x: -3, y: 0}
+    batchIndex: 0
+    xAdvance: 38
+  - code: 257
+    rect:
+      serializedVersion: 2
+      x: 470
+      y: 613
+      width: 32
+      height: 49
+    offset: {x: -3, y: 16}
+    batchIndex: 0
+    xAdvance: 25
+  - code: 258
+    rect:
+      serializedVersion: 2
+      x: 965
+      y: 137
+      width: 44
+      height: 68
+    offset: {x: -3, y: -3}
+    batchIndex: 0
+    xAdvance: 38
+  - code: 259
+    rect:
+      serializedVersion: 2
+      x: 796
+      y: 505
+      width: 32
+      height: 52
+    offset: {x: -3, y: 13}
+    batchIndex: 0
+    xAdvance: 25
+  - code: 260
+    rect:
+      serializedVersion: 2
+      x: 911
+      y: 204
+      width: 44
+      height: 67
+    offset: {x: -3, y: 9}
+    batchIndex: 0
+    xAdvance: 38
+  - code: 261
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 629
+      width: 32
+      height: 51
+    offset: {x: -3, y: 25}
+    batchIndex: 0
+    xAdvance: 25
+  - code: 262
+    rect:
+      serializedVersion: 2
+      x: 33
+      y: 78
+      width: 34
+      height: 70
+    offset: {x: -2, y: -3}
+    batchIndex: 0
+    xAdvance: 30
+  - code: 263
+    rect:
+      serializedVersion: 2
+      x: 58
+      y: 577
+      width: 29
+      height: 52
+    offset: {x: -2, y: 13}
+    batchIndex: 0
+    xAdvance: 24
+  - code: 264
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 78
+      width: 34
+      height: 70
+    offset: {x: -2, y: -3}
+    batchIndex: 0
+    xAdvance: 30
+  - code: 265
+    rect:
+      serializedVersion: 2
+      x: 86
+      y: 577
+      width: 29
+      height: 52
+    offset: {x: -2, y: 13}
+    batchIndex: 0
+    xAdvance: 24
+  - code: 266
+    rect:
+      serializedVersion: 2
+      x: 111
+      y: 146
+      width: 34
+      height: 69
+    offset: {x: -2, y: -2}
+    batchIndex: 0
+    xAdvance: 30
+  - code: 267
+    rect:
+      serializedVersion: 2
+      x: 153
+      y: 627
+      width: 29
+      height: 51
+    offset: {x: -2, y: 14}
+    batchIndex: 0
+    xAdvance: 24
+  - code: 268
+    rect:
+      serializedVersion: 2
+      x: 66
+      y: 78
+      width: 34
+      height: 70
+    offset: {x: -2, y: -3}
+    batchIndex: 0
+    xAdvance: 30
+  - code: 269
+    rect:
+      serializedVersion: 2
+      x: 114
+      y: 576
+      width: 29
+      height: 52
+    offset: {x: -2, y: 13}
+    batchIndex: 0
+    xAdvance: 24
+  - code: 270
+    rect:
+      serializedVersion: 2
+      x: 946
+      y: 69
+      width: 39
+      height: 69
+    offset: {x: -3, y: -3}
+    batchIndex: 0
+    xAdvance: 34
+  - code: 271
+    rect:
+      serializedVersion: 2
+      x: 767
+      y: 336
+      width: 41
+      height: 59
+    offset: {x: -2, y: 6}
+    batchIndex: 0
+    xAdvance: 35
+  - code: 272
+    rect:
+      serializedVersion: 2
+      x: 721
+      y: 394
+      width: 39
+      height: 57
+    offset: {x: -3, y: 9}
+    batchIndex: 0
+    xAdvance: 34
+  - code: 273
+    rect:
+      serializedVersion: 2
+      x: 296
+      y: 401
+      width: 33
+      height: 58
+    offset: {x: -2, y: 7}
+    batchIndex: 0
+    xAdvance: 26
+  - code: 274
+    rect:
+      serializedVersion: 2
+      x: 202
+      y: 347
+      width: 37
+      height: 64
+    offset: {x: -3, y: 0}
+    batchIndex: 0
+    xAdvance: 32
+  - code: 275
+    rect:
+      serializedVersion: 2
+      x: 529
+      y: 612
+      width: 28
+      height: 49
+    offset: {x: -2, y: 16}
+    batchIndex: 0
+    xAdvance: 24
+  - code: 276
+    rect:
+      serializedVersion: 2
+      x: 566
+      y: 270
+      width: 37
+      height: 67
+    offset: {x: -3, y: -3}
+    batchIndex: 0
+    xAdvance: 32
+  - code: 277
+    rect:
+      serializedVersion: 2
+      x: 281
+      y: 572
+      width: 28
+      height: 52
+    offset: {x: -2, y: 13}
+    batchIndex: 0
+    xAdvance: 24
+  - code: 278
+    rect:
+      serializedVersion: 2
+      x: 909
+      y: 270
+      width: 37
+      height: 66
+    offset: {x: -3, y: -2}
+    batchIndex: 0
+    xAdvance: 32
+  - code: 279
+    rect:
+      serializedVersion: 2
+      x: 235
+      y: 626
+      width: 28
+      height: 51
+    offset: {x: -2, y: 14}
+    batchIndex: 0
+    xAdvance: 24
+  - code: 280
+    rect:
+      serializedVersion: 2
+      x: 530
+      y: 270
+      width: 37
+      height: 67
+    offset: {x: -3, y: 9}
+    batchIndex: 0
+    xAdvance: 32
+  - code: 281
+    rect:
+      serializedVersion: 2
+      x: 262
+      y: 625
+      width: 28
+      height: 51
+    offset: {x: -2, y: 25}
+    batchIndex: 0
+    xAdvance: 24
+  - code: 282
+    rect:
+      serializedVersion: 2
+      x: 602
+      y: 270
+      width: 37
+      height: 67
+    offset: {x: -3, y: -3}
+    batchIndex: 0
+    xAdvance: 32
+  - code: 283
+    rect:
+      serializedVersion: 2
+      x: 335
+      y: 564
+      width: 28
+      height: 52
+    offset: {x: -2, y: 13}
+    batchIndex: 0
+    xAdvance: 24
+  - code: 284
+    rect:
+      serializedVersion: 2
+      x: 634
+      y: 0
+      width: 41
+      height: 70
+    offset: {x: -3, y: -3}
+    batchIndex: 0
+    xAdvance: 35
+  - code: 285
+    rect:
+      serializedVersion: 2
+      x: 707
+      y: 270
+      width: 31
+      height: 67
+    offset: {x: -2, y: 9}
+    batchIndex: 0
+    xAdvance: 24
+  - code: 286
+    rect:
+      serializedVersion: 2
+      x: 674
+      y: 0
+      width: 41
+      height: 70
+    offset: {x: -3, y: -3}
+    batchIndex: 0
+    xAdvance: 35
+  - code: 287
+    rect:
+      serializedVersion: 2
+      x: 172
+      y: 347
+      width: 31
+      height: 65
+    offset: {x: -2, y: 11}
+    batchIndex: 0
+    xAdvance: 24
+  - code: 288
+    rect:
+      serializedVersion: 2
+      x: 747
+      y: 69
+      width: 41
+      height: 69
+    offset: {x: -3, y: -2}
+    batchIndex: 0
+    xAdvance: 35
+  - code: 289
+    rect:
+      serializedVersion: 2
+      x: 532
+      y: 336
+      width: 31
+      height: 62
+    offset: {x: -2, y: 14}
+    batchIndex: 0
+    xAdvance: 24
+  - code: 290
+    rect:
+      serializedVersion: 2
+      x: 41
+      y: 282
+      width: 41
+      height: 67
+    offset: {x: -3, y: 9}
+    batchIndex: 0
+    xAdvance: 35
+  - code: 291
+    rect:
+      serializedVersion: 2
+      x: 72
+      y: 348
+      width: 31
+      height: 66
+    offset: {x: -2, y: 10}
+    batchIndex: 0
+    xAdvance: 24
+  - code: 292
+    rect:
+      serializedVersion: 2
+      x: 419
+      y: 70
+      width: 44
+      height: 69
+    offset: {x: -3, y: -3}
+    batchIndex: 0
+    xAdvance: 38
+  - code: 293
+    rect:
+      serializedVersion: 2
+      x: 276
+      y: 273
+      width: 38
+      height: 67
+    offset: {x: -3, y: -3}
+    batchIndex: 0
+    xAdvance: 31
+  - code: 294
+    rect:
+      serializedVersion: 2
+      x: 518
+      y: 399
+      width: 44
+      height: 57
+    offset: {x: -3, y: 9}
+    batchIndex: 0
+    xAdvance: 38
+  - code: 295
+    rect:
+      serializedVersion: 2
+      x: 701
+      y: 450
+      width: 38
+      height: 56
+    offset: {x: -3, y: 8}
+    batchIndex: 0
+    xAdvance: 31
+  - code: 296
+    rect:
+      serializedVersion: 2
+      x: 445
+      y: 205
+      width: 28
+      height: 68
+    offset: {x: -3, y: -2}
+    batchIndex: 0
+    xAdvance: 22
+  - code: 297
+    rect:
+      serializedVersion: 2
+      x: 410
+      y: 614
+      width: 27
+      height: 50
+    offset: {x: -5, y: 14}
+    batchIndex: 0
+    xAdvance: 17
+  - code: 298
+    rect:
+      serializedVersion: 2
+      x: 102
+      y: 348
+      width: 28
+      height: 66
+    offset: {x: -3, y: 0}
+    batchIndex: 0
+    xAdvance: 22
+  - code: 299
+    rect:
+      serializedVersion: 2
+      x: 602
+      y: 611
+      width: 24
+      height: 48
+    offset: {x: -3, y: 16}
+    batchIndex: 0
+    xAdvance: 17
+  - code: 300
+    rect:
+      serializedVersion: 2
+      x: 171
+      y: 146
+      width: 28
+      height: 69
+    offset: {x: -3, y: -3}
+    batchIndex: 0
+    xAdvance: 22
+  - code: 301
+    rect:
+      serializedVersion: 2
+      x: 343
+      y: 615
+      width: 26
+      height: 51
+    offset: {x: -4, y: 13}
+    batchIndex: 0
+    xAdvance: 17
+  - code: 302
+    rect:
+      serializedVersion: 2
+      x: 737
+      y: 270
+      width: 28
+      height: 67
+    offset: {x: -3, y: 9}
+    batchIndex: 0
+    xAdvance: 22
+  - code: 303
+    rect:
+      serializedVersion: 2
+      x: 362
+      y: 564
+      width: 22
+      height: 52
+    offset: {x: -2, y: 24}
+    batchIndex: 0
+    xAdvance: 17
+  - code: 304
+    rect:
+      serializedVersion: 2
+      x: 418
+      y: 205
+      width: 28
+      height: 68
+    offset: {x: -3, y: -2}
+    batchIndex: 0
+    xAdvance: 22
+  - code: 305
+    rect:
+      serializedVersion: 2
+      x: 55
+      y: 679
+      width: 22
+      height: 40
+    offset: {x: -2, y: 24}
+    batchIndex: 0
+    xAdvance: 17
+  - code: 306
+    rect:
+      serializedVersion: 2
+      x: 871
+      y: 335
+      width: 59
+      height: 58
+    offset: {x: -3, y: 9}
+    batchIndex: 0
+    xAdvance: 53
+  - code: 307
+    rect:
+      serializedVersion: 2
+      x: 238
+      y: 347
+      width: 36
+      height: 63
+    offset: {x: -2, y: 13}
+    batchIndex: 0
+    xAdvance: 32
+  - code: 308
+    rect:
+      serializedVersion: 2
+      x: 862
+      y: 0
+      width: 38
+      height: 70
+    offset: {x: -3, y: -3}
+    batchIndex: 0
+    xAdvance: 32
+  - code: 309
+    rect:
+      serializedVersion: 2
+      x: 401
+      y: 338
+      width: 30
+      height: 63
+    offset: {x: -9, y: 13}
+    batchIndex: 0
+    xAdvance: 15
+  - code: 310
+    rect:
+      serializedVersion: 2
+      x: 786
+      y: 270
+      width: 45
+      height: 66
+    offset: {x: -3, y: 10}
+    batchIndex: 0
+    xAdvance: 38
+  - code: 311
+    rect:
+      serializedVersion: 2
+      x: 282
+      y: 206
+      width: 38
+      height: 68
+    offset: {x: -2, y: 8}
+    batchIndex: 0
+    xAdvance: 31
+  - code: 313
+    rect:
+      serializedVersion: 2
+      x: 166
+      y: 214
+      width: 41
+      height: 68
+    offset: {x: -3, y: -3}
+    batchIndex: 0
+    xAdvance: 33
+  - code: 314
+    rect:
+      serializedVersion: 2
+      x: 764
+      y: 270
+      width: 23
+      height: 67
+    offset: {x: -3, y: -3}
+    batchIndex: 0
+    xAdvance: 16
+  - code: 315
+    rect:
+      serializedVersion: 2
+      x: 161
+      y: 281
+      width: 41
+      height: 67
+    offset: {x: -3, y: 9}
+    batchIndex: 0
+    xAdvance: 33
+  - code: 316
+    rect:
+      serializedVersion: 2
+      x: 279
+      y: 138
+      width: 23
+      height: 69
+    offset: {x: -3, y: 7}
+    batchIndex: 0
+    xAdvance: 16
+  - code: 317
+    rect:
+      serializedVersion: 2
+      x: 727
+      y: 336
+      width: 41
+      height: 59
+    offset: {x: -3, y: 6}
+    batchIndex: 0
+    xAdvance: 33
+  - code: 318
+    rect:
+      serializedVersion: 2
+      x: 360
+      y: 401
+      width: 32
+      height: 58
+    offset: {x: -3, y: 6}
+    batchIndex: 0
+    xAdvance: 25
+  - code: 319
+    rect:
+      serializedVersion: 2
+      x: 391
+      y: 457
+      width: 41
+      height: 56
+    offset: {x: -3, y: 9}
+    batchIndex: 0
+    xAdvance: 33
+  - code: 320
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 470
+      width: 29
+      height: 57
+    offset: {x: -3, y: 7}
+    batchIndex: 0
+    xAdvance: 22
+  - code: 321
+    rect:
+      serializedVersion: 2
+      x: 431
+      y: 456
+      width: 41
+      height: 56
+    offset: {x: -3, y: 9}
+    batchIndex: 0
+    xAdvance: 34
+  - code: 322
+    rect:
+      serializedVersion: 2
+      x: 55
+      y: 470
+      width: 27
+      height: 57
+    offset: {x: -3, y: 7}
+    batchIndex: 0
+    xAdvance: 20
+  - code: 323
+    rect:
+      serializedVersion: 2
+      x: 445
+      y: 138
+      width: 47
+      height: 68
+    offset: {x: -3, y: -3}
+    batchIndex: 0
+    xAdvance: 40
+  - code: 324
+    rect:
+      serializedVersion: 2
+      x: 471
+      y: 562
+      width: 38
+      height: 51
+    offset: {x: -3, y: 13}
+    batchIndex: 0
+    xAdvance: 32
+  - code: 325
+    rect:
+      serializedVersion: 2
+      x: 472
+      y: 205
+      width: 47
+      height: 67
+    offset: {x: -3, y: 9}
+    batchIndex: 0
+    xAdvance: 40
+  - code: 326
+    rect:
+      serializedVersion: 2
+      x: 359
+      y: 513
+      width: 38
+      height: 52
+    offset: {x: -3, y: 24}
+    batchIndex: 0
+    xAdvance: 32
+  - code: 327
+    rect:
+      serializedVersion: 2
+      x: 399
+      y: 138
+      width: 47
+      height: 68
+    offset: {x: -3, y: -3}
+    batchIndex: 0
+    xAdvance: 40
+  - code: 328
+    rect:
+      serializedVersion: 2
+      x: 508
+      y: 562
+      width: 38
+      height: 51
+    offset: {x: -3, y: 13}
+    batchIndex: 0
+    xAdvance: 32
+  - code: 330
+    rect:
+      serializedVersion: 2
+      x: 518
+      y: 204
+      width: 47
+      height: 67
+    offset: {x: -3, y: 9}
+    batchIndex: 0
+    xAdvance: 40
+  - code: 331
+    rect:
+      serializedVersion: 2
+      x: 700
+      y: 505
+      width: 33
+      height: 52
+    offset: {x: -3, y: 24}
+    batchIndex: 0
+    xAdvance: 29
+  - code: 332
+    rect:
+      serializedVersion: 2
+      x: 239
+      y: 273
+      width: 38
+      height: 67
+    offset: {x: -3, y: 0}
+    batchIndex: 0
+    xAdvance: 32
+  - code: 333
+    rect:
+      serializedVersion: 2
+      x: 501
+      y: 612
+      width: 29
+      height: 49
+    offset: {x: -2, y: 16}
+    batchIndex: 0
+    xAdvance: 24
+  - code: 334
+    rect:
+      serializedVersion: 2
+      x: 788
+      y: 0
+      width: 38
+      height: 70
+    offset: {x: -3, y: -3}
+    batchIndex: 0
+    xAdvance: 32
+  - code: 335
+    rect:
+      serializedVersion: 2
+      x: 198
+      y: 575
+      width: 29
+      height: 52
+    offset: {x: -2, y: 13}
+    batchIndex: 0
+    xAdvance: 24
+  - code: 336
+    rect:
+      serializedVersion: 2
+      x: 751
+      y: 0
+      width: 38
+      height: 70
+    offset: {x: -3, y: -3}
+    batchIndex: 0
+    xAdvance: 32
+  - code: 337
+    rect:
+      serializedVersion: 2
+      x: 142
+      y: 576
+      width: 29
+      height: 52
+    offset: {x: -2, y: 13}
+    batchIndex: 0
+    xAdvance: 24
+  - code: 338
+    rect:
+      serializedVersion: 2
+      x: 929
+      y: 335
+      width: 54
+      height: 58
+    offset: {x: -3, y: 9}
+    batchIndex: 0
+    xAdvance: 48
+  - code: 339
+    rect:
+      serializedVersion: 2
+      x: 722
+      y: 606
+      width: 44
+      height: 41
+    offset: {x: -2, y: 24}
+    batchIndex: 0
+    xAdvance: 40
+  - code: 340
+    rect:
+      serializedVersion: 2
+      x: 578
+      y: 137
+      width: 44
+      height: 68
+    offset: {x: -3, y: -3}
+    batchIndex: 0
+    xAdvance: 37
+  - code: 341
+    rect:
+      serializedVersion: 2
+      x: 93
+      y: 628
+      width: 31
+      height: 51
+    offset: {x: -3, y: 13}
+    batchIndex: 0
+    xAdvance: 24
+  - code: 342
+    rect:
+      serializedVersion: 2
+      x: 868
+      y: 204
+      width: 44
+      height: 67
+    offset: {x: -3, y: 9}
+    batchIndex: 0
+    xAdvance: 37
+  - code: 343
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 578
+      width: 31
+      height: 52
+    offset: {x: -3, y: 24}
+    batchIndex: 0
+    xAdvance: 24
+  - code: 344
+    rect:
+      serializedVersion: 2
+      x: 621
+      y: 137
+      width: 44
+      height: 68
+    offset: {x: -3, y: -3}
+    batchIndex: 0
+    xAdvance: 37
+  - code: 345
+    rect:
+      serializedVersion: 2
+      x: 123
+      y: 627
+      width: 31
+      height: 51
+    offset: {x: -3, y: 13}
+    batchIndex: 0
+    xAdvance: 24
+  - code: 346
+    rect:
+      serializedVersion: 2
+      x: 342
+      y: 0
+      width: 36
+      height: 71
+    offset: {x: -2, y: -3}
+    batchIndex: 0
+    xAdvance: 31
+  - code: 347
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 526
+      width: 28
+      height: 53
+    offset: {x: -3, y: 13}
+    batchIndex: 0
+    xAdvance: 22
+  - code: 348
+    rect:
+      serializedVersion: 2
+      x: 377
+      y: 0
+      width: 36
+      height: 71
+    offset: {x: -2, y: -3}
+    batchIndex: 0
+    xAdvance: 31
+  - code: 349
+    rect:
+      serializedVersion: 2
+      x: 27
+      y: 526
+      width: 28
+      height: 53
+    offset: {x: -3, y: 13}
+    batchIndex: 0
+    xAdvance: 22
+  - code: 350
+    rect:
+      serializedVersion: 2
+      x: 354
+      y: 205
+      width: 36
+      height: 68
+    offset: {x: -2, y: 8}
+    batchIndex: 0
+    xAdvance: 31
+  - code: 351
+    rect:
+      serializedVersion: 2
+      x: 208
+      y: 626
+      width: 28
+      height: 51
+    offset: {x: -3, y: 25}
+    batchIndex: 0
+    xAdvance: 22
+  - code: 352
+    rect:
+      serializedVersion: 2
+      x: 412
+      y: 0
+      width: 36
+      height: 71
+    offset: {x: -2, y: -3}
+    batchIndex: 0
+    xAdvance: 31
+  - code: 353
+    rect:
+      serializedVersion: 2
+      x: 993
+      y: 448
+      width: 28
+      height: 53
+    offset: {x: -3, y: 13}
+    batchIndex: 0
+    xAdvance: 22
+  - code: 354
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 282
+      width: 42
+      height: 67
+    offset: {x: -5, y: 9}
+    batchIndex: 0
+    xAdvance: 34
+  - code: 355
+    rect:
+      serializedVersion: 2
+      x: 580
+      y: 336
+      width: 24
+      height: 60
+    offset: {x: -4, y: 16}
+    batchIndex: 0
+    xAdvance: 16
+  - code: 356
+    rect:
+      serializedVersion: 2
+      x: 546
+      y: 69
+      width: 42
+      height: 69
+    offset: {x: -5, y: -3}
+    batchIndex: 0
+    xAdvance: 34
+  - code: 357
+    rect:
+      serializedVersion: 2
+      x: 842
+      y: 335
+      width: 30
+      height: 59
+    offset: {x: -4, y: 6}
+    batchIndex: 0
+    xAdvance: 23
+  - code: 358
+    rect:
+      serializedVersion: 2
+      x: 602
+      y: 395
+      width: 42
+      height: 57
+    offset: {x: -5, y: 9}
+    batchIndex: 0
+    xAdvance: 34
+  - code: 359
+    rect:
+      serializedVersion: 2
+      x: 556
+      y: 612
+      width: 24
+      height: 49
+    offset: {x: -4, y: 16}
+    batchIndex: 0
+    xAdvance: 16
+  - code: 360
+    rect:
+      serializedVersion: 2
+      x: 126
+      y: 214
+      width: 41
+      height: 68
+    offset: {x: -3, y: -2}
+    batchIndex: 0
+    xAdvance: 34
+  - code: 361
+    rect:
+      serializedVersion: 2
+      x: 615
+      y: 559
+      width: 35
+      height: 51
+    offset: {x: -4, y: 14}
+    batchIndex: 0
+    xAdvance: 28
+  - code: 362
+    rect:
+      serializedVersion: 2
+      x: 830
+      y: 270
+      width: 41
+      height: 66
+    offset: {x: -3, y: 0}
+    batchIndex: 0
+    xAdvance: 34
+  - code: 363
+    rect:
+      serializedVersion: 2
+      x: 436
+      y: 613
+      width: 35
+      height: 49
+    offset: {x: -4, y: 16}
+    batchIndex: 0
+    xAdvance: 28
+  - code: 364
+    rect:
+      serializedVersion: 2
+      x: 787
+      y: 69
+      width: 41
+      height: 69
+    offset: {x: -3, y: -3}
+    batchIndex: 0
+    xAdvance: 34
+  - code: 365
+    rect:
+      serializedVersion: 2
+      x: 600
+      y: 508
+      width: 35
+      height: 52
+    offset: {x: -4, y: 13}
+    batchIndex: 0
+    xAdvance: 28
+  - code: 366
+    rect:
+      serializedVersion: 2
+      x: 867
+      y: 69
+      width: 41
+      height: 69
+    offset: {x: -3, y: -3}
+    batchIndex: 0
+    xAdvance: 34
+  - code: 367
+    rect:
+      serializedVersion: 2
+      x: 396
+      y: 512
+      width: 35
+      height: 52
+    offset: {x: -4, y: 13}
+    batchIndex: 0
+    xAdvance: 28
+  - code: 368
+    rect:
+      serializedVersion: 2
+      x: 827
+      y: 69
+      width: 41
+      height: 69
+    offset: {x: -3, y: -3}
+    batchIndex: 0
+    xAdvance: 34
+  - code: 369
+    rect:
+      serializedVersion: 2
+      x: 430
+      y: 512
+      width: 35
+      height: 52
+    offset: {x: -4, y: 13}
+    batchIndex: 0
+    xAdvance: 28
+  - code: 370
+    rect:
+      serializedVersion: 2
+      x: 81
+      y: 282
+      width: 41
+      height: 67
+    offset: {x: -3, y: 9}
+    batchIndex: 0
+    xAdvance: 34
+  - code: 371
+    rect:
+      serializedVersion: 2
+      x: 717
+      y: 556
+      width: 35
+      height: 51
+    offset: {x: -4, y: 25}
+    batchIndex: 0
+    xAdvance: 28
+  - code: 372
+    rect:
+      serializedVersion: 2
+      x: 281
+      y: 0
+      width: 62
+      height: 71
+    offset: {x: -4, y: -3}
+    batchIndex: 0
+    xAdvance: 55
+  - code: 373
+    rect:
+      serializedVersion: 2
+      x: 54
+      y: 526
+      width: 48
+      height: 52
+    offset: {x: -3, y: 13}
+    batchIndex: 0
+    xAdvance: 42
+  - code: 374
+    rect:
+      serializedVersion: 2
+      x: 375
+      y: 70
+      width: 45
+      height: 69
+    offset: {x: -4, y: -3}
+    batchIndex: 0
+    xAdvance: 38
+  - code: 375
+    rect:
+      serializedVersion: 2
+      x: 306
+      y: 339
+      width: 34
+      height: 63
+    offset: {x: -3, y: 13}
+    batchIndex: 0
+    xAdvance: 27
+  - code: 376
+    rect:
+      serializedVersion: 2
+      x: 491
+      y: 137
+      width: 45
+      height: 68
+    offset: {x: -4, y: -2}
+    batchIndex: 0
+    xAdvance: 38
+  - code: 377
+    rect:
+      serializedVersion: 2
+      x: 206
+      y: 206
+      width: 39
+      height: 68
+    offset: {x: -3, y: -3}
+    batchIndex: 0
+    xAdvance: 32
+  - code: 378
+    rect:
+      serializedVersion: 2
+      x: 732
+      y: 505
+      width: 33
+      height: 52
+    offset: {x: -4, y: 13}
+    batchIndex: 0
+    xAdvance: 26
+  - code: 379
+    rect:
+      serializedVersion: 2
+      x: 201
+      y: 281
+      width: 39
+      height: 67
+    offset: {x: -3, y: -2}
+    batchIndex: 0
+    xAdvance: 32
+  - code: 380
+    rect:
+      serializedVersion: 2
+      x: 851
+      y: 556
+      width: 33
+      height: 51
+    offset: {x: -4, y: 14}
+    batchIndex: 0
+    xAdvance: 26
+  - code: 381
+    rect:
+      serializedVersion: 2
+      x: 244
+      y: 206
+      width: 39
+      height: 68
+    offset: {x: -3, y: -3}
+    batchIndex: 0
+    xAdvance: 32
+  - code: 382
+    rect:
+      serializedVersion: 2
+      x: 764
+      y: 505
+      width: 33
+      height: 52
+    offset: {x: -4, y: 13}
+    batchIndex: 0
+    xAdvance: 26
+  - code: 508
+    rect:
+      serializedVersion: 2
+      x: 301
+      y: 138
+      width: 52
+      height: 68
+    offset: {x: -4, y: -3}
+    batchIndex: 0
+    xAdvance: 45
+  - code: 509
+    rect:
+      serializedVersion: 2
+      x: 277
+      y: 521
+      width: 42
+      height: 52
+    offset: {x: -3, y: 13}
+    batchIndex: 0
+    xAdvance: 37
+  - code: 536
+    rect:
+      serializedVersion: 2
+      x: 319
+      y: 205
+      width: 36
+      height: 68
+    offset: {x: -2, y: 8}
+    batchIndex: 0
+    xAdvance: 31
+  - code: 537
+    rect:
+      serializedVersion: 2
+      x: 181
+      y: 627
+      width: 28
+      height: 51
+    offset: {x: -3, y: 25}
+    batchIndex: 0
+    xAdvance: 22
+  - code: 538
+    rect:
+      serializedVersion: 2
+      x: 954
+      y: 204
+      width: 42
+      height: 67
+    offset: {x: -5, y: 9}
+    batchIndex: 0
+    xAdvance: 34
+  - code: 539
+    rect:
+      serializedVersion: 2
+      x: 603
+      y: 336
+      width: 24
+      height: 60
+    offset: {x: -4, y: 16}
+    batchIndex: 0
+    xAdvance: 16
+  - code: 7808
+    rect:
+      serializedVersion: 2
+      x: 220
+      y: 0
+      width: 62
+      height: 71
+    offset: {x: -4, y: -3}
+    batchIndex: 0
+    xAdvance: 55
+  - code: 7809
+    rect:
+      serializedVersion: 2
+      x: 101
+      y: 525
+      width: 48
+      height: 52
+    offset: {x: -3, y: 13}
+    batchIndex: 0
+    xAdvance: 42
+  - code: 7810
+    rect:
+      serializedVersion: 2
+      x: 159
+      y: 0
+      width: 62
+      height: 71
+    offset: {x: -4, y: -3}
+    batchIndex: 0
+    xAdvance: 55
+  - code: 7811
+    rect:
+      serializedVersion: 2
+      x: 148
+      y: 525
+      width: 48
+      height: 52
+    offset: {x: -3, y: 13}
+    batchIndex: 0
+    xAdvance: 42
+  - code: 7812
+    rect:
+      serializedVersion: 2
+      x: 447
+      y: 0
+      width: 62
+      height: 70
+    offset: {x: -4, y: -2}
+    batchIndex: 0
+    xAdvance: 55
+  - code: 7813
+    rect:
+      serializedVersion: 2
+      x: 383
+      y: 564
+      width: 48
+      height: 51
+    offset: {x: -3, y: 14}
+    batchIndex: 0
+    xAdvance: 42
+  - code: 7840
+    rect:
+      serializedVersion: 2
+      x: 696
+      y: 204
+      width: 44
+      height: 67
+    offset: {x: -3, y: 9}
+    batchIndex: 0
+    xAdvance: 38
+  - code: 7841
+    rect:
+      serializedVersion: 2
+      x: 62
+      y: 628
+      width: 32
+      height: 51
+    offset: {x: -3, y: 25}
+    batchIndex: 0
+    xAdvance: 25
+  - code: 7842
+    rect:
+      serializedVersion: 2
+      x: 793
+      y: 137
+      width: 44
+      height: 68
+    offset: {x: -3, y: -3}
+    batchIndex: 0
+    xAdvance: 38
+  - code: 7843
+    rect:
+      serializedVersion: 2
+      x: 951
+      y: 501
+      width: 32
+      height: 52
+    offset: {x: -3, y: 13}
+    batchIndex: 0
+    xAdvance: 25
+  - code: 7844
+    rect:
+      serializedVersion: 2
+      x: 739
+      y: 204
+      width: 44
+      height: 67
+    offset: {x: -3, y: -2}
+    batchIndex: 0
+    xAdvance: 38
+  - code: 7845
+    rect:
+      serializedVersion: 2
+      x: 649
+      y: 557
+      width: 35
+      height: 51
+    offset: {x: -3, y: 14}
+    batchIndex: 0
+    xAdvance: 25
+  - code: 7846
+    rect:
+      serializedVersion: 2
+      x: 782
+      y: 204
+      width: 44
+      height: 67
+    offset: {x: -3, y: -2}
+    batchIndex: 0
+    xAdvance: 38
+  - code: 7847
+    rect:
+      serializedVersion: 2
+      x: 545
+      y: 562
+      width: 36
+      height: 51
+    offset: {x: -7, y: 14}
+    batchIndex: 0
+    xAdvance: 25
+  - code: 7848
+    rect:
+      serializedVersion: 2
+      x: 825
+      y: 204
+      width: 44
+      height: 67
+    offset: {x: -3, y: -2}
+    batchIndex: 0
+    xAdvance: 38
+  - code: 7849
+    rect:
+      serializedVersion: 2
+      x: 31
+      y: 629
+      width: 32
+      height: 51
+    offset: {x: -3, y: 14}
+    batchIndex: 0
+    xAdvance: 25
+  - code: 7850
+    rect:
+      serializedVersion: 2
+      x: 664
+      y: 137
+      width: 44
+      height: 68
+    offset: {x: -3, y: -3}
+    batchIndex: 0
+    xAdvance: 38
+  - code: 7851
+    rect:
+      serializedVersion: 2
+      x: 827
+      y: 505
+      width: 32
+      height: 52
+    offset: {x: -3, y: 13}
+    batchIndex: 0
+    xAdvance: 25
+  - code: 7852
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 44
+      height: 79
+    offset: {x: -3, y: -3}
+    batchIndex: 0
+    xAdvance: 38
+  - code: 7853
+    rect:
+      serializedVersion: 2
+      x: 370
+      y: 338
+      width: 32
+      height: 63
+    offset: {x: -3, y: 13}
+    batchIndex: 0
+    xAdvance: 25
+  - code: 7854
+    rect:
+      serializedVersion: 2
+      x: 836
+      y: 137
+      width: 44
+      height: 68
+    offset: {x: -3, y: -3}
+    batchIndex: 0
+    xAdvance: 38
+  - code: 7855
+    rect:
+      serializedVersion: 2
+      x: 982
+      y: 501
+      width: 32
+      height: 52
+    offset: {x: -3, y: 13}
+    batchIndex: 0
+    xAdvance: 25
+  - code: 7856
+    rect:
+      serializedVersion: 2
+      x: 43
+      y: 215
+      width: 44
+      height: 68
+    offset: {x: -3, y: -3}
+    batchIndex: 0
+    xAdvance: 38
+  - code: 7857
+    rect:
+      serializedVersion: 2
+      x: 858
+      y: 503
+      width: 32
+      height: 52
+    offset: {x: -3, y: 13}
+    batchIndex: 0
+    xAdvance: 25
+  - code: 7858
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 215
+      width: 44
+      height: 68
+    offset: {x: -3, y: -3}
+    batchIndex: 0
+    xAdvance: 38
+  - code: 7859
+    rect:
+      serializedVersion: 2
+      x: 920
+      y: 501
+      width: 32
+      height: 52
+    offset: {x: -3, y: 13}
+    batchIndex: 0
+    xAdvance: 25
+  - code: 7860
+    rect:
+      serializedVersion: 2
+      x: 535
+      y: 137
+      width: 44
+      height: 68
+    offset: {x: -3, y: -3}
+    batchIndex: 0
+    xAdvance: 38
+  - code: 7861
+    rect:
+      serializedVersion: 2
+      x: 889
+      y: 503
+      width: 32
+      height: 52
+    offset: {x: -3, y: 13}
+    batchIndex: 0
+    xAdvance: 25
+  - code: 7862
+    rect:
+      serializedVersion: 2
+      x: 43
+      y: 0
+      width: 44
+      height: 79
+    offset: {x: -3, y: -3}
+    batchIndex: 0
+    xAdvance: 38
+  - code: 7863
+    rect:
+      serializedVersion: 2
+      x: 339
+      y: 339
+      width: 32
+      height: 63
+    offset: {x: -3, y: 13}
+    batchIndex: 0
+    xAdvance: 25
+  - code: 7864
+    rect:
+      serializedVersion: 2
+      x: 458
+      y: 272
+      width: 37
+      height: 67
+    offset: {x: -3, y: 9}
+    batchIndex: 0
+    xAdvance: 32
+  - code: 7865
+    rect:
+      serializedVersion: 2
+      x: 289
+      y: 623
+      width: 28
+      height: 51
+    offset: {x: -2, y: 25}
+    batchIndex: 0
+    xAdvance: 24
+  - code: 7866
+    rect:
+      serializedVersion: 2
+      x: 494
+      y: 271
+      width: 37
+      height: 67
+    offset: {x: -3, y: -3}
+    batchIndex: 0
+    xAdvance: 32
+  - code: 7867
+    rect:
+      serializedVersion: 2
+      x: 254
+      y: 574
+      width: 28
+      height: 52
+    offset: {x: -2, y: 13}
+    batchIndex: 0
+    xAdvance: 24
+  - code: 7868
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 348
+      width: 37
+      height: 66
+    offset: {x: -3, y: -2}
+    batchIndex: 0
+    xAdvance: 32
+  - code: 7869
+    rect:
+      serializedVersion: 2
+      x: 316
+      y: 623
+      width: 28
+      height: 51
+    offset: {x: -2, y: 14}
+    batchIndex: 0
+    xAdvance: 24
+  - code: 7870
+    rect:
+      serializedVersion: 2
+      x: 870
+      y: 270
+      width: 40
+      height: 66
+    offset: {x: -3, y: -2}
+    batchIndex: 0
+    xAdvance: 32
+  - code: 7871
+    rect:
+      serializedVersion: 2
+      x: 785
+      y: 556
+      width: 34
+      height: 51
+    offset: {x: -2, y: 14}
+    batchIndex: 0
+    xAdvance: 24
+  - code: 7872
+    rect:
+      serializedVersion: 2
+      x: 981
+      y: 270
+      width: 37
+      height: 66
+    offset: {x: -3, y: -2}
+    batchIndex: 0
+    xAdvance: 32
+  - code: 7873
+    rect:
+      serializedVersion: 2
+      x: 883
+      y: 554
+      width: 32
+      height: 51
+    offset: {x: -6, y: 14}
+    batchIndex: 0
+    xAdvance: 24
+  - code: 7874
+    rect:
+      serializedVersion: 2
+      x: 945
+      y: 270
+      width: 37
+      height: 66
+    offset: {x: -3, y: -2}
+    batchIndex: 0
+    xAdvance: 32
+  - code: 7875
+    rect:
+      serializedVersion: 2
+      x: 914
+      y: 554
+      width: 32
+      height: 51
+    offset: {x: -2, y: 14}
+    batchIndex: 0
+    xAdvance: 24
+  - code: 7876
+    rect:
+      serializedVersion: 2
+      x: 638
+      y: 270
+      width: 37
+      height: 67
+    offset: {x: -3, y: -3}
+    batchIndex: 0
+    xAdvance: 32
+  - code: 7877
+    rect:
+      serializedVersion: 2
+      x: 308
+      y: 572
+      width: 28
+      height: 52
+    offset: {x: -2, y: 13}
+    batchIndex: 0
+    xAdvance: 24
+  - code: 7878
+    rect:
+      serializedVersion: 2
+      x: 123
+      y: 0
+      width: 37
+      height: 79
+    offset: {x: -3, y: -3}
+    batchIndex: 0
+    xAdvance: 32
+  - code: 7879
+    rect:
+      serializedVersion: 2
+      x: 458
+      y: 338
+      width: 28
+      height: 63
+    offset: {x: -2, y: 13}
+    batchIndex: 0
+    xAdvance: 24
+  - code: 7880
+    rect:
+      serializedVersion: 2
+      x: 198
+      y: 138
+      width: 28
+      height: 69
+    offset: {x: -3, y: -3}
+    batchIndex: 0
+    xAdvance: 22
+  - code: 7881
+    rect:
+      serializedVersion: 2
+      x: 368
+      y: 615
+      width: 22
+      height: 51
+    offset: {x: -2, y: 13}
+    batchIndex: 0
+    xAdvance: 17
+  - code: 7882
+    rect:
+      serializedVersion: 2
+      x: 995
+      y: 204
+      width: 28
+      height: 67
+    offset: {x: -3, y: 9}
+    batchIndex: 0
+    xAdvance: 22
+  - code: 7883
+    rect:
+      serializedVersion: 2
+      x: 511
+      y: 337
+      width: 22
+      height: 63
+    offset: {x: -2, y: 13}
+    batchIndex: 0
+    xAdvance: 17
+  - code: 7884
+    rect:
+      serializedVersion: 2
+      x: 313
+      y: 273
+      width: 38
+      height: 67
+    offset: {x: -3, y: 9}
+    batchIndex: 0
+    xAdvance: 32
+  - code: 7885
+    rect:
+      serializedVersion: 2
+      x: 226
+      y: 575
+      width: 29
+      height: 52
+    offset: {x: -2, y: 24}
+    batchIndex: 0
+    xAdvance: 24
+  - code: 7886
+    rect:
+      serializedVersion: 2
+      x: 714
+      y: 0
+      width: 38
+      height: 70
+    offset: {x: -3, y: -3}
+    batchIndex: 0
+    xAdvance: 32
+  - code: 7887
+    rect:
+      serializedVersion: 2
+      x: 30
+      y: 578
+      width: 29
+      height: 52
+    offset: {x: -2, y: 13}
+    batchIndex: 0
+    xAdvance: 24
+  - code: 7888
+    rect:
+      serializedVersion: 2
+      x: 907
+      y: 69
+      width: 40
+      height: 69
+    offset: {x: -3, y: -2}
+    batchIndex: 0
+    xAdvance: 32
+  - code: 7889
+    rect:
+      serializedVersion: 2
+      x: 580
+      y: 561
+      width: 36
+      height: 51
+    offset: {x: -2, y: 14}
+    batchIndex: 0
+    xAdvance: 24
+  - code: 7890
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 147
+      width: 38
+      height: 69
+    offset: {x: -3, y: -2}
+    batchIndex: 0
+    xAdvance: 32
+  - code: 7891
+    rect:
+      serializedVersion: 2
+      x: 818
+      y: 556
+      width: 34
+      height: 51
+    offset: {x: -7, y: 14}
+    batchIndex: 0
+    xAdvance: 24
+  - code: 7892
+    rect:
+      serializedVersion: 2
+      x: 984
+      y: 69
+      width: 38
+      height: 69
+    offset: {x: -3, y: -2}
+    batchIndex: 0
+    xAdvance: 32
+  - code: 7893
+    rect:
+      serializedVersion: 2
+      x: 945
+      y: 552
+      width: 32
+      height: 51
+    offset: {x: -2, y: 14}
+    batchIndex: 0
+    xAdvance: 24
+  - code: 7894
+    rect:
+      serializedVersion: 2
+      x: 825
+      y: 0
+      width: 38
+      height: 70
+    offset: {x: -3, y: -3}
+    batchIndex: 0
+    xAdvance: 32
+  - code: 7895
+    rect:
+      serializedVersion: 2
+      x: 170
+      y: 576
+      width: 29
+      height: 52
+    offset: {x: -2, y: 13}
+    batchIndex: 0
+    xAdvance: 24
+  - code: 7896
+    rect:
+      serializedVersion: 2
+      x: 86
+      y: 0
+      width: 38
+      height: 79
+    offset: {x: -3, y: -3}
+    batchIndex: 0
+    xAdvance: 32
+  - code: 7897
+    rect:
+      serializedVersion: 2
+      x: 430
+      y: 338
+      width: 29
+      height: 63
+    offset: {x: -2, y: 13}
+    batchIndex: 0
+    xAdvance: 24
+  - code: 7898
+    rect:
+      serializedVersion: 2
+      x: 550
+      y: 0
+      width: 43
+      height: 70
+    offset: {x: -3, y: -3}
+    batchIndex: 0
+    xAdvance: 35
+  - code: 7899
+    rect:
+      serializedVersion: 2
+      x: 566
+      y: 510
+      width: 35
+      height: 52
+    offset: {x: -2, y: 13}
+    batchIndex: 0
+    xAdvance: 27
+  - code: 7900
+    rect:
+      serializedVersion: 2
+      x: 508
+      y: 0
+      width: 43
+      height: 70
+    offset: {x: -3, y: -3}
+    batchIndex: 0
+    xAdvance: 35
+  - code: 7901
+    rect:
+      serializedVersion: 2
+      x: 498
+      y: 511
+      width: 35
+      height: 52
+    offset: {x: -2, y: 13}
+    batchIndex: 0
+    xAdvance: 27
+  - code: 7902
+    rect:
+      serializedVersion: 2
+      x: 592
+      y: 0
+      width: 43
+      height: 70
+    offset: {x: -3, y: -3}
+    batchIndex: 0
+    xAdvance: 35
+  - code: 7903
+    rect:
+      serializedVersion: 2
+      x: 532
+      y: 511
+      width: 35
+      height: 52
+    offset: {x: -2, y: 13}
+    batchIndex: 0
+    xAdvance: 27
+  - code: 7904
+    rect:
+      serializedVersion: 2
+      x: 504
+      y: 69
+      width: 43
+      height: 69
+    offset: {x: -3, y: -2}
+    batchIndex: 0
+    xAdvance: 35
+  - code: 7905
+    rect:
+      serializedVersion: 2
+      x: 751
+      y: 556
+      width: 35
+      height: 51
+    offset: {x: -2, y: 14}
+    batchIndex: 0
+    xAdvance: 27
+  - code: 7906
+    rect:
+      serializedVersion: 2
+      x: 462
+      y: 69
+      width: 43
+      height: 69
+    offset: {x: -3, y: 7}
+    batchIndex: 0
+    xAdvance: 35
+  - code: 7907
+    rect:
+      serializedVersion: 2
+      x: 959
+      y: 448
+      width: 35
+      height: 54
+    offset: {x: -2, y: 22}
+    batchIndex: 0
+    xAdvance: 27
+  - code: 7908
+    rect:
+      serializedVersion: 2
+      x: 121
+      y: 282
+      width: 41
+      height: 67
+    offset: {x: -3, y: 9}
+    batchIndex: 0
+    xAdvance: 34
+  - code: 7909
+    rect:
+      serializedVersion: 2
+      x: 683
+      y: 556
+      width: 35
+      height: 51
+    offset: {x: -4, y: 25}
+    batchIndex: 0
+    xAdvance: 28
+  - code: 7910
+    rect:
+      serializedVersion: 2
+      x: 707
+      y: 69
+      width: 41
+      height: 69
+    offset: {x: -3, y: -3}
+    batchIndex: 0
+    xAdvance: 34
+  - code: 7911
+    rect:
+      serializedVersion: 2
+      x: 464
+      y: 511
+      width: 35
+      height: 52
+    offset: {x: -4, y: 13}
+    batchIndex: 0
+    xAdvance: 28
+  - code: 7912
+    rect:
+      serializedVersion: 2
+      x: 99
+      y: 78
+      width: 48
+      height: 69
+    offset: {x: -3, y: -3}
+    batchIndex: 0
+    xAdvance: 39
+  - code: 7913
+    rect:
+      serializedVersion: 2
+      x: 195
+      y: 524
+      width: 42
+      height: 52
+    offset: {x: -4, y: 13}
+    batchIndex: 0
+    xAdvance: 32
+  - code: 7914
+    rect:
+      serializedVersion: 2
+      x: 146
+      y: 78
+      width: 48
+      height: 69
+    offset: {x: -3, y: -3}
+    batchIndex: 0
+    xAdvance: 39
+  - code: 7915
+    rect:
+      serializedVersion: 2
+      x: 236
+      y: 523
+      width: 42
+      height: 52
+    offset: {x: -4, y: 13}
+    batchIndex: 0
+    xAdvance: 32
+  - code: 7916
+    rect:
+      serializedVersion: 2
+      x: 240
+      y: 70
+      width: 48
+      height: 69
+    offset: {x: -3, y: -3}
+    batchIndex: 0
+    xAdvance: 39
+  - code: 7917
+    rect:
+      serializedVersion: 2
+      x: 318
+      y: 513
+      width: 42
+      height: 52
+    offset: {x: -4, y: 13}
+    batchIndex: 0
+    xAdvance: 32
+  - code: 7918
+    rect:
+      serializedVersion: 2
+      x: 352
+      y: 138
+      width: 48
+      height: 68
+    offset: {x: -3, y: -2}
+    batchIndex: 0
+    xAdvance: 39
+  - code: 7919
+    rect:
+      serializedVersion: 2
+      x: 430
+      y: 563
+      width: 42
+      height: 51
+    offset: {x: -4, y: 14}
+    batchIndex: 0
+    xAdvance: 32
+  - code: 7920
+    rect:
+      serializedVersion: 2
+      x: 193
+      y: 70
+      width: 48
+      height: 69
+    offset: {x: -3, y: 7}
+    batchIndex: 0
+    xAdvance: 39
+  - code: 7921
+    rect:
+      serializedVersion: 2
+      x: 918
+      y: 448
+      width: 42
+      height: 54
+    offset: {x: -4, y: 22}
+    batchIndex: 0
+    xAdvance: 32
+  - code: 7922
+    rect:
+      serializedVersion: 2
+      x: 331
+      y: 70
+      width: 45
+      height: 69
+    offset: {x: -4, y: -3}
+    batchIndex: 0
+    xAdvance: 38
+  - code: 7923
+    rect:
+      serializedVersion: 2
+      x: 273
+      y: 339
+      width: 34
+      height: 63
+    offset: {x: -3, y: 13}
+    batchIndex: 0
+    xAdvance: 27
+  kernings:
+  - firstChar: 48
+    secondChar: 65
+    amount: -3
+  - firstChar: 48
+    secondChar: 86
+    amount: -2
+  - firstChar: 48
+    secondChar: 87
+    amount: -2
+  - firstChar: 48
+    secondChar: 88
+    amount: -2
+  - firstChar: 48
+    secondChar: 89
+    amount: -2
+  - firstChar: 48
+    secondChar: 192
+    amount: -3
+  - firstChar: 48
+    secondChar: 193
+    amount: -3
+  - firstChar: 48
+    secondChar: 194
+    amount: -3
+  - firstChar: 48
+    secondChar: 195
+    amount: -3
+  - firstChar: 48
+    secondChar: 196
+    amount: -3
+  - firstChar: 48
+    secondChar: 197
+    amount: -3
+  - firstChar: 48
+    secondChar: 198
+    amount: -3
+  - firstChar: 48
+    secondChar: 376
+    amount: -2
+  - firstChar: 51
+    secondChar: 65
+    amount: -3
+  - firstChar: 51
+    secondChar: 86
+    amount: -2
+  - firstChar: 51
+    secondChar: 87
+    amount: -2
+  - firstChar: 51
+    secondChar: 88
+    amount: -2
+  - firstChar: 51
+    secondChar: 89
+    amount: -2
+  - firstChar: 51
+    secondChar: 192
+    amount: -3
+  - firstChar: 51
+    secondChar: 193
+    amount: -3
+  - firstChar: 51
+    secondChar: 194
+    amount: -3
+  - firstChar: 51
+    secondChar: 195
+    amount: -3
+  - firstChar: 51
+    secondChar: 196
+    amount: -3
+  - firstChar: 51
+    secondChar: 197
+    amount: -3
+  - firstChar: 51
+    secondChar: 198
+    amount: -3
+  - firstChar: 51
+    secondChar: 376
+    amount: -2
+  - firstChar: 54
+    secondChar: 65
+    amount: -3
+  - firstChar: 54
+    secondChar: 86
+    amount: -2
+  - firstChar: 54
+    secondChar: 87
+    amount: -2
+  - firstChar: 54
+    secondChar: 88
+    amount: -2
+  - firstChar: 54
+    secondChar: 89
+    amount: -2
+  - firstChar: 54
+    secondChar: 192
+    amount: -3
+  - firstChar: 54
+    secondChar: 193
+    amount: -3
+  - firstChar: 54
+    secondChar: 194
+    amount: -3
+  - firstChar: 54
+    secondChar: 195
+    amount: -3
+  - firstChar: 54
+    secondChar: 196
+    amount: -3
+  - firstChar: 54
+    secondChar: 197
+    amount: -3
+  - firstChar: 54
+    secondChar: 198
+    amount: -3
+  - firstChar: 54
+    secondChar: 376
+    amount: -2
+  - firstChar: 55
+    secondChar: 48
+    amount: -2
+  - firstChar: 55
+    secondChar: 51
+    amount: -2
+  - firstChar: 55
+    secondChar: 52
+    amount: -6
+  - firstChar: 55
+    secondChar: 54
+    amount: -2
+  - firstChar: 55
+    secondChar: 56
+    amount: -2
+  - firstChar: 55
+    secondChar: 57
+    amount: -2
+  - firstChar: 55
+    secondChar: 67
+    amount: -2
+  - firstChar: 55
+    secondChar: 79
+    amount: -2
+  - firstChar: 55
+    secondChar: 81
+    amount: -2
+  - firstChar: 55
+    secondChar: 199
+    amount: -2
+  - firstChar: 55
+    secondChar: 210
+    amount: -2
+  - firstChar: 55
+    secondChar: 211
+    amount: -2
+  - firstChar: 55
+    secondChar: 212
+    amount: -2
+  - firstChar: 55
+    secondChar: 213
+    amount: -2
+  - firstChar: 55
+    secondChar: 214
+    amount: -2
+  - firstChar: 56
+    secondChar: 65
+    amount: -3
+  - firstChar: 56
+    secondChar: 86
+    amount: -2
+  - firstChar: 56
+    secondChar: 87
+    amount: -2
+  - firstChar: 56
+    secondChar: 88
+    amount: -2
+  - firstChar: 56
+    secondChar: 89
+    amount: -2
+  - firstChar: 56
+    secondChar: 192
+    amount: -3
+  - firstChar: 56
+    secondChar: 193
+    amount: -3
+  - firstChar: 56
+    secondChar: 194
+    amount: -3
+  - firstChar: 56
+    secondChar: 195
+    amount: -3
+  - firstChar: 56
+    secondChar: 196
+    amount: -3
+  - firstChar: 56
+    secondChar: 197
+    amount: -3
+  - firstChar: 56
+    secondChar: 198
+    amount: -3
+  - firstChar: 56
+    secondChar: 376
+    amount: -2
+  - firstChar: 57
+    secondChar: 65
+    amount: -3
+  - firstChar: 57
+    secondChar: 86
+    amount: -2
+  - firstChar: 57
+    secondChar: 87
+    amount: -2
+  - firstChar: 57
+    secondChar: 88
+    amount: -2
+  - firstChar: 57
+    secondChar: 89
+    amount: -2
+  - firstChar: 57
+    secondChar: 192
+    amount: -3
+  - firstChar: 57
+    secondChar: 193
+    amount: -3
+  - firstChar: 57
+    secondChar: 194
+    amount: -3
+  - firstChar: 57
+    secondChar: 195
+    amount: -3
+  - firstChar: 57
+    secondChar: 196
+    amount: -3
+  - firstChar: 57
+    secondChar: 197
+    amount: -3
+  - firstChar: 57
+    secondChar: 198
+    amount: -3
+  - firstChar: 57
+    secondChar: 376
+    amount: -2
+  - firstChar: 65
+    secondChar: 48
+    amount: -3
+  - firstChar: 65
+    secondChar: 51
+    amount: -3
+  - firstChar: 65
+    secondChar: 54
+    amount: -3
+  - firstChar: 65
+    secondChar: 56
+    amount: -3
+  - firstChar: 65
+    secondChar: 57
+    amount: -3
+  - firstChar: 65
+    secondChar: 67
+    amount: -3
+  - firstChar: 65
+    secondChar: 71
+    amount: -3
+  - firstChar: 65
+    secondChar: 79
+    amount: -3
+  - firstChar: 65
+    secondChar: 81
+    amount: -3
+  - firstChar: 65
+    secondChar: 84
+    amount: -3
+  - firstChar: 65
+    secondChar: 85
+    amount: -4
+  - firstChar: 65
+    secondChar: 86
+    amount: -7
+  - firstChar: 65
+    secondChar: 87
+    amount: -7
+  - firstChar: 65
+    secondChar: 89
+    amount: -5
+  - firstChar: 65
+    secondChar: 118
+    amount: -4
+  - firstChar: 65
+    secondChar: 119
+    amount: -4
+  - firstChar: 65
+    secondChar: 121
+    amount: -4
+  - firstChar: 65
+    secondChar: 199
+    amount: -3
+  - firstChar: 65
+    secondChar: 210
+    amount: -3
+  - firstChar: 65
+    secondChar: 211
+    amount: -3
+  - firstChar: 65
+    secondChar: 212
+    amount: -3
+  - firstChar: 65
+    secondChar: 213
+    amount: -3
+  - firstChar: 65
+    secondChar: 214
+    amount: -3
+  - firstChar: 65
+    secondChar: 217
+    amount: -4
+  - firstChar: 65
+    secondChar: 218
+    amount: -4
+  - firstChar: 65
+    secondChar: 219
+    amount: -4
+  - firstChar: 65
+    secondChar: 220
+    amount: -4
+  - firstChar: 65
+    secondChar: 376
+    amount: -5
+  - firstChar: 66
+    secondChar: 65
+    amount: -2
+  - firstChar: 66
+    secondChar: 88
+    amount: -2
+  - firstChar: 66
+    secondChar: 89
+    amount: -2
+  - firstChar: 66
+    secondChar: 192
+    amount: -2
+  - firstChar: 66
+    secondChar: 193
+    amount: -2
+  - firstChar: 66
+    secondChar: 194
+    amount: -2
+  - firstChar: 66
+    secondChar: 195
+    amount: -2
+  - firstChar: 66
+    secondChar: 196
+    amount: -2
+  - firstChar: 66
+    secondChar: 197
+    amount: -2
+  - firstChar: 66
+    secondChar: 198
+    amount: -3
+  - firstChar: 66
+    secondChar: 376
+    amount: -2
+  - firstChar: 67
+    secondChar: 65
+    amount: -3
+  - firstChar: 67
+    secondChar: 86
+    amount: -2
+  - firstChar: 67
+    secondChar: 87
+    amount: -2
+  - firstChar: 67
+    secondChar: 88
+    amount: -2
+  - firstChar: 67
+    secondChar: 89
+    amount: -2
+  - firstChar: 67
+    secondChar: 192
+    amount: -3
+  - firstChar: 67
+    secondChar: 193
+    amount: -3
+  - firstChar: 67
+    secondChar: 194
+    amount: -3
+  - firstChar: 67
+    secondChar: 195
+    amount: -3
+  - firstChar: 67
+    secondChar: 196
+    amount: -3
+  - firstChar: 67
+    secondChar: 197
+    amount: -3
+  - firstChar: 67
+    secondChar: 198
+    amount: -3
+  - firstChar: 67
+    secondChar: 376
+    amount: -2
+  - firstChar: 68
+    secondChar: 65
+    amount: -2
+  - firstChar: 68
+    secondChar: 88
+    amount: -2
+  - firstChar: 68
+    secondChar: 89
+    amount: -2
+  - firstChar: 68
+    secondChar: 192
+    amount: -2
+  - firstChar: 68
+    secondChar: 193
+    amount: -2
+  - firstChar: 68
+    secondChar: 194
+    amount: -2
+  - firstChar: 68
+    secondChar: 195
+    amount: -2
+  - firstChar: 68
+    secondChar: 196
+    amount: -2
+  - firstChar: 68
+    secondChar: 197
+    amount: -2
+  - firstChar: 68
+    secondChar: 198
+    amount: -3
+  - firstChar: 68
+    secondChar: 376
+    amount: -2
+  - firstChar: 70
+    secondChar: 65
+    amount: -4
+  - firstChar: 70
+    secondChar: 74
+    amount: -4
+  - firstChar: 70
+    secondChar: 83
+    amount: 1
+  - firstChar: 70
+    secondChar: 97
+    amount: -2
+  - firstChar: 70
+    secondChar: 99
+    amount: -2
+  - firstChar: 70
+    secondChar: 100
+    amount: -2
+  - firstChar: 70
+    secondChar: 101
+    amount: -2
+  - firstChar: 70
+    secondChar: 111
+    amount: -2
+  - firstChar: 70
+    secondChar: 113
+    amount: -2
+  - firstChar: 70
+    secondChar: 192
+    amount: -4
+  - firstChar: 70
+    secondChar: 193
+    amount: -4
+  - firstChar: 70
+    secondChar: 194
+    amount: -4
+  - firstChar: 70
+    secondChar: 195
+    amount: -4
+  - firstChar: 70
+    secondChar: 196
+    amount: -4
+  - firstChar: 70
+    secondChar: 197
+    amount: -4
+  - firstChar: 70
+    secondChar: 198
+    amount: -5
+  - firstChar: 70
+    secondChar: 339
+    amount: -2
+  - firstChar: 71
+    secondChar: 84
+    amount: -2
+  - firstChar: 71
+    secondChar: 86
+    amount: -5
+  - firstChar: 71
+    secondChar: 87
+    amount: -5
+  - firstChar: 73
+    secondChar: 106
+    amount: 5
+  - firstChar: 74
+    secondChar: 48
+    amount: -2
+  - firstChar: 74
+    secondChar: 51
+    amount: -2
+  - firstChar: 74
+    secondChar: 54
+    amount: -2
+  - firstChar: 74
+    secondChar: 56
+    amount: -2
+  - firstChar: 74
+    secondChar: 57
+    amount: -2
+  - firstChar: 74
+    secondChar: 65
+    amount: -4
+  - firstChar: 74
+    secondChar: 67
+    amount: -2
+  - firstChar: 74
+    secondChar: 71
+    amount: -2
+  - firstChar: 74
+    secondChar: 79
+    amount: -2
+  - firstChar: 74
+    secondChar: 81
+    amount: -2
+  - firstChar: 74
+    secondChar: 192
+    amount: -4
+  - firstChar: 74
+    secondChar: 193
+    amount: -4
+  - firstChar: 74
+    secondChar: 194
+    amount: -4
+  - firstChar: 74
+    secondChar: 195
+    amount: -4
+  - firstChar: 74
+    secondChar: 196
+    amount: -4
+  - firstChar: 74
+    secondChar: 197
+    amount: -4
+  - firstChar: 74
+    secondChar: 199
+    amount: -2
+  - firstChar: 74
+    secondChar: 210
+    amount: -2
+  - firstChar: 74
+    secondChar: 211
+    amount: -2
+  - firstChar: 74
+    secondChar: 212
+    amount: -2
+  - firstChar: 74
+    secondChar: 213
+    amount: -2
+  - firstChar: 74
+    secondChar: 214
+    amount: -2
+  - firstChar: 75
+    secondChar: 118
+    amount: -2
+  - firstChar: 75
+    secondChar: 119
+    amount: -2
+  - firstChar: 75
+    secondChar: 121
+    amount: -2
+  - firstChar: 76
+    secondChar: 84
+    amount: -5
+  - firstChar: 76
+    secondChar: 85
+    amount: -2
+  - firstChar: 76
+    secondChar: 86
+    amount: -7
+  - firstChar: 76
+    secondChar: 87
+    amount: -7
+  - firstChar: 76
+    secondChar: 89
+    amount: -6
+  - firstChar: 76
+    secondChar: 118
+    amount: -2
+  - firstChar: 76
+    secondChar: 119
+    amount: -2
+  - firstChar: 76
+    secondChar: 121
+    amount: -2
+  - firstChar: 76
+    secondChar: 217
+    amount: -2
+  - firstChar: 76
+    secondChar: 218
+    amount: -2
+  - firstChar: 76
+    secondChar: 219
+    amount: -2
+  - firstChar: 76
+    secondChar: 220
+    amount: -2
+  - firstChar: 76
+    secondChar: 376
+    amount: -6
+  - firstChar: 77
+    secondChar: 118
+    amount: -2
+  - firstChar: 77
+    secondChar: 119
+    amount: -2
+  - firstChar: 77
+    secondChar: 121
+    amount: -2
+  - firstChar: 78
+    secondChar: 48
+    amount: -2
+  - firstChar: 78
+    secondChar: 51
+    amount: -2
+  - firstChar: 78
+    secondChar: 54
+    amount: -2
+  - firstChar: 78
+    secondChar: 56
+    amount: -2
+  - firstChar: 78
+    secondChar: 57
+    amount: -2
+  - firstChar: 78
+    secondChar: 65
+    amount: -3
+  - firstChar: 78
+    secondChar: 67
+    amount: -2
+  - firstChar: 78
+    secondChar: 71
+    amount: -2
+  - firstChar: 78
+    secondChar: 79
+    amount: -2
+  - firstChar: 78
+    secondChar: 81
+    amount: -2
+  - firstChar: 78
+    secondChar: 99
+    amount: -2
+  - firstChar: 78
+    secondChar: 101
+    amount: -2
+  - firstChar: 78
+    secondChar: 111
+    amount: -2
+  - firstChar: 78
+    secondChar: 117
+    amount: -2
+  - firstChar: 78
+    secondChar: 192
+    amount: -3
+  - firstChar: 78
+    secondChar: 193
+    amount: -3
+  - firstChar: 78
+    secondChar: 194
+    amount: -3
+  - firstChar: 78
+    secondChar: 195
+    amount: -3
+  - firstChar: 78
+    secondChar: 196
+    amount: -3
+  - firstChar: 78
+    secondChar: 197
+    amount: -3
+  - firstChar: 78
+    secondChar: 199
+    amount: -2
+  - firstChar: 78
+    secondChar: 210
+    amount: -2
+  - firstChar: 78
+    secondChar: 211
+    amount: -2
+  - firstChar: 78
+    secondChar: 212
+    amount: -2
+  - firstChar: 78
+    secondChar: 213
+    amount: -2
+  - firstChar: 78
+    secondChar: 214
+    amount: -2
+  - firstChar: 78
+    secondChar: 339
+    amount: -2
+  - firstChar: 79
+    secondChar: 65
+    amount: -3
+  - firstChar: 79
+    secondChar: 86
+    amount: -2
+  - firstChar: 79
+    secondChar: 87
+    amount: -2
+  - firstChar: 79
+    secondChar: 88
+    amount: -2
+  - firstChar: 79
+    secondChar: 89
+    amount: -2
+  - firstChar: 79
+    secondChar: 192
+    amount: -3
+  - firstChar: 79
+    secondChar: 193
+    amount: -3
+  - firstChar: 79
+    secondChar: 194
+    amount: -3
+  - firstChar: 79
+    secondChar: 195
+    amount: -3
+  - firstChar: 79
+    secondChar: 196
+    amount: -3
+  - firstChar: 79
+    secondChar: 197
+    amount: -3
+  - firstChar: 79
+    secondChar: 198
+    amount: -3
+  - firstChar: 79
+    secondChar: 376
+    amount: -2
+  - firstChar: 80
+    secondChar: 65
+    amount: -6
+  - firstChar: 80
+    secondChar: 74
+    amount: -6
+  - firstChar: 80
+    secondChar: 97
+    amount: -4
+  - firstChar: 80
+    secondChar: 99
+    amount: -4
+  - firstChar: 80
+    secondChar: 100
+    amount: -4
+  - firstChar: 80
+    secondChar: 101
+    amount: -4
+  - firstChar: 80
+    secondChar: 111
+    amount: -4
+  - firstChar: 80
+    secondChar: 113
+    amount: -4
+  - firstChar: 80
+    secondChar: 115
+    amount: -4
+  - firstChar: 80
+    secondChar: 192
+    amount: -6
+  - firstChar: 80
+    secondChar: 193
+    amount: -6
+  - firstChar: 80
+    secondChar: 194
+    amount: -6
+  - firstChar: 80
+    secondChar: 195
+    amount: -6
+  - firstChar: 80
+    secondChar: 196
+    amount: -6
+  - firstChar: 80
+    secondChar: 197
+    amount: -6
+  - firstChar: 80
+    secondChar: 198
+    amount: -6
+  - firstChar: 80
+    secondChar: 339
+    amount: -4
+  - firstChar: 83
+    secondChar: 84
+    amount: 2
+  - firstChar: 84
+    secondChar: 65
+    amount: -5
+  - firstChar: 84
+    secondChar: 74
+    amount: -4
+  - firstChar: 84
+    secondChar: 97
+    amount: -4
+  - firstChar: 84
+    secondChar: 99
+    amount: -4
+  - firstChar: 84
+    secondChar: 100
+    amount: -4
+  - firstChar: 84
+    secondChar: 101
+    amount: -4
+  - firstChar: 84
+    secondChar: 111
+    amount: -4
+  - firstChar: 84
+    secondChar: 113
+    amount: -4
+  - firstChar: 84
+    secondChar: 114
+    amount: -2
+  - firstChar: 84
+    secondChar: 117
+    amount: -3
+  - firstChar: 84
+    secondChar: 118
+    amount: -4
+  - firstChar: 84
+    secondChar: 119
+    amount: -4
+  - firstChar: 84
+    secondChar: 121
+    amount: -4
+  - firstChar: 84
+    secondChar: 192
+    amount: -5
+  - firstChar: 84
+    secondChar: 193
+    amount: -5
+  - firstChar: 84
+    secondChar: 194
+    amount: -5
+  - firstChar: 84
+    secondChar: 195
+    amount: -5
+  - firstChar: 84
+    secondChar: 196
+    amount: -5
+  - firstChar: 84
+    secondChar: 197
+    amount: -5
+  - firstChar: 84
+    secondChar: 198
+    amount: -3
+  - firstChar: 84
+    secondChar: 339
+    amount: -4
+  - firstChar: 85
+    secondChar: 65
+    amount: -4
+  - firstChar: 85
+    secondChar: 192
+    amount: -4
+  - firstChar: 85
+    secondChar: 193
+    amount: -4
+  - firstChar: 85
+    secondChar: 194
+    amount: -4
+  - firstChar: 85
+    secondChar: 195
+    amount: -4
+  - firstChar: 85
+    secondChar: 196
+    amount: -4
+  - firstChar: 85
+    secondChar: 197
+    amount: -4
+  - firstChar: 86
+    secondChar: 48
+    amount: -4
+  - firstChar: 86
+    secondChar: 51
+    amount: -4
+  - firstChar: 86
+    secondChar: 54
+    amount: -4
+  - firstChar: 86
+    secondChar: 56
+    amount: -4
+  - firstChar: 86
+    secondChar: 57
+    amount: -4
+  - firstChar: 86
+    secondChar: 65
+    amount: -8
+  - firstChar: 86
+    secondChar: 67
+    amount: -4
+  - firstChar: 86
+    secondChar: 71
+    amount: -4
+  - firstChar: 86
+    secondChar: 74
+    amount: -7
+  - firstChar: 86
+    secondChar: 79
+    amount: -4
+  - firstChar: 86
+    secondChar: 81
+    amount: -4
+  - firstChar: 86
+    secondChar: 97
+    amount: -5
+  - firstChar: 86
+    secondChar: 99
+    amount: -5
+  - firstChar: 86
+    secondChar: 100
+    amount: -5
+  - firstChar: 86
+    secondChar: 101
+    amount: -5
+  - firstChar: 86
+    secondChar: 111
+    amount: -5
+  - firstChar: 86
+    secondChar: 113
+    amount: -5
+  - firstChar: 86
+    secondChar: 117
+    amount: -2
+  - firstChar: 86
+    secondChar: 192
+    amount: -8
+  - firstChar: 86
+    secondChar: 193
+    amount: -8
+  - firstChar: 86
+    secondChar: 194
+    amount: -8
+  - firstChar: 86
+    secondChar: 195
+    amount: -8
+  - firstChar: 86
+    secondChar: 196
+    amount: -8
+  - firstChar: 86
+    secondChar: 197
+    amount: -8
+  - firstChar: 86
+    secondChar: 198
+    amount: -8
+  - firstChar: 86
+    secondChar: 199
+    amount: -4
+  - firstChar: 86
+    secondChar: 210
+    amount: -4
+  - firstChar: 86
+    secondChar: 211
+    amount: -4
+  - firstChar: 86
+    secondChar: 212
+    amount: -4
+  - firstChar: 86
+    secondChar: 213
+    amount: -4
+  - firstChar: 86
+    secondChar: 214
+    amount: -4
+  - firstChar: 86
+    secondChar: 339
+    amount: -5
+  - firstChar: 87
+    secondChar: 48
+    amount: -4
+  - firstChar: 87
+    secondChar: 51
+    amount: -4
+  - firstChar: 87
+    secondChar: 54
+    amount: -4
+  - firstChar: 87
+    secondChar: 56
+    amount: -4
+  - firstChar: 87
+    secondChar: 57
+    amount: -4
+  - firstChar: 87
+    secondChar: 65
+    amount: -8
+  - firstChar: 87
+    secondChar: 67
+    amount: -4
+  - firstChar: 87
+    secondChar: 71
+    amount: -4
+  - firstChar: 87
+    secondChar: 74
+    amount: -7
+  - firstChar: 87
+    secondChar: 79
+    amount: -4
+  - firstChar: 87
+    secondChar: 81
+    amount: -4
+  - firstChar: 87
+    secondChar: 97
+    amount: -5
+  - firstChar: 87
+    secondChar: 99
+    amount: -5
+  - firstChar: 87
+    secondChar: 100
+    amount: -5
+  - firstChar: 87
+    secondChar: 101
+    amount: -5
+  - firstChar: 87
+    secondChar: 111
+    amount: -5
+  - firstChar: 87
+    secondChar: 113
+    amount: -5
+  - firstChar: 87
+    secondChar: 117
+    amount: -2
+  - firstChar: 87
+    secondChar: 192
+    amount: -8
+  - firstChar: 87
+    secondChar: 193
+    amount: -8
+  - firstChar: 87
+    secondChar: 194
+    amount: -8
+  - firstChar: 87
+    secondChar: 195
+    amount: -8
+  - firstChar: 87
+    secondChar: 196
+    amount: -8
+  - firstChar: 87
+    secondChar: 197
+    amount: -8
+  - firstChar: 87
+    secondChar: 198
+    amount: -8
+  - firstChar: 87
+    secondChar: 199
+    amount: -4
+  - firstChar: 87
+    secondChar: 210
+    amount: -4
+  - firstChar: 87
+    secondChar: 211
+    amount: -4
+  - firstChar: 87
+    secondChar: 212
+    amount: -4
+  - firstChar: 87
+    secondChar: 213
+    amount: -4
+  - firstChar: 87
+    secondChar: 214
+    amount: -4
+  - firstChar: 87
+    secondChar: 339
+    amount: -5
+  - firstChar: 88
+    secondChar: 48
+    amount: -2
+  - firstChar: 88
+    secondChar: 51
+    amount: -2
+  - firstChar: 88
+    secondChar: 54
+    amount: -2
+  - firstChar: 88
+    secondChar: 56
+    amount: -2
+  - firstChar: 88
+    secondChar: 57
+    amount: -2
+  - firstChar: 88
+    secondChar: 67
+    amount: -2
+  - firstChar: 88
+    secondChar: 71
+    amount: -2
+  - firstChar: 88
+    secondChar: 79
+    amount: -2
+  - firstChar: 88
+    secondChar: 81
+    amount: -2
+  - firstChar: 88
+    secondChar: 118
+    amount: -3
+  - firstChar: 88
+    secondChar: 119
+    amount: -3
+  - firstChar: 88
+    secondChar: 121
+    amount: -3
+  - firstChar: 88
+    secondChar: 199
+    amount: -2
+  - firstChar: 88
+    secondChar: 210
+    amount: -2
+  - firstChar: 88
+    secondChar: 211
+    amount: -2
+  - firstChar: 88
+    secondChar: 212
+    amount: -2
+  - firstChar: 88
+    secondChar: 213
+    amount: -2
+  - firstChar: 88
+    secondChar: 214
+    amount: -2
+  - firstChar: 89
+    secondChar: 48
+    amount: -2
+  - firstChar: 89
+    secondChar: 51
+    amount: -2
+  - firstChar: 89
+    secondChar: 54
+    amount: -2
+  - firstChar: 89
+    secondChar: 56
+    amount: -2
+  - firstChar: 89
+    secondChar: 57
+    amount: -2
+  - firstChar: 89
+    secondChar: 65
+    amount: -6
+  - firstChar: 89
+    secondChar: 67
+    amount: -2
+  - firstChar: 89
+    secondChar: 71
+    amount: -2
+  - firstChar: 89
+    secondChar: 74
+    amount: -6
+  - firstChar: 89
+    secondChar: 79
+    amount: -2
+  - firstChar: 89
+    secondChar: 81
+    amount: -2
+  - firstChar: 89
+    secondChar: 97
+    amount: -7
+  - firstChar: 89
+    secondChar: 99
+    amount: -7
+  - firstChar: 89
+    secondChar: 101
+    amount: -7
+  - firstChar: 89
+    secondChar: 111
+    amount: -7
+  - firstChar: 89
+    secondChar: 112
+    amount: -4
+  - firstChar: 89
+    secondChar: 115
+    amount: -7
+  - firstChar: 89
+    secondChar: 117
+    amount: -4
+  - firstChar: 89
+    secondChar: 192
+    amount: -6
+  - firstChar: 89
+    secondChar: 193
+    amount: -6
+  - firstChar: 89
+    secondChar: 194
+    amount: -6
+  - firstChar: 89
+    secondChar: 195
+    amount: -6
+  - firstChar: 89
+    secondChar: 196
+    amount: -6
+  - firstChar: 89
+    secondChar: 197
+    amount: -6
+  - firstChar: 89
+    secondChar: 198
+    amount: -6
+  - firstChar: 89
+    secondChar: 199
+    amount: -2
+  - firstChar: 89
+    secondChar: 210
+    amount: -2
+  - firstChar: 89
+    secondChar: 211
+    amount: -2
+  - firstChar: 89
+    secondChar: 212
+    amount: -2
+  - firstChar: 89
+    secondChar: 213
+    amount: -2
+  - firstChar: 89
+    secondChar: 214
+    amount: -2
+  - firstChar: 89
+    secondChar: 339
+    amount: -7
+  - firstChar: 102
+    secondChar: 97
+    amount: -4
+  - firstChar: 102
+    secondChar: 99
+    amount: -4
+  - firstChar: 102
+    secondChar: 100
+    amount: -4
+  - firstChar: 102
+    secondChar: 101
+    amount: -4
+  - firstChar: 102
+    secondChar: 111
+    amount: -4
+  - firstChar: 102
+    secondChar: 113
+    amount: -4
+  - firstChar: 102
+    secondChar: 114
+    amount: -3
+  - firstChar: 102
+    secondChar: 122
+    amount: -2
+  - firstChar: 102
+    secondChar: 339
+    amount: -4
+  - firstChar: 109
+    secondChar: 118
+    amount: -3
+  - firstChar: 109
+    secondChar: 119
+    amount: -3
+  - firstChar: 109
+    secondChar: 121
+    amount: -3
+  - firstChar: 110
+    secondChar: 118
+    amount: -3
+  - firstChar: 110
+    secondChar: 119
+    amount: -3
+  - firstChar: 110
+    secondChar: 121
+    amount: -3
+  - firstChar: 192
+    secondChar: 48
+    amount: -3
+  - firstChar: 192
+    secondChar: 51
+    amount: -3
+  - firstChar: 192
+    secondChar: 54
+    amount: -3
+  - firstChar: 192
+    secondChar: 56
+    amount: -3
+  - firstChar: 192
+    secondChar: 57
+    amount: -3
+  - firstChar: 192
+    secondChar: 67
+    amount: -3
+  - firstChar: 192
+    secondChar: 71
+    amount: -3
+  - firstChar: 192
+    secondChar: 79
+    amount: -3
+  - firstChar: 192
+    secondChar: 81
+    amount: -3
+  - firstChar: 192
+    secondChar: 84
+    amount: -3
+  - firstChar: 192
+    secondChar: 85
+    amount: -4
+  - firstChar: 192
+    secondChar: 86
+    amount: -7
+  - firstChar: 192
+    secondChar: 87
+    amount: -7
+  - firstChar: 192
+    secondChar: 89
+    amount: -5
+  - firstChar: 192
+    secondChar: 118
+    amount: -4
+  - firstChar: 192
+    secondChar: 119
+    amount: -4
+  - firstChar: 192
+    secondChar: 121
+    amount: -4
+  - firstChar: 192
+    secondChar: 199
+    amount: -3
+  - firstChar: 192
+    secondChar: 210
+    amount: -3
+  - firstChar: 192
+    secondChar: 211
+    amount: -3
+  - firstChar: 192
+    secondChar: 212
+    amount: -3
+  - firstChar: 192
+    secondChar: 213
+    amount: -3
+  - firstChar: 192
+    secondChar: 214
+    amount: -3
+  - firstChar: 192
+    secondChar: 217
+    amount: -4
+  - firstChar: 192
+    secondChar: 218
+    amount: -4
+  - firstChar: 192
+    secondChar: 219
+    amount: -4
+  - firstChar: 192
+    secondChar: 220
+    amount: -4
+  - firstChar: 192
+    secondChar: 376
+    amount: -5
+  - firstChar: 193
+    secondChar: 48
+    amount: -3
+  - firstChar: 193
+    secondChar: 51
+    amount: -3
+  - firstChar: 193
+    secondChar: 54
+    amount: -3
+  - firstChar: 193
+    secondChar: 56
+    amount: -3
+  - firstChar: 193
+    secondChar: 57
+    amount: -3
+  - firstChar: 193
+    secondChar: 67
+    amount: -3
+  - firstChar: 193
+    secondChar: 71
+    amount: -3
+  - firstChar: 193
+    secondChar: 79
+    amount: -3
+  - firstChar: 193
+    secondChar: 81
+    amount: -3
+  - firstChar: 193
+    secondChar: 84
+    amount: -3
+  - firstChar: 193
+    secondChar: 85
+    amount: -4
+  - firstChar: 193
+    secondChar: 86
+    amount: -7
+  - firstChar: 193
+    secondChar: 87
+    amount: -7
+  - firstChar: 193
+    secondChar: 89
+    amount: -5
+  - firstChar: 193
+    secondChar: 118
+    amount: -4
+  - firstChar: 193
+    secondChar: 119
+    amount: -4
+  - firstChar: 193
+    secondChar: 121
+    amount: -4
+  - firstChar: 193
+    secondChar: 199
+    amount: -3
+  - firstChar: 193
+    secondChar: 210
+    amount: -3
+  - firstChar: 193
+    secondChar: 211
+    amount: -3
+  - firstChar: 193
+    secondChar: 212
+    amount: -3
+  - firstChar: 193
+    secondChar: 213
+    amount: -3
+  - firstChar: 193
+    secondChar: 214
+    amount: -3
+  - firstChar: 193
+    secondChar: 217
+    amount: -4
+  - firstChar: 193
+    secondChar: 218
+    amount: -4
+  - firstChar: 193
+    secondChar: 219
+    amount: -4
+  - firstChar: 193
+    secondChar: 220
+    amount: -4
+  - firstChar: 193
+    secondChar: 376
+    amount: -5
+  - firstChar: 194
+    secondChar: 48
+    amount: -3
+  - firstChar: 194
+    secondChar: 51
+    amount: -3
+  - firstChar: 194
+    secondChar: 54
+    amount: -3
+  - firstChar: 194
+    secondChar: 56
+    amount: -3
+  - firstChar: 194
+    secondChar: 57
+    amount: -3
+  - firstChar: 194
+    secondChar: 67
+    amount: -3
+  - firstChar: 194
+    secondChar: 71
+    amount: -3
+  - firstChar: 194
+    secondChar: 79
+    amount: -3
+  - firstChar: 194
+    secondChar: 81
+    amount: -3
+  - firstChar: 194
+    secondChar: 84
+    amount: -3
+  - firstChar: 194
+    secondChar: 85
+    amount: -4
+  - firstChar: 194
+    secondChar: 86
+    amount: -7
+  - firstChar: 194
+    secondChar: 87
+    amount: -7
+  - firstChar: 194
+    secondChar: 89
+    amount: -5
+  - firstChar: 194
+    secondChar: 118
+    amount: -4
+  - firstChar: 194
+    secondChar: 119
+    amount: -4
+  - firstChar: 194
+    secondChar: 121
+    amount: -4
+  - firstChar: 194
+    secondChar: 199
+    amount: -3
+  - firstChar: 194
+    secondChar: 210
+    amount: -3
+  - firstChar: 194
+    secondChar: 211
+    amount: -3
+  - firstChar: 194
+    secondChar: 212
+    amount: -3
+  - firstChar: 194
+    secondChar: 213
+    amount: -3
+  - firstChar: 194
+    secondChar: 214
+    amount: -3
+  - firstChar: 194
+    secondChar: 217
+    amount: -4
+  - firstChar: 194
+    secondChar: 218
+    amount: -4
+  - firstChar: 194
+    secondChar: 219
+    amount: -4
+  - firstChar: 194
+    secondChar: 220
+    amount: -4
+  - firstChar: 194
+    secondChar: 376
+    amount: -5
+  - firstChar: 195
+    secondChar: 48
+    amount: -3
+  - firstChar: 195
+    secondChar: 51
+    amount: -3
+  - firstChar: 195
+    secondChar: 54
+    amount: -3
+  - firstChar: 195
+    secondChar: 56
+    amount: -3
+  - firstChar: 195
+    secondChar: 57
+    amount: -3
+  - firstChar: 195
+    secondChar: 67
+    amount: -3
+  - firstChar: 195
+    secondChar: 71
+    amount: -3
+  - firstChar: 195
+    secondChar: 79
+    amount: -3
+  - firstChar: 195
+    secondChar: 81
+    amount: -3
+  - firstChar: 195
+    secondChar: 84
+    amount: -3
+  - firstChar: 195
+    secondChar: 85
+    amount: -4
+  - firstChar: 195
+    secondChar: 86
+    amount: -7
+  - firstChar: 195
+    secondChar: 87
+    amount: -7
+  - firstChar: 195
+    secondChar: 89
+    amount: -5
+  - firstChar: 195
+    secondChar: 118
+    amount: -4
+  - firstChar: 195
+    secondChar: 119
+    amount: -4
+  - firstChar: 195
+    secondChar: 121
+    amount: -4
+  - firstChar: 195
+    secondChar: 199
+    amount: -3
+  - firstChar: 195
+    secondChar: 210
+    amount: -3
+  - firstChar: 195
+    secondChar: 211
+    amount: -3
+  - firstChar: 195
+    secondChar: 212
+    amount: -3
+  - firstChar: 195
+    secondChar: 213
+    amount: -3
+  - firstChar: 195
+    secondChar: 214
+    amount: -3
+  - firstChar: 195
+    secondChar: 217
+    amount: -4
+  - firstChar: 195
+    secondChar: 218
+    amount: -4
+  - firstChar: 195
+    secondChar: 219
+    amount: -4
+  - firstChar: 195
+    secondChar: 220
+    amount: -4
+  - firstChar: 195
+    secondChar: 376
+    amount: -5
+  - firstChar: 196
+    secondChar: 48
+    amount: -3
+  - firstChar: 196
+    secondChar: 51
+    amount: -3
+  - firstChar: 196
+    secondChar: 54
+    amount: -3
+  - firstChar: 196
+    secondChar: 56
+    amount: -3
+  - firstChar: 196
+    secondChar: 57
+    amount: -3
+  - firstChar: 196
+    secondChar: 67
+    amount: -3
+  - firstChar: 196
+    secondChar: 71
+    amount: -3
+  - firstChar: 196
+    secondChar: 79
+    amount: -3
+  - firstChar: 196
+    secondChar: 81
+    amount: -3
+  - firstChar: 196
+    secondChar: 84
+    amount: -3
+  - firstChar: 196
+    secondChar: 85
+    amount: -4
+  - firstChar: 196
+    secondChar: 86
+    amount: -7
+  - firstChar: 196
+    secondChar: 87
+    amount: -7
+  - firstChar: 196
+    secondChar: 89
+    amount: -5
+  - firstChar: 196
+    secondChar: 118
+    amount: -4
+  - firstChar: 196
+    secondChar: 119
+    amount: -4
+  - firstChar: 196
+    secondChar: 121
+    amount: -4
+  - firstChar: 196
+    secondChar: 199
+    amount: -3
+  - firstChar: 196
+    secondChar: 210
+    amount: -3
+  - firstChar: 196
+    secondChar: 211
+    amount: -3
+  - firstChar: 196
+    secondChar: 212
+    amount: -3
+  - firstChar: 196
+    secondChar: 213
+    amount: -3
+  - firstChar: 196
+    secondChar: 214
+    amount: -3
+  - firstChar: 196
+    secondChar: 217
+    amount: -4
+  - firstChar: 196
+    secondChar: 218
+    amount: -4
+  - firstChar: 196
+    secondChar: 219
+    amount: -4
+  - firstChar: 196
+    secondChar: 220
+    amount: -4
+  - firstChar: 196
+    secondChar: 376
+    amount: -5
+  - firstChar: 197
+    secondChar: 48
+    amount: -3
+  - firstChar: 197
+    secondChar: 51
+    amount: -3
+  - firstChar: 197
+    secondChar: 54
+    amount: -3
+  - firstChar: 197
+    secondChar: 56
+    amount: -3
+  - firstChar: 197
+    secondChar: 57
+    amount: -3
+  - firstChar: 197
+    secondChar: 67
+    amount: -3
+  - firstChar: 197
+    secondChar: 71
+    amount: -3
+  - firstChar: 197
+    secondChar: 79
+    amount: -3
+  - firstChar: 197
+    secondChar: 81
+    amount: -3
+  - firstChar: 197
+    secondChar: 84
+    amount: -3
+  - firstChar: 197
+    secondChar: 85
+    amount: -4
+  - firstChar: 197
+    secondChar: 86
+    amount: -7
+  - firstChar: 197
+    secondChar: 87
+    amount: -7
+  - firstChar: 197
+    secondChar: 89
+    amount: -5
+  - firstChar: 197
+    secondChar: 118
+    amount: -4
+  - firstChar: 197
+    secondChar: 119
+    amount: -4
+  - firstChar: 197
+    secondChar: 121
+    amount: -4
+  - firstChar: 197
+    secondChar: 199
+    amount: -3
+  - firstChar: 197
+    secondChar: 210
+    amount: -3
+  - firstChar: 197
+    secondChar: 211
+    amount: -3
+  - firstChar: 197
+    secondChar: 212
+    amount: -3
+  - firstChar: 197
+    secondChar: 213
+    amount: -3
+  - firstChar: 197
+    secondChar: 214
+    amount: -3
+  - firstChar: 197
+    secondChar: 217
+    amount: -4
+  - firstChar: 197
+    secondChar: 218
+    amount: -4
+  - firstChar: 197
+    secondChar: 219
+    amount: -4
+  - firstChar: 197
+    secondChar: 220
+    amount: -4
+  - firstChar: 197
+    secondChar: 376
+    amount: -5
+  - firstChar: 199
+    secondChar: 65
+    amount: -3
+  - firstChar: 199
+    secondChar: 86
+    amount: -2
+  - firstChar: 199
+    secondChar: 87
+    amount: -2
+  - firstChar: 199
+    secondChar: 88
+    amount: -2
+  - firstChar: 199
+    secondChar: 89
+    amount: -2
+  - firstChar: 199
+    secondChar: 192
+    amount: -3
+  - firstChar: 199
+    secondChar: 193
+    amount: -3
+  - firstChar: 199
+    secondChar: 194
+    amount: -3
+  - firstChar: 199
+    secondChar: 195
+    amount: -3
+  - firstChar: 199
+    secondChar: 196
+    amount: -3
+  - firstChar: 199
+    secondChar: 197
+    amount: -3
+  - firstChar: 199
+    secondChar: 198
+    amount: -3
+  - firstChar: 199
+    secondChar: 376
+    amount: -2
+  - firstChar: 210
+    secondChar: 65
+    amount: -3
+  - firstChar: 210
+    secondChar: 86
+    amount: -2
+  - firstChar: 210
+    secondChar: 87
+    amount: -2
+  - firstChar: 210
+    secondChar: 88
+    amount: -2
+  - firstChar: 210
+    secondChar: 89
+    amount: -2
+  - firstChar: 210
+    secondChar: 192
+    amount: -3
+  - firstChar: 210
+    secondChar: 193
+    amount: -3
+  - firstChar: 210
+    secondChar: 194
+    amount: -3
+  - firstChar: 210
+    secondChar: 195
+    amount: -3
+  - firstChar: 210
+    secondChar: 196
+    amount: -3
+  - firstChar: 210
+    secondChar: 197
+    amount: -3
+  - firstChar: 210
+    secondChar: 198
+    amount: -3
+  - firstChar: 210
+    secondChar: 376
+    amount: -2
+  - firstChar: 211
+    secondChar: 65
+    amount: -3
+  - firstChar: 211
+    secondChar: 86
+    amount: -2
+  - firstChar: 211
+    secondChar: 87
+    amount: -2
+  - firstChar: 211
+    secondChar: 88
+    amount: -2
+  - firstChar: 211
+    secondChar: 89
+    amount: -2
+  - firstChar: 211
+    secondChar: 192
+    amount: -3
+  - firstChar: 211
+    secondChar: 193
+    amount: -3
+  - firstChar: 211
+    secondChar: 194
+    amount: -3
+  - firstChar: 211
+    secondChar: 195
+    amount: -3
+  - firstChar: 211
+    secondChar: 196
+    amount: -3
+  - firstChar: 211
+    secondChar: 197
+    amount: -3
+  - firstChar: 211
+    secondChar: 198
+    amount: -3
+  - firstChar: 211
+    secondChar: 376
+    amount: -2
+  - firstChar: 212
+    secondChar: 65
+    amount: -3
+  - firstChar: 212
+    secondChar: 86
+    amount: -2
+  - firstChar: 212
+    secondChar: 87
+    amount: -2
+  - firstChar: 212
+    secondChar: 88
+    amount: -2
+  - firstChar: 212
+    secondChar: 89
+    amount: -2
+  - firstChar: 212
+    secondChar: 192
+    amount: -3
+  - firstChar: 212
+    secondChar: 193
+    amount: -3
+  - firstChar: 212
+    secondChar: 194
+    amount: -3
+  - firstChar: 212
+    secondChar: 195
+    amount: -3
+  - firstChar: 212
+    secondChar: 196
+    amount: -3
+  - firstChar: 212
+    secondChar: 197
+    amount: -3
+  - firstChar: 212
+    secondChar: 198
+    amount: -3
+  - firstChar: 212
+    secondChar: 376
+    amount: -2
+  - firstChar: 213
+    secondChar: 65
+    amount: -3
+  - firstChar: 213
+    secondChar: 86
+    amount: -2
+  - firstChar: 213
+    secondChar: 87
+    amount: -2
+  - firstChar: 213
+    secondChar: 88
+    amount: -2
+  - firstChar: 213
+    secondChar: 89
+    amount: -2
+  - firstChar: 213
+    secondChar: 192
+    amount: -3
+  - firstChar: 213
+    secondChar: 193
+    amount: -3
+  - firstChar: 213
+    secondChar: 194
+    amount: -3
+  - firstChar: 213
+    secondChar: 195
+    amount: -3
+  - firstChar: 213
+    secondChar: 196
+    amount: -3
+  - firstChar: 213
+    secondChar: 197
+    amount: -3
+  - firstChar: 213
+    secondChar: 198
+    amount: -3
+  - firstChar: 213
+    secondChar: 376
+    amount: -2
+  - firstChar: 214
+    secondChar: 65
+    amount: -3
+  - firstChar: 214
+    secondChar: 86
+    amount: -2
+  - firstChar: 214
+    secondChar: 87
+    amount: -2
+  - firstChar: 214
+    secondChar: 88
+    amount: -2
+  - firstChar: 214
+    secondChar: 89
+    amount: -2
+  - firstChar: 214
+    secondChar: 192
+    amount: -3
+  - firstChar: 214
+    secondChar: 193
+    amount: -3
+  - firstChar: 214
+    secondChar: 194
+    amount: -3
+  - firstChar: 214
+    secondChar: 195
+    amount: -3
+  - firstChar: 214
+    secondChar: 196
+    amount: -3
+  - firstChar: 214
+    secondChar: 197
+    amount: -3
+  - firstChar: 214
+    secondChar: 198
+    amount: -3
+  - firstChar: 214
+    secondChar: 376
+    amount: -2
+  - firstChar: 217
+    secondChar: 65
+    amount: -4
+  - firstChar: 217
+    secondChar: 192
+    amount: -4
+  - firstChar: 217
+    secondChar: 193
+    amount: -4
+  - firstChar: 217
+    secondChar: 194
+    amount: -4
+  - firstChar: 217
+    secondChar: 195
+    amount: -4
+  - firstChar: 217
+    secondChar: 196
+    amount: -4
+  - firstChar: 217
+    secondChar: 197
+    amount: -4
+  - firstChar: 218
+    secondChar: 65
+    amount: -4
+  - firstChar: 218
+    secondChar: 192
+    amount: -4
+  - firstChar: 218
+    secondChar: 193
+    amount: -4
+  - firstChar: 218
+    secondChar: 194
+    amount: -4
+  - firstChar: 218
+    secondChar: 195
+    amount: -4
+  - firstChar: 218
+    secondChar: 196
+    amount: -4
+  - firstChar: 218
+    secondChar: 197
+    amount: -4
+  - firstChar: 219
+    secondChar: 65
+    amount: -4
+  - firstChar: 219
+    secondChar: 192
+    amount: -4
+  - firstChar: 219
+    secondChar: 193
+    amount: -4
+  - firstChar: 219
+    secondChar: 194
+    amount: -4
+  - firstChar: 219
+    secondChar: 195
+    amount: -4
+  - firstChar: 219
+    secondChar: 196
+    amount: -4
+  - firstChar: 219
+    secondChar: 197
+    amount: -4
+  - firstChar: 220
+    secondChar: 65
+    amount: -4
+  - firstChar: 220
+    secondChar: 192
+    amount: -4
+  - firstChar: 220
+    secondChar: 193
+    amount: -4
+  - firstChar: 220
+    secondChar: 194
+    amount: -4
+  - firstChar: 220
+    secondChar: 195
+    amount: -4
+  - firstChar: 220
+    secondChar: 196
+    amount: -4
+  - firstChar: 220
+    secondChar: 197
+    amount: -4
+  - firstChar: 376
+    secondChar: 48
+    amount: -2
+  - firstChar: 376
+    secondChar: 51
+    amount: -2
+  - firstChar: 376
+    secondChar: 54
+    amount: -2
+  - firstChar: 376
+    secondChar: 56
+    amount: -2
+  - firstChar: 376
+    secondChar: 57
+    amount: -2
+  - firstChar: 376
+    secondChar: 65
+    amount: -6
+  - firstChar: 376
+    secondChar: 67
+    amount: -2
+  - firstChar: 376
+    secondChar: 71
+    amount: -2
+  - firstChar: 376
+    secondChar: 74
+    amount: -6
+  - firstChar: 376
+    secondChar: 79
+    amount: -2
+  - firstChar: 376
+    secondChar: 81
+    amount: -2
+  - firstChar: 376
+    secondChar: 97
+    amount: -7
+  - firstChar: 376
+    secondChar: 99
+    amount: -7
+  - firstChar: 376
+    secondChar: 101
+    amount: -7
+  - firstChar: 376
+    secondChar: 111
+    amount: -7
+  - firstChar: 376
+    secondChar: 112
+    amount: -4
+  - firstChar: 376
+    secondChar: 115
+    amount: -7
+  - firstChar: 376
+    secondChar: 117
+    amount: -4
+  - firstChar: 376
+    secondChar: 192
+    amount: -6
+  - firstChar: 376
+    secondChar: 193
+    amount: -6
+  - firstChar: 376
+    secondChar: 194
+    amount: -6
+  - firstChar: 376
+    secondChar: 195
+    amount: -6
+  - firstChar: 376
+    secondChar: 196
+    amount: -6
+  - firstChar: 376
+    secondChar: 197
+    amount: -6
+  - firstChar: 376
+    secondChar: 198
+    amount: -6
+  - firstChar: 376
+    secondChar: 199
+    amount: -2
+  - firstChar: 376
+    secondChar: 210
+    amount: -2
+  - firstChar: 376
+    secondChar: 211
+    amount: -2
+  - firstChar: 376
+    secondChar: 212
+    amount: -2
+  - firstChar: 376
+    secondChar: 213
+    amount: -2
+  - firstChar: 376
+    secondChar: 214
+    amount: -2
+  - firstChar: 376
+    secondChar: 339
+    amount: -7
+  pages:
+  - {fileID: 2800000, guid: ebb482c98609fe143a09789a16d4f193, type: 3}
+  capacityPerPage: 256
+  padding:
+    m_Left: 3
+    m_Right: 3
+    m_Top: 3
+    m_Bottom: 3
+  extraSpacing: 4

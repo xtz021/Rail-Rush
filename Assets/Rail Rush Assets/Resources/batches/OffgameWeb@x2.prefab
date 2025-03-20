@@ -1,0 +1,378 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1259401969433937
+GameObject:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Component:
+  - component: {fileID: 4465065798423821}
+  - component: {fileID: 114929027162855103}
+  m_Layer: 0
+  m_Name: OffgameWeb@x2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4465065798423821
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1259401969433937}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!114 &114929027162855103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1259401969433937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03f7db9a480b403690a4a83220213122, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  atlas: {fileID: 2800000, guid: e92ec2ba9a529664c9f515a2d3548a9a, type: 3}
+  capacity: 256
+  cuts:
+  - name: bn_amazon_dn
+    rect:
+      serializedVersion: 2
+      x: 231
+      y: 8
+      width: 198
+      height: 87
+  - name: h_playarrow
+    rect:
+      serializedVersion: 2
+      x: 441
+      y: 682
+      width: 27
+      height: 31
+  - name: miniclip_offgamelogo
+    rect:
+      serializedVersion: 2
+      x: 847
+      y: 864
+      width: 172
+      height: 37
+  - name: bn_exit_up
+    rect:
+      serializedVersion: 2
+      x: 847
+      y: 901
+      width: 151
+      height: 123
+  - name: bn_highscore_up
+    rect:
+      serializedVersion: 2
+      x: 295
+      y: 297
+      width: 77
+      height: 71
+  - name: bn_amazon_up
+    rect:
+      serializedVersion: 2
+      x: 430
+      y: 206
+      width: 198
+      height: 87
+  - name: h_world_play_dn
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 34
+      width: 231
+      height: 92
+  - name: bn_allsoundson_up
+    rect:
+      serializedVersion: 2
+      x: 295
+      y: 222
+      width: 77
+      height: 71
+  - name: bn_saveme_web_dn
+    rect:
+      serializedVersion: 2
+      x: 409
+      y: 713
+      width: 430
+      height: 125
+  - name: bn_changeworld_dn
+    rect:
+      serializedVersion: 2
+      x: 430
+      y: 85
+      width: 133
+      height: 121
+  - name: bn_allsoundsoff_up
+    rect:
+      serializedVersion: 2
+      x: 869
+      y: 107
+      width: 77
+      height: 71
+  - name: bn_unlock_up
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 368
+      width: 363
+      height: 92
+  - name: bn_play_dn
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 677
+      width: 409
+      height: 161
+  - name: bn_highscore_dn
+    rect:
+      serializedVersion: 2
+      x: 792
+      y: 107
+      width: 77
+      height: 71
+  - name: h_tutico_swipeup_fl
+    rect:
+      serializedVersion: 2
+      x: 761
+      y: 383
+      width: 180
+      height: 84
+  - name: bn_right_up
+    rect:
+      serializedVersion: 2
+      x: 941
+      y: 352
+      width: 82
+      height: 115
+  - name: h_tutico_tilt_fl_a
+    rect:
+      serializedVersion: 2
+      x: 884
+      y: 178
+      width: 91
+      height: 84
+  - name: h_tutico_tilt_fl
+    rect:
+      serializedVersion: 2
+      x: 808
+      y: 262
+      width: 180
+      height: 84
+  - name: bn_options_up
+    rect:
+      serializedVersion: 2
+      x: 710
+      y: 76
+      width: 77
+      height: 71
+  - name: bn_play_up
+    rect:
+      serializedVersion: 2
+      x: 438
+      y: 863
+      width: 409
+      height: 161
+  - name: bn_restart_dn
+    rect:
+      serializedVersion: 2
+      x: 231
+      y: 95
+      width: 151
+      height: 123
+  - name: bn_appstore_up
+    rect:
+      serializedVersion: 2
+      x: 430
+      y: 380
+      width: 198
+      height: 87
+  - name: bn_wpstore_dn
+    rect:
+      serializedVersion: 2
+      x: 430
+      y: 293
+      width: 198
+      height: 87
+  - name: h_world_play_up
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 126
+      width: 231
+      height: 92
+  - name: h_tutico_swipe_fl
+    rect:
+      serializedVersion: 2
+      x: 628
+      y: 262
+      width: 180
+      height: 84
+  - name: bn_unlock_dn
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 460
+      width: 363
+      height: 92
+  - name: h_charupdate
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 838
+      width: 438
+      height: 186
+  - name: bn_changeworld_up
+    rect:
+      serializedVersion: 2
+      x: 628
+      y: 346
+      width: 133
+      height: 121
+  - name: bn_exit_dn
+    rect:
+      serializedVersion: 2
+      x: 839
+      y: 715
+      width: 151
+      height: 123
+  - name: h_tutico_swipedn_fl
+    rect:
+      serializedVersion: 2
+      x: 430
+      y: 1
+      width: 180
+      height: 84
+  - name: bn_saveme_web_up
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 552
+      width: 430
+      height: 125
+  - name: bn_right_dn
+    rect:
+      serializedVersion: 2
+      x: 628
+      y: 147
+      width: 82
+      height: 115
+  - name: h_miniclip_logo
+    rect:
+      serializedVersion: 2
+      x: 581
+      y: 605
+      width: 240
+      height: 72
+  - name: bn_allsoundson_dn
+    rect:
+      serializedVersion: 2
+      x: 710
+      y: 5
+      width: 77
+      height: 71
+  - name: bn_moregames_up
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 218
+      width: 295
+      height: 75
+  - name: bn_options_dn
+    rect:
+      serializedVersion: 2
+      x: 792
+      y: 36
+      width: 77
+      height: 71
+  - name: bn_moregames_dn
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 293
+      width: 295
+      height: 75
+  - name: bn_left_up
+    rect:
+      serializedVersion: 2
+      x: 628
+      y: 32
+      width: 82
+      height: 115
+  - name: bn_restart_up
+    rect:
+      serializedVersion: 2
+      x: 430
+      y: 554
+      width: 151
+      height: 123
+  - name: bn_wpstore_up
+    rect:
+      serializedVersion: 2
+      x: 821
+      y: 590
+      width: 198
+      height: 87
+  - name: bn_allsoundsoff_dn
+    rect:
+      serializedVersion: 2
+      x: 946
+      y: 107
+      width: 77
+      height: 71
+  - name: bn_appstore_dn
+    rect:
+      serializedVersion: 2
+      x: 430
+      y: 467
+      width: 198
+      height: 87
+  - name: bn_left_dn
+    rect:
+      serializedVersion: 2
+      x: 710
+      y: 147
+      width: 82
+      height: 115
+  - name: h_bestbg_web
+    rect:
+      serializedVersion: 2
+      x: 409
+      y: 686
+      width: 32
+      height: 27
+  - name: bn_googleplay_dn
+    rect:
+      serializedVersion: 2
+      x: 628
+      y: 467
+      width: 198
+      height: 87
+  - name: h_tutico_tilt_fl_d
+    rect:
+      serializedVersion: 2
+      x: 792
+      y: 178
+      width: 92
+      height: 84
+  - name: bn_googleplay_up
+    rect:
+      serializedVersion: 2
+      x: 826
+      y: 467
+      width: 198
+      height: 87

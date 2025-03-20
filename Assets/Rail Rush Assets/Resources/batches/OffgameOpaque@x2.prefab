@@ -1,0 +1,140 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1064652600881099
+GameObject:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Component:
+  - component: {fileID: 4881515254127025}
+  - component: {fileID: 114489736723647796}
+  m_Layer: 0
+  m_Name: OffgameOpaque@x2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4881515254127025
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1064652600881099}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!114 &114489736723647796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1064652600881099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03f7db9a480b403690a4a83220213122, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  atlas: {fileID: 2800000, guid: cd0a547bf993e4b40860f7c8ee1c3054, type: 3}
+  capacity: 256
+  cuts:
+  - name: h_shopimg_steel_left
+    rect:
+      serializedVersion: 2
+      x: 768
+      y: 1748
+      width: 359
+      height: 300
+  - name: h_shopimg_nuggets_2x
+    rect:
+      serializedVersion: 2
+      x: 1127
+      y: 1748
+      width: 359
+      height: 300
+  - name: h_shopimg_steel_ram
+    rect:
+      serializedVersion: 2
+      x: 1486
+      y: 1748
+      width: 359
+      height: 300
+  - name: h_shopimg_steel_lateral
+    rect:
+      serializedVersion: 2
+      x: 768
+      y: 1448
+      width: 359
+      height: 300
+  - name: h_bg_sp_2
+    rect:
+      serializedVersion: 2
+      x: 768
+      y: 1036
+      width: 384
+      height: 112
+  - name: h_bg_page
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 64
+      width: 640
+      height: 960
+  - name: h_shopimg_steel_right
+    rect:
+      serializedVersion: 2
+      x: 1127
+      y: 1448
+      width: 359
+      height: 300
+  - name: h_shopimg_free_coins_getjar
+    rect:
+      serializedVersion: 2
+      x: 1486
+      y: 1448
+      width: 359
+      height: 300
+  - name: h_shopimg_clover
+    rect:
+      serializedVersion: 2
+      x: 768
+      y: 1148
+      width: 359
+      height: 300
+  - name: h_bg_sp
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 1024
+      width: 768
+      height: 1024
+  - name: h_bg_sp_3
+    rect:
+      serializedVersion: 2
+      x: 1152
+      y: 1036
+      width: 384
+      height: 112
+  - name: h_shopimg_monocole
+    rect:
+      serializedVersion: 2
+      x: 1127
+      y: 1148
+      width: 359
+      height: 300
+  - name: h_shopimg_steel_grate
+    rect:
+      serializedVersion: 2
+      x: 1486
+      y: 1148
+      width: 359
+      height: 300

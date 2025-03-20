@@ -1,0 +1,175 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1205803919405960
+GameObject:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Component:
+  - component: {fileID: 4301870463325622}
+  - component: {fileID: 114862223725089455}
+  m_Layer: 0
+  m_Name: ShopOpaqueAdd@x2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4301870463325622
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1205803919405960}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!114 &114862223725089455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1205803919405960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03f7db9a480b403690a4a83220213122, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  atlas: {fileID: 2800000, guid: a978ae5d6695ec6479c47e68d1ea65ee, type: 3}
+  capacity: 256
+  cuts:
+  - name: h_shopimg_char_zombiehunter
+    rect:
+      serializedVersion: 2
+      x: 359
+      y: 248
+      width: 359
+      height: 300
+  - name: h_shopimg_char_scarecrow
+    rect:
+      serializedVersion: 2
+      x: 359
+      y: 548
+      width: 359
+      height: 300
+  - name: h_shopimg_char_captain
+    rect:
+      serializedVersion: 2
+      x: 359
+      y: 848
+      width: 359
+      height: 300
+  - name: h_shopimg_char_santa
+    rect:
+      serializedVersion: 2
+      x: 359
+      y: 1148
+      width: 359
+      height: 300
+  - name: h_shopimg_char_aviator
+    rect:
+      serializedVersion: 2
+      x: 1436
+      y: 1448
+      width: 359
+      height: 300
+  - name: h_shopimg_char_priest
+    rect:
+      serializedVersion: 2
+      x: 1077
+      y: 1448
+      width: 359
+      height: 300
+  - name: h_shopimg_pack_steel
+    rect:
+      serializedVersion: 2
+      x: 718
+      y: 1448
+      width: 359
+      height: 300
+  - name: h_shopimg_char_primeval
+    rect:
+      serializedVersion: 2
+      x: 359
+      y: 1448
+      width: 359
+      height: 300
+  - name: h_shopimg_char_madscientist
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 248
+      width: 359
+      height: 300
+  - name: h_shopimg_char_mexican
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 548
+      width: 359
+      height: 300
+  - name: h_shopimg_pass
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 848
+      width: 359
+      height: 300
+  - name: h_shopimg_char_adventurer
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 1148
+      width: 359
+      height: 300
+  - name: h_shopimg_pack_scout
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 1448
+      width: 359
+      height: 300
+  - name: h_shopimg_char_gambler
+    rect:
+      serializedVersion: 2
+      x: 1436
+      y: 1748
+      width: 359
+      height: 300
+  - name: h_shopimg_char_piratress
+    rect:
+      serializedVersion: 2
+      x: 1077
+      y: 1748
+      width: 359
+      height: 300
+  - name: h_shopimg_char_samurai
+    rect:
+      serializedVersion: 2
+      x: 718
+      y: 1748
+      width: 359
+      height: 300
+  - name: h_shopimg_pack_char
+    rect:
+      serializedVersion: 2
+      x: 359
+      y: 1748
+      width: 359
+      height: 300
+  - name: h_shopimg_char_rabbit
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 1748
+      width: 359
+      height: 300

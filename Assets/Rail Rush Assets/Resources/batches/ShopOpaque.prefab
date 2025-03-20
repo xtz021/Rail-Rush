@@ -1,0 +1,259 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1310963558147061
+GameObject:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Component:
+  - component: {fileID: 4483302497085115}
+  - component: {fileID: 114236488974685703}
+  m_Layer: 0
+  m_Name: ShopOpaque
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4483302497085115
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1310963558147061}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!114 &114236488974685703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1310963558147061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03f7db9a480b403690a4a83220213122, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  atlas: {fileID: 2800000, guid: da575ed3d61bedc478597061bcf1e523, type: 3}
+  capacity: 256
+  cuts:
+  - name: h_shopimg_void
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 874
+      width: 180
+      height: 150
+  - name: h_shopimg_iron_left
+    rect:
+      serializedVersion: 2
+      x: 717
+      y: 124
+      width: 179
+      height: 150
+  - name: h_shopimg_char_laracroft
+    rect:
+      serializedVersion: 2
+      x: 717
+      y: 274
+      width: 179
+      height: 150
+  - name: h_shopimg_headstart_500
+    rect:
+      serializedVersion: 2
+      x: 360
+      y: 874
+      width: 180
+      height: 150
+  - name: h_shopimg_special_dynamite
+    rect:
+      serializedVersion: 2
+      x: 540
+      y: 874
+      width: 180
+      height: 150
+  - name: h_shopimg_iron_right
+    rect:
+      serializedVersion: 2
+      x: 538
+      y: 124
+      width: 179
+      height: 150
+  - name: h_shopimg_standard_magnet
+    rect:
+      serializedVersion: 2
+      x: 538
+      y: 274
+      width: 179
+      height: 150
+  - name: h_shopimg_standard_dynamite_3
+    rect:
+      serializedVersion: 2
+      x: 717
+      y: 424
+      width: 179
+      height: 150
+  - name: h_shopimg_iron_lateral
+    rect:
+      serializedVersion: 2
+      x: 538
+      y: 424
+      width: 179
+      height: 150
+  - name: h_shopimg_mega_steam_power
+    rect:
+      serializedVersion: 2
+      x: 359
+      y: 124
+      width: 179
+      height: 150
+  - name: h_shopimg_iron_grate
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 574
+      width: 180
+      height: 150
+  - name: h_shopimg_mega_brake
+    rect:
+      serializedVersion: 2
+      x: 359
+      y: 274
+      width: 179
+      height: 150
+  - name: h_shopimg_resurrection_kit_1
+    rect:
+      serializedVersion: 2
+      x: 359
+      y: 424
+      width: 179
+      height: 150
+  - name: h_shopimg_iron_ram
+    rect:
+      serializedVersion: 2
+      x: 717
+      y: 574
+      width: 179
+      height: 150
+  - name: h_shopimg_wooden_ram
+    rect:
+      serializedVersion: 2
+      x: 538
+      y: 574
+      width: 179
+      height: 150
+  - name: h_shopimg_wooden_lateral
+    rect:
+      serializedVersion: 2
+      x: 359
+      y: 574
+      width: 179
+      height: 150
+  - name: h_shopimg_char_indiana
+    rect:
+      serializedVersion: 2
+      x: 180
+      y: 124
+      width: 179
+      height: 150
+  - name: h_shopimg_wooden_right
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 424
+      width: 179
+      height: 150
+  - name: h_shopimg_wooden_grate
+    rect:
+      serializedVersion: 2
+      x: 180
+      y: 874
+      width: 180
+      height: 150
+  - name: h_shopimg_buynggt
+    rect:
+      serializedVersion: 2
+      x: 720
+      y: 874
+      width: 180
+      height: 150
+  - name: h_shopimg_lever_brake
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 274
+      width: 179
+      height: 150
+  - name: h_shopimg_mega_magnet
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 124
+      width: 179
+      height: 150
+  - name: h_shopimg_special_dynamite_3
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 724
+      width: 180
+      height: 150
+  - name: h_shopimg_wooden_left
+    rect:
+      serializedVersion: 2
+      x: 180
+      y: 724
+      width: 179
+      height: 150
+  - name: h_shopimg_standard_dynamite
+    rect:
+      serializedVersion: 2
+      x: 359
+      y: 724
+      width: 179
+      height: 150
+  - name: h_shopimg_super_magnet
+    rect:
+      serializedVersion: 2
+      x: 538
+      y: 724
+      width: 179
+      height: 150
+  - name: h_shopimg_steam_power
+    rect:
+      serializedVersion: 2
+      x: 717
+      y: 724
+      width: 179
+      height: 150
+  - name: h_shopimg_char_fireman
+    rect:
+      serializedVersion: 2
+      x: 180
+      y: 574
+      width: 179
+      height: 150
+  - name: h_shopimg_char_explorer
+    rect:
+      serializedVersion: 2
+      x: 180
+      y: 424
+      width: 179
+      height: 150
+  - name: h_shopimg_super_steam_power
+    rect:
+      serializedVersion: 2
+      x: 180
+      y: 274
+      width: 179
+      height: 150

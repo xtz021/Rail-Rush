@@ -1,0 +1,259 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1961109648306988
+GameObject:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Component:
+  - component: {fileID: 4756742390399688}
+  - component: {fileID: 114748558336954098}
+  m_Layer: 0
+  m_Name: Fx@x2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4756742390399688
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1961109648306988}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!114 &114748558336954098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1961109648306988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03f7db9a480b403690a4a83220213122, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  atlas: {fileID: 2800000, guid: bd8dfa87aa851cb40acb31f249ff841f, type: 3}
+  capacity: 256
+  cuts:
+  - name: h_gemico_6
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 17
+      width: 195
+      height: 203
+  - name: h_gemico_5
+    rect:
+      serializedVersion: 2
+      x: 258
+      y: 458
+      width: 192
+      height: 223
+  - name: h_gemico_3
+    rect:
+      serializedVersion: 2
+      x: 258
+      y: 103
+      width: 164
+      height: 166
+  - name: h_gemico_1
+    rect:
+      serializedVersion: 2
+      x: 450
+      y: 345
+      width: 181
+      height: 149
+  - name: h_ico_sbs
+    rect:
+      serializedVersion: 2
+      x: 509
+      y: 771
+      width: 90
+      height: 70
+  - name: h_tutico_swipe
+    rect:
+      serializedVersion: 2
+      x: 509
+      y: 841
+      width: 258
+      height: 183
+  - name: h_ico_gemreflect
+    rect:
+      serializedVersion: 2
+      x: 599
+      y: 772
+      width: 69
+      height: 69
+  - name: h_rays
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 769
+      width: 258
+      height: 255
+  - name: h_hand
+    rect:
+      serializedVersion: 2
+      x: 450
+      y: 494
+      width: 203
+      height: 187
+  - name: h_tutico_tilt
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 586
+      width: 258
+      height: 183
+  - name: h_tutico_swipeup_android
+    rect:
+      serializedVersion: 2
+      x: 854
+      y: 501
+      width: 104
+      height: 180
+  - name: f_rockegg_2
+    rect:
+      serializedVersion: 2
+      x: 258
+      y: 6
+      width: 180
+      height: 97
+  - name: h_tutico_swipedn
+    rect:
+      serializedVersion: 2
+      x: 450
+      y: 165
+      width: 104
+      height: 180
+  - name: f_rockegg_3
+    rect:
+      serializedVersion: 2
+      x: 450
+      y: 68
+      width: 180
+      height: 97
+  - name: h_circleloader
+    rect:
+      serializedVersion: 2
+      x: 631
+      y: 113
+      width: 104
+      height: 104
+  - name: h_tutico_tilt_android
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 403
+      width: 258
+      height: 183
+  - name: h_light
+    rect:
+      serializedVersion: 2
+      x: 886
+      y: 685
+      width: 84
+      height: 84
+  - name: f_rockegg_1
+    rect:
+      serializedVersion: 2
+      x: 811
+      y: 217
+      width: 158
+      height: 97
+  - name: h_needle
+    rect:
+      serializedVersion: 2
+      x: 195
+      y: 108
+      width: 28
+      height: 112
+  - name: h_gemico_4
+    rect:
+      serializedVersion: 2
+      x: 767
+      y: 833
+      width: 238
+      height: 191
+  - name: h_gemico_7
+    rect:
+      serializedVersion: 2
+      x: 258
+      y: 825
+      width: 251
+      height: 199
+  - name: h_cavetop
+    rect:
+      serializedVersion: 2
+      x: 258
+      y: 681
+      width: 495
+      height: 88
+  - name: h_tutico_swipedn_android
+    rect:
+      serializedVersion: 2
+      x: 631
+      y: 314
+      width: 104
+      height: 180
+  - name: h_tutico_swipe_android
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 220
+      width: 258
+      height: 183
+  - name: f_rockegg_4
+    rect:
+      serializedVersion: 2
+      x: 839
+      y: 397
+      width: 180
+      height: 97
+  - name: f_rockegg_5
+    rect:
+      serializedVersion: 2
+      x: 631
+      y: 217
+      width: 180
+      height: 97
+  - name: h_gemico_0
+    rect:
+      serializedVersion: 2
+      x: 653
+      y: 529
+      width: 201
+      height: 152
+  - name: h_tutico_swipeup
+    rect:
+      serializedVersion: 2
+      x: 735
+      y: 314
+      width: 104
+      height: 180
+  - name: sprite_damage
+    rect:
+      serializedVersion: 2
+      x: 753
+      y: 686
+      width: 133
+      height: 83
+  - name: h_gemico_2
+    rect:
+      serializedVersion: 2
+      x: 258
+      y: 269
+      width: 171
+      height: 189
