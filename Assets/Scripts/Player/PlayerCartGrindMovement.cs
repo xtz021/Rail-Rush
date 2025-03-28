@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.HID;
 using UnityEngine.Splines;
 
 public class PlayerCartGrindMovement : MonoBehaviour
@@ -22,13 +23,14 @@ public class PlayerCartGrindMovement : MonoBehaviour
 
     [Header("Scripts")]
     [SerializeField] RailScript currentRailScript;
+
     Rigidbody playerRigidbody;
-    CharacterController charController;
+    PlayerStatusController playerStatusController;
 
     private void Start()
     {
         playerRigidbody = GetComponent<Rigidbody>();
-        charController = GetComponent<CharacterController>();
+        playerStatusController = GetComponent<PlayerStatusController>();
     }
     public void HandleJump(InputAction.CallbackContext context)
     {
@@ -104,18 +106,37 @@ public class PlayerCartGrindMovement : MonoBehaviour
                 elapsedTime -= Time.deltaTime;
         }
     }
-    private void OnControllerColliderHit(ControllerColliderHit hit)
+
+    private void OnCollisionExit(Collision collision)
     {
-        if (hit.gameObject.tag == "Rail")
+        if(collision.gameObject.tag == "Rail")
         {
+            if(playerStatusController.playerCurrentStatus == PlayerStatus.OnRail)
+            {
+                playerStatusController.playerCurrentStatus = PlayerStatus.OffRail;
+            }
+            Debug.Log("Exit rail at position: " + transform.position);
+            //playerRigidbody.useGravity = true;
+        }
+    }
+
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("Collision enter: " + transform.gameObject.name);
+        if (collision.gameObject.tag == "Rail")
+        {
+            playerStatusController.playerCurrentStatus = PlayerStatus.OnRail;
+            playerRigidbody.useGravity = false;
             /*When the player hits the rail, onRail is set to true, the current rail script is set to the
              *rail script of the rail the player hits. Then we calculate the player's position on that rail.
             */
             onRail = true;
-            currentRailScript = hit.gameObject.GetComponent<RailScript>();
+            currentRailScript = collision.gameObject.GetComponent<RailScript>();
             CalculateAndSetRailPosition();
         }
     }
+
     void CalculateAndSetRailPosition()
     {
         //Figure out the amount of time it would take for the player to cover the rail.

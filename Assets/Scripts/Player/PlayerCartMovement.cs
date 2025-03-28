@@ -6,8 +6,11 @@ using UnityEngine;
 public class PlayerCartMovement : MonoBehaviour
 {
     // Attributes for jump calculations
+    public float jumpForce = 15f;
     public float jumpHeight = 5f;
     private float normalY;
+    private Rigidbody playerRigidBody;
+    private PlayerStatusController playerStatusController;
 
     [SerializeField] Transform playerCart;
 
@@ -20,7 +23,8 @@ public class PlayerCartMovement : MonoBehaviour
 
     private void Start()
     {
-        
+        playerRigidBody = GetComponent<Rigidbody>();
+        playerStatusController = GetComponent<PlayerStatusController>();
     }
 
     private void Update()
@@ -54,7 +58,8 @@ public class PlayerCartMovement : MonoBehaviour
                 //swipe upwards
                 if (currentSwipe.y > 0 && currentSwipe.x > -0.5f && currentSwipe.x < 0.5f)
 		        {
-                    StartCoroutine(Jump());
+                    StartCoroutine(JumpIE());
+                    //JumpForce();
                     Debug.Log("up swipe");
                 }
                 //swipe down
@@ -76,18 +81,32 @@ public class PlayerCartMovement : MonoBehaviour
         }
     }
 
-    IEnumerator Jump()
+    IEnumerator JumpIE()
     {
         float timer = 0f;
-        float duration = 0.5f;
+        float duration = 1f;
 
         while (timer < duration)
         {
+            playerStatusController.playerCurrentStatus = PlayerStatus.Jump;
             playerCart.position = new Vector3(playerCart.position.x, normalY + Mathf.Sin(timer / duration * Mathf.PI) * jumpHeight, playerCart.position.z);
             timer += Time.deltaTime;
             yield return null;
         }
         playerCart.position = new Vector3(playerCart.position.x, normalY, playerCart.position.z);
+        playerStatusController.playerCurrentStatus = PlayerStatus.OffRail;
+    }
+
+    private void JumpForce()
+    {
+        if(playerStatusController.playerCurrentStatus == PlayerStatus.OnRail)
+        {
+            playerRigidBody.useGravity = true;
+            Vector3 offSetBeforeJump = new Vector3(0f, 0.5f, 0f);
+            //transform.position += offSetBeforeJump;
+            playerRigidBody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            playerStatusController.playerCurrentStatus = PlayerStatus.Jump;
+        }
     }
 
 }
