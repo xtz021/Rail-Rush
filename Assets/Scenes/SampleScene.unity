@@ -1005,8 +1005,8 @@ GameObject:
   - component: {fileID: 1337166974}
   - component: {fileID: 1337166973}
   - component: {fileID: 1337166975}
+  - component: {fileID: 1337166980}
   - component: {fileID: 1337166979}
-  - component: {fileID: 1337166976}
   - component: {fileID: 1337166977}
   - component: {fileID: 1337166978}
   m_Layer: 0
@@ -1062,28 +1062,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0af56bcfe9aa8141848610caf7706bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 15
+  jumpForce: 8
   jumpHeight: 5
+  distantBetweenRails: 2.75
   playerCart: {fileID: 1337166974}
---- !u!114 &1337166976
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1337166972}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16a43c2d5d176a14caa0daca00dbc1fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jump: 0
-  input: {x: 0, y: 0, z: 0}
-  onRail: 0
-  grindSpeed: 10
-  heightOffset: 0.08
-  lerpSpeed: 10
-  currentRailScript: {fileID: 0}
 --- !u!65 &1337166977
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1126,6 +1108,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCurrentStatus: 0
+--- !u!114 &1337166980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1337166972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16a43c2d5d176a14caa0daca00dbc1fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jump: 0
+  input: {x: 0, y: 0, z: 0}
+  onRail: 0
+  grindSpeed: 10
+  heightOffset: 0.08
+  lerpSpeed: 10
+  currentRailScript: {fileID: 0}
 --- !u!1 &1418912091
 GameObject:
   m_ObjectHideFlags: 0
@@ -1252,6 +1253,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1731040521}
+  - component: {fileID: 1731040522}
   m_Layer: 0
   m_Name: GitchPoints
   m_TagString: Untagged
@@ -1277,6 +1279,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1731040522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1731040520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba42956bb775dcc43814ae414b4cd502, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 0.5
 --- !u!4 &1975271855 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4904997377290598, guid: 97239bc8c69731441a640b3fa29c8c62, type: 3}

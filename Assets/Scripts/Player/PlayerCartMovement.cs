@@ -8,13 +8,15 @@ public class PlayerCartMovement : MonoBehaviour
     // Attributes for jump calculations
     public float jumpForce = 15f;
     public float jumpHeight = 5f;
+    public float distantBetweenRails = 2.75f;
+    private float normalX;
     private float normalY;
     private Rigidbody playerRigidBody;
     private PlayerStatusController playerStatusController;
 
     [SerializeField] Transform playerCart;
 
-    private float _PlayerCartSpeed = 15f;
+    private float _PlayerCartSpeed = 10f;
 
     // Vectors for swipe calculations
     Vector2 firstPressPos;
@@ -29,10 +31,20 @@ public class PlayerCartMovement : MonoBehaviour
 
     private void Update()
     {
-        //transform.Translate(Vector3.forward * Time.deltaTime * _PlayerCartSpeed, Space.World);
+        MoveForward();
         TouchControl();
     }
 
+    public void MoveForward()
+    {
+        transform.Translate(Vector3.forward * Time.deltaTime * _PlayerCartSpeed, Space.World);
+    }
+
+    private void PremNormalPos()
+    {
+        normalX = transform.position.x;
+        normalY = transform.position.y;
+    }
 
     public void TouchControl()
     {
@@ -57,39 +69,49 @@ public class PlayerCartMovement : MonoBehaviour
 
                 //swipe upwards
                 if (currentSwipe.y > 0 && currentSwipe.x > -0.5f && currentSwipe.x < 0.5f)
-		        {
-                    StartCoroutine(JumpIE());
+                {
+                    PremNormalPos();
+                    StartCoroutine(JumpIE(0));
                     //JumpForce();
                     Debug.Log("up swipe");
                 }
                 //swipe down
                 if (currentSwipe.y < 0 && currentSwipe.x > -0.5f && currentSwipe.x < 0.5f)
-		        {
+                {
                     Debug.Log("down swipe");
                 }
                 //swipe left
                 if (currentSwipe.x < 0 && currentSwipe.y > -0.5f && currentSwipe.y < 0.5f)
-		        {
+                {
+                    PremNormalPos();
+                    StartCoroutine(JumpIE(-1));
                     Debug.Log("left swipe");
                 }
                 //swipe right
                 if (currentSwipe.x > 0 && currentSwipe.y > -0.5f && currentSwipe.y < 0.5f)
-		        {
+                {
+                    PremNormalPos();
+                    StartCoroutine(JumpIE(1));
                     Debug.Log("right swipe");
                 }
             }
         }
     }
 
-    IEnumerator JumpIE()
+    IEnumerator JumpIE(int jumpDirection)       //jumpDirection = 0 -> jump straight up
+                                                //jumpDirection = 1 -> jump right
+                                                //jumpDirection = -1 -> jump left
     {
         float timer = 0f;
         float duration = 1f;
+        Debug.Log("Player jumped");
 
         while (timer < duration)
         {
             playerStatusController.playerCurrentStatus = PlayerStatus.Jump;
-            playerCart.position = new Vector3(playerCart.position.x, normalY + Mathf.Sin(timer / duration * Mathf.PI) * jumpHeight, playerCart.position.z);
+            playerCart.position = new Vector3(normalX + (timer / duration) * distantBetweenRails * jumpDirection
+                                                , normalY + _PlayerCartSpeed * Time.deltaTime + Mathf.Sin(timer / duration * Mathf.PI) * jumpHeight
+                                                , playerCart.position.z + _PlayerCartSpeed * Time.deltaTime);
             timer += Time.deltaTime;
             yield return null;
         }
@@ -99,14 +121,15 @@ public class PlayerCartMovement : MonoBehaviour
 
     private void JumpForce()
     {
-        if(playerStatusController.playerCurrentStatus == PlayerStatus.OnRail)
+        if (playerStatusController.playerCurrentStatus == PlayerStatus.OnRail)
         {
-            playerRigidBody.useGravity = true;
-            Vector3 offSetBeforeJump = new Vector3(0f, 0.5f, 0f);
-            //transform.position += offSetBeforeJump;
-            playerRigidBody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            playerStatusController.playerCurrentStatus = PlayerStatus.Jump;
+
         }
+        playerRigidBody.useGravity = true;
+        Vector3 offSetBeforeJump = new Vector3(0f, 0.5f, 0f);
+        //transform.position += offSetBeforeJump;
+        playerRigidBody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        playerStatusController.playerCurrentStatus = PlayerStatus.Jump;
     }
 
 }

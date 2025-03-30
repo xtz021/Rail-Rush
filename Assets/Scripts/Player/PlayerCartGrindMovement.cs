@@ -26,6 +26,7 @@ public class PlayerCartGrindMovement : MonoBehaviour
 
     Rigidbody playerRigidbody;
     PlayerStatusController playerStatusController;
+    private Collider[] overlapingColliders;
 
     private void Start()
     {
@@ -115,7 +116,7 @@ public class PlayerCartGrindMovement : MonoBehaviour
             {
                 playerStatusController.playerCurrentStatus = PlayerStatus.OffRail;
             }
-            Debug.Log("Exit rail at position: " + transform.position);
+            Debug.Log("Exit rail: " + collision.transform.parent.name);
             //playerRigidbody.useGravity = true;
         }
     }
@@ -123,7 +124,7 @@ public class PlayerCartGrindMovement : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Collision enter: " + transform.gameObject.name);
+        Debug.Log("Collision enter: " + collision.transform.parent.name);
         if (collision.gameObject.tag == "Rail")
         {
             playerStatusController.playerCurrentStatus = PlayerStatus.OnRail;
@@ -165,8 +166,30 @@ public class PlayerCartGrindMovement : MonoBehaviour
     {
         //Set onRail to false, clear the rail script, and push the player off the rail.
         //It's a little sudden, there might be a better way of doing using coroutines and looping, but this will work.
-        onRail = false;
-        currentRailScript = null;
-        transform.position += transform.forward * 1;
+        //if(!IsStillGrinding(out overlapingColliders))
+        {
+            onRail = false;
+            currentRailScript = null;
+            transform.position += transform.forward * 1;
+        }
     }
+
+    private bool IsStillGrinding(out Collider[] overlapingColliders)
+    {
+        Collider grindingCollider = GetComponent<Collider>();
+        Vector3 center = grindingCollider.bounds.center;
+        Vector3 halfExtents = grindingCollider.bounds.extents;
+        Quaternion rotation = transform.rotation;
+        overlapingColliders = Physics.OverlapBox(center, halfExtents, rotation);
+        foreach(Collider collider in overlapingColliders)
+        {
+            if(collider.gameObject.tag == "Rail")
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
 }
