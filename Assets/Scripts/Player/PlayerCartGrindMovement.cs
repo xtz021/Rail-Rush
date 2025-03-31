@@ -26,12 +26,14 @@ public class PlayerCartGrindMovement : MonoBehaviour
 
     Rigidbody playerRigidbody;
     PlayerStatusController playerStatusController;
+    PlayerCartMovement playerCartMovement;
     private Collider[] overlapingColliders;
 
     private void Start()
     {
         playerRigidbody = GetComponent<Rigidbody>();
         playerStatusController = GetComponent<PlayerStatusController>();
+        playerCartMovement = GetComponent<PlayerCartMovement>();
     }
     public void HandleJump(InputAction.CallbackContext context)
     {
@@ -92,8 +94,7 @@ public class PlayerCartGrindMovement : MonoBehaviour
             Vector3 worldPos = currentRailScript.LocalToWorldConversion(pos);
             Vector3 nextPos = currentRailScript.LocalToWorldConversion(nextPosfloat);
 
-            //Setting the player's position and adding a height offset so that they're sitting on top of the rail
-            //instead of being in the middle of it.
+            //Setting the player's position and adding a height offset so that they're sitting on top of the rail instead of being in the middle of it.
             transform.position = worldPos + (transform.up * heightOffset);
             //Lerping the player's current rotation to the direction of where they are to where they're going.
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(nextPos - worldPos), lerpSpeed * Time.deltaTime);
@@ -129,6 +130,7 @@ public class PlayerCartGrindMovement : MonoBehaviour
         {
             playerStatusController.playerCurrentStatus = PlayerStatus.OnRail;
             playerRigidbody.useGravity = false;
+            playerCartMovement.StopJumpingCoroutines();
             /*When the player hits the rail, onRail is set to true, the current rail script is set to the
              *rail script of the rail the player hits. Then we calculate the player's position on that rail.
             */
@@ -157,8 +159,10 @@ public class PlayerCartGrindMovement : MonoBehaviour
         //and uses it to give you a local position, a tangent (forward), and up
         float3 pos, forward, up;
         SplineUtility.Evaluate(currentRailScript.railSpline.Spline, normalisedTime, out pos, out forward, out up);
+
         //Calculate the direction the player is going down the rail
         currentRailScript.CalculateDirection(forward, transform.forward);
+
         //Set player's initial position on the rail before starting the movement code.
         transform.position = splinePoint + (transform.up * heightOffset);
     }
@@ -166,12 +170,14 @@ public class PlayerCartGrindMovement : MonoBehaviour
     {
         //Set onRail to false, clear the rail script, and push the player off the rail.
         //It's a little sudden, there might be a better way of doing using coroutines and looping, but this will work.
-        //if(!IsStillGrinding(out overlapingColliders))
+        onRail = false;
+        currentRailScript = null;
+        if(playerStatusController.playerCurrentStatus == PlayerStatus.OffRail)
         {
-            onRail = false;
-            currentRailScript = null;
             transform.position += transform.forward * 1;
+            playerRigidbody.useGravity = true;
         }
+        Debug.Log("Thrown off rail");
     }
 
     private bool IsStillGrinding(out Collider[] overlapingColliders)

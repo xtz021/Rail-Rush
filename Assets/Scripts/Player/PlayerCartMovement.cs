@@ -31,7 +31,10 @@ public class PlayerCartMovement : MonoBehaviour
 
     private void Update()
     {
-        MoveForward();
+        if(playerStatusController.playerCurrentStatus == PlayerStatus.OffRail)
+        {
+            MoveForward();
+        }
         TouchControl();
     }
 
@@ -83,15 +86,23 @@ public class PlayerCartMovement : MonoBehaviour
                 //swipe left
                 if (currentSwipe.x < 0 && currentSwipe.y > -0.5f && currentSwipe.y < 0.5f)
                 {
-                    PremNormalPos();
-                    StartCoroutine(JumpIE(-1));
+                    if(playerStatusController.playerCurrentRail >= -1)
+                    {
+                        PremNormalPos();
+                        StartCoroutine(JumpIE(-1));
+                        playerStatusController.playerCurrentRail--;
+                    }
                     Debug.Log("left swipe");
                 }
                 //swipe right
                 if (currentSwipe.x > 0 && currentSwipe.y > -0.5f && currentSwipe.y < 0.5f)
                 {
-                    PremNormalPos();
-                    StartCoroutine(JumpIE(1));
+                    if (playerStatusController.playerCurrentRail <= 1)
+                    {
+                        PremNormalPos();
+                        StartCoroutine(JumpIE(1));
+                        playerStatusController.playerCurrentRail++;
+                    }
                     Debug.Log("right swipe");
                 }
             }
@@ -105,10 +116,9 @@ public class PlayerCartMovement : MonoBehaviour
         float timer = 0f;
         float duration = 1f;
         Debug.Log("Player jumped");
-
+        playerStatusController.playerCurrentStatus = PlayerStatus.Jump;
         while (timer < duration)
         {
-            playerStatusController.playerCurrentStatus = PlayerStatus.Jump;
             playerCart.position = new Vector3(normalX + (timer / duration) * distantBetweenRails * jumpDirection
                                                 , normalY + _PlayerCartSpeed * Time.deltaTime + Mathf.Sin(timer / duration * Mathf.PI) * jumpHeight
                                                 , playerCart.position.z + _PlayerCartSpeed * Time.deltaTime);
@@ -117,6 +127,11 @@ public class PlayerCartMovement : MonoBehaviour
         }
         playerCart.position = new Vector3(playerCart.position.x, normalY, playerCart.position.z);
         playerStatusController.playerCurrentStatus = PlayerStatus.OffRail;
+    }
+
+    public void StopJumpingCoroutines()
+    {
+        StopAllCoroutines();
     }
 
     private void JumpForce()
