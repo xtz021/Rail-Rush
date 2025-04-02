@@ -319,6 +319,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 111048418288264788, guid: 97239bc8c69731441a640b3fa29c8c62, type: 3}
+      propertyPath: m_Animation
+      value: 
+      objectReference: {fileID: 7400000, guid: 99dc95089ddb5b14abfdb6010d61e198, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97239bc8c69731441a640b3fa29c8c62, type: 3}
 --- !u!1001 &349367668
@@ -1171,7 +1175,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1337166972}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -20}
+  m_LocalPosition: {x: 0, y: 1, z: 110}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1208,7 +1212,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.25, y: 1.25, z: 1.25}
-  m_Center: {x: 0, y: 0.7, z: 0}
+  m_Center: {x: 0, y: 0.65, z: 0}
 --- !u!54 &1337166978
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1254,9 +1258,9 @@ MonoBehaviour:
   jump: 0
   input: {x: 0, y: 0, z: 0}
   onRail: 0
-  grindSpeed: 10
-  heightOffset: 0.075
-  lerpSpeed: 10
+  grindSpeed: 4
+  heightOffset: 0.05
+  lerpSpeed: 4
   currentRailScript: {fileID: 0}
 --- !u!95 &1337166981
 Animator:
@@ -1266,7 +1270,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1337166972}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 798f872b3c7ccf946af1147650eee30e, type: 2}
   m_CullingMode: 0

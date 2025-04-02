@@ -40,6 +40,10 @@ public class PlayerCartMovement : MonoBehaviour
 
     public void MoveForward()
     {
+        if(playerRigidBody.useGravity == false)
+        {
+            //playerRigidBody.useGravity = true;
+        }
         transform.Translate(Vector3.forward * Time.deltaTime * _PlayerCartSpeed, Space.World);
     }
 

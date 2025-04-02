@@ -757,6 +757,7 @@ GameObject:
   - component: {fileID: 4137465772405925}
   - component: {fileID: 798238250580841531}
   - component: {fileID: 1400204387304932334}
+  - component: {fileID: 724480006158666026}
   m_Layer: 0
   m_Name: R1
   m_TagString: Rail
@@ -996,9 +997,24 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: f9fae52e76ccd83468d041040e97df33, type: 2}
+--- !u!114 &724480006158666026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1406113927180636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c7dbd6e10c31e547a0e119c08032360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalDir: 0
+  railSpline: {fileID: 0}
+  totalSplineLength: 0
 --- !u!1 &1480905306005056
 GameObject:
   m_ObjectHideFlags: 0
@@ -1946,7 +1962,7 @@ GameObject:
   - component: {fileID: 3147734217510944497}
   m_Layer: 0
   m_Name: R0
-  m_TagString: Untagged
+  m_TagString: Rail
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

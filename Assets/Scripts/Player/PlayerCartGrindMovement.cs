@@ -19,7 +19,7 @@ public class PlayerCartGrindMovement : MonoBehaviour
     [SerializeField] float heightOffset;
     float timeForFullSpline;
     float elapsedTime;
-    [SerializeField] float lerpSpeed = 10f;
+    [SerializeField] float lerpSpeed = 5f;
 
     [Header("Scripts")]
     [SerializeField] RailScript currentRailScript;
@@ -71,20 +71,13 @@ public class PlayerCartGrindMovement : MonoBehaviour
                 ThrowOffRail();
                 return;
             }
-            //The rest of this code will not execute if the player is thrown off.
 
-            //Next Time Normalised is the player's progress value for the next update.
-            //This is used for calculating the player's rotation.
-            //Depending on the direction of the player on the spline, it will either add or subtract time from the
-            //current elapsed time.
             float nextTimeNormalised;
             if (currentRailScript.normalDir)
                 nextTimeNormalised = (elapsedTime + Time.deltaTime) / timeForFullSpline;
             else
                 nextTimeNormalised = (elapsedTime - Time.deltaTime) / timeForFullSpline;
 
-            //Calculating the local positions of the player's current position and next position
-            //using current progress and the progress for the next update.
             float3 pos, tangent, up;
             float3 nextPosfloat, nextTan, nextUp;
             SplineUtility.Evaluate(currentRailScript.railSpline.Spline, progress, out pos, out tangent, out up);
@@ -97,9 +90,16 @@ public class PlayerCartGrindMovement : MonoBehaviour
             //Setting the player's position and adding a height offset so that they're sitting on top of the rail instead of being in the middle of it.
             transform.position = worldPos + (transform.up * heightOffset);
             //Lerping the player's current rotation to the direction of where they are to where they're going.
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(nextPos - worldPos), lerpSpeed * Time.deltaTime);
+            //transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(nextPos - worldPos), lerpSpeed * Time.deltaTime);
             //Lerping the player's up direction to match that of the rail, in relation to the player's current rotation.
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.FromToRotation(transform.up, up) * transform.rotation, lerpSpeed * Time.deltaTime);
+            //transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.FromToRotation(transform.up, up), lerpSpeed * Time.deltaTime);
+            transform.LookAt(tangent);
+            float z = transform.rotation.eulerAngles.z;
+            if(z > 50 ||  z < -50)
+            {
+                Debug.Log("Rotation z: " + z);
+                Debug.Log("Position: " + transform.position);
+            }
 
             //Finally incrementing or decrementing elapsed time for the next update based on direction.
             if (currentRailScript.normalDir)
@@ -113,6 +113,10 @@ public class PlayerCartGrindMovement : MonoBehaviour
     {
         if(collision.gameObject.tag == "Rail")
         {
+            if (currentRailScript != collision.gameObject.GetComponent<RailScript>() && currentRailScript != null)
+            {
+                return;
+            }
             if(playerStatusController.playerCurrentStatus == PlayerStatus.OnRail)
             {
                 playerStatusController.playerCurrentStatus = PlayerStatus.OffRail;
@@ -125,7 +129,7 @@ public class PlayerCartGrindMovement : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Collision enter: " + collision.transform.parent.name);
+        //Debug.Log("Collision enter: " + collision.transform.parent.name);
         if (collision.gameObject.tag == "Rail")
         {
             playerStatusController.playerCurrentStatus = PlayerStatus.OnRail;
@@ -139,6 +143,36 @@ public class PlayerCartGrindMovement : MonoBehaviour
             CalculateAndSetRailPosition();
         }
     }
+
+    //private void OnTriggerExit(Collider other)
+    //{
+    //    if (other.gameObject.tag == "Rail")
+    //    {
+    //        if (playerStatusController.playerCurrentStatus == PlayerStatus.OnRail)
+    //        {
+    //            playerStatusController.playerCurrentStatus = PlayerStatus.OffRail;
+    //        }
+    //        Debug.Log("Exit rail: " + other.transform.parent.name);
+    //        //playerRigidbody.useGravity = true;
+    //    }
+    //}
+
+
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.gameObject.tag == "Rail")
+    //    {
+    //        playerStatusController.playerCurrentStatus = PlayerStatus.OnRail;
+    //        playerRigidbody.useGravity = false;
+    //        playerCartMovement.StopJumpingCoroutines();
+    //        /*When the player hits the rail, onRail is set to true, the current rail script is set to the
+    //         *rail script of the rail the player hits. Then we calculate the player's position on that rail.
+    //        */
+    //        onRail = true;
+    //        currentRailScript = other.gameObject.GetComponent<RailScript>();
+    //        CalculateAndSetRailPosition();
+    //    }
+    //}
 
     void CalculateAndSetRailPosition()
     {
@@ -172,8 +206,9 @@ public class PlayerCartGrindMovement : MonoBehaviour
         //It's a little sudden, there might be a better way of doing using coroutines and looping, but this will work.
         onRail = false;
         currentRailScript = null;
-        if(playerStatusController.playerCurrentStatus == PlayerStatus.OffRail)
+        if(playerStatusController.playerCurrentStatus != PlayerStatus.Jump)
         {
+            playerStatusController.playerCurrentStatus = PlayerStatus.OffRail;
             transform.position += transform.forward * 1;
             playerRigidbody.useGravity = true;
         }
