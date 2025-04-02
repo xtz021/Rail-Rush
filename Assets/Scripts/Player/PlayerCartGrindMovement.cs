@@ -19,7 +19,7 @@ public class PlayerCartGrindMovement : MonoBehaviour
     [SerializeField] float heightOffset;
     float timeForFullSpline;
     float elapsedTime;
-    [SerializeField] float lerpSpeed = 5f;
+    [SerializeField] float lerpSpeed = 15f;
 
     [Header("Scripts")]
     [SerializeField] RailScript currentRailScript;
@@ -46,7 +46,7 @@ public class PlayerCartGrindMovement : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (onRail) //If on the rail, move the player along the rail
+        if (onRail && playerStatusController.playerCurrentStatus != PlayerStatus.Jump) //If on the rail, move the player along the rail
         {
             MovePlayerAlongRail();
         }
@@ -90,10 +90,11 @@ public class PlayerCartGrindMovement : MonoBehaviour
             //Setting the player's position and adding a height offset so that they're sitting on top of the rail instead of being in the middle of it.
             transform.position = worldPos + (transform.up * heightOffset);
             //Lerping the player's current rotation to the direction of where they are to where they're going.
-            //transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(nextPos - worldPos), lerpSpeed * Time.deltaTime);
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(nextPos - worldPos), lerpSpeed * Time.deltaTime);
+            //transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(new Vector3(0,0,1)), lerpSpeed * Time.deltaTime);
             //Lerping the player's up direction to match that of the rail, in relation to the player's current rotation.
-            //transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.FromToRotation(transform.up, up), lerpSpeed * Time.deltaTime);
-            transform.LookAt(tangent);
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.FromToRotation(transform.up, up), lerpSpeed * Time.deltaTime);
+            //transform.LookAt(tangent);
             float z = transform.rotation.eulerAngles.z;
             if(z > 50 ||  z < -50)
             {

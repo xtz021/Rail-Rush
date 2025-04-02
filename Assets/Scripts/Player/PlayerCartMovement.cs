@@ -126,6 +126,7 @@ public class PlayerCartMovement : MonoBehaviour
             playerCart.position = new Vector3(normalX + (timer / duration) * distantBetweenRails * jumpDirection
                                                 , normalY + _PlayerCartSpeed * Time.deltaTime + Mathf.Sin(timer / duration * Mathf.PI) * jumpHeight
                                                 , playerCart.position.z + _PlayerCartSpeed * Time.deltaTime);
+            //playerCart.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(new Vector3(0,0,1)),5*Time.deltaTime);
             timer += Time.deltaTime;
             yield return null;
         }
