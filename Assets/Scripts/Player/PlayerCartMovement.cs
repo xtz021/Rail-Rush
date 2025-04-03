@@ -13,6 +13,7 @@ public class PlayerCartMovement : MonoBehaviour
     private float normalY;
     private Rigidbody playerRigidBody;
     private PlayerStatusController playerStatusController;
+    private PlayerCartGrindMovement playerCartGrindMovement;
 
     [SerializeField] Transform playerCart;
 
@@ -27,13 +28,14 @@ public class PlayerCartMovement : MonoBehaviour
     {
         playerRigidBody = GetComponent<Rigidbody>();
         playerStatusController = GetComponent<PlayerStatusController>();
+        playerCartGrindMovement = GetComponent<PlayerCartGrindMovement>();
     }
 
     private void Update()
     {
         if(playerStatusController.playerCurrentStatus == PlayerStatus.OffRail)
         {
-            MoveForward();
+            //MoveForward();
         }
         TouchControl();
     }
@@ -78,7 +80,7 @@ public class PlayerCartMovement : MonoBehaviour
                 if (currentSwipe.y > 0 && currentSwipe.x > -0.5f && currentSwipe.x < 0.5f)
                 {
                     PremNormalPos();
-                    StartCoroutine(JumpIE(0));
+                    Jump(0);
                     //JumpForce();
                     Debug.Log("up swipe");
                 }
@@ -90,10 +92,10 @@ public class PlayerCartMovement : MonoBehaviour
                 //swipe left
                 if (currentSwipe.x < 0 && currentSwipe.y > -0.5f && currentSwipe.y < 0.5f)
                 {
-                    if(playerStatusController.playerCurrentRail >= -1)
+                    if(playerStatusController.playerCurrentRail > -1)
                     {
                         PremNormalPos();
-                        StartCoroutine(JumpIE(-1));
+                        Jump(-1);
                         playerStatusController.playerCurrentRail--;
                     }
                     Debug.Log("left swipe");
@@ -101,16 +103,22 @@ public class PlayerCartMovement : MonoBehaviour
                 //swipe right
                 if (currentSwipe.x > 0 && currentSwipe.y > -0.5f && currentSwipe.y < 0.5f)
                 {
-                    if (playerStatusController.playerCurrentRail <= 1)
+                    if (playerStatusController.playerCurrentRail < 1)
                     {
                         PremNormalPos();
-                        StartCoroutine(JumpIE(1));
+                        Jump(1);
                         playerStatusController.playerCurrentRail++;
                     }
                     Debug.Log("right swipe");
                 }
             }
         }
+    }
+
+    private void Jump(int jumpDirection)
+    {
+        StartCoroutine(JumpIE(jumpDirection));
+        playerCartGrindMovement.EmptyCurrentRailScript();
     }
 
     IEnumerator JumpIE(int jumpDirection)       //jumpDirection = 0 -> jump straight up
@@ -128,9 +136,11 @@ public class PlayerCartMovement : MonoBehaviour
                                                 , playerCart.position.z + _PlayerCartSpeed * Time.deltaTime);
             //playerCart.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(new Vector3(0,0,1)),5*Time.deltaTime);
             timer += Time.deltaTime;
+            Debug.Log("Jumping");
             yield return null;
         }
-        playerCart.position = new Vector3(playerCart.position.x, normalY, playerCart.position.z);
+        //playerCart.position = new Vector3(playerCart.position.x, normalY, playerCart.position.z);
+        Debug.Log("Landed");
         playerStatusController.playerCurrentStatus = PlayerStatus.OffRail;
     }
 
