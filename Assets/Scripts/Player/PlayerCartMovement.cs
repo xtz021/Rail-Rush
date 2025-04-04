@@ -8,7 +8,12 @@ public class PlayerCartMovement : MonoBehaviour
     // Attributes for jump calculations
     public float jumpForce = 15f;
     public float jumpHeight = 5f;
+    public float jumpOnAirDuration;
     public float distantBetweenRails = 2.75f;
+    
+    public bool _movePhysic = false;
+
+
     private float normalX;
     private float normalY;
     private Rigidbody playerRigidBody;
@@ -33,8 +38,9 @@ public class PlayerCartMovement : MonoBehaviour
 
     private void Update()
     {
-        if(playerStatusController.playerCurrentStatus == PlayerStatus.OffRail)
+        if(playerStatusController.playerCurrentStatus == PlayerStatus.OffRail && _movePhysic)
         {
+            playerRigidBody.useGravity = true;
             //MoveForward();
         }
         TouchControl();
@@ -126,13 +132,15 @@ public class PlayerCartMovement : MonoBehaviour
                                                 //jumpDirection = -1 -> jump left
     {
         float timer = 0f;
-        float duration = 1f;
+        float jumpOnAirDuration = 0.5f;
+        playerCartGrindMovement.onRail = false;
+        jumpDirection = NormalizedIntDirection(jumpDirection);
         Debug.Log("Player jumped");
         playerStatusController.playerCurrentStatus = PlayerStatus.Jump;
-        while (timer < duration)
+        while (timer < jumpOnAirDuration)
         {
-            playerCart.position = new Vector3(normalX + (timer / duration) * distantBetweenRails * jumpDirection
-                                                , normalY + _PlayerCartSpeed * Time.deltaTime + Mathf.Sin(timer / duration * Mathf.PI) * jumpHeight
+            playerCart.position = new Vector3(normalX + (timer / jumpOnAirDuration) * distantBetweenRails * jumpDirection
+                                                , normalY + _PlayerCartSpeed * Time.deltaTime + Mathf.Sin(timer / jumpOnAirDuration * Mathf.PI) * jumpHeight
                                                 , playerCart.position.z + _PlayerCartSpeed * Time.deltaTime);
             //playerCart.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(new Vector3(0,0,1)),5*Time.deltaTime);
             timer += Time.deltaTime;
@@ -160,6 +168,19 @@ public class PlayerCartMovement : MonoBehaviour
         //transform.position += offSetBeforeJump;
         playerRigidBody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         playerStatusController.playerCurrentStatus = PlayerStatus.Jump;
+    }
+
+    private int NormalizedIntDirection(int direction)
+    {
+        if(direction > 0)
+        {
+            direction = 1;
+        }
+        else if(direction < 0) 
+        {
+            direction = -1;
+        }
+        return direction;
     }
 
 }
