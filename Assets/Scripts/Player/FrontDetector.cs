@@ -19,7 +19,7 @@ public class FrontDetector : MonoBehaviour
     {
         if(other.gameObject.tag == "Rail")
         {
-            Debug.Log("rail in front: " + other.transform.parent.name);
+            //Debug.Log("rail in front: " + other.transform.parent.name);
             _hasRailInFront = true;
         }
     }

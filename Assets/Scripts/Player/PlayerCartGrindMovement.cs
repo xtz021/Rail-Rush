@@ -87,14 +87,20 @@ public class PlayerCartGrindMovement : MonoBehaviour
             Vector3 worldPos = currentRailScript.LocalToWorldConversion(pos);
             Vector3 nextPos = currentRailScript.LocalToWorldConversion(nextPosfloat);
 
-            //Setting the player's position and adding a height offset so that they're sitting on top of the rail instead of being in the middle of it.
-            transform.position = worldPos + (transform.up * heightOffset);
-            //Lerping the player's current rotation to the direction of where they are to where they're going.
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(nextPos - worldPos), lerpSpeed * Time.deltaTime);
-            //Lerping the player's up direction to match that of the rail, in relation to the player's current rotation.
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.FromToRotation(transform.up, up), lerpSpeed * Time.deltaTime);
-            //transform.LookAt(tangent);
-            float z = transform.rotation.eulerAngles.z;
+            if(nextPos == worldPos)
+            {
+                Debug.Log("Freeze error due to nextPos = worldPos: at " + worldPos);
+                transform.Translate(Vector3.forward * Time.deltaTime * playerCartMovement._PlayerCartSpeed, Space.World);
+            }
+            else
+            {
+                //Setting the player's position and adding a height offset so that they're sitting on top of the rail instead of being in the middle of it.
+                transform.position = worldPos + (transform.up * heightOffset);
+                //Lerping the player's current rotation to the direction of where they are to where they're going.
+                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(nextPos - worldPos), lerpSpeed * Time.deltaTime);
+                //Lerping the player's up direction to match that of the rail, in relation to the player's current rotation.
+                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.FromToRotation(transform.up, up), lerpSpeed * Time.deltaTime);
+            }
 
             //Finally incrementing or decrementing elapsed time for the next update based on direction.
             if (currentRailScript.normalDir)
@@ -193,7 +199,7 @@ public class PlayerCartGrindMovement : MonoBehaviour
     {
         if (railCollider.gameObject.tag == "Rail")
         {
-            Debug.Log("Exit rail: " + railCollider.transform.parent.name);
+            //Debug.Log("Exit rail: " + railCollider.transform.parent.name);
             if (currentRailScript != railCollider.gameObject.GetComponent<RailScript>() && currentRailScript != null)
             {
                 return;

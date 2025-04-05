@@ -8,9 +8,10 @@ public class PlayerCartMovement : MonoBehaviour
     // Attributes for jump calculations
     public float jumpForce = 15f;
     public float jumpHeight = 5f;
-    public float jumpOnAirDuration;
+    public float jumpOnAirDuration = 0.5f;
     public float distantBetweenRails = 2.75f;
-    
+    public float _PlayerCartSpeed = 10f;
+
     public bool _movePhysic = false;
 
 
@@ -22,12 +23,15 @@ public class PlayerCartMovement : MonoBehaviour
 
     [SerializeField] Transform playerCart;
 
-    private float _PlayerCartSpeed = 10f;
 
     // Vectors for swipe calculations
     Vector2 firstPressPos;
     Vector2 secondPressPos;
     Vector2 currentSwipe;
+
+    private bool touchControlOnCooldown = false;
+    private Coroutine jumpCoroutine;
+    private Coroutine touchCooldownCoroutine;
 
     private void Start()
     {
@@ -63,7 +67,7 @@ public class PlayerCartMovement : MonoBehaviour
 
     public void TouchControl()
     {
-        if (Input.touches.Length > 0)
+        if (Input.touches.Length > 0 && !touchControlOnCooldown)
         {
             Touch t = Input.GetTouch(0);
             if (t.phase == TouchPhase.Began)
@@ -123,7 +127,8 @@ public class PlayerCartMovement : MonoBehaviour
 
     private void Jump(int jumpDirection)
     {
-        StartCoroutine(JumpIE(jumpDirection));
+        jumpCoroutine = StartCoroutine(JumpIE(jumpDirection));
+        touchCooldownCoroutine = StartCoroutine(TouchControlGoesOnCooldown());
         playerCartGrindMovement.EmptyCurrentRailScript();
     }
 
@@ -135,7 +140,6 @@ public class PlayerCartMovement : MonoBehaviour
         float jumpOnAirDuration = 0.5f;
         playerCartGrindMovement.onRail = false;
         jumpDirection = NormalizedIntDirection(jumpDirection);
-        Debug.Log("Player jumped");
         playerStatusController.playerCurrentStatus = PlayerStatus.Jump;
         while (timer < jumpOnAirDuration)
         {
@@ -144,17 +148,28 @@ public class PlayerCartMovement : MonoBehaviour
                                                 , playerCart.position.z + _PlayerCartSpeed * Time.deltaTime);
             //playerCart.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(new Vector3(0,0,1)),5*Time.deltaTime);
             timer += Time.deltaTime;
-            Debug.Log("Jumping");
             yield return null;
         }
-        //playerCart.position = new Vector3(playerCart.position.x, normalY, playerCart.position.z);
-        Debug.Log("Landed");
+        playerCart.position = new Vector3(playerCart.position.x, normalY, playerCart.position.z);
+        //Debug.Log("Landed");
         playerStatusController.playerCurrentStatus = PlayerStatus.OffRail;
+    }
+
+    IEnumerator TouchControlGoesOnCooldown()
+    {
+        touchControlOnCooldown = true;
+        yield return new WaitForSeconds(jumpOnAirDuration);
+        touchControlOnCooldown = false;
+        yield break;
     }
 
     public void StopJumpingCoroutines()
     {
-        StopAllCoroutines();
+        if(jumpCoroutine != null)
+        {
+            //StopAllCoroutines();
+            StopCoroutine(jumpCoroutine);
+        }
     }
 
     private void JumpForce()
