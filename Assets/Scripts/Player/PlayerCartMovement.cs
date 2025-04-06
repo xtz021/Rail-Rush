@@ -17,6 +17,8 @@ public class PlayerCartMovement : MonoBehaviour
 
     private float normalX;
     private float normalY;
+    private float maxTiltAngle = 45f;
+    private float tiltSpeed = 5f;
     private Rigidbody playerRigidBody;
     private PlayerStatusController playerStatusController;
     private PlayerCartGrindMovement playerCartGrindMovement;
@@ -70,63 +72,74 @@ public class PlayerCartMovement : MonoBehaviour
 
     public void TouchControl()
     {
-        if (Input.touches.Length > 0 && !touchControlOnCooldown)
+        if(!touchControlOnCooldown)
         {
-            Touch t = Input.GetTouch(0);
-            if (t.phase == TouchPhase.Began)
+            if (Input.touches.Length > 0)
             {
-                //save began touch 2d point
-                firstPressPos = new Vector2(t.position.x, t.position.y);
-            }
-            if (t.phase == TouchPhase.Ended)
-            {
-                //save ended touch 2d point
-                secondPressPos = new Vector2(t.position.x, t.position.y);
-
-                //create vector from the two points
-                currentSwipe = new Vector3(secondPressPos.x - firstPressPos.x, secondPressPos.y - firstPressPos.y);
-
-                //normalize the 2d vector
-                currentSwipe.Normalize();
-
-                //swipe upwards
-                if (currentSwipe.y > 0 && currentSwipe.x > -0.5f && currentSwipe.x < 0.5f)
+                Touch t = Input.GetTouch(0);
+                if (t.phase == TouchPhase.Began)
                 {
-                    PremNormalPos();
-                    Jump(0);
-                    //JumpForce();
-                    Debug.Log("up swipe");
+                    //save began touch 2d point
+                    firstPressPos = new Vector2(t.position.x, t.position.y);
                 }
-                //swipe down
-                if (currentSwipe.y < 0 && currentSwipe.x > -0.5f && currentSwipe.x < 0.5f)
+                if (t.phase == TouchPhase.Ended)
                 {
-                    characterAnimationController.Crouch();                                  // Play Crouch animation
-                    Debug.Log("down swipe");
-                }
-                //swipe left
-                if (currentSwipe.x < 0 && currentSwipe.y > -0.5f && currentSwipe.y < 0.5f)
-                {
-                    if(playerStatusController.playerCurrentRail > -1)
+                    //save ended touch 2d point
+                    secondPressPos = new Vector2(t.position.x, t.position.y);
+
+                    //create vector from the two points
+                    currentSwipe = new Vector3(secondPressPos.x - firstPressPos.x, secondPressPos.y - firstPressPos.y);
+
+                    //normalize the 2d vector
+                    currentSwipe.Normalize();
+
+                    //swipe upwards
+                    if (currentSwipe.y > 0 && currentSwipe.x > -0.5f && currentSwipe.x < 0.5f)
                     {
                         PremNormalPos();
-                        Jump(-1);
-                        playerStatusController.playerCurrentRail--;
+                        Jump(0);
+                        //JumpForce();
+                        Debug.Log("up swipe");
                     }
-                    Debug.Log("left swipe");
-                }
-                //swipe right
-                if (currentSwipe.x > 0 && currentSwipe.y > -0.5f && currentSwipe.y < 0.5f)
-                {
-                    if (playerStatusController.playerCurrentRail < 1)
+                    //swipe down
+                    if (currentSwipe.y < 0 && currentSwipe.x > -0.5f && currentSwipe.x < 0.5f)
                     {
-                        PremNormalPos();
-                        Jump(1);
-                        playerStatusController.playerCurrentRail++;
+                        characterAnimationController.Crouch();                                  // Play Crouch animation
+                        Debug.Log("down swipe");
                     }
-                    Debug.Log("right swipe");
+                    //swipe left
+                    if (currentSwipe.x < 0 && currentSwipe.y > -0.5f && currentSwipe.y < 0.5f)
+                    {
+                        if (playerStatusController.playerCurrentRail > -1)
+                        {
+                            PremNormalPos();
+                            Jump(-1);
+                            playerStatusController.playerCurrentRail--;
+                        }
+                        Debug.Log("left swipe");
+                    }
+                    //swipe right
+                    if (currentSwipe.x > 0 && currentSwipe.y > -0.5f && currentSwipe.y < 0.5f)
+                    {
+                        if (playerStatusController.playerCurrentRail < 1)
+                        {
+                            PremNormalPos();
+                            Jump(1);
+                            playerStatusController.playerCurrentRail++;
+                        }
+                        Debug.Log("right swipe");
+                    }
                 }
             }
+            TiltCartControl();
         }
+    }
+
+    private void TiltCartControl()
+    {
+        Vector3 tilt = Input.acceleration;
+        float tiltX = Mathf.Clamp(tilt.x * tiltSpeed, -maxTiltAngle,maxTiltAngle);      // Get tilt on X rotation but limit it in (-45;45) angle
+        transform.rotation = Quaternion.Euler(tiltX,0,0);
     }
 
     private void Jump(int jumpDirection)
@@ -151,7 +164,7 @@ public class PlayerCartMovement : MonoBehaviour
             playerCart.position = new Vector3(normalX + (timer / jumpOnAirDuration) * distantBetweenRails * jumpDirection
                                                 , normalY + _PlayerCartSpeed * Time.deltaTime + Mathf.Sin(timer / jumpOnAirDuration * Mathf.PI) * jumpHeight
                                                 , playerCart.position.z + _PlayerCartSpeed * Time.deltaTime);
-            //playerCart.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(new Vector3(0,0,1)),5*Time.deltaTime);
+            playerCart.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(new Vector3(0,0,1)),5*Time.deltaTime);
             timer += Time.deltaTime;
             yield return null;
         }
@@ -177,7 +190,7 @@ public class PlayerCartMovement : MonoBehaviour
         }
     }
 
-    private void JumpForce()
+    private void JumpForce()                // Not using this at the moment
     {
         if (playerStatusController.playerCurrentStatus == PlayerStatus.OnRail)
         {
