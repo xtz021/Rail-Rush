@@ -49,7 +49,7 @@ public class PlayerCartGrindMovement : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (onRail && playerStatusController.playerCurrentStatus != PlayerStatus.Jump) //If on the rail, move the player along the rail
+        if (onRail && playerStatusController.playerCurrentStatus != PlayerStatus.Jump) //If on the rail and not jumping, move the player along the rail
         {
             MovePlayerAlongRail();
         }
@@ -87,10 +87,12 @@ public class PlayerCartGrindMovement : MonoBehaviour
             Vector3 worldPos = currentRailScript.LocalToWorldConversion(pos);
             Vector3 nextPos = currentRailScript.LocalToWorldConversion(nextPosfloat);
 
-            if(nextPos == worldPos)
+            if(nextPos == worldPos) // in case the player Cart got stucked between 2 rails
             {
                 Debug.Log("Freeze error due to nextPos = worldPos: at " + worldPos);
-                transform.Translate(Vector3.forward * Time.deltaTime * playerCartMovement._PlayerCartSpeed, Space.World);
+
+                // Unstuck by moving the player Cart forward into the next rail
+                transform.Translate(Vector3.forward * Time.deltaTime * playerCartMovement._PlayerCartSpeed, Space.World);   
             }
             else
             {
@@ -187,8 +189,7 @@ public class PlayerCartGrindMovement : MonoBehaviour
             playerRigidbody.useGravity = false;
             playerCartMovement.StopJumpingCoroutines();
             /*When the player hits the rail, onRail is set to true, the current rail script is set to the
-             *rail script of the rail the player hits. Then we calculate the player's position on that rail.
-            */
+             *rail script of the rail the player hits. Then we calculate the player's position on that rail.*/
             onRail = true;
             currentRailScript = other.gameObject.GetComponent<RailScript>();
             CalculateAndSetRailPosition();

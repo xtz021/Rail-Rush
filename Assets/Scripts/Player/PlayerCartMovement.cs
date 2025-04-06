@@ -20,8 +20,10 @@ public class PlayerCartMovement : MonoBehaviour
     private Rigidbody playerRigidBody;
     private PlayerStatusController playerStatusController;
     private PlayerCartGrindMovement playerCartGrindMovement;
+    private CharacterAnimationController characterAnimationController;
 
     [SerializeField] Transform playerCart;
+    [SerializeField] CartAnimationController cartAnimationController;
 
 
     // Vectors for swipe calculations
@@ -38,6 +40,7 @@ public class PlayerCartMovement : MonoBehaviour
         playerRigidBody = GetComponent<Rigidbody>();
         playerStatusController = GetComponent<PlayerStatusController>();
         playerCartGrindMovement = GetComponent<PlayerCartGrindMovement>();
+        characterAnimationController = transform.Find("PlayerCharacter").GetComponent<CharacterAnimationController>();
     }
 
     private void Update()
@@ -97,6 +100,7 @@ public class PlayerCartMovement : MonoBehaviour
                 //swipe down
                 if (currentSwipe.y < 0 && currentSwipe.x > -0.5f && currentSwipe.x < 0.5f)
                 {
+                    characterAnimationController.Crouch();                                  // Play Crouch animation
                     Debug.Log("down swipe");
                 }
                 //swipe left
@@ -129,6 +133,7 @@ public class PlayerCartMovement : MonoBehaviour
     {
         jumpCoroutine = StartCoroutine(JumpIE(jumpDirection));
         touchCooldownCoroutine = StartCoroutine(TouchControlGoesOnCooldown());
+        cartAnimationController.JumpAnimation(jumpDirection);                   // Playing jump animation
         playerCartGrindMovement.EmptyCurrentRailScript();
     }
 

@@ -5,6 +5,7 @@ using UnityEngine;
 public class FrontDetector : MonoBehaviour
 {
     public bool _hasRailInFront;
+    public PlayerStatusController playerStatusController;
     [SerializeField] PlayerCartGrindMovement playerGrindingScript;
 
     Collider[] frontRails;
@@ -28,7 +29,10 @@ public class FrontDetector : MonoBehaviour
     {
         if(!RailInRange(out frontRails))
         {
-            Debug.Log("No rail in front detected!");
+            if(playerStatusController.playerCurrentStatus != PlayerStatus.Jump)
+            {
+                Debug.Log("No rail in front detected!");
+            }
             _hasRailInFront = false;
             //playerGrindingScript.EmptyCurrentRailScript();
             //playerGrindingScript.DeadEndJumpOffCliff();
