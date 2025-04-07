@@ -17,8 +17,8 @@ public class PlayerCartMovement : MonoBehaviour
 
     private float normalX;
     private float normalY;
-    private float maxTiltAngle = 45f;
-    private float tiltSpeed = 5f;
+    private float maxTiltAngle = 90f;
+    private float tiltSpeed = 15f;
     private Rigidbody playerRigidBody;
     private PlayerStatusController playerStatusController;
     private PlayerCartGrindMovement playerCartGrindMovement;
@@ -139,7 +139,7 @@ public class PlayerCartMovement : MonoBehaviour
     {
         Vector3 tilt = Input.acceleration;
         float tiltX = Mathf.Clamp(tilt.x * tiltSpeed, -maxTiltAngle,maxTiltAngle);      // Get tilt on X rotation but limit it in (-45;45) angle
-        transform.rotation = Quaternion.Euler(tiltX,0,0);
+        transform.rotation = Quaternion.Euler(0,0,-tiltX);
     }
 
     private void Jump(int jumpDirection)
@@ -171,6 +171,7 @@ public class PlayerCartMovement : MonoBehaviour
         playerCart.position = new Vector3(playerCart.position.x, normalY, playerCart.position.z);
         //Debug.Log("Landed");
         playerStatusController.playerCurrentStatus = PlayerStatus.OffRail;
+        playerRigidBody.useGravity = true;
     }
 
     IEnumerator TouchControlGoesOnCooldown()
