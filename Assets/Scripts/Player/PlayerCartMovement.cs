@@ -18,6 +18,7 @@ public class PlayerCartMovement : MonoBehaviour
     private float normalX;
     private float normalY;
     private float maxTiltAngle = 90f;
+    private float tiltMagnitude = 20f;
     private float tiltSpeed = 15f;
     private Rigidbody playerRigidBody;
     private PlayerStatusController playerStatusController;
@@ -138,8 +139,19 @@ public class PlayerCartMovement : MonoBehaviour
     private void TiltCartControl()
     {
         Vector3 tilt = Input.acceleration;
-        float tiltX = Mathf.Clamp(tilt.x * tiltSpeed, -maxTiltAngle,maxTiltAngle);      // Get tilt on X rotation but limit it in (-45;45) angle
-        transform.rotation = Quaternion.Euler(0,0,-tiltX);
+        Vector3 targetPos = new Vector3(0,0,0);
+        if(tilt.x >= 0.25f)
+        {
+            targetPos.z = -maxTiltAngle;
+        }
+        else if(tilt.x <= -0.25)
+        {
+            targetPos.z = maxTiltAngle;
+        }
+        Quaternion targetRotation = Quaternion.Euler(targetPos);
+        //float tiltX = Mathf.Clamp(tilt.x * tiltMagnitude, -maxTiltAngle,maxTiltAngle);      // Get tilt on X rotation but limit it in (-45;45) angle
+        //transform.rotation = Quaternion.Euler(0,0,-tiltX);
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, tiltSpeed * Time.deltaTime);
     }
 
     private void Jump(int jumpDirection)
