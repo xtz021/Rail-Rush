@@ -270,22 +270,5 @@ public class PlayerCartGrindMovement : MonoBehaviour
         playerCartMovement._movePhysic = true;
     }
 
-    private bool IsStillGrinding(out Collider[] overlapingColliders)
-    {
-        Collider grindingCollider = GetComponent<Collider>();
-        Vector3 center = grindingCollider.bounds.center;
-        Vector3 halfExtents = grindingCollider.bounds.extents;
-        Quaternion rotation = transform.rotation;
-        overlapingColliders = Physics.OverlapBox(center, halfExtents, rotation);
-        foreach(Collider collider in overlapingColliders)
-        {
-            if(collider.gameObject.tag == "Rail")
-            {
-                return true;
-            }
-        }
-
-        return false;
-    }
 
 }

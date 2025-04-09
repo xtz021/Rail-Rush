@@ -6,7 +6,6 @@ using UnityEngine;
 public class PlayerCartMovement : MonoBehaviour
 {
     // Attributes for jump calculations
-    public float jumpForce = 15f;
     public float jumpHeight = 15f;
     public float jumpOnAirDuration = 0.5f;
     public float distantBetweenRails = 2.75f;
@@ -17,9 +16,9 @@ public class PlayerCartMovement : MonoBehaviour
 
     private float normalX;
     private float normalY;
-    private float maxTiltAngle = 90f;
+    private float maxTiltAngle = 45f;
     private float tiltMagnitude = 20f;
-    private float tiltSpeed = 15f;
+    private float tiltSpeed = 20f;
     private Rigidbody playerRigidBody;
     private PlayerStatusController playerStatusController;
     private PlayerCartGrindMovement playerCartGrindMovement;
@@ -52,19 +51,10 @@ public class PlayerCartMovement : MonoBehaviour
         if(playerStatusController.playerCurrentStatus == PlayerStatus.OffRail && _movePhysic)
         {
             playerRigidBody.useGravity = true;
-            //MoveForward();
         }
         TouchControl();
     }
 
-    public void MoveForward()
-    {
-        if(playerRigidBody.useGravity == false)
-        {
-            //playerRigidBody.useGravity = true;
-        }
-        transform.Translate(Vector3.forward * Time.deltaTime * _PlayerCartSpeed, Space.World);
-    }
 
     private void PremNormalPos()
     {
@@ -138,7 +128,7 @@ public class PlayerCartMovement : MonoBehaviour
                 }
             }
             TiltControlSimulatorForEditor();        // for Editor only
-            TiltCartControl();
+            //TiltCartControl();
         }
     }
 
@@ -180,7 +170,7 @@ public class PlayerCartMovement : MonoBehaviour
         //transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, tiltSpeed * Time.deltaTime);
     }
 
-    public Quaternion GetTiltControlRotation(Quaternion rotation)
+    public Quaternion GetTiltControlRotation(Quaternion rotation)           // To use in PlayerCartGrindiMovement while grinding on Spline
     {
         Vector3 targetPos = new Vector3(0, 0, 0);
         if (tiltDirection < 0)
@@ -247,18 +237,6 @@ public class PlayerCartMovement : MonoBehaviour
         }
     }
 
-    private void JumpForce()                // Not using this at the moment
-    {
-        if (playerStatusController.playerCurrentStatus == PlayerStatus.OnRail)
-        {
-
-        }
-        playerRigidBody.useGravity = true;
-        Vector3 offSetBeforeJump = new Vector3(0f, 0.5f, 0f);
-        //transform.position += offSetBeforeJump;
-        playerRigidBody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-        playerStatusController.playerCurrentStatus = PlayerStatus.Jump;
-    }
 
     private int NormalizedIntDirection(int direction)
     {
