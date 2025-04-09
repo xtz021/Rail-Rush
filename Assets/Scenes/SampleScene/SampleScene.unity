@@ -1270,7 +1270,11 @@ PrefabInstance:
     - target: {fileID: 111048418288264788, guid: d31cd4bcf80ed554385c28ae13f4d22c, type: 3}
       propertyPath: m_Animation
       value: 
-      objectReference: {fileID: 7400000, guid: 99dc95089ddb5b14abfdb6010d61e198, type: 2}
+      objectReference: {fileID: 0}
+    - target: {fileID: 111048418288264788, guid: d31cd4bcf80ed554385c28ae13f4d22c, type: 3}
+      propertyPath: m_PlayAutomatically
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d31cd4bcf80ed554385c28ae13f4d22c, type: 3}
 --- !u!1 &1337166972
@@ -1326,7 +1330,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 8
-  jumpHeight: 5
+  jumpHeight: 6
   jumpOnAirDuration: 0.5
   distantBetweenRails: 2.75
   _PlayerCartSpeed: 10

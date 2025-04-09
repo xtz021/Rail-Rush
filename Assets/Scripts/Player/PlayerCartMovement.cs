@@ -7,7 +7,7 @@ public class PlayerCartMovement : MonoBehaviour
 {
     // Attributes for jump calculations
     public float jumpForce = 15f;
-    public float jumpHeight = 5f;
+    public float jumpHeight = 15f;
     public float jumpOnAirDuration = 0.5f;
     public float distantBetweenRails = 2.75f;
     public float _PlayerCartSpeed = 10f;
@@ -35,6 +35,7 @@ public class PlayerCartMovement : MonoBehaviour
     Vector2 currentSwipe;
 
     private bool touchControlOnCooldown = false;
+    private int tiltDirection = 0;
     private Coroutine jumpCoroutine;
     private Coroutine touchCooldownCoroutine;
 
@@ -71,6 +72,7 @@ public class PlayerCartMovement : MonoBehaviour
         normalY = transform.position.y;
     }
 
+
     public void TouchControl()
     {
         if(!touchControlOnCooldown)
@@ -99,6 +101,7 @@ public class PlayerCartMovement : MonoBehaviour
                     {
                         PremNormalPos();
                         Jump(0);
+                        characterAnimationController.JumpCenter();
                         //JumpForce();
                         Debug.Log("up swipe");
                     }
@@ -115,6 +118,7 @@ public class PlayerCartMovement : MonoBehaviour
                         {
                             PremNormalPos();
                             Jump(-1);
+                            characterAnimationController.JumpLeft();
                             playerStatusController.playerCurrentRail--;
                         }
                         Debug.Log("left swipe");
@@ -126,12 +130,14 @@ public class PlayerCartMovement : MonoBehaviour
                         {
                             PremNormalPos();
                             Jump(1);
+                            characterAnimationController.JumpRight();
                             playerStatusController.playerCurrentRail++;
                         }
                         Debug.Log("right swipe");
                     }
                 }
             }
+            TiltControlSimulatorForEditor();        // for Editor only
             TiltCartControl();
         }
     }
@@ -153,6 +159,43 @@ public class PlayerCartMovement : MonoBehaviour
         //transform.rotation = Quaternion.Euler(0,0,-tiltX);
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, tiltSpeed * Time.deltaTime);
     }
+    private void TiltControlSimulatorForEditor()                // For testing in editor only
+    {
+        //Vector3 targetPos = new Vector3(0, 0, 0);
+        if (Input.GetKey(KeyCode.D))
+        {
+            //targetPos.z = -maxTiltAngle;
+            tiltDirection = 1;
+        }
+        else if (Input.GetKey(KeyCode.A))
+        {
+            //targetPos.z = maxTiltAngle;
+            tiltDirection = -1;
+        }
+        else
+        {
+            tiltDirection = 0;
+        }
+        //Quaternion targetRotation = Quaternion.Euler(targetPos);
+        //transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, tiltSpeed * Time.deltaTime);
+    }
+
+    public Quaternion GetTiltControlRotation(Quaternion rotation)
+    {
+        Vector3 targetPos = new Vector3(0, 0, 0);
+        if (tiltDirection < 0)
+        {
+            targetPos.z = maxTiltAngle;
+        }
+        else if(tiltDirection > 0)
+        {
+            targetPos.z = -maxTiltAngle;
+        }
+        Quaternion targetRotation = Quaternion.Euler(targetPos);
+        rotation = Quaternion.Lerp(transform.rotation, targetRotation, tiltSpeed * Time.deltaTime);
+        return rotation;
+    }
+
 
     private void Jump(int jumpDirection)
     {
@@ -184,6 +227,7 @@ public class PlayerCartMovement : MonoBehaviour
         //Debug.Log("Landed");
         playerStatusController.playerCurrentStatus = PlayerStatus.OffRail;
         playerRigidBody.useGravity = true;
+        yield break;
     }
 
     IEnumerator TouchControlGoesOnCooldown()

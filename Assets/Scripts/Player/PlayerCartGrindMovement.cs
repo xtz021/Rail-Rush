@@ -102,6 +102,8 @@ public class PlayerCartGrindMovement : MonoBehaviour
                 transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(nextPos - worldPos), lerpSpeed * Time.deltaTime);
                 //Lerping the player's up direction to match that of the rail, in relation to the player's current rotation.
                 transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.FromToRotation(transform.up, up), lerpSpeed * Time.deltaTime);
+                //Rotate response to player input tilt control
+                transform.rotation = playerCartMovement.GetTiltControlRotation(transform.rotation);
             }
 
             //Finally incrementing or decrementing elapsed time for the next update based on direction.
@@ -232,8 +234,7 @@ public class PlayerCartGrindMovement : MonoBehaviour
         //Multiply the full time for the spline by the normalised time to get elapsed time. This will be used in
         //the movement code.
 
-        //Spline evaluate takes the 0 to 1 normalised time above, 
-        //and uses it to give you a local position, a tangent (forward), and up
+        //Spline evaluate takes the 0 to 1 normalised time above, and uses it to give you a local position, a tangent (forward), and up
         float3 pos, forward, up;
         SplineUtility.Evaluate(currentRailScript.railSpline.Spline, normalisedTime, out pos, out forward, out up);
 
