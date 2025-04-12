@@ -19,7 +19,7 @@ public class PlayerCartGrindMovement : MonoBehaviour
     [SerializeField] float heightOffset;
     float timeForFullSpline;
     float elapsedTime;
-    [SerializeField] float lerpSpeed = 15f;
+    [SerializeField] float lerpSpeed = 100f;
 
     [Header("Scripts")]
     [SerializeField] RailScript currentRailScript;
