@@ -46,17 +46,15 @@ public class FrontDetector : MonoBehaviour
         Vector3 halfExtents = frontCollider.bounds.extents;
         Quaternion rotation = transform.rotation;
         overlapingColliders = Physics.OverlapBox(center, halfExtents, rotation);
-        Debug.Log("Number collider in front: " + overlapingColliders.Length);
+        //Debug.Log("Number collider in front: " + overlapingColliders.Length);
         foreach (Collider collider in overlapingColliders)
         {
             if (collider.gameObject.tag == "Rail")
             {
-
-                Debug.Log("Has rail in front range: " + collider.transform.parent.name);
+                //Debug.Log("Has rail in front range: " + collider.transform.parent.name);
                 return true;
             }
         }
-        Debug.Log("No rail in front");
         return false;
     }
 }

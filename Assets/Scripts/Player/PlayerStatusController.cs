@@ -20,5 +20,5 @@ public class PlayerStatusController : MonoBehaviour
 
 public enum PlayerStatus
 {
-    Jump, OnRail, OffRail
+    Jump, OnRail, OffRail, Dead
 }

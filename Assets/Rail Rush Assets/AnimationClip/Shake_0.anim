@@ -2,18 +2,18 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!74 &7400000
 AnimationClip:
-  serializedVersion: 6
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Shake
-  m_Legacy: 1
+  serializedVersion: 6
+  m_Legacy: 0
   m_Compressed: 1
   m_UseHighQualityCurve: 1
   m_RotationCurves: []
   m_CompressedRotationCurves:
-  - m_Path:
+  - m_Path: 
     m_Times:
       m_NumItems: 7
       m_Data: 8021482102
@@ -37,8 +37,8 @@ AnimationClip:
       - serializedVersion: 3
         time: 0
         value: {x: -0, y: 1.3837692, z: 0.4626915}
-        inSlope: {x: -0, y: 6.344119E-15, z: 1.4802944E-14}
-        outSlope: {x: 3.9677383E-07, y: -1.869915E-05, z: 2.7511044E-06}
+        inSlope: {x: -0, y: 6.344119e-15, z: 1.4802944e-14}
+        outSlope: {x: 0.00000039677383, y: -0.00001869915, z: 0.0000027511044}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
@@ -64,8 +64,8 @@ AnimationClip:
       - serializedVersion: 3
         time: 0.79999995
         value: {x: -0, y: 1.3837692, z: 0.4626915}
-        inSlope: {x: -4.6140835E-07, y: 6.899739E-06, z: -5.384671E-06}
-        outSlope: {x: -0, y: 1.4802988E-14, z: 6.344138E-15}
+        inSlope: {x: -0.00000046140835, y: 0.000006899739, z: -0.000005384671}
+        outSlope: {x: -0, y: 1.4802988e-14, z: 6.344138e-15}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
@@ -73,13 +73,13 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path:
+    path: 
   m_ScaleCurves:
   - curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: -1.1920929E-07
+        time: -0.00000011920929
         value: {x: 1, y: 1, z: 1}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
@@ -99,7 +99,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path:
+    path: 
   m_FloatCurves: []
   m_PPtrCurves: []
   m_SampleRate: 25

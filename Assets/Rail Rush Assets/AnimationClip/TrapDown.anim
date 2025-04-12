@@ -2,13 +2,13 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!74 &7400000
 AnimationClip:
-  serializedVersion: 6
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: TrapDown
-  m_Legacy: 1
+  serializedVersion: 6
+  m_Legacy: 0
   m_Compressed: 0
   m_UseHighQualityCurve: 1
   m_RotationCurves:
@@ -219,7 +219,7 @@ AnimationClip:
         time: 0.08
         value: {x: -0, y: 0, z: 0}
         inSlope: {x: -0, y: -0, z: -0}
-        outSlope: {x: -0, y: -1.214882E-07, z: -4.944034E-07}
+        outSlope: {x: -0, y: -0.0000001214882, z: -0.0000004944034}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
@@ -228,7 +228,7 @@ AnimationClip:
         time: 0.28
         value: {x: -0, y: -0.19552001, z: -0.67967904}
         inSlope: {x: -0, y: -1.5108367, z: -3.3983965}
-        outSlope: {x: -0, y: -1.5108317, z: -3.700744E-15}
+        outSlope: {x: -0, y: -1.5108317, z: -3.700744e-15}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
@@ -236,8 +236,8 @@ AnimationClip:
       - serializedVersion: 3
         time: 0.4
         value: {x: -0, y: -0.3640227, z: -0.67967904}
-        inSlope: {x: -0, y: -1.137566, z: -1.5860321E-15}
-        outSlope: {x: -0, y: -1.137566, z: -1.5860321E-15}
+        inSlope: {x: -0, y: -1.137566, z: -1.5860321e-15}
+        outSlope: {x: -0, y: -1.137566, z: -1.5860321e-15}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}

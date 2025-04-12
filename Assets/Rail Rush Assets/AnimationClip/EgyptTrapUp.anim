@@ -2,13 +2,13 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!74 &7400000
 AnimationClip:
-  serializedVersion: 6
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: EgyptTrapUp
-  m_Legacy: 1
+  serializedVersion: 6
+  m_Legacy: 0
   m_Compressed: 0
   m_UseHighQualityCurve: 1
   m_RotationCurves:
@@ -287,8 +287,8 @@ AnimationClip:
       - serializedVersion: 3
         time: 0.36
         value: {x: -0.58593136, y: 0.85769725, z: 0.09132519}
-        inSlope: {x: -2.413623E-06, y: 5.809261E-07, z: 9.3708127E-07}
-        outSlope: {x: -1.1102232E-14, y: 1.4802976E-14, z: 9.25186E-16}
+        inSlope: {x: -0.000002413623, y: 0.0000005809261, z: 0.00000093708127}
+        outSlope: {x: -1.1102232e-14, y: 1.4802976e-14, z: 9.25186e-16}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
@@ -296,8 +296,8 @@ AnimationClip:
       - serializedVersion: 3
         time: 0.56
         value: {x: -0.58593136, y: 0.85769725, z: 0.09132519}
-        inSlope: {x: -4.7580966E-15, y: 6.3441285E-15, z: 3.9650803E-16}
-        outSlope: {x: -4.7580966E-15, y: 6.3441285E-15, z: 3.9650803E-16}
+        inSlope: {x: -4.7580966e-15, y: 6.3441285e-15, z: 3.9650803e-16}
+        outSlope: {x: -4.7580966e-15, y: 6.3441285e-15, z: 3.9650803e-16}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
@@ -322,7 +322,7 @@ AnimationClip:
         time: 0.12
         value: {x: 3.688003, y: 5.0902777, z: -0.4752512}
         inSlope: {x: 17.933355, y: -24.855669, z: -2.9703097}
-        outSlope: {x: 17.933384, y: -24.855558, z: -3.700744E-15}
+        outSlope: {x: 17.933384, y: -24.855558, z: -3.700744e-15}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
@@ -330,8 +330,8 @@ AnimationClip:
       - serializedVersion: 3
         time: 0.28
         value: {x: 5.87058, y: -0.41315857, z: -0.4752512}
-        inSlope: {x: 9.184442, y: -58.025784, z: -1.5860332E-15}
-        outSlope: {x: 9.184382, y: -58.025642, z: -3.700744E-15}
+        inSlope: {x: 9.184442, y: -58.025784, z: -1.5860332e-15}
+        outSlope: {x: 9.184382, y: -58.025642, z: -3.700744e-15}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
@@ -339,8 +339,8 @@ AnimationClip:
       - serializedVersion: 3
         time: 0.56
         value: {x: 7.7291775, y: -20.441065, z: -0.4752512}
-        inSlope: {x: 6.637912, y: -70.425095, z: -1.5860321E-15}
-        outSlope: {x: 1.7763586E-13, y: -70.424225, z: -3.700747E-15}
+        inSlope: {x: 6.637912, y: -70.425095, z: -1.5860321e-15}
+        outSlope: {x: 1.7763586e-13, y: -70.424225, z: -3.700747e-15}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
@@ -348,8 +348,8 @@ AnimationClip:
       - serializedVersion: 3
         time: 0.76
         value: {x: 7.7291775, y: -34.21713, z: -0.4752512}
-        inSlope: {x: 7.6129546E-14, y: -68.88061, z: -1.5860321E-15}
-        outSlope: {x: 7.6129546E-14, y: -68.88061, z: -1.5860321E-15}
+        inSlope: {x: 7.6129546e-14, y: -68.88061, z: -1.5860321e-15}
+        outSlope: {x: 7.6129546e-14, y: -68.88061, z: -1.5860321e-15}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
@@ -396,14 +396,14 @@ AnimationClip:
   m_Events:
   - time: 0.04
     functionName: PlayParticles
-    data:
+    data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 0.44
     functionName: PlayParticles
-    data:
+    data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 1

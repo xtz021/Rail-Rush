@@ -2,18 +2,18 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!74 &7400000
 AnimationClip:
-  serializedVersion: 6
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Shake
-  m_Legacy: 1
+  serializedVersion: 6
+  m_Legacy: 0
   m_Compressed: 1
   m_UseHighQualityCurve: 1
   m_RotationCurves: []
   m_CompressedRotationCurves:
-  - m_Path:
+  - m_Path: 
     m_Times:
       m_NumItems: 7
       m_Data: 0031c83801
@@ -37,8 +37,8 @@ AnimationClip:
       - serializedVersion: 3
         time: 0
         value: {x: -0, y: 0.44405696, z: 1.0654892}
-        inSlope: {x: -0, y: 3.1720594E-15, z: 3.1720594E-15}
-        outSlope: {x: 9.4624073E-07, y: 7.401494E-15, z: 7.401494E-15}
+        inSlope: {x: -0, y: 3.1720594e-15, z: 3.1720594e-15}
+        outSlope: {x: 0.00000094624073, y: 7.401494e-15, z: 7.401494e-15}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
@@ -46,8 +46,8 @@ AnimationClip:
       - serializedVersion: 3
         time: 0.19999993
         value: {x: -0.079115905, y: 0.44405696, z: 1.0654892}
-        inSlope: {x: 0.10979189, y: 3.172069E-15, z: 3.172069E-15}
-        outSlope: {x: 0.10978924, y: 7.401494E-15, z: 7.401494E-15}
+        inSlope: {x: 0.10979189, y: 3.172069e-15, z: 3.172069e-15}
+        outSlope: {x: 0.10978924, y: 7.401494e-15, z: 7.401494e-15}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
@@ -55,8 +55,8 @@ AnimationClip:
       - serializedVersion: 3
         time: 0.4799999
         value: {x: 0.052699585, y: 0.44405696, z: 1.0654892}
-        inSlope: {x: 0.13186093, y: 3.172069E-15, z: 3.172069E-15}
-        outSlope: {x: 0.13185878, y: 7.401494E-15, z: 7.401494E-15}
+        inSlope: {x: 0.13186093, y: 3.172069e-15, z: 3.172069e-15}
+        outSlope: {x: 0.13185878, y: 7.401494e-15, z: 7.401494e-15}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
@@ -64,8 +64,8 @@ AnimationClip:
       - serializedVersion: 3
         time: 0.79999995
         value: {x: -0, y: 0.44405696, z: 1.0654892}
-        inSlope: {x: -0.16468962, y: 3.1720594E-15, z: 3.1720594E-15}
-        outSlope: {x: -0.16468962, y: 3.1720594E-15, z: 3.1720594E-15}
+        inSlope: {x: -0.16468962, y: 3.1720594e-15, z: 3.1720594e-15}
+        outSlope: {x: -0.16468962, y: 3.1720594e-15, z: 3.1720594e-15}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
@@ -73,7 +73,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path:
+    path: 
   m_ScaleCurves: []
   m_FloatCurves: []
   m_PPtrCurves: []

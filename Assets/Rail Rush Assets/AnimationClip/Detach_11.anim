@@ -2,25 +2,25 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!74 &7400000
 AnimationClip:
-  serializedVersion: 6
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Detach
-  m_Legacy: 1
+  serializedVersion: 6
+  m_Legacy: 0
   m_Compressed: 1
   m_UseHighQualityCurve: 1
   m_RotationCurves: []
   m_CompressedRotationCurves:
-  - m_Path:
+  - m_Path: 
     m_Times:
       m_NumItems: 6
       m_Data: 002dda17
       m_BitSize: 5
     m_Values:
       m_NumItems: 6
-      m_Data: fbf7df7fe317a08563772097fb35a19ec3f361a62303a2a9
+      m_Data: fbf7df7fe317a08563772097fb35a19ec3f361a623f3e1a8
     m_Slopes:
       m_NumItems: 24
       m_Range: 1.9782133
@@ -37,8 +37,8 @@ AnimationClip:
       - serializedVersion: 3
         time: 0
         value: {x: -0, y: 0, z: 0}
-        inSlope: {x: -2.544729E-07, y: 2.2023839E-07, z: -1.2862674E-07}
-        outSlope: {x: -2.544729E-07, y: 2.2023839E-07, z: -1.2862674E-07}
+        inSlope: {x: -0.0000002544729, y: 0.00000022023839, z: -0.00000012862674}
+        outSlope: {x: -0.0000002544729, y: 0.00000022023839, z: -0.00000012862674}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
@@ -64,7 +64,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path:
+    path: 
   m_ScaleCurves:
   - curve:
       serializedVersion: 2
@@ -90,7 +90,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path:
+    path: 
   m_FloatCurves: []
   m_PPtrCurves: []
   m_SampleRate: 25

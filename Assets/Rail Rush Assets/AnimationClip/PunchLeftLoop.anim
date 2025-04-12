@@ -2,13 +2,13 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!74 &7400000
 AnimationClip:
-  serializedVersion: 6
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: PunchLeftLoop
-  m_Legacy: 1
+  serializedVersion: 6
+  m_Legacy: 0
   m_Compressed: 1
   m_UseHighQualityCurve: 1
   m_RotationCurves: []
@@ -20,7 +20,7 @@ AnimationClip:
       m_BitSize: 3
     m_Values:
       m_NumItems: 7
-      m_Data: e34a592f6bbc94406024d5bde84491c5833b9734336b9831e34a592f
+      m_Data: e34a592f6bbc944060f4d4bde81491c5833b9734336b9831e34a592f
     m_Slopes:
       m_NumItems: 28
       m_Range: 6.9547334
@@ -89,7 +89,7 @@ AnimationClip:
       m_NumItems: 8
       m_Range: 0
       m_Start: 0
-      m_Data:
+      m_Data: 
       m_BitSize: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -100,7 +100,7 @@ AnimationClip:
       m_BitSize: 3
     m_Values:
       m_NumItems: 8
-      m_Data: 1b3b5ea483599d9a23385a833bc91c96d3ca9da42b9b5da73bab1da81b3b5ea4
+      m_Data: 1b3b5ea483599d9a23385a833bc91c96d3ca9da42b9b5da73babdda71b3b5ea4
     m_Slopes:
       m_NumItems: 32
       m_Range: 8.908993
@@ -148,7 +148,7 @@ AnimationClip:
       m_BitSize: 4
     m_Values:
       m_NumItems: 4
-      m_Data: e397f27f1b88b380eb17f37fe397f27f
+      m_Data: e367f27f1b88b380eb17f37fe367f27f
     m_Slopes:
       m_NumItems: 16
       m_Range: 1.0630745
@@ -169,7 +169,7 @@ AnimationClip:
       m_NumItems: 8
       m_Range: 0
       m_Start: 0
-      m_Data:
+      m_Data: 
       m_BitSize: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -185,7 +185,7 @@ AnimationClip:
       m_NumItems: 8
       m_Range: 0
       m_Start: 0
-      m_Data:
+      m_Data: 
       m_BitSize: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -201,7 +201,7 @@ AnimationClip:
       m_NumItems: 8
       m_Range: 0
       m_Start: 0
-      m_Data:
+      m_Data: 
       m_BitSize: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -217,7 +217,7 @@ AnimationClip:
       m_NumItems: 8
       m_Range: 0
       m_Start: 0
-      m_Data:
+      m_Data: 
       m_BitSize: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -260,7 +260,7 @@ AnimationClip:
       m_BitSize: 3
     m_Values:
       m_NumItems: 8
-      m_Data: fb57ca80fd2f60d603e8dd800348d680fb97cc80fb57ca80fbd7c980fb57ca80
+      m_Data: fb57ca80fd2f60d603e8dd800348d680fb77cc80fb57ca80fbd7c980fb57ca80
     m_Slopes:
       m_NumItems: 32
       m_Range: 14.379093
@@ -329,7 +329,7 @@ AnimationClip:
       m_NumItems: 8
       m_Range: 0
       m_Start: 0
-      m_Data:
+      m_Data: 
       m_BitSize: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -372,7 +372,7 @@ AnimationClip:
       m_BitSize: 4
     m_Values:
       m_NumItems: 7
-      m_Data: fdca2b3b25acaa3fdd4c29435d4caa407d6b6b3d2dab2b3cfdca2b3b
+      m_Data: fdca6b3a25acaa3fdd4c29435d4caa407d6b6b3d2dab2b3cfdca6b3a
     m_Slopes:
       m_NumItems: 28
       m_Range: 2.9110737
@@ -388,7 +388,7 @@ AnimationClip:
       m_BitSize: 3
     m_Values:
       m_NumItems: 7
-      m_Data: 8eb9cd50ee97cf45c636cf399e175042f678cf4c46b9ce4f8eb9cd50
+      m_Data: 8eb9cd50ee97cf45c636cf399e175042f678cf4c2eb9ce4f8eb9cd50
     m_Slopes:
       m_NumItems: 28
       m_Range: 4.1318817
@@ -404,7 +404,7 @@ AnimationClip:
       m_BitSize: 5
     m_Values:
       m_NumItems: 5
-      m_Data: fbf7df32fbf79f33fbf75f37fbf79f34fbf7df32
+      m_Data: fbf71f32fbf7df32fbf75f37fbf79f34fbf71f32
     m_Slopes:
       m_NumItems: 20
       m_Range: 0.8837004
@@ -540,7 +540,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: {x: -0.1951391, y: 3.5527136E-17, z: 0.032564387}
+        value: {x: -0.1951391, y: 3.5527136e-17, z: 0.032564387}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -549,7 +549,7 @@ AnimationClip:
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
         time: 0.2800026
-        value: {x: -0.1951391, y: 3.5527136E-17, z: 0.032564387}
+        value: {x: -0.1951391, y: 3.5527136e-17, z: 0.032564387}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -565,7 +565,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: {x: -0.18740644, y: 1.0658141E-16, z: -0.0039509246}
+        value: {x: -0.18740644, y: 1.0658141e-16, z: -0.0039509246}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -574,7 +574,7 @@ AnimationClip:
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
         time: 0.2800026
-        value: {x: -0.18740644, y: 1.0658141E-16, z: -0.0039509246}
+        value: {x: -0.18740644, y: 1.0658141e-16, z: -0.0039509246}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -615,7 +615,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: {x: -0.08519595, y: -0.0041546235, z: -7.105427E-17}
+        value: {x: -0.08519595, y: -0.0041546235, z: -7.105427e-17}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -624,7 +624,7 @@ AnimationClip:
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
         time: 0.2800026
-        value: {x: -0.08519595, y: -0.0041546235, z: -7.105427E-17}
+        value: {x: -0.08519595, y: -0.0041546235, z: -7.105427e-17}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -894,7 +894,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: {x: -0.32470736, y: -2.797043E-05, z: 0.00056935864}
+        value: {x: -0.32470736, y: -0.00002797043, z: 0.00056935864}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -903,7 +903,7 @@ AnimationClip:
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
         time: 0.2800026
-        value: {x: -0.32470736, y: -2.797043E-05, z: 0.00056935864}
+        value: {x: -0.32470736, y: -0.00002797043, z: 0.00056935864}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0

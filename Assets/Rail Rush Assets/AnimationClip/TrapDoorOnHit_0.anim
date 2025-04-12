@@ -2,13 +2,13 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!74 &7400000
 AnimationClip:
-  serializedVersion: 6
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: TrapDoorOnHit
-  m_Legacy: 1
+  serializedVersion: 6
+  m_Legacy: 0
   m_Compressed: 0
   m_UseHighQualityCurve: 1
   m_RotationCurves:
@@ -16,7 +16,7 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: -2.9802322E-08
+        time: -0.000000029802322
         value: {x: 0, y: -0, z: -0, w: 1}
         inSlope: {x: 0.30310446, y: -0.17381148, z: 0.18534982, w: -0.0062584844}
         outSlope: {x: 0.30310446, y: -0.17381148, z: 0.18534982, w: -0.0062584844}
@@ -81,7 +81,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path:
+    path: 
   m_CompressedRotationCurves: []
   m_EulerCurves: []
   m_PositionCurves:
@@ -92,7 +92,7 @@ AnimationClip:
         time: 0
         value: {x: -0, y: 0, z: 0}
         inSlope: {x: -0, y: -18.299374, z: -0}
-        outSlope: {x: 5.003536E-07, y: 0.96081424, z: -5.330361E-06}
+        outSlope: {x: 0.0000005003536, y: 0.96081424, z: -0.000005330361}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
@@ -110,7 +110,7 @@ AnimationClip:
         time: 0.4
         value: {x: -2.1842036, y: -8.313189, z: 6.6704865}
         inSlope: {x: -7.458819, y: -50.433865, z: 3.4148705}
-        outSlope: {x: -2.9605977E-14, y: -50.43341, z: 3.4147365}
+        outSlope: {x: -2.9605977e-14, y: -50.43341, z: 3.4147365}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
@@ -118,8 +118,8 @@ AnimationClip:
       - serializedVersion: 3
         time: 0.6
         value: {x: -2.1842036, y: -18.399906, z: 7.618738}
-        inSlope: {x: -1.2688257E-14, y: -46.480347, z: 4.7412634}
-        outSlope: {x: -1.2688257E-14, y: -46.480347, z: 4.7412634}
+        inSlope: {x: -1.2688257e-14, y: -46.480347, z: 4.7412634}
+        outSlope: {x: -1.2688257e-14, y: -46.480347, z: 4.7412634}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
@@ -127,7 +127,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path:
+    path: 
   m_ScaleCurves: []
   m_FloatCurves: []
   m_PPtrCurves: []

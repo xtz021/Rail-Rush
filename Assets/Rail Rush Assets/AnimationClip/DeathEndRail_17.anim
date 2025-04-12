@@ -2,13 +2,13 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!74 &7400000
 AnimationClip:
-  serializedVersion: 6
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: DeathEndRail
-  m_Legacy: 1
+  serializedVersion: 6
+  m_Legacy: 0
   m_Compressed: 1
   m_UseHighQualityCurve: 1
   m_RotationCurves: []
@@ -20,7 +20,7 @@ AnimationClip:
       m_BitSize: 7
     m_Values:
       m_NumItems: 10
-      m_Data: fbf7df7fcbb8a0782bfa217a7bdbe37c3b4c257dcb7ce67a880adabb78ba9192806a9192889a5193
+      m_Data: fbf7df7fcbb8a0782bfa217a7bdbe37c3b4c257dcb7ce67a880adabb78ba9192803a9192889a5193
     m_Slopes:
       m_NumItems: 40
       m_Range: 3.4865208
@@ -41,7 +41,7 @@ AnimationClip:
       m_NumItems: 8
       m_Range: 0
       m_Start: 0
-      m_Data:
+      m_Data: 
       m_BitSize: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -62,8 +62,8 @@ AnimationClip:
       - serializedVersion: 3
         time: 0.3199997
         value: {x: -0.1086983, y: -0.5839189, z: 0.59696025}
-        inSlope: {x: -4.939145E-05, y: -5.430314, z: 1.4583235}
-        outSlope: {x: -2.7756264E-15, y: -5.4276724, z: 1.4575729}
+        inSlope: {x: -0.00004939145, y: -5.430314, z: 1.4583235}
+        outSlope: {x: -2.7756264e-15, y: -5.4276724, z: 1.4575729}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
@@ -71,8 +71,8 @@ AnimationClip:
       - serializedVersion: 3
         time: 2
         value: {x: -0.1086983, y: -10.857732, z: 2.9157836}
-        inSlope: {x: -1.1894976E-15, y: 0.25625604, z: -0.26191545}
-        outSlope: {x: -2.6141417E-06, y: 0.2556416, z: -0.26176655}
+        inSlope: {x: -1.1894976e-15, y: 0.25625604, z: -0.26191545}
+        outSlope: {x: -0.0000026141417, y: 0.2556416, z: -0.26176655}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}

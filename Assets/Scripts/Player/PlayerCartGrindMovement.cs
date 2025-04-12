@@ -19,7 +19,7 @@ public class PlayerCartGrindMovement : MonoBehaviour
     [SerializeField] float heightOffset;
     float timeForFullSpline;
     float elapsedTime;
-    [SerializeField] float lerpSpeed = 100f;
+    [SerializeField] float lerpSpeed = 15f;
 
     [Header("Scripts")]
     [SerializeField] RailScript currentRailScript;
@@ -87,23 +87,33 @@ public class PlayerCartGrindMovement : MonoBehaviour
             Vector3 worldPos = currentRailScript.LocalToWorldConversion(pos);
             Vector3 nextPos = currentRailScript.LocalToWorldConversion(nextPosfloat);
 
-            if(nextPos == worldPos) // in case the player Cart got stucked between 2 rails
+            if (nextPos == worldPos) // in case the player Cart got stucked between 2 rails
             {
                 Debug.Log("Freeze error due to nextPos = worldPos: at " + worldPos);
 
                 // Unstuck by moving the player Cart forward into the next rail
-                transform.Translate(Vector3.forward * Time.deltaTime * playerCartMovement._PlayerCartSpeed, Space.World);   
+                transform.Translate(transform.forward * Time.deltaTime * playerCartMovement._PlayerCartSpeed, Space.World);
             }
             else
             {
                 //Setting the player's position and adding a height offset so that they're sitting on top of the rail instead of being in the middle of it.
                 transform.position = worldPos + (transform.up * heightOffset);
                 //Lerping the player's current rotation to the direction of where they are to where they're going.
-                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(nextPos - worldPos), lerpSpeed * Time.deltaTime);
-                //Lerping the player's up direction to match that of the rail, in relation to the player's current rotation.
-                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.FromToRotation(transform.up, up), lerpSpeed * Time.deltaTime);
-                //Rotate response to player input tilt control
-                transform.rotation = playerCartMovement.GetTiltControlRotation(transform.rotation);
+                Vector3 lookRota = nextPos - worldPos;
+                Vector3 lookEula = Quaternion.LookRotation(lookRota).eulerAngles;
+                Vector3 eula = transform.rotation.eulerAngles;
+                CheckGrindingRotation(lookEula, eula);
+                if (playerStatusController.playerCurrentStatus != PlayerStatus.Jump)
+                {
+                    //Debug.Log("Before calculate moving: " + transform.rotation.eulerAngles);
+                    transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(nextPos - worldPos), lerpSpeed);
+                    //transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(lookRota), lerpSpeed * Time.deltaTime);
+                    //Debug.Log("After calculate moving: " + transform.rotation.eulerAngles);
+                    //Lerping the player's up direction to match that of the rail, in relation to the player's current rotation.
+                    transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.FromToRotation(transform.up, up) * transform.rotation, lerpSpeed * Time.deltaTime);
+                    //Rotate response to player input tilt control
+                    //transform.rotation = playerCartMovement.GetTiltControlRotation(transform.rotation);
+                }
             }
 
             //Finally incrementing or decrementing elapsed time for the next update based on direction.
@@ -114,7 +124,29 @@ public class PlayerCartGrindMovement : MonoBehaviour
         }
     }
 
-    
+    private void CheckGrindingRotation(Vector3 vt1, Vector3 vt2)    // For debug purpose only
+    {
+        bool onX = false;
+        bool onZ = false;
+        if(transform.forward.normalized == new Vector3(1, 0, 0) || transform.forward.normalized == new Vector3(-1, 0, 0))
+        {
+            onX = true;
+        }
+        if (transform.forward.normalized == new Vector3(0, 0, 1) || transform.forward.normalized == new Vector3(0, 0, -1))
+        {
+            onZ = true;
+        }
+        if (vt1.x * vt2.x < 0 && onX)
+        {
+            Debug.Log("Negative x!!!");
+        }
+        if (vt1.z * vt2.z < 0 && onZ)
+        {
+            Debug.Log("Negative z!!! ");
+        }
+    }
+
+
 
     public void OnRailDetectEnter(Collider other)
     {
@@ -127,14 +159,14 @@ public class PlayerCartGrindMovement : MonoBehaviour
              *rail script of the rail the player hits. Then we calculate the player's position on that rail.*/
             onRail = true;
             currentRailScript = other.gameObject.GetComponent<RailScript>();
-            if (currentRailScript != null)
-            {
-                Debug.Log("Enter " + other.transform.parent.name + " rail!");
-            }
-            else
-            {
-                Debug.Log("Unable to enter " + other.transform.parent.name + " rail!");
-            }
+            //if (currentRailScript != null)
+            //{
+            //    Debug.Log("Enter " + other.transform.parent.name + " rail!");
+            //}
+            //else
+            //{
+            //    Debug.Log("Unable to enter " + other.transform.parent.name + " rail!");
+            //}
             CalculateAndSetRailPosition();
         }
     }
@@ -191,7 +223,7 @@ public class PlayerCartGrindMovement : MonoBehaviour
         //It's a little sudden, there might be a better way of doing using coroutines and looping, but this will work.
         onRail = false;
         currentRailScript = null;
-        if(playerStatusController.playerCurrentStatus != PlayerStatus.Jump)
+        if (playerStatusController.playerCurrentStatus != PlayerStatus.Jump)
         {
             playerStatusController.playerCurrentStatus = PlayerStatus.OffRail;
             transform.position += transform.forward * 1f;
@@ -202,7 +234,7 @@ public class PlayerCartGrindMovement : MonoBehaviour
 
     public void EmptyCurrentRailScript()
     {
-        currentRailScript = null ;
+        currentRailScript = null;
     }
 
     public void DeadEndJumpOffCliff()

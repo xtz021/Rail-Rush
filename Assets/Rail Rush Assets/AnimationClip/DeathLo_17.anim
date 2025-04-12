@@ -2,13 +2,13 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!74 &7400000
 AnimationClip:
-  serializedVersion: 6
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: DeathLo
-  m_Legacy: 1
+  serializedVersion: 6
+  m_Legacy: 0
   m_Compressed: 1
   m_UseHighQualityCurve: 1
   m_RotationCurves: []
@@ -20,7 +20,7 @@ AnimationClip:
       m_BitSize: 6
     m_Values:
       m_NumItems: 14
-      m_Data: fbf7df7fcb182186534aa38ec39b2293502827d6a048a7bc0889a095b0689c7330189b376fcb9e6baf079d6d87939b6eb7d31b6cf7131c6b
+      m_Data: fbf7df7fcb182186534aa38ec39b2293502827d6a048a7bc0889a095b0689c7330189b376fcb9e6baff79c6d87939b6eb7d31b6cf7131c6b
     m_Slopes:
       m_NumItems: 56
       m_Range: 4.8027415
@@ -53,8 +53,8 @@ AnimationClip:
       - serializedVersion: 3
         time: 0
         value: {x: 0.0007077789, y: 0, z: 0}
-        inSlope: {x: 4.6465853E-18, y: -0, z: -0}
-        outSlope: {x: -9.71881E-06, y: 1.5929856E-05, z: -3.189435E-06}
+        inSlope: {x: 4.6465853e-18, y: -0, z: -0}
+        outSlope: {x: -0.00000971881, y: 0.000015929856, z: -0.000003189435}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}

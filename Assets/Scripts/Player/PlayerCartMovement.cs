@@ -7,7 +7,7 @@ public class PlayerCartMovement : MonoBehaviour
 {
     // Attributes for jump calculations
     public float jumpHeight = 15f;
-    public float jumpOnAirDuration = 0.5f;
+    public float jumpOnAirDuration = 0.75f;
     public float distantBetweenRails = 2.75f;
     public float _PlayerCartSpeed = 8f;
 
@@ -24,7 +24,6 @@ public class PlayerCartMovement : MonoBehaviour
     private PlayerCartGrindMovement playerCartGrindMovement;
     private CharacterAnimationController characterAnimationController;
 
-    [SerializeField] Transform playerCart;
     [SerializeField] CartAnimationController cartAnimationController;
 
 
@@ -127,7 +126,7 @@ public class PlayerCartMovement : MonoBehaviour
                     }
                 }
             }
-            TiltControlSimulatorForEditor();        // for Editor only
+            //TiltControlSimulatorForEditor();        // for Editor only
             //TiltCartControl();
         }
     }
@@ -189,7 +188,8 @@ public class PlayerCartMovement : MonoBehaviour
 
     private void Jump(int jumpDirection)
     {
-        jumpCoroutine = StartCoroutine(JumpIE(jumpDirection));
+        //Debug.Log("Before jump: " + transform.rotation.eulerAngles);
+        jumpCoroutine = StartCoroutine(JumpIE2(jumpDirection));
         touchCooldownCoroutine = StartCoroutine(TouchControlGoesOnCooldown());
         cartAnimationController.JumpAnimation(jumpDirection);                   // Playing jump animation
         playerCartGrindMovement.EmptyCurrentRailScript();
@@ -206,24 +206,65 @@ public class PlayerCartMovement : MonoBehaviour
         playerStatusController.playerCurrentStatus = PlayerStatus.Jump;
         while (timer < jumpOnAirDuration)
         {
-            playerCart.position = new Vector3(normalX + (timer / jumpOnAirDuration) * distantBetweenRails * jumpDirection
+            transform.position = new Vector3(normalX + (timer / jumpOnAirDuration) * distantBetweenRails * jumpDirection
                                                 , normalY + _PlayerCartSpeed * Time.deltaTime + Mathf.Sin(timer / jumpOnAirDuration * Mathf.PI) * jumpHeight
-                                                , playerCart.position.z + _PlayerCartSpeed * Time.deltaTime);
-            playerCart.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(new Vector3(0,0,1)),5*Time.deltaTime);
+                                                , transform.position.z + _PlayerCartSpeed * Time.deltaTime);
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(new Vector3(0,0,1)),5*Time.deltaTime);
             timer += Time.deltaTime;
             yield return null;
         }
-        playerCart.position = new Vector3(playerCart.position.x, normalY, playerCart.position.z);
-        //Debug.Log("Landed");
+        transform.position = new Vector3(transform.position.x, normalY, transform.position.z);
         playerStatusController.playerCurrentStatus = PlayerStatus.OffRail;
         playerRigidBody.useGravity = true;
+        yield break;
+    }
+
+    IEnumerator JumpIE2(int jumpDirection)
+    {
+        float timer = 0f;
+        float jumpOnAirDuration = 0.5f;
+        playerCartGrindMovement.onRail = false;
+        jumpDirection = NormalizedIntDirection(jumpDirection);
+        playerStatusController.playerCurrentStatus = PlayerStatus.Jump;
+
+        // Capture the starting state ONCE
+        Vector3 startPosition = transform.position;
+        Quaternion startRotation = transform.rotation;
+
+        // Calculate the jump direction based on initial orientation only
+        Vector3 jumpOffset = startRotation * Vector3.right * jumpDirection * distantBetweenRails;
+        Vector3 forwardOffset = startRotation * Vector3.forward * _PlayerCartSpeed * jumpOnAirDuration;
+
+        while (timer < jumpOnAirDuration)
+        {
+            float t = timer / jumpOnAirDuration;
+
+            Vector3 basePosition = startPosition + jumpOffset * t + forwardOffset * t;
+            float vertical = Mathf.Sin(t * Mathf.PI) * jumpHeight;
+
+            transform.position = new Vector3(basePosition.x, normalY + vertical, basePosition.z);
+
+            // Freeze rotation — no re-interpolation!
+            transform.rotation = startRotation;
+
+            timer += Time.deltaTime;
+            yield return null;
+        }
+        transform.position = new Vector3(transform.position.x, normalY, transform.position.z);
+        transform.rotation = startRotation;
+        if (playerStatusController.playerCurrentStatus != PlayerStatus.OnRail)
+        {
+            playerStatusController.playerCurrentStatus = PlayerStatus.OffRail;
+            playerRigidBody.useGravity = true;
+        }
+        //Debug.Log("After jump: " + transform.rotation.eulerAngles);
         yield break;
     }
 
     IEnumerator TouchControlGoesOnCooldown()
     {
         touchControlOnCooldown = true;
-        yield return new WaitForSeconds(jumpOnAirDuration);
+        yield return new WaitForSeconds(jumpOnAirDuration + 0.1f);
         touchControlOnCooldown = false;
         yield break;
     }
