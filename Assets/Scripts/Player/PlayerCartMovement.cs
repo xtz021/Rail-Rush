@@ -9,7 +9,7 @@ public class PlayerCartMovement : MonoBehaviour
     public float jumpHeight = 15f;
     public float jumpOnAirDuration = 0.5f;
     public float distantBetweenRails = 2.75f;
-    public float _PlayerCartSpeed = 10f;
+    public float _PlayerCartSpeed = 8f;
 
     public bool _movePhysic = false;
 

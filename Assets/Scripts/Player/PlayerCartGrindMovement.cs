@@ -114,74 +114,7 @@ public class PlayerCartGrindMovement : MonoBehaviour
         }
     }
 
-    //private void OnCollisionExit(Collision collision)
-    //{
-    //    if(collision.gameObject.tag == "Rail")
-    //    {
-    //        Debug.Log("Exit rail: " + collision.transform.parent.name);
-    //        if (currentRailScript != collision.gameObject.GetComponent<RailScript>() && currentRailScript != null)
-    //        {
-    //            return;
-    //        }
-    //        if(playerStatusController.playerCurrentStatus == PlayerStatus.OnRail)
-    //        {
-    //            playerStatusController.playerCurrentStatus = PlayerStatus.OffRail;
-    //        }
-    //        //playerRigidbody.useGravity = true;
-    //    }
-    //}
-
-
-    //private void OnCollisionEnter(Collision collision)
-    //{
-    //    Debug.Log("Collision enter: " + collision.transform.parent.name);
-    //    if (collision.gameObject.tag == "Rail")
-    //    {
-    //        playerStatusController.playerCurrentStatus = PlayerStatus.OnRail;
-    //        playerRigidbody.useGravity = false;
-    //        playerCartMovement.StopJumpingCoroutines();
-    //        /*When the player hits the rail, onRail is set to true, the current rail script is set to the
-    //         *rail script of the rail the player hits. Then we calculate the player's position on that rail.
-    //        */
-    //        onRail = true;
-    //        currentRailScript = collision.gameObject.GetComponent<RailScript>();
-    //        CalculateAndSetRailPosition();
-    //    }
-    //}
-
-    //private void OnTriggerExit(Collider other)
-    //{
-    //    if (other.gameObject.tag == "Rail")
-    //    {
-    //        if (currentRailScript != other.gameObject.GetComponent<RailScript>() && currentRailScript != null)
-    //        {
-    //            return;
-    //        }
-    //        if (playerStatusController.playerCurrentStatus == PlayerStatus.OnRail)
-    //        {
-    //            playerStatusController.playerCurrentStatus = PlayerStatus.OffRail;
-    //        }
-    //        Debug.Log("Exit rail: " + other.transform.parent.name);
-    //        //playerRigidbody.useGravity = true;
-    //    }
-    //}
-
-
-    //private void OnTriggerEnter(Collider railCollider)
-    //{
-    //    if (railCollider.gameObject.tag == "Rail")
-    //    {
-    //        playerStatusController.playerCurrentStatus = PlayerStatus.OnRail;
-    //        playerRigidbody.useGravity = false;
-    //        playerCartMovement.StopJumpingCoroutines();
-    //        /*When the player hits the rail, onRail is set to true, the current rail script is set to the
-    //         *rail script of the rail the player hits. Then we calculate the player's position on that rail.
-    //        */
-    //        onRail = true;
-    //        currentRailScript = railCollider.gameObject.GetComponent<RailScript>();
-    //        CalculateAndSetRailPosition();
-    //    }
-    //}
+    
 
     public void OnRailDetectEnter(Collider other)
     {
@@ -194,6 +127,14 @@ public class PlayerCartGrindMovement : MonoBehaviour
              *rail script of the rail the player hits. Then we calculate the player's position on that rail.*/
             onRail = true;
             currentRailScript = other.gameObject.GetComponent<RailScript>();
+            if (currentRailScript != null)
+            {
+                Debug.Log("Enter " + other.transform.parent.name + " rail!");
+            }
+            else
+            {
+                Debug.Log("Unable to enter " + other.transform.parent.name + " rail!");
+            }
             CalculateAndSetRailPosition();
         }
     }
