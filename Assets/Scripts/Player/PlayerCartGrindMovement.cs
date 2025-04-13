@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
+using UnityEditor.Rendering.LookDev;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.HID;
@@ -66,8 +67,10 @@ public class PlayerCartGrindMovement : MonoBehaviour
             //If progress is less than 0, the player's position is before the start of the rail.
             //If greater than 1, their position is after the end of the rail.
             //In either case, the player has finished their grind.
-            if ((progress < 0 || progress > 1) && !frontDetector._hasRailInFront)
+            if ((progress < 0 || progress > 1) && !frontDetector._hasRailInFront 
+                && playerStatusController.playerCurrentStatus != PlayerStatus.Jump)
             {
+                Debug.Log($"Deadend of {currentRailScript.transform.parent.name}!!!");
                 DeadEndJumpOffCliff();
                 return;
             }
@@ -99,14 +102,13 @@ public class PlayerCartGrindMovement : MonoBehaviour
                 //Setting the player's position and adding a height offset so that they're sitting on top of the rail instead of being in the middle of it.
                 transform.position = worldPos + (transform.up * heightOffset);
                 //Lerping the player's current rotation to the direction of where they are to where they're going.
-                Vector3 lookRota = nextPos - worldPos;
-                Vector3 lookEula = Quaternion.LookRotation(lookRota).eulerAngles;
-                Vector3 eula = transform.rotation.eulerAngles;
-                CheckGrindingRotation(lookEula, eula);
+                Vector3 lookRota = (nextPos - worldPos).normalized;
+                float dot = Vector3.Dot(transform.forward, lookRota);
+                CheckGrindingRotation(lookRota, transform.forward);
                 if (playerStatusController.playerCurrentStatus != PlayerStatus.Jump)
                 {
                     //Debug.Log("Before calculate moving: " + transform.rotation.eulerAngles);
-                    transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(nextPos - worldPos), lerpSpeed);
+                    transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(lookRota), lerpSpeed);
                     //transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(lookRota), lerpSpeed * Time.deltaTime);
                     //Debug.Log("After calculate moving: " + transform.rotation.eulerAngles);
                     //Lerping the player's up direction to match that of the rail, in relation to the player's current rotation.
@@ -143,6 +145,10 @@ public class PlayerCartGrindMovement : MonoBehaviour
         if (vt1.z * vt2.z < 0 && onZ)
         {
             Debug.Log("Negative z!!! ");
+        }
+        if (Vector3.Angle(vt1, vt2) > 90)
+        {
+            Debug.Log($"Error angle: {vt1} | {vt2}");
         }
     }
 
@@ -211,8 +217,12 @@ public class PlayerCartGrindMovement : MonoBehaviour
         float3 pos, forward, up;
         SplineUtility.Evaluate(currentRailScript.railSpline.Spline, normalisedTime, out pos, out forward, out up);
 
+        // Convert forward vector from local to world space
+        Vector3 worldForward = currentRailScript.transform.TransformDirection(forward);
+
+        Debug.Log($"Rail forward: {forward}");
         //Calculate the direction the player is going down the rail
-        currentRailScript.CalculateDirection(forward, transform.forward);
+        currentRailScript.CalculateDirection(worldForward, transform.forward);
 
         //Set player's initial position on the rail before starting the movement code.
         transform.position = splinePoint + (transform.up * heightOffset);
