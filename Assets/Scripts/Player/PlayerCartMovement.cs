@@ -257,7 +257,6 @@ public class PlayerCartMovement : MonoBehaviour
             playerStatusController.playerCurrentStatus = PlayerStatus.OffRail;
             playerRigidBody.useGravity = true;
         }
-        //Debug.Log("After jump: " + transform.rotation.eulerAngles);
         yield break;
     }
 

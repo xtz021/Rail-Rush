@@ -61,7 +61,6 @@ public class RailScript : MonoBehaviour
         //90 degrees is the cutoff point as it's the perpendicular to the rail. Anything more than that and the player is clearly
         //facing the other direction to the rail point.
         float angle = Vector3.Angle(railForward, playerForward.normalized);
-        Debug.Log($"Angle with rail: {angle}");
         if (angle > 90f)
             normalDir = false;
         else

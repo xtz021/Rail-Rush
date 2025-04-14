@@ -110,11 +110,10 @@ public class PlayerCartGrindMovement : MonoBehaviour
                     //Debug.Log("Before calculate moving: " + transform.rotation.eulerAngles);
                     transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(lookRota), lerpSpeed);
                     //transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(lookRota), lerpSpeed * Time.deltaTime);
-                    //Debug.Log("After calculate moving: " + transform.rotation.eulerAngles);
                     //Lerping the player's up direction to match that of the rail, in relation to the player's current rotation.
                     transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.FromToRotation(transform.up, up) * transform.rotation, lerpSpeed * Time.deltaTime);
                     //Rotate response to player input tilt control
-                    //transform.rotation = playerCartMovement.GetTiltControlRotation(transform.rotation);
+                    transform.rotation = playerCartMovement.GetTiltControlRotation(transform.rotation);
                 }
             }
 
@@ -220,7 +219,6 @@ public class PlayerCartGrindMovement : MonoBehaviour
         // Convert forward vector from local to world space
         Vector3 worldForward = currentRailScript.transform.TransformDirection(forward);
 
-        Debug.Log($"Rail forward: {forward}");
         //Calculate the direction the player is going down the rail
         currentRailScript.CalculateDirection(worldForward, transform.forward);
 
