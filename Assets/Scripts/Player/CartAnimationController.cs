@@ -28,4 +28,9 @@ public class CartAnimationController : MonoBehaviour
         }
     }
 
+    public void DeadAnimation(string causeOfDeath)
+    {
+        animator.SetTrigger("Dead_" + causeOfDeath);
+    }
+
 }

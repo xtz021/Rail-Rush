@@ -42,6 +42,11 @@ public class CharacterAnimationController : MonoBehaviour
         animator.SetTrigger(ANIMATOR_TRIGGER_CROUCH);
     }
 
+    public void Dead(string causeOfDeath)
+    {
+        animator.SetTrigger("Dead_" + causeOfDeath);
+    }
+
 
     private IEnumerator PlayCrouchAnimationWithDuration(float duration)
     {

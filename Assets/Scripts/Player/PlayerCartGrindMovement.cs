@@ -50,9 +50,12 @@ public class PlayerCartGrindMovement : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (onRail && playerStatusController.playerCurrentStatus != PlayerStatus.Jump) //If on the rail and not jumping, move the player along the rail
+        if(playerStatusController.playerCurrentStatus != PlayerStatus.Dead)
         {
-            MovePlayerAlongRail();
+            if (onRail && playerStatusController.playerCurrentStatus != PlayerStatus.Jump) //If on the rail and not jumping, move the player along the rail
+            {
+                MovePlayerAlongRail();
+            }
         }
     }
 

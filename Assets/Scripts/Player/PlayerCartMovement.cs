@@ -47,11 +47,18 @@ public class PlayerCartMovement : MonoBehaviour
 
     private void Update()
     {
-        if(playerStatusController.playerCurrentStatus == PlayerStatus.OffRail && _movePhysic)
+        if (playerStatusController.playerCurrentStatus != PlayerStatus.Dead)
         {
-            playerRigidBody.useGravity = true;
+            if (playerStatusController.playerCurrentStatus == PlayerStatus.OffRail && _movePhysic)
+            {
+                playerRigidBody.useGravity = true;
+            }
+            TouchControl();
         }
-        TouchControl();
+        else
+        {
+            // when player is dead
+        }
     }
 
 
