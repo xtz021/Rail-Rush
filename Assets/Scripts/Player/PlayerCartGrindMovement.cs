@@ -93,7 +93,7 @@ public class PlayerCartGrindMovement : MonoBehaviour
             Vector3 worldPos = currentRailScript.LocalToWorldConversion(pos);
             Vector3 nextPos = currentRailScript.LocalToWorldConversion(nextPosfloat);
 
-            if (nextPos == worldPos) // in case the player Cart got stucked between 2 rails
+            if (Vector3.Distance(nextPos, worldPos) < 0.001f) // in case the player Cart got stucked between 2 rails
             {
                 Debug.Log("Freeze error due to nextPos = worldPos: at " + worldPos);
 
@@ -105,9 +105,7 @@ public class PlayerCartGrindMovement : MonoBehaviour
                 //Setting the player's position and adding a height offset so that they're sitting on top of the rail instead of being in the middle of it.
                 transform.position = worldPos + (transform.up * heightOffset);
                 //Lerping the player's current rotation to the direction of where they are to where they're going.
-                Vector3 lookRota = (nextPos - worldPos).normalized;
-                float dot = Vector3.Dot(transform.forward, lookRota);
-                CheckGrindingRotation(lookRota, transform.forward);
+                Vector3 lookRota = nextPos - worldPos;
                 if (playerStatusController.playerCurrentStatus != PlayerStatus.Jump)
                 {
                     //Debug.Log("Before calculate moving: " + transform.rotation.eulerAngles);
@@ -128,29 +126,57 @@ public class PlayerCartGrindMovement : MonoBehaviour
         }
     }
 
-    private void CheckGrindingRotation(Vector3 vt1, Vector3 vt2)    // For debug purpose only
+    void MovePlayerAlongRail_Test()
     {
-        bool onX = false;
-        bool onZ = false;
-        if(transform.forward.normalized == new Vector3(1, 0, 0) || transform.forward.normalized == new Vector3(-1, 0, 0))
+        if (currentRailScript != null && onRail)
         {
-            onX = true;
-        }
-        if (transform.forward.normalized == new Vector3(0, 0, 1) || transform.forward.normalized == new Vector3(0, 0, -1))
-        {
-            onZ = true;
-        }
-        if (vt1.x * vt2.x < 0 && onX)
-        {
-            Debug.Log("Negative x!!!");
-        }
-        if (vt1.z * vt2.z < 0 && onZ)
-        {
-            Debug.Log("Negative z!!! ");
-        }
-        if (Vector3.Angle(vt1, vt2) > 90)
-        {
-            Debug.Log($"Error angle: {vt1} | {vt2}");
+            float progress = Mathf.Clamp01(elapsedTime / timeForFullSpline);
+
+            if ((progress < 0 || progress > 1) && !frontDetector._hasRailInFront
+                && playerStatusController.playerCurrentStatus != PlayerStatus.Jump)
+            {
+                Debug.Log($"Deadend of {currentRailScript.transform.parent.name}!!!");
+                DeadEndJumpOffCliff();
+                return;
+            }
+
+            float nextTimeNormalised = currentRailScript.normalDir
+                ? (elapsedTime + Time.deltaTime) / timeForFullSpline
+                : (elapsedTime - Time.deltaTime) / timeForFullSpline;
+
+            float3 pos, tangent, up;
+            float3 nextPosfloat, nextTan, nextUp;
+            SplineUtility.Evaluate(currentRailScript.railSpline.Spline, progress, out pos, out tangent, out up);
+            SplineUtility.Evaluate(currentRailScript.railSpline.Spline, nextTimeNormalised, out nextPosfloat, out nextTan, out nextUp);
+
+            Vector3 worldPos = currentRailScript.LocalToWorldConversion(pos);
+            Vector3 nextPos = currentRailScript.LocalToWorldConversion(nextPosfloat);
+
+            if (Vector3.Distance(nextPos, worldPos) < 0.001f)
+            {
+                Debug.Log("Freeze error due to nextPos = worldPos: at " + worldPos);
+                transform.Translate(transform.forward * Time.deltaTime * playerCartMovement._PlayerCartSpeed, Space.World);
+            }
+            else
+            {
+                // Stable Y offset test
+                transform.position = worldPos + (Vector3.up * heightOffset);
+                // Optional: visualize up vector
+                Debug.DrawRay(worldPos, up * 1.0f, Color.green);
+
+                // Rotation test without tilt
+                Quaternion targetRotation = Quaternion.LookRotation(nextPos - worldPos);
+                Quaternion upAlign = Quaternion.FromToRotation(transform.up, up);
+                targetRotation = upAlign * targetRotation;
+
+                transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, lerpSpeed * Time.deltaTime);
+
+                // Commented for test
+                // transform.rotation = playerCartMovement.GetTiltControlRotation(transform.rotation);
+            }
+
+            // Time progression
+            elapsedTime += currentRailScript.normalDir ? Time.deltaTime : -Time.deltaTime;
         }
     }
 
