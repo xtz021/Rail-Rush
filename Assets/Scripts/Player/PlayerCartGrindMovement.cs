@@ -108,13 +108,22 @@ public class PlayerCartGrindMovement : MonoBehaviour
                 Vector3 lookRota = nextPos - worldPos;
                 if (playerStatusController.playerCurrentStatus != PlayerStatus.Jump)
                 {
-                    //Debug.Log("Before calculate moving: " + transform.rotation.eulerAngles);
-                    transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(lookRota), lerpSpeed);
-                    //transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(lookRota), lerpSpeed * Time.deltaTime);
-                    //Lerping the player's up direction to match that of the rail, in relation to the player's current rotation.
-                    transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.FromToRotation(transform.up, up) * transform.rotation, lerpSpeed * Time.deltaTime);
-                    //Rotate response to player input tilt control
-                    transform.rotation = playerCartMovement.GetTiltControlRotation(transform.rotation);
+                    ////Debug.Log("Before calculate moving: " + transform.rotation.eulerAngles);
+                    //transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(lookRota), lerpSpeed);
+                    ////transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(lookRota), lerpSpeed * Time.deltaTime);
+                    ////Lerping the player's up direction to match that of the rail, in relation to the player's current rotation.
+                    //transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.FromToRotation(transform.up, up) * transform.rotation, lerpSpeed * Time.deltaTime);
+                    ////Rotate response to player input tilt control
+                    //transform.rotation = playerCartMovement.GetTiltControlRotation(transform.rotation);
+
+                    // 1. Base look direction (forward along the rail)
+                    Quaternion baseLook = Quaternion.LookRotation(lookRota.normalized, up);
+
+                    // 2. Apply tilt input
+                    Quaternion tilted = playerCartMovement.GetTiltControlRotation(baseLook);
+
+                    // 3. Smoothly blend from current to final rotation
+                    transform.rotation = Quaternion.Slerp(transform.rotation, tilted, lerpSpeed * Time.deltaTime);
                 }
             }
 
@@ -128,55 +137,60 @@ public class PlayerCartGrindMovement : MonoBehaviour
 
     void MovePlayerAlongRail_Test()
     {
-        if (currentRailScript != null && onRail)
+        if (currentRailScript != null && onRail) //This is just some additional error checking.
         {
-            float progress = Mathf.Clamp01(elapsedTime / timeForFullSpline);
+            //Calculate a 0 to 1 normalised time value which is the progress along the rail.
+            //Elapsed time divided by the full time needed to traverse the spline will give you that value.
+            float progress = elapsedTime / timeForFullSpline;
 
-            if ((progress < 0 || progress > 1) && !frontDetector._hasRailInFront
-                && playerStatusController.playerCurrentStatus != PlayerStatus.Jump)
+            //If progress is less than 0, the player's position is before the start of the rail.
+            //If greater than 1, their position is after the end of the rail.
+            //In either case, the player has finished their grind.
+            if ((progress < 0 || progress > 1) && !frontDetector._hasRailInFront)
             {
-                Debug.Log($"Deadend of {currentRailScript.transform.parent.name}!!!");
                 DeadEndJumpOffCliff();
                 return;
             }
 
-            float nextTimeNormalised = currentRailScript.normalDir
-                ? (elapsedTime + Time.deltaTime) / timeForFullSpline
-                : (elapsedTime - Time.deltaTime) / timeForFullSpline;
+            float nextTimeNormalised;
+            if (currentRailScript.normalDir)
+                nextTimeNormalised = (elapsedTime + Time.deltaTime) / timeForFullSpline;
+            else
+                nextTimeNormalised = (elapsedTime - Time.deltaTime) / timeForFullSpline;
 
             float3 pos, tangent, up;
             float3 nextPosfloat, nextTan, nextUp;
             SplineUtility.Evaluate(currentRailScript.railSpline.Spline, progress, out pos, out tangent, out up);
             SplineUtility.Evaluate(currentRailScript.railSpline.Spline, nextTimeNormalised, out nextPosfloat, out nextTan, out nextUp);
 
+            //Converting the local positions into world positions.
             Vector3 worldPos = currentRailScript.LocalToWorldConversion(pos);
             Vector3 nextPos = currentRailScript.LocalToWorldConversion(nextPosfloat);
 
-            if (Vector3.Distance(nextPos, worldPos) < 0.001f)
+            if (nextPos == worldPos) // in case the player Cart got stucked between 2 rails
             {
                 Debug.Log("Freeze error due to nextPos = worldPos: at " + worldPos);
-                transform.Translate(transform.forward * Time.deltaTime * playerCartMovement._PlayerCartSpeed, Space.World);
+
+                // Unstuck by moving the player Cart forward into the next rail
+                transform.Translate(Vector3.forward * Time.deltaTime * playerCartMovement._PlayerCartSpeed, Space.World);
             }
             else
             {
-                // Stable Y offset test
-                transform.position = worldPos + (Vector3.up * heightOffset);
-                // Optional: visualize up vector
-                Debug.DrawRay(worldPos, up * 1.0f, Color.green);
-
-                // Rotation test without tilt
-                Quaternion targetRotation = Quaternion.LookRotation(nextPos - worldPos);
-                Quaternion upAlign = Quaternion.FromToRotation(transform.up, up);
-                targetRotation = upAlign * targetRotation;
-
-                transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, lerpSpeed * Time.deltaTime);
-
-                // Commented for test
-                // transform.rotation = playerCartMovement.GetTiltControlRotation(transform.rotation);
+                //Setting the player's position and adding a height offset so that they're sitting on top of the rail instead of being in the middle of it.
+                transform.position = worldPos + (transform.up * heightOffset);
+                //Lerping the player's current rotation to the direction of where they are to where they're going.
+                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(nextPos - worldPos), lerpSpeed * Time.deltaTime);
+                //Lerping the player's up direction to match that of the rail, in relation to the player's current rotation.
+                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.FromToRotation(transform.up, up), lerpSpeed * Time.deltaTime);
+                //Rotate response to player input tilt control
+                transform.rotation = playerCartMovement.GetTiltControlRotation(transform.rotation);
             }
 
-            // Time progression
-            elapsedTime += currentRailScript.normalDir ? Time.deltaTime : -Time.deltaTime;
+            //Finally incrementing or decrementing elapsed time for the next update based on direction.
+            if (currentRailScript.normalDir)
+                elapsedTime += Time.deltaTime;
+            else
+                elapsedTime -= Time.deltaTime;
         }
     }
 

@@ -961,7 +961,7 @@ GameObject:
   - component: {fileID: 1153630737021814119}
   m_Layer: 0
   m_Name: R0
-  m_TagString: Untagged
+  m_TagString: Rail
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1209,6 +1209,7 @@ MonoBehaviour:
   normalDir: 0
   railSpline: {fileID: 0}
   totalSplineLength: 0
+  playerExit: 0
 --- !u!64 &1153630737021814119
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1434,7 +1435,7 @@ GameObject:
   - component: {fileID: 8243423680888909714}
   m_Layer: 0
   m_Name: R1
-  m_TagString: Untagged
+  m_TagString: Rail
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1575,6 +1576,7 @@ MonoBehaviour:
   normalDir: 0
   railSpline: {fileID: 0}
   totalSplineLength: 0
+  playerExit: 0
 --- !u!1 &1682339251647168
 GameObject:
   m_ObjectHideFlags: 0

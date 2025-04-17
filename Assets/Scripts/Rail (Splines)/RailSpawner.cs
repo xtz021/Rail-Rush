@@ -22,35 +22,40 @@ public class RailSpawner : MonoBehaviour
     {
         if(other.gameObject.tag == "Player" && !hasSpawn)
         {
-            Transform nextSpawnPoint = transform.Find("NextLink0");
-            List<Transform> endPoints = new List<Transform>();          // Points where the rail ends, can end with multiple rail on left, right and center
-            foreach(Transform child in transform)
+            SpawnRandomRail();
+        }
+    }
+
+    private void SpawnRandomRail()
+    {
+        Transform nextSpawnPoint = transform.Find("NextLink0");
+        List<Transform> endPoints = new List<Transform>();          // Points where the rail ends, can end with multiple rail on left, right and center
+        foreach (Transform child in transform)
+        {
+            if (child.tag == "EndPoint")
             {
-                if (child.tag == "EndPoint")
-                {
-                    endPoints.Add(child);
-                }
+                endPoints.Add(child);
             }
-            if (endPoints.Count >= 1)
+        }
+        if (endPoints.Count >= 1)
+        {
+            int endPointIndex = Random.Range(0, endPoints.Count);   // Get end point to spawn using an suitable rail list
+            if (endPoints[endPointIndex].localPosition.x == 0)
             {
-                int endPointIndex = Random.Range(0, endPoints.Count);   // Get end point to spawn using an suitable rail list
-                if (endPoints[endPointIndex].localPosition.x == 0)
-                {
-                    SpawnRailCenter(nextSpawnPoint);
-                }
-                else if (endPoints[endPointIndex].localPosition.x > 0)
-                {
-                    SpawnRailRight(nextSpawnPoint);
-                }
-                else
-                {
-                    SpawnRailLeft(nextSpawnPoint);
-                }
+                SpawnRailCenter(nextSpawnPoint);
+            }
+            else if (endPoints[endPointIndex].localPosition.x > 0)
+            {
+                SpawnRailRight(nextSpawnPoint);
             }
             else
             {
-                Debug.Log("Unable to get rail End Point");
+                SpawnRailLeft(nextSpawnPoint);
             }
+        }
+        else
+        {
+            Debug.Log("Unable to get rail End Point");
         }
     }
 
@@ -83,4 +88,7 @@ public class RailSpawner : MonoBehaviour
         GameObject railSpawn = Instantiate<GameObject>(railPref, spawnPos, spawnRota, transform.parent);
         hasSpawn = true;
     }
+
+    
+
 }

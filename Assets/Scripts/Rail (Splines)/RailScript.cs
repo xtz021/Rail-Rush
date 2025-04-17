@@ -9,11 +9,36 @@ public class RailScript : MonoBehaviour
     public bool normalDir;
     public SplineContainer railSpline;
     public float totalSplineLength;
+    public bool playerExit;
 
+    private float expireTime = 3f;
+    private float lifeTime = 0;
     private void Start()
     {
         railSpline = GetComponent<SplineContainer>();
         totalSplineLength = railSpline.CalculateLength();
+        lifeTime = 0f;
+        playerExit = false;
+    }
+
+    private void Update()
+    {
+        if(playerExit)
+        {
+            DisappearOnExpire();
+        }
+    }
+
+    private void DisappearOnExpire()
+    {
+        if (lifeTime > expireTime)
+        {
+            Destroy(transform.parent.gameObject);
+        }
+        else
+        {
+            lifeTime += Time.deltaTime;
+        }
     }
 
     /// <summary>

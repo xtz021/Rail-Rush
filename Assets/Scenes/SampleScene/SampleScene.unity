@@ -703,12 +703,14 @@ MonoBehaviour:
   railsList_Left:
   - {fileID: 1221605805305978, guid: 1990832215a07d04593045befac118c0, type: 3}
   - {fileID: 1171868389361689, guid: c5766f16687914d499df82dda333350c, type: 3}
+  - {fileID: 1272633753763383, guid: a3108148f14cdd348803f6751680f00a, type: 3}
   railsList_Center:
   - {fileID: 1221605805305978, guid: 1990832215a07d04593045befac118c0, type: 3}
   - {fileID: 1964510732350518, guid: c84b29a76688976409488258b66652f2, type: 3}
   railsList_Right:
   - {fileID: 1221605805305978, guid: 1990832215a07d04593045befac118c0, type: 3}
   - {fileID: 1405901273800531, guid: 7c8495d448a13b049914c64ba1b4ae6d, type: 3}
+  - {fileID: 1525075473483259, guid: d661e2bbedb658341b9b966c22e07e1c, type: 3}
 --- !u!1 &872927092
 GameObject:
   m_ObjectHideFlags: 0
@@ -891,7 +893,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.042452812, g: 0.41483223, b: 1, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1216,7 +1218,7 @@ MonoBehaviour:
   input: {x: 0, y: 0, z: 0}
   onRail: 0
   grindSpeed: 10
-  heightOffset: 0.05
+  heightOffset: 0.08
   lerpSpeed: 10
   currentRailScript: {fileID: 0}
   frontDetector: {fileID: 1516007267}

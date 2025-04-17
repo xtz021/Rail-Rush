@@ -176,20 +176,35 @@ public class PlayerCartMovement : MonoBehaviour
         //transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, tiltSpeed * Time.deltaTime);
     }
 
-    public Quaternion GetTiltControlRotation(Quaternion rotation)           // To use in PlayerCartGrindiMovement while grinding on Spline
+    public Quaternion GetTiltControlRotation(Quaternion baseRotation)           // To use in PlayerCartGrindiMovement while grinding on Spline
     {
-        Vector3 targetPos = new Vector3(0, 0, 0);
+        //Vector3 targetPos = new Vector3(0, 0, 0);
+        //if (tiltDirection < 0)
+        //{
+        //    targetPos.z = maxTiltAngle;
+        //}
+        //else if(tiltDirection > 0)
+        //{
+        //    targetPos.z = -maxTiltAngle;
+        //}
+        // Determine desired tilt angle (roll)
+        float tiltAngle = 0f;
         if (tiltDirection < 0)
-        {
-            targetPos.z = maxTiltAngle;
-        }
-        else if(tiltDirection > 0)
-        {
-            targetPos.z = -maxTiltAngle;
-        }
-        Quaternion targetRotation = Quaternion.Euler(targetPos);
-        rotation = Quaternion.Lerp(transform.rotation, targetRotation, tiltSpeed * Time.deltaTime);
-        return rotation;
+            tiltAngle = maxTiltAngle;
+        else if (tiltDirection > 0)
+            tiltAngle = -maxTiltAngle;
+        //Quaternion targetRotation = Quaternion.Euler(targetPos);
+        //Quaternion rotation = Quaternion.Lerp(transform.rotation, targetRotation, tiltSpeed * Time.deltaTime);
+        //return rotation;
+        // Apply tilt (roll) around the local forward axis
+        Vector3 forwardAxis = baseRotation * Vector3.forward;
+        Quaternion tiltRotation = Quaternion.AngleAxis(tiltAngle, forwardAxis);
+
+        // Apply tilt to base rotation
+        Quaternion targetRotation = tiltRotation * baseRotation;
+
+        // Smoothly blend toward target rotation
+        return Quaternion.Lerp(baseRotation, targetRotation, tiltSpeed * Time.deltaTime);
     }
 
 
