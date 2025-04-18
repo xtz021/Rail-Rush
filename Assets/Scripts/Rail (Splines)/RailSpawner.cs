@@ -41,11 +41,11 @@ public class RailSpawner : MonoBehaviour
         if (endPoints.Count >= 1)
         {
             int endPointIndex = Random.Range(0, endPoints.Count);   // Get end point to spawn using an suitable rail list
-            if (endPoints[endPointIndex].localPosition.x == 0)
+            if (endPoints[endPointIndex].localPosition.x == nextSpawnPoint.localPosition.x)
             {
                 SpawnRailCenter(nextSpawnPoint);
             }
-            else if (endPoints[endPointIndex].localPosition.x > 0)
+            else if (endPoints[endPointIndex].localPosition.x > nextSpawnPoint.localPosition.x)
             {
                 SpawnRailRight(nextSpawnPoint);
             }

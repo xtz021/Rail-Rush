@@ -18,7 +18,7 @@ public class FrontDetector : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Rail")
+        if(other.gameObject.tag == "Rail" && playerStatusController.playerCurrentStatus != PlayerStatus.Dead)
         {
             //Debug.Log("rail in front: " + other.transform.parent.name);
             _hasRailInFront = true;
@@ -27,7 +27,7 @@ public class FrontDetector : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if(!RailInRange(out frontRails))
+        if(!RailInRange(out frontRails) && playerStatusController.playerCurrentStatus != PlayerStatus.Dead)
         {
             if(playerStatusController.playerCurrentStatus != PlayerStatus.Jump)
             {

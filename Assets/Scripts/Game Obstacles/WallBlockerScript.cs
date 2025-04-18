@@ -10,7 +10,13 @@ public class WallBlockerScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            Debug.Log("Obstacle hits the player!");
             PlayerStatusController playerStatusController = collision.gameObject.GetComponent<PlayerStatusController>();
+            if (playerStatusController == null)             // When the wall hits the character instead of the cart
+            {
+                playerStatusController = collision.transform.parent.parent.GetComponent<PlayerStatusController>();
+                Debug.Log("Obstacle hits the character!");
+            }
             playerStatusController.Die(STRING_OBSTACLE_TYPE);
         }
     }

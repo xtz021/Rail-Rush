@@ -6,15 +6,22 @@ public class RailDetector : MonoBehaviour
 {
     [SerializeField] PlayerCartGrindMovement playerGrindingScript;
     [SerializeField] FrontDetector frontDetector;
+    [SerializeField] PlayerStatusController playerStatusController;
 
     private void OnTriggerEnter(Collider other)
     {
-        playerGrindingScript.OnRailDetectEnter(other);
+        if(playerStatusController.playerCurrentStatus != PlayerStatus.Dead)
+        {
+            playerGrindingScript.OnRailDetectEnter(other);
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        playerGrindingScript.OnRailDetectExit(other, frontDetector._hasRailInFront);
+        if (playerStatusController.playerCurrentStatus != PlayerStatus.Dead)
+        {
+            playerGrindingScript.OnRailDetectExit(other, frontDetector._hasRailInFront);
+        }
     }
 
 }

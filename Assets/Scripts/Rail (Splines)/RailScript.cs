@@ -11,7 +11,7 @@ public class RailScript : MonoBehaviour
     public float totalSplineLength;
     public bool playerExit;
 
-    private float expireTime = 3f;
+    private float expireTime = 5f;
     private float lifeTime = 0;
     private void Start()
     {

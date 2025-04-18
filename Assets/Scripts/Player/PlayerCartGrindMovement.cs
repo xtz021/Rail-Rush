@@ -57,6 +57,10 @@ public class PlayerCartGrindMovement : MonoBehaviour
                 MovePlayerAlongRail();
             }
         }
+        else
+        {
+            currentRailScript = null;
+        }
     }
 
     void MovePlayerAlongRail()
