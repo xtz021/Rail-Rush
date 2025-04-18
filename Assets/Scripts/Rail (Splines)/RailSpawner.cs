@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class RailSpawner : MonoBehaviour
@@ -64,7 +65,11 @@ public class RailSpawner : MonoBehaviour
         Vector3 spawnPos = spawnPoint.position;
         Quaternion spawnRota = new Quaternion();
         spawnRota.eulerAngles = spawnPoint.localEulerAngles + transform.eulerAngles;  // rotation = this rail rotation + NextLink0 rotation
-        GameObject railPref = railsList_Center[Random.Range(0, railsList_Center.Count)];
+        GameObject railPref;
+        do
+        {
+            railPref = railsList_Center[Random.Range(0, railsList_Center.Count)];
+        } while (railPref == PrefabUtility.GetCorrespondingObjectFromSource(gameObject) && railPref != null);   // check if the newly spawn rail is the same with this one
         GameObject railSpawn = Instantiate<GameObject>(railPref, spawnPos, spawnRota, transform.parent);
         hasSpawn = true;
     }
@@ -74,7 +79,11 @@ public class RailSpawner : MonoBehaviour
         Vector3 spawnPos = spawnPoint.position;
         Quaternion spawnRota = new Quaternion();
         spawnRota.eulerAngles = spawnPoint.localEulerAngles + transform.eulerAngles;  // rotation = this rail rotation + NextLink0 rotation
-        GameObject railPref = railsList_Left[Random.Range(0, railsList_Left.Count)];
+        GameObject railPref;
+        do
+        {
+            railPref = railsList_Left[Random.Range(0, railsList_Left.Count)];
+        } while (railPref == PrefabUtility.GetCorrespondingObjectFromSource(gameObject) && railPref != null);   // check if the newly spawn rail is the same with this one
         GameObject railSpawn = Instantiate<GameObject>(railPref, spawnPos, spawnRota, transform.parent);
         hasSpawn = true;
     }
@@ -84,7 +93,11 @@ public class RailSpawner : MonoBehaviour
         Vector3 spawnPos = spawnPoint.position;
         Quaternion spawnRota = new Quaternion();
         spawnRota.eulerAngles = spawnPoint.localEulerAngles + transform.eulerAngles;  // rotation = this rail rotation + NextLink0 rotation
-        GameObject railPref = railsList_Right[Random.Range(0, railsList_Right.Count)];
+        GameObject railPref;
+        do
+        {
+            railPref = railsList_Right[Random.Range(0, railsList_Right.Count)];
+        } while (railPref == PrefabUtility.GetCorrespondingObjectFromSource(gameObject) && railPref != null);   // check if the newly spawn rail is the same with this one
         GameObject railSpawn = Instantiate<GameObject>(railPref, spawnPos, spawnRota, transform.parent);
         hasSpawn = true;
     }

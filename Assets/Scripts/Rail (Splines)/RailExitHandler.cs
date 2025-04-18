@@ -6,10 +6,10 @@ public class RailExitHandler : MonoBehaviour
 {
     private void OnTriggerExit(Collider other)
     {
-        SetPlayerEnter();
+        SetPlayerExit();
     }
 
-    private void SetPlayerEnter()
+    private void SetPlayerExit()
     {
         RailScript[] railList = transform.parent.GetComponentsInChildren<RailScript>();
         foreach (RailScript rail in railList)
