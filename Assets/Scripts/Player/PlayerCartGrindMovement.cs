@@ -29,13 +29,15 @@ public class PlayerCartGrindMovement : MonoBehaviour
     [SerializeField] FrontDetector frontDetector;
 
     Rigidbody playerRigidbody;
+    PlayerGravitySimulator gravitySim;
     PlayerStatusController playerStatusController;
     PlayerCartMovement playerCartMovement;
     private Collider[] overlapingColliders;
 
     private void Start()
     {
-        playerRigidbody = GetComponent<Rigidbody>();
+        gravitySim = GetComponent<PlayerGravitySimulator>();
+        //playerRigidbody = GetComponent<Rigidbody>();
         playerStatusController = GetComponent<PlayerStatusController>();
         playerCartMovement = GetComponent<PlayerCartMovement>();
     }
@@ -146,7 +148,8 @@ public class PlayerCartGrindMovement : MonoBehaviour
         if (other.gameObject.tag == "Rail")
         {
             playerStatusController.playerCurrentStatus = PlayerStatus.OnRail;
-            playerRigidbody.useGravity = false;
+            //playerRigidbody.useGravity = false;
+            gravitySim.isFalling = false;
             playerCartMovement.StopJumpingCoroutines();
             /*When the player hits the rail, onRail is set to true, the current rail script is set to the
              *rail script of the rail the player hits. Then we calculate the player's position on that rail.*/
@@ -181,7 +184,6 @@ public class PlayerCartGrindMovement : MonoBehaviour
             {
                 DeadEndJumpOffCliff();
             }
-            //playerRigidbody.useGravity = true;
         }
     }
 
@@ -223,7 +225,8 @@ public class PlayerCartGrindMovement : MonoBehaviour
         {
             playerStatusController.playerCurrentStatus = PlayerStatus.OffRail;
             transform.position += transform.forward * 1f;
-            playerRigidbody.useGravity = true;
+            //playerRigidbody.useGravity = true;
+            gravitySim.isFalling = true;
         }
         Debug.Log("Thrown off rail");
     }

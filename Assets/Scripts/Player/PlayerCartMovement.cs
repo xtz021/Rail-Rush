@@ -19,6 +19,7 @@ public class PlayerCartMovement : MonoBehaviour
     private float tiltMagnitude = 20f;
     private float tiltSpeed = 20f;
     private Rigidbody playerRigidBody;
+    private PlayerGravitySimulator gravitySim;
     private PlayerStatusController playerStatusController;
     private PlayerCartGrindMovement playerCartGrindMovement;
     private CharacterAnimationController characterAnimationController;
@@ -39,6 +40,7 @@ public class PlayerCartMovement : MonoBehaviour
     private void Start()
     {
         playerRigidBody = GetComponent<Rigidbody>();
+        gravitySim = GetComponent<PlayerGravitySimulator>();
         playerStatusController = GetComponent<PlayerStatusController>();
         playerCartGrindMovement = GetComponent<PlayerCartGrindMovement>();
         characterAnimationController = transform.Find("PlayerCharacter").GetComponent<CharacterAnimationController>();
@@ -50,7 +52,8 @@ public class PlayerCartMovement : MonoBehaviour
         {
             if (playerStatusController.playerCurrentStatus == PlayerStatus.OffRail && _movePhysic)
             {
-                playerRigidBody.useGravity = true;
+                //playerRigidBody.useGravity = true;
+                gravitySim.isFalling = true;
             }
             TouchControl();
         }
@@ -210,37 +213,16 @@ public class PlayerCartMovement : MonoBehaviour
     private void Jump(int jumpDirection)
     {
         //Debug.Log("Before jump: " + transform.rotation.eulerAngles);
-        jumpCoroutine = StartCoroutine(JumpIE2(jumpDirection));
+        jumpCoroutine = StartCoroutine(JumpIE(jumpDirection));
         touchCooldownCoroutine = StartCoroutine(TouchControlGoesOnCooldown());
         cartAnimationController.JumpAnimation(jumpDirection);                   // Playing jump animation
         playerCartGrindMovement.EmptyCurrentRailScript();
     }
 
-    IEnumerator JumpIE(int jumpDirection)       //jumpDirection = 0 -> jump straight up
-                                                //jumpDirection = 1 -> jump right
-                                                //jumpDirection = -1 -> jump left
-    {
-        float timer = 0f;
-        float jumpOnAirDuration = 0.5f;
-        playerCartGrindMovement.onRail = false;
-        jumpDirection = NormalizedIntDirection(jumpDirection);
-        playerStatusController.playerCurrentStatus = PlayerStatus.Jump;
-        while (timer < jumpOnAirDuration)
-        {
-            transform.position = new Vector3(normalX + (timer / jumpOnAirDuration) * distantBetweenRails * jumpDirection
-                                                , normalY + _PlayerCartSpeed * Time.deltaTime + Mathf.Sin(timer / jumpOnAirDuration * Mathf.PI) * jumpHeight
-                                                , transform.position.z + _PlayerCartSpeed * Time.deltaTime);
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(new Vector3(0,0,1)),5*Time.deltaTime);
-            timer += Time.deltaTime;
-            yield return null;
-        }
-        transform.position = new Vector3(transform.position.x, normalY, transform.position.z);
-        playerStatusController.playerCurrentStatus = PlayerStatus.OffRail;
-        playerRigidBody.useGravity = true;
-        yield break;
-    }
 
-    IEnumerator JumpIE2(int jumpDirection)
+    IEnumerator JumpIE(int jumpDirection)//jumpDirection = 0 -> jump straight up
+                                          //jumpDirection = 1 -> jump right
+                                          //jumpDirection = -1 -> jump left
     {
         float timer = 0f;
         float jumpOnAirDuration = 0.5f;
@@ -256,7 +238,7 @@ public class PlayerCartMovement : MonoBehaviour
         Vector3 jumpOffset = startRotation * Vector3.right * jumpDirection * distantBetweenRails;
         Vector3 forwardOffset = startRotation * Vector3.forward * _PlayerCartSpeed * jumpOnAirDuration;
 
-        while (timer < jumpOnAirDuration)
+        while (timer < jumpOnAirDuration && playerStatusController.playerCurrentStatus != PlayerStatus.OnRail)
         {
             float t = timer / jumpOnAirDuration;
 
@@ -276,7 +258,8 @@ public class PlayerCartMovement : MonoBehaviour
         if (playerStatusController.playerCurrentStatus != PlayerStatus.OnRail)
         {
             playerStatusController.playerCurrentStatus = PlayerStatus.OffRail;
-            playerRigidBody.useGravity = true;
+            //playerRigidBody.useGravity = true;
+            gravitySim.isFalling = true;
         }
         yield break;
     }
