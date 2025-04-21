@@ -18,7 +18,7 @@ public class PlayerCartMovement : MonoBehaviour
     private float maxTiltAngle = 45f;
     private float tiltMagnitude = 20f;
     private float tiltSpeed = 20f;
-    private Rigidbody playerRigidBody;
+    //private Rigidbody playerRigidBody;
     private PlayerGravitySimulator gravitySim;
     private PlayerStatusController playerStatusController;
     private PlayerCartGrindMovement playerCartGrindMovement;
@@ -39,7 +39,7 @@ public class PlayerCartMovement : MonoBehaviour
 
     private void Start()
     {
-        playerRigidBody = GetComponent<Rigidbody>();
+        //playerRigidBody = GetComponent<Rigidbody>();
         gravitySim = GetComponent<PlayerGravitySimulator>();
         playerStatusController = GetComponent<PlayerStatusController>();
         playerCartGrindMovement = GetComponent<PlayerCartGrindMovement>();

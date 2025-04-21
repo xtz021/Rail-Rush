@@ -12,7 +12,7 @@ public class PlayerStatusController : MonoBehaviour
     private CartAnimationController cartAnim;
     private CharacterAnimationController characterAnim;
 
-    private void Start()
+    private void Awake()
     {
         playerCurrentStatus = PlayerStatus.OffRail;
         playerCurrentRail = 0;

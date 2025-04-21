@@ -5,24 +5,39 @@ using UnityEngine;
 public class PlayerGravitySimulator : MonoBehaviour
 {
     public float verticalVelocity = 0f; // Current vertical speed
-    public bool isFalling = true;
+    public bool isFalling;
 
+    private PlayerCartGrindMovement playerCartGrindMovement;
+    private PlayerStatusController playerStatusController;
     private const float gravity = -9.81f;
 
-    private void Update()
+    private void Awake()
     {
-        if (isFalling)
-        {
-            verticalVelocity += gravity * Time.deltaTime;
-            transform.position += new Vector3(0, verticalVelocity * Time.deltaTime, 0);
+        isFalling = true;
+        playerCartGrindMovement = GetComponent<PlayerCartGrindMovement>();
+        playerStatusController = GetComponent<PlayerStatusController>();
+    }
 
-            // Optional: Fake ground check (adjust based on your world)
-            if (transform.position.y <= 0f)
+    private void FixedUpdate()
+    {
+        if (isFalling && playerCartGrindMovement.IsCurrentRailScriptEmpty() && playerStatusController.playerCurrentStatus != PlayerStatus.Dead)
+        {
+            verticalVelocity = gravity;
+            //transform.position += new Vector3(0, verticalVelocity * Time.deltaTime, 0);
+            transform.Translate(new Vector3 (0, verticalVelocity * Time.fixedDeltaTime, 0), Space.Self);
+            //transform.position += new Vector3(0, verticalVelocity * Time.fixedDeltaTime, 0);
+
+            if (transform.position.y <= -5f)
             {
-                isFalling = true;
-                transform.position = new Vector3(transform.position.x, 0f, transform.position.z);
+                isFalling = false;
+                Debug.Log("Player fall off cliff");
                 verticalVelocity = 0f;
+                playerStatusController.playerCurrentStatus = PlayerStatus.Dead;
             }
+        }
+        else
+        {
+            verticalVelocity = 0;
         }
     }
 

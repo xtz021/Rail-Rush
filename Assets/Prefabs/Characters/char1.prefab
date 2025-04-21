@@ -272,7 +272,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 4300000, guid: dd15fc4ad5c1f4745a83b60876c4b364, type: 2}
+  m_Mesh: {fileID: 4300000, guid: 10e813c4be144a547ac13772b731ae35, type: 2}
   m_Bones:
   - {fileID: 4105445064240842}
   - {fileID: 4476759456234715}
@@ -383,6 +383,7 @@ GameObject:
   - component: {fileID: 4904997377290598}
   - component: {fileID: 111048418288264788}
   - component: {fileID: 1368562137629476152}
+  - component: {fileID: 825259064591984085}
   m_Layer: 0
   m_Name: char1
   m_TagString: Player
@@ -480,6 +481,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!64 &825259064591984085
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1182149558980814}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 10e813c4be144a547ac13772b731ae35, type: 2}
 --- !u!1 &1194631845972763
 GameObject:
   m_ObjectHideFlags: 0

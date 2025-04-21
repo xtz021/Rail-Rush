@@ -28,7 +28,7 @@ public class PlayerCartGrindMovement : MonoBehaviour
     [Header("Scripts that need input")]
     [SerializeField] FrontDetector frontDetector;
 
-    Rigidbody playerRigidbody;
+    //Rigidbody playerRigidbody;
     PlayerGravitySimulator gravitySim;
     PlayerStatusController playerStatusController;
     PlayerCartMovement playerCartMovement;
@@ -147,8 +147,8 @@ public class PlayerCartGrindMovement : MonoBehaviour
     {
         if (other.gameObject.tag == "Rail")
         {
+            Debug.Log("Enter rail");
             playerStatusController.playerCurrentStatus = PlayerStatus.OnRail;
-            //playerRigidbody.useGravity = false;
             gravitySim.isFalling = false;
             playerCartMovement.StopJumpingCoroutines();
             /*When the player hits the rail, onRail is set to true, the current rail script is set to the
@@ -172,6 +172,7 @@ public class PlayerCartGrindMovement : MonoBehaviour
         if (railCollider.gameObject.tag == "Rail")
         {
             //Debug.Log("Exit rail: " + railCollider.transform.parent.name);
+            gravitySim.isFalling = true;
             if (currentRailScript != railCollider.gameObject.GetComponent<RailScript>() && currentRailScript != null)
             {
                 return;
@@ -234,6 +235,14 @@ public class PlayerCartGrindMovement : MonoBehaviour
     public void EmptyCurrentRailScript()
     {
         currentRailScript = null;
+    }
+
+    public bool IsCurrentRailScriptEmpty()
+    {
+        if (currentRailScript == null)
+            return true;
+        else
+            return false;
     }
 
     public void DeadEndJumpOffCliff()
