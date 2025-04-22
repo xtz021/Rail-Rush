@@ -265,6 +265,71 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9045d6e170eec9e4fb8027accfeab653, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &100970193
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1475266776537973, guid: 700ce4714aa23b64bb6e58bc1fd9eecd, type: 3}
+      propertyPath: m_Name
+      value: Obstacle_Up_Crouch
+      objectReference: {fileID: 0}
+    - target: {fileID: 1475266776537973, guid: 700ce4714aa23b64bb6e58bc1fd9eecd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4769486567738505, guid: 700ce4714aa23b64bb6e58bc1fd9eecd, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4769486567738505, guid: 700ce4714aa23b64bb6e58bc1fd9eecd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4769486567738505, guid: 700ce4714aa23b64bb6e58bc1fd9eecd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4769486567738505, guid: 700ce4714aa23b64bb6e58bc1fd9eecd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4769486567738505, guid: 700ce4714aa23b64bb6e58bc1fd9eecd, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4769486567738505, guid: 700ce4714aa23b64bb6e58bc1fd9eecd, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4769486567738505, guid: 700ce4714aa23b64bb6e58bc1fd9eecd, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4769486567738505, guid: 700ce4714aa23b64bb6e58bc1fd9eecd, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4769486567738505, guid: 700ce4714aa23b64bb6e58bc1fd9eecd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4769486567738505, guid: 700ce4714aa23b64bb6e58bc1fd9eecd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4769486567738505, guid: 700ce4714aa23b64bb6e58bc1fd9eecd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 111570262921847975, guid: 700ce4714aa23b64bb6e58bc1fd9eecd, type: 3}
+      propertyPath: m_Animation
+      value: 
+      objectReference: {fileID: 7400000, guid: 0dc9b0928c0eb2246ba025d3bd9c81d3, type: 2}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 700ce4714aa23b64bb6e58bc1fd9eecd, type: 3}
 --- !u!1 &108091716
 GameObject:
   m_ObjectHideFlags: 0
@@ -726,6 +791,7 @@ GameObject:
   m_Component:
   - component: {fileID: 830545999}
   - component: {fileID: 830546000}
+  - component: {fileID: 830546001}
   m_Layer: 0
   m_Name: RailWay
   m_TagString: Untagged
@@ -778,6 +844,32 @@ MonoBehaviour:
   - {fileID: 1162880611185230, guid: 81ea4f156109c7d48a710385e4fb6b3a, type: 3}
   - {fileID: 1405901273800531, guid: 7c8495d448a13b049914c64ba1b4ae6d, type: 3}
   - {fileID: 1887190364188153, guid: c4933ae8c502b3e4bbc5b38e2c23d0e6, type: 3}
+--- !u!114 &830546001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 830545998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f52a6d2b0e5561748b0e3f954849c7ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cavesList_TurnLeft:
+  - {fileID: 1089365617196713, guid: 5c375451909a7a04cb9aeca3ca261015, type: 3}
+  - {fileID: 1590292688597123, guid: 27d46eb9a2108cd45842bb4b14b8cd43, type: 3}
+  - {fileID: 1038596563903370, guid: 04b3a5fa9e9e1ea4ead7cd86a0ae5762, type: 3}
+  cavesList_Straight:
+  - {fileID: 1753717712756639, guid: 5b090fee607f2d9428a506ec922b8a71, type: 3}
+  - {fileID: 1145309844112580, guid: 90b8748de9033514789189481bf38fce, type: 3}
+  - {fileID: 1324534674929330, guid: bad255328dc71844e80ac17dac127465, type: 3}
+  - {fileID: 1844871744929730, guid: 7ceb34a5a6808724d8c642b6dff6349f, type: 3}
+  - {fileID: 1667920466462296, guid: cca2a07cc90ca6d4587ba1f6c1a98813, type: 3}
+  cavesList_TurnRight:
+  - {fileID: 1962758630140388, guid: 09652022e34837a418a7bbb81ff86ccc, type: 3}
+  - {fileID: 1216421382411245, guid: 2ac41ddb26c2b5649b7dadd2fe33ee9d, type: 3}
+  - {fileID: 1089975338387882, guid: e6ffc4cf165d9044eb92666e096dae59, type: 3}
 --- !u!1 &872927092
 GameObject:
   m_ObjectHideFlags: 0
@@ -1048,6 +1140,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 77460750}
     m_Modifications:
+    - target: {fileID: 1141010290165878, guid: d31cd4bcf80ed554385c28ae13f4d22c, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 1182149558980814, guid: d31cd4bcf80ed554385c28ae13f4d22c, type: 3}
       propertyPath: m_Name
       value: char1
@@ -1700,6 +1796,10 @@ PrefabInstance:
     - target: {fileID: 2901659432127889326, guid: dc8a1e3ca9fd7cf4aa07409ca7a826a9, type: 3}
       propertyPath: m_Name
       value: Obstacle_WallBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 2901659432127889326, guid: dc8a1e3ca9fd7cf4aa07409ca7a826a9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc8a1e3ca9fd7cf4aa07409ca7a826a9, type: 3}

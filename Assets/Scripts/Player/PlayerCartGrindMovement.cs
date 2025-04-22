@@ -101,7 +101,7 @@ public class PlayerCartGrindMovement : MonoBehaviour
 
             if (Vector3.Distance(nextPos, worldPos) < 0.001f) // in case the player Cart got stucked between 2 rails
             {
-                Debug.Log("Freeze error due to nextPos = worldPos: at " + worldPos);
+                //Debug.Log("Freeze error due to nextPos = worldPos: at " + worldPos);
 
                 // Unstuck by moving the player Cart forward into the next rail
                 transform.Translate(transform.forward * Time.deltaTime * playerCartMovement._PlayerCartSpeed, Space.World);
@@ -147,7 +147,6 @@ public class PlayerCartGrindMovement : MonoBehaviour
     {
         if (other.gameObject.tag == "Rail")
         {
-            Debug.Log("Enter rail");
             playerStatusController.playerCurrentStatus = PlayerStatus.OnRail;
             gravitySim.isFalling = false;
             playerCartMovement.StopJumpingCoroutines();

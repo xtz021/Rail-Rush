@@ -11,7 +11,6 @@ public class RailDetector : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Trigger enter!!!");
         if(playerStatusController.playerCurrentStatus != PlayerStatus.Dead)
         {
             playerGrindingScript.OnRailDetectEnter(other);

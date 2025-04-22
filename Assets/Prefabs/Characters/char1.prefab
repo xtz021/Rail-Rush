@@ -204,6 +204,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4105445064240842}
   - component: {fileID: 137936855830437622}
+  - component: {fileID: 7212045617359729013}
   m_Layer: 0
   m_Name: ROOT
   m_TagString: Untagged
@@ -309,6 +310,20 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.06952596, y: -0.009438783, z: 0.3262002}
     m_Extent: {x: 1.0807233, y: 0.965315, z: 0.7767281}
   m_DirtyAABB: 0
+--- !u!64 &7212045617359729013
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1141010290165878}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 10e813c4be144a547ac13772b731ae35, type: 2}
 --- !u!1 &1142148161615712
 GameObject:
   m_ObjectHideFlags: 0
@@ -383,7 +398,6 @@ GameObject:
   - component: {fileID: 4904997377290598}
   - component: {fileID: 111048418288264788}
   - component: {fileID: 1368562137629476152}
-  - component: {fileID: 825259064591984085}
   m_Layer: 0
   m_Name: char1
   m_TagString: Player
@@ -481,20 +495,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!64 &825259064591984085
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1182149558980814}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 10e813c4be144a547ac13772b731ae35, type: 2}
 --- !u!1 &1194631845972763
 GameObject:
   m_ObjectHideFlags: 0
