@@ -20,4 +20,37 @@ public class WallBlockerScript : MonoBehaviour
             playerStatusController.Die(STRING_OBSTACLE_TYPE);
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            Debug.Log("Obstacle hits the character!");
+            PlayerStatusController playerStatusController;
+            playerStatusController = GetStatusControllerFromHead(other.transform);  // Get PlayerStatusController from the player
+            if (playerStatusController != null && playerStatusController.playerCurrentStatus != PlayerStatus.Dead)
+            {
+                playerStatusController.Die(STRING_OBSTACLE_TYPE);
+            }
+            else
+            {
+                //Debug.Log($"Incorrect transform: {playerStatusController.transform.name}");
+            }
+        }
+    }
+
+    private PlayerStatusController GetStatusControllerFromHead(Transform head)
+    {
+        Transform player = head;
+        for (int i = 0; i < 9; i++)                             // Get Player transform
+        {
+            player = player.parent;
+        }
+        PlayerStatusController playerStatusController = player.GetComponent<PlayerStatusController>();
+        if (playerStatusController == null)
+        {
+            Debug.Log($"Incorrect transform: {player.name}");
+        }
+        return playerStatusController;
+    }
 }

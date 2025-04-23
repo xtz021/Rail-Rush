@@ -3323,6 +3323,7 @@ GameObject:
   - component: {fileID: 4635338070249479}
   - component: {fileID: 8132761963385689781}
   - component: {fileID: -8263718870770330749}
+  - component: {fileID: 24407099468640416}
   m_Layer: 0
   m_Name: B1L_CurveLeft45CCW_spline
   m_TagString: Untagged
@@ -3368,8 +3369,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 8, y: 6, z: 0.2}
-  m_Center: {x: 0, y: 3, z: 0}
+  m_Size: {x: 12, y: 6, z: 0.2}
+  m_Center: {x: 0, y: 3, z: -5}
 --- !u!114 &-8263718870770330749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3380,6 +3381,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5fbd8d29967206d4ca17b6e912a96178, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &24407099468640416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1941385477606879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c086696f54887bd4785ac0e0f085c693, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1945597920612591

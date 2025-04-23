@@ -73,7 +73,7 @@ public class PlayerCartMovement : MonoBehaviour
 
     public void TouchControl()
     {
-        if(!touchControlOnCooldown)
+        if(!touchControlOnCooldown && playerStatusController.playerCurrentStatus == PlayerStatus.OnRail)
         {
             if (Input.touches.Length > 0)
             {
