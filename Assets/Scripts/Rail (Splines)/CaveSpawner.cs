@@ -41,7 +41,7 @@ public class CaveSpawner : MonoBehaviour
         Quaternion spawnRota = transform.rotation;
         GameObject cavePref;
         cavePref = cavesList_Straight[Random.Range(0, cavesList_Straight.Count)];
-        GameObject caveSpawn = Instantiate<GameObject>(cavePref, spawnPos, spawnRota, transform.parent);
+        GameObject caveSpawn = Instantiate<GameObject>(cavePref, spawnPos, spawnRota, transform);
         Debug.Log("Spawn cave straight");
     }
 
@@ -51,7 +51,7 @@ public class CaveSpawner : MonoBehaviour
         Quaternion spawnRota = transform.rotation;               
         GameObject cavePref;
         cavePref = cavesList_TurnLeft[Random.Range(0, cavesList_TurnLeft.Count)];
-        GameObject caveSpawn = Instantiate<GameObject>(cavePref, spawnPos, spawnRota, transform.parent);
+        GameObject caveSpawn = Instantiate<GameObject>(cavePref, spawnPos, spawnRota, transform);
         Debug.Log("Spawn cave turn left");
     }
 
@@ -61,7 +61,7 @@ public class CaveSpawner : MonoBehaviour
         Quaternion spawnRota = transform.rotation;               
         GameObject cavePref;
         cavePref = cavesList_TurnRight[Random.Range(0, cavesList_TurnRight.Count)];
-        GameObject caveSpawn = Instantiate<GameObject>(cavePref, spawnPos, spawnRota, transform.parent);
+        GameObject caveSpawn = Instantiate<GameObject>(cavePref, spawnPos, spawnRota, transform);
         Debug.Log("Spawn cave turn right");
     }
 
