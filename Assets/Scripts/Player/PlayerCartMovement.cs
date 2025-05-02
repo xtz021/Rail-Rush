@@ -17,7 +17,8 @@ public class PlayerCartMovement : MonoBehaviour
     private float normalY;
     private float maxTiltAngle = 45f;
     private float tiltMagnitude = 20f;
-    private float tiltSpeed = 20f;
+    private float tiltSpeed = 200f;
+    private float currentTiltAngle = 0f;
     //private Rigidbody playerRigidBody;
     private PlayerGravitySimulator gravitySim;
     private PlayerStatusController playerStatusController;
@@ -178,35 +179,24 @@ public class PlayerCartMovement : MonoBehaviour
         //transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, tiltSpeed * Time.deltaTime);
     }
 
-    public Quaternion GetTiltControlRotation(Quaternion baseRotation)           // To use in PlayerCartGrindiMovement while grinding on Spline
+
+    public Quaternion GetTiltControlRotation(Quaternion baseRotation)  // To use in PlayerCartGrindiMovement while grinding on Spline
     {
-        //Vector3 targetPos = new Vector3(0, 0, 0);
-        //if (tiltDirection < 0)
-        //{
-        //    targetPos.z = maxTiltAngle;
-        //}
-        //else if(tiltDirection > 0)
-        //{
-        //    targetPos.z = -maxTiltAngle;
-        //}
-        // Determine desired tilt angle (roll)
-        float tiltAngle = 0f;
+        // Determine target tilt angle based on direction
+        float targetTiltAngle = 0f;
         if (tiltDirection < 0)
-            tiltAngle = maxTiltAngle;
+            targetTiltAngle = maxTiltAngle;
         else if (tiltDirection > 0)
-            tiltAngle = -maxTiltAngle;
-        //Quaternion targetRotation = Quaternion.Euler(targetPos);
-        //Quaternion rotation = Quaternion.Lerp(transform.rotation, targetRotation, tiltSpeed * Time.deltaTime);
-        //return rotation;
-        // Apply tilt (roll) around the local forward axis
+            targetTiltAngle = -maxTiltAngle;
+
+        // Smoothly move current tilt angle toward the target
+        currentTiltAngle = Mathf.MoveTowards(currentTiltAngle, targetTiltAngle, tiltSpeed * Time.deltaTime);
+
+        // Apply tilt (roll) around forward axis of base rotation
         Vector3 forwardAxis = baseRotation * Vector3.forward;
-        Quaternion tiltRotation = Quaternion.AngleAxis(tiltAngle, forwardAxis);
+        Quaternion tiltRotation = Quaternion.AngleAxis(currentTiltAngle, forwardAxis);
 
-        // Apply tilt to base rotation
-        Quaternion targetRotation = tiltRotation * baseRotation;
-
-        // Smoothly blend toward target rotation
-        return Quaternion.Lerp(baseRotation, targetRotation, tiltSpeed * Time.deltaTime);
+        return tiltRotation * baseRotation;
     }
 
 
