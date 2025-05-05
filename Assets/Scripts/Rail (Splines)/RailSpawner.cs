@@ -10,13 +10,15 @@ public class RailSpawner : MonoBehaviour
     List<GameObject> railsList_Right;
 
     bool hasSpawn;
+    RailsListController railsListController;
 
     private void Start()
     {
         hasSpawn = false;
-        railsList_Center = transform.parent.GetComponent<RailsListController>().railsList_Center;
-        railsList_Left = transform.parent.GetComponent<RailsListController>().railsList_Left;
-        railsList_Right = transform.parent.GetComponent<RailsListController>().railsList_Right;
+        railsListController = transform.parent.GetComponent<RailsListController>();
+        railsList_Center = railsListController.GetRailListStraight();
+        railsList_Left = railsListController.GetRailListLeft();
+        railsList_Right = railsListController.GetRailListRight();
     }
 
     private void OnTriggerEnter(Collider other)

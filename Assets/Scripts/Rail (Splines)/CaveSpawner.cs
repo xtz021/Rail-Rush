@@ -11,9 +11,9 @@ public class CaveSpawner : MonoBehaviour
 
     void Start()
     {
-        cavesList_Straight = transform.parent.GetComponent<CavesListController>().cavesList_Straight;
-        cavesList_TurnLeft = transform.parent.GetComponent<CavesListController>().cavesList_TurnLeft;
-        cavesList_TurnRight = transform.parent.GetComponent<CavesListController>().cavesList_TurnRight;
+        cavesList_Straight = transform.parent.GetComponent<CavesListController>().GetCaveListStraight();
+        cavesList_TurnLeft = transform.parent.GetComponent<CavesListController>().GetCaveListLeft();
+        cavesList_TurnRight = transform.parent.GetComponent<CavesListController>().GetCaveListRight();
         SpawnRandomCave();
     }
 
