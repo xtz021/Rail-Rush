@@ -24,7 +24,10 @@ public class RailsListController : MonoBehaviour
     {
         foreach (Transform child in transform)
         {
-            AddRailIntoCurrentList(child.gameObject);
+            if(child.gameObject.name.StartsWith("B"))
+            {
+                AddRailIntoCurrentList(child.gameObject);
+            }
         }
     }
 

@@ -71,10 +71,11 @@ public class RailSpawner : MonoBehaviour
         Quaternion spawnRota = new Quaternion();
         spawnRota.eulerAngles = spawnPoint.localEulerAngles + spawnPoint.parent.eulerAngles;  // rotation = this rail rotation + NextLink0 rotation
         GameObject railPref;
-        do
+        //do
         {
             railPref = railsList_Center[Random.Range(0, railsList_Center.Count)];
-        } while (railPref == PrefabUtility.GetCorrespondingObjectFromSource(gameObject) && railPref != null);   // check if the newly spawn rail is the same with this one
+        } //while (railPref == PrefabUtility.GetCorrespondingObjectFromSource(gameObject) && railPref != null);   // check if the newly spawn rail is the same with this one
+                                                                                                                  // Currently not working properly
         //GameObject railSpawn = Instantiate<GameObject>(railPref, spawnPos, spawnRota, transform.parent);
         GameObject railSpawn = Instantiate<GameObject>(railPref, spawnPos, spawnRota, spawnPoint.parent.parent);
         railsListController.AddRailIntoCurrentList(railSpawn);
@@ -87,10 +88,11 @@ public class RailSpawner : MonoBehaviour
         Quaternion spawnRota = new Quaternion();
         spawnRota.eulerAngles = spawnPoint.localEulerAngles + spawnPoint.parent.eulerAngles;  // rotation = this rail rotation + NextLink0 rotation
         GameObject railPref;
-        do
+        //do
         {
             railPref = railsList_Left[Random.Range(0, railsList_Left.Count)];
-        } while (railPref == PrefabUtility.GetCorrespondingObjectFromSource(gameObject) && railPref != null);   // check if the newly spawn rail is the same with this one
+        } //while (railPref == PrefabUtility.GetCorrespondingObjectFromSource(gameObject) && railPref != null);   // check if the newly spawn rail is the same with this one
+                                                                                                                  // Currently not working properly
         //GameObject railSpawn = Instantiate<GameObject>(railPref, spawnPos, spawnRota, transform.parent);
         GameObject railSpawn = Instantiate<GameObject>(railPref, spawnPos, spawnRota, spawnPoint.parent.parent);
         railsListController.AddRailIntoCurrentList(railSpawn);
@@ -103,10 +105,11 @@ public class RailSpawner : MonoBehaviour
         Quaternion spawnRota = new Quaternion();
         spawnRota.eulerAngles = spawnPoint.localEulerAngles + spawnPoint.parent.eulerAngles;  // rotation = this rail rotation + NextLink0 rotation
         GameObject railPref;
-        do
+        //do
         {
             railPref = railsList_Right[Random.Range(0, railsList_Right.Count)];
-        } while (railPref == PrefabUtility.GetCorrespondingObjectFromSource(gameObject) && railPref != null);   // check if the newly spawn rail is the same with this one
+        } //while (railPref == PrefabUtility.GetCorrespondingObjectFromSource(gameObject) && railPref != null);   // check if the newly spawn rail is the same with this one
+                                                                                                                // Currently not working properly
         //GameObject railSpawn = Instantiate<GameObject>(railPref, spawnPos, spawnRota, transform.parent);
         GameObject railSpawn = Instantiate<GameObject>(railPref, spawnPos, spawnRota, spawnPoint.parent.parent);
         railsListController.AddRailIntoCurrentList(railSpawn);

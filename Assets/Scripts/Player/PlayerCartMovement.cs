@@ -134,8 +134,8 @@ public class PlayerCartMovement : MonoBehaviour
                     }
                 }
             }
-            TiltControlSimulatorForEditor();        // for Editor only
-            //TiltCartControl();
+            //TiltControlSimulatorForEditor();        // for Editor only
+            TiltCartControl();
         }
     }
 
@@ -145,16 +145,22 @@ public class PlayerCartMovement : MonoBehaviour
         Vector3 targetPos = new Vector3(0,0,0);
         if(tilt.x >= 0.25f)
         {
-            targetPos.z = -maxTiltAngle;
+            //targetPos.z = -maxTiltAngle;
+            tiltDirection = 1;
         }
         else if(tilt.x <= -0.25)
         {
-            targetPos.z = maxTiltAngle;
+            //targetPos.z = maxTiltAngle;
+            tiltDirection = -1;
         }
-        Quaternion targetRotation = Quaternion.Euler(targetPos);
+        else
+        {
+            tiltDirection = 0;
+        }
+        //Quaternion targetRotation = Quaternion.Euler(targetPos);
         //float tiltX = Mathf.Clamp(tilt.x * tiltMagnitude, -maxTiltAngle,maxTiltAngle);      // Get tilt on X rotation but limit it in (-45;45) angle
         //transform.rotation = Quaternion.Euler(0,0,-tiltX);
-        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, tiltSpeed * Time.deltaTime);
+        //transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, tiltSpeed * Time.deltaTime);
     }
     private void TiltControlSimulatorForEditor()                // For testing in editor only
     {
