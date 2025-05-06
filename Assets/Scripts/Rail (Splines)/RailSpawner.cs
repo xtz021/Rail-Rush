@@ -21,6 +21,7 @@ public class RailSpawner : MonoBehaviour
         railsList_Right = railsListController.GetRailListRight();
     }
 
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "Player" && !hasSpawn)
@@ -31,9 +32,10 @@ public class RailSpawner : MonoBehaviour
 
     private void SpawnRandomRail()
     {
-        Transform nextSpawnPoint = transform.Find("NextLink0");
+        Transform latestRail = railsListController.GetLastRailInQueue().transform;
+        Transform nextSpawnPoint = latestRail.Find("NextLink0");
         List<Transform> endPoints = new List<Transform>();          // Points where the rail ends, can end with multiple rail on left, right and center
-        foreach (Transform child in transform)
+        foreach (Transform child in latestRail)
         {
             if (child.tag == "EndPoint")
             {
@@ -62,17 +64,20 @@ public class RailSpawner : MonoBehaviour
         }
     }
 
+
     private void SpawnRailCenter(Transform spawnPoint)
     {
         Vector3 spawnPos = spawnPoint.position;
         Quaternion spawnRota = new Quaternion();
-        spawnRota.eulerAngles = spawnPoint.localEulerAngles + transform.eulerAngles;  // rotation = this rail rotation + NextLink0 rotation
+        spawnRota.eulerAngles = spawnPoint.localEulerAngles + spawnPoint.parent.eulerAngles;  // rotation = this rail rotation + NextLink0 rotation
         GameObject railPref;
         do
         {
             railPref = railsList_Center[Random.Range(0, railsList_Center.Count)];
         } while (railPref == PrefabUtility.GetCorrespondingObjectFromSource(gameObject) && railPref != null);   // check if the newly spawn rail is the same with this one
-        GameObject railSpawn = Instantiate<GameObject>(railPref, spawnPos, spawnRota, transform.parent);
+        //GameObject railSpawn = Instantiate<GameObject>(railPref, spawnPos, spawnRota, transform.parent);
+        GameObject railSpawn = Instantiate<GameObject>(railPref, spawnPos, spawnRota, spawnPoint.parent.parent);
+        railsListController.AddRailIntoCurrentList(railSpawn);
         hasSpawn = true;
     }
 
@@ -80,13 +85,15 @@ public class RailSpawner : MonoBehaviour
     {
         Vector3 spawnPos = spawnPoint.position;
         Quaternion spawnRota = new Quaternion();
-        spawnRota.eulerAngles = spawnPoint.localEulerAngles + transform.eulerAngles;  // rotation = this rail rotation + NextLink0 rotation
+        spawnRota.eulerAngles = spawnPoint.localEulerAngles + spawnPoint.parent.eulerAngles;  // rotation = this rail rotation + NextLink0 rotation
         GameObject railPref;
         do
         {
             railPref = railsList_Left[Random.Range(0, railsList_Left.Count)];
         } while (railPref == PrefabUtility.GetCorrespondingObjectFromSource(gameObject) && railPref != null);   // check if the newly spawn rail is the same with this one
-        GameObject railSpawn = Instantiate<GameObject>(railPref, spawnPos, spawnRota, transform.parent);
+        //GameObject railSpawn = Instantiate<GameObject>(railPref, spawnPos, spawnRota, transform.parent);
+        GameObject railSpawn = Instantiate<GameObject>(railPref, spawnPos, spawnRota, spawnPoint.parent.parent);
+        railsListController.AddRailIntoCurrentList(railSpawn);
         hasSpawn = true;
     }
 
@@ -94,13 +101,15 @@ public class RailSpawner : MonoBehaviour
     {
         Vector3 spawnPos = spawnPoint.position;
         Quaternion spawnRota = new Quaternion();
-        spawnRota.eulerAngles = spawnPoint.localEulerAngles + transform.eulerAngles;  // rotation = this rail rotation + NextLink0 rotation
+        spawnRota.eulerAngles = spawnPoint.localEulerAngles + spawnPoint.parent.eulerAngles;  // rotation = this rail rotation + NextLink0 rotation
         GameObject railPref;
         do
         {
             railPref = railsList_Right[Random.Range(0, railsList_Right.Count)];
         } while (railPref == PrefabUtility.GetCorrespondingObjectFromSource(gameObject) && railPref != null);   // check if the newly spawn rail is the same with this one
-        GameObject railSpawn = Instantiate<GameObject>(railPref, spawnPos, spawnRota, transform.parent);
+        //GameObject railSpawn = Instantiate<GameObject>(railPref, spawnPos, spawnRota, transform.parent);
+        GameObject railSpawn = Instantiate<GameObject>(railPref, spawnPos, spawnRota, spawnPoint.parent.parent);
+        railsListController.AddRailIntoCurrentList(railSpawn);
         hasSpawn = true;
     }
 

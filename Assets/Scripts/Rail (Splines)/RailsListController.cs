@@ -5,15 +5,34 @@ using UnityEngine;
 public class RailsListController : MonoBehaviour
 {
     public Queue<GameObject> currentRailList;
+    [SerializeField] GameObject lastRailInQueue;
 
     [SerializeField] List<GameObject> railsList_Left;
     [SerializeField] List<GameObject> railsList_Center;
     [SerializeField] List<GameObject> railsList_Right;
 
-    int railLimit = 4;
+    int railLimit = 5;
 
-    private void Update()
+    private void Start()
     {
+        currentRailList = new Queue<GameObject>();
+        AddAllCurrentRailsIntoList();
+    }
+
+
+    private void AddAllCurrentRailsIntoList()
+    {
+        foreach (Transform child in transform)
+        {
+            AddRailIntoCurrentList(child.gameObject);
+        }
+    }
+
+    public void AddRailIntoCurrentList(GameObject rail)
+    {
+        currentRailList.Enqueue(rail);
+        lastRailInQueue = rail;
+        Debug.Log($"Added rail: {rail.name}. Current list count: {currentRailList.Count}");
         CurrentRailListLimitCheck();
     }
 
@@ -21,9 +40,10 @@ public class RailsListController : MonoBehaviour
     {
         while (currentRailList.Count > railLimit)
         {
-            GameObject outtedGameobject = new GameObject();
+            GameObject outtedGameobject;
             currentRailList.TryDequeue(out outtedGameobject);
             Destroy(outtedGameobject);
+            Debug.Log("Removed rail: " + outtedGameobject.name);
         }
     }
 
@@ -46,6 +66,11 @@ public class RailsListController : MonoBehaviour
     public Queue<GameObject> GetCurrentRailList()
     {
         return currentRailList;
+    }
+
+    public GameObject GetLastRailInQueue()
+    {
+        return lastRailInQueue;
     }
 
 }

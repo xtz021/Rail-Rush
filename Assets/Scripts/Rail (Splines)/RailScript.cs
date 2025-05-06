@@ -11,7 +11,7 @@ public class RailScript : MonoBehaviour
     public float totalSplineLength;
     public bool playerExit;
 
-    private float expireTime = 5f;
+    private float expireTime = 9f;
     private float lifeTime = 0;
     private void Start()
     {
@@ -21,25 +21,6 @@ public class RailScript : MonoBehaviour
         playerExit = false;
     }
 
-    private void Update()
-    {
-        if(playerExit)
-        {
-            DisappearOnExpire();
-        }
-    }
-
-    private void DisappearOnExpire()
-    {
-        if (lifeTime >= expireTime)
-        {
-            Destroy(transform.parent.gameObject);
-        }
-        else
-        {
-            lifeTime += Time.deltaTime;
-        }
-    }
 
     
     public Vector3 LocalToWorldConversion(float3 localPoint)

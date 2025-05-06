@@ -118,7 +118,6 @@ public class PlayerCartMovement : MonoBehaviour
                             PremNormalPos();
                             Jump(-1);
                             characterAnimationController.JumpLeft();
-                            playerStatusController.playerCurrentRail--;
                         }
                         Debug.Log("left swipe");
                     }
@@ -130,7 +129,6 @@ public class PlayerCartMovement : MonoBehaviour
                             PremNormalPos();
                             Jump(1);
                             characterAnimationController.JumpRight();
-                            playerStatusController.playerCurrentRail++;
                         }
                         Debug.Log("right swipe");
                     }
@@ -220,11 +218,11 @@ public class PlayerCartMovement : MonoBehaviour
         jumpDirection = NormalizedIntDirection(jumpDirection);
         playerStatusController.playerCurrentStatus = PlayerStatus.Jump;
 
-        // Capture the starting state ONCE
+        // Capture the starting state
         Vector3 startPosition = transform.position;
         Quaternion startRotation = transform.rotation;
 
-        // Calculate the jump direction based on initial orientation only
+        // Calculate the jump direction based on initial rotation
         Vector3 jumpOffset = startRotation * Vector3.right * jumpDirection * distantBetweenRails;
         Vector3 forwardOffset = startRotation * Vector3.forward * _PlayerCartSpeed * jumpOnAirDuration;
 
@@ -245,6 +243,7 @@ public class PlayerCartMovement : MonoBehaviour
         }
         transform.position = new Vector3(transform.position.x, normalY, transform.position.z);
         transform.rotation = startRotation;
+        playerStatusController.playerCurrentRail += jumpDirection;         // Update player current rail
         if (playerStatusController.playerCurrentStatus != PlayerStatus.OnRail)
         {
             playerStatusController.playerCurrentStatus = PlayerStatus.OffRail;
