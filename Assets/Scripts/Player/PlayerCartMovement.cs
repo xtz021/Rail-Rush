@@ -15,7 +15,7 @@ public class PlayerCartMovement : MonoBehaviour
 
     private float normalX;
     private float normalY;
-    private float maxTiltAngle = 45f;
+    private float maxTiltAngle = 30f;
     private float tiltMagnitude = 20f;
     private float tiltSpeed = 200f;
     private float currentTiltAngle = 0f;
@@ -96,7 +96,7 @@ public class PlayerCartMovement : MonoBehaviour
                     currentSwipe.Normalize();
 
                     //swipe upwards
-                    if (currentSwipe.y > 0 && currentSwipe.x > -0.5f && currentSwipe.x < 0.5f)
+                    if (currentSwipe.y > 0 && currentSwipe.x > -0.25f && currentSwipe.x < 0.25f)
                     {
                         PremNormalPos();
                         Jump(0);
@@ -105,13 +105,13 @@ public class PlayerCartMovement : MonoBehaviour
                         Debug.Log("up swipe");
                     }
                     //swipe down
-                    if (currentSwipe.y < 0 && currentSwipe.x > -0.5f && currentSwipe.x < 0.5f)
+                    if (currentSwipe.y < 0 && currentSwipe.x > -0.25f && currentSwipe.x < 0.25f)
                     {
                         characterAnimationController.Crouch();                                  // Play Crouch animation
                         Debug.Log("down swipe");
                     }
                     //swipe left
-                    if (currentSwipe.x < 0 && currentSwipe.y > -0.5f && currentSwipe.y < 0.5f)
+                    if (currentSwipe.x < 0 && currentSwipe.y > -0.25f && currentSwipe.y < 0.25f)
                     {
                         if (playerStatusController.playerCurrentRail > -1)
                         {
@@ -122,7 +122,7 @@ public class PlayerCartMovement : MonoBehaviour
                         Debug.Log("left swipe");
                     }
                     //swipe right
-                    if (currentSwipe.x > 0 && currentSwipe.y > -0.5f && currentSwipe.y < 0.5f)
+                    if (currentSwipe.x > 0 && currentSwipe.y > -0.25f && currentSwipe.y < 0.25f)
                     {
                         if (playerStatusController.playerCurrentRail < 1)
                         {
@@ -189,9 +189,19 @@ public class PlayerCartMovement : MonoBehaviour
         // Determine target tilt angle based on direction
         float targetTiltAngle = 0f;
         if (tiltDirection < 0)
+        {
             targetTiltAngle = maxTiltAngle;
+            characterAnimationController.LeanLeft();
+        }
         else if (tiltDirection > 0)
+        {
             targetTiltAngle = -maxTiltAngle;
+            characterAnimationController.LeanRight();
+        }
+        else
+        {
+            characterAnimationController.StopLeaning();
+        }
 
         // Smoothly move current tilt angle toward the target
         currentTiltAngle = Mathf.MoveTowards(currentTiltAngle, targetTiltAngle, tiltSpeed * Time.deltaTime);
@@ -249,7 +259,6 @@ public class PlayerCartMovement : MonoBehaviour
         }
         transform.position = new Vector3(transform.position.x, normalY, transform.position.z);
         transform.rotation = startRotation;
-        playerStatusController.playerCurrentRail += jumpDirection;         // Update player current rail
         if (playerStatusController.playerCurrentStatus != PlayerStatus.OnRail)
         {
             playerStatusController.playerCurrentStatus = PlayerStatus.OffRail;

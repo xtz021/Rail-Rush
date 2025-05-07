@@ -47,6 +47,24 @@ public class CharacterAnimationController : MonoBehaviour
         animator.SetTrigger("Dead_" + causeOfDeath);
     }
 
+    public void LeanLeft()
+    {
+        animator.SetBool("LeanLeft", true);
+        animator.SetBool("LeanRight", false);
+    }
+
+    public void LeanRight()
+    {
+        animator.SetBool("LeanLeft", false);
+        animator.SetBool("LeanRight", true);
+    }
+
+    public void StopLeaning()
+    {
+        animator.SetBool("LeanLeft", false);
+        animator.SetBool("LeanRight", false);
+    }
+
 
     private IEnumerator PlayCrouchAnimationWithDuration(float duration)
     {
