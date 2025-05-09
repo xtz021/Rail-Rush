@@ -134,8 +134,8 @@ public class PlayerCartMovement : MonoBehaviour
                     }
                 }
             }
-            //TiltControlSimulatorForEditor();        // for Editor only
-            TiltCartControl();
+            TiltControlSimulatorForEditor();        // for Editor only
+            //TiltCartControl();
         }
     }
 

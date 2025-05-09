@@ -69,7 +69,7 @@ public class CaveSpawner : MonoBehaviour
                                                         // return 1  -> cave turn right 45
                                                         // return -1 -> cave turn left 45
     {
-        Debug.Log($"Rail name: {railName}");
+        //Debug.Log($"Rail name: {railName}");
         if(railName.Contains("CurveLeft45"))
         {
             return -1;

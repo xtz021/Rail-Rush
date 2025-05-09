@@ -1,36 +1,41 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class WallBlockerScript : MonoBehaviour
 {
     private const string STRING_OBSTACLE_TYPE = "Wall";
+    private Animation obsAnimation;
 
-    private void OnCollisionEnter(Collision collision)
+    private void Awake()
     {
-        if (collision.gameObject.tag == "Player")
-        {
-            Debug.Log("Obstacle hits the player!");
-            PlayerStatusController playerStatusController = collision.gameObject.GetComponent<PlayerStatusController>();
-            if (playerStatusController == null)             // When the wall hits the character instead of the cart
-            {
-                playerStatusController = collision.transform.parent.parent.GetComponent<PlayerStatusController>();
-                Debug.Log("Obstacle hits the character!");
-            }
-            playerStatusController.Die(STRING_OBSTACLE_TYPE);
-        }
+        obsAnimation = GetComponent<Animation>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
-            Debug.Log("Obstacle hits the character!");
+            Debug.Log($"Obstacle hits the character! Gameobject: {other.name}");
             PlayerStatusController playerStatusController;
-            playerStatusController = GetStatusControllerFromHead(other.transform);  // Get PlayerStatusController from the player
+            if(other.name.Contains("head"))  // Get PlayerStatusController from the player
+            {
+                playerStatusController = GetStatusControllerFromHead(other.transform);
+            }
+            else if(other.name.Contains("Cart"))
+            {
+                playerStatusController = GetStatusControllerFromCart(other.transform);
+            }
+            else
+            {
+                Debug.Log("Not cart or head");
+                return;
+            }
             if (playerStatusController != null && playerStatusController.playerCurrentStatus != PlayerStatus.Dead)
             {
                 playerStatusController.Die(STRING_OBSTACLE_TYPE);
+                obsAnimation.Play();
             }
             else
             {
@@ -49,7 +54,18 @@ public class WallBlockerScript : MonoBehaviour
         PlayerStatusController playerStatusController = player.GetComponent<PlayerStatusController>();
         if (playerStatusController == null)
         {
-            Debug.Log($"Incorrect transform: {player.name}");
+            Debug.Log($"Incorrect transform from head: {player.name}");
+        }
+        return playerStatusController;
+    }
+
+    private PlayerStatusController GetStatusControllerFromCart(Transform cart)
+    {
+        Transform player = cart.parent;             // Get Player transform
+        PlayerStatusController playerStatusController = player.GetComponent<PlayerStatusController>();
+        if (playerStatusController == null)
+        {
+            Debug.Log($"Incorrect transform from cart: {player.name}");
         }
         return playerStatusController;
     }

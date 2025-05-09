@@ -35,7 +35,7 @@ public class RailsListController : MonoBehaviour
     {
         currentRailList.Enqueue(rail);
         lastRailInQueue = rail;
-        Debug.Log($"Added rail: {rail.name}. Current list count: {currentRailList.Count}");
+        //Debug.Log($"Added rail: {rail.name}. Current list count: {currentRailList.Count}");
         CurrentRailListLimitCheck();
     }
 
