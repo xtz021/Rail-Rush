@@ -113,7 +113,7 @@ public class PlayerCartMovement : MonoBehaviour
                     //swipe left
                     if (currentSwipe.x < 0 && currentSwipe.y > -0.25f && currentSwipe.y < 0.25f)
                     {
-                        if (playerStatusController.playerCurrentRail > -1)
+                        if (playerStatusController.canJumpLeft)
                         {
                             PremNormalPos();
                             Jump(-1);
@@ -124,7 +124,7 @@ public class PlayerCartMovement : MonoBehaviour
                     //swipe right
                     if (currentSwipe.x > 0 && currentSwipe.y > -0.25f && currentSwipe.y < 0.25f)
                     {
-                        if (playerStatusController.playerCurrentRail < 1)
+                        if (playerStatusController.canJumpRight)
                         {
                             PremNormalPos();
                             Jump(1);

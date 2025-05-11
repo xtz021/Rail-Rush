@@ -24,8 +24,9 @@ public class RailSpawner : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Player" && !hasSpawn)
+        if(other.gameObject.GetComponent<PlayerCartMovement>() != null && !hasSpawn)
         {
+            Debug.Log($"{other.name} triggered rail spawner while collide with {this.transform.name}");
             SpawnRandomRail();
         }
     }
@@ -57,11 +58,13 @@ public class RailSpawner : MonoBehaviour
             {
                 SpawnRailLeft(nextSpawnPoint);
             }
+            Debug.Log($"Spawned rail from: {transform.name}");
         }
         else
         {
             Debug.Log("Unable to get rail End Point");
         }
+        hasSpawn = true;  // Prevents multiple spawn
     }
 
 
@@ -79,7 +82,6 @@ public class RailSpawner : MonoBehaviour
         //GameObject railSpawn = Instantiate<GameObject>(railPref, spawnPos, spawnRota, transform.parent);
         GameObject railSpawn = Instantiate<GameObject>(railPref, spawnPos, spawnRota, spawnPoint.parent.parent);
         railsListController.AddRailIntoCurrentList(railSpawn);
-        hasSpawn = true;
     }
 
     private void SpawnRailLeft(Transform spawnPoint)
@@ -96,7 +98,6 @@ public class RailSpawner : MonoBehaviour
         //GameObject railSpawn = Instantiate<GameObject>(railPref, spawnPos, spawnRota, transform.parent);
         GameObject railSpawn = Instantiate<GameObject>(railPref, spawnPos, spawnRota, spawnPoint.parent.parent);
         railsListController.AddRailIntoCurrentList(railSpawn);
-        hasSpawn = true;
     }
 
     private void SpawnRailRight(Transform spawnPoint)
@@ -113,7 +114,6 @@ public class RailSpawner : MonoBehaviour
         //GameObject railSpawn = Instantiate<GameObject>(railPref, spawnPos, spawnRota, transform.parent);
         GameObject railSpawn = Instantiate<GameObject>(railPref, spawnPos, spawnRota, spawnPoint.parent.parent);
         railsListController.AddRailIntoCurrentList(railSpawn);
-        hasSpawn = true;
     }
 
     

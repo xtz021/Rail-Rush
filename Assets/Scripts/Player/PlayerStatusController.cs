@@ -6,6 +6,8 @@ public class PlayerStatusController : MonoBehaviour
 {
     public PlayerStatus playerCurrentStatus;
     public int playerCurrentRail;
+    public bool canJumpLeft = true;
+    public bool canJumpRight = true;
 
     private Rigidbody playerRigidbody;
     private Collider playerCollider;

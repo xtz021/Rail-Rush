@@ -2393,7 +2393,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1608416815508226252}
-  - component: {fileID: 224780138664590165}
   m_Layer: 0
   m_Name: EndPoint
   m_TagString: Untagged
@@ -2416,19 +2415,6 @@ Transform:
   m_Father: {fileID: 4154325263827243}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
---- !u!65 &224780138664590165
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2907513680785852758}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 8, y: 6, z: 0.2}
-  m_Center: {x: 0, y: 3, z: 0}
 --- !u!1 &4405393991586699558
 GameObject:
   m_ObjectHideFlags: 0

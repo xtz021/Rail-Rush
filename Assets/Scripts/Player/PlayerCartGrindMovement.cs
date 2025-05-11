@@ -145,18 +145,6 @@ public class PlayerCartGrindMovement : MonoBehaviour
     {
         if (other.gameObject.tag == "Rail")
         {
-            if(other.gameObject.name.Contains("R1"))
-            {
-                playerStatusController.playerCurrentRail = 0;
-            }
-            else if(other.gameObject.name.Contains("R0"))
-            {
-                playerStatusController.playerCurrentRail = -1;
-            }
-            else if (other.gameObject.name.Contains("R2"))
-            {
-                playerStatusController.playerCurrentRail = 1;
-            }
             playerStatusController.playerCurrentStatus = PlayerStatus.OnRail;
             gravitySim.isFalling = false;
             playerCartMovement.StopJumpingCoroutines();
