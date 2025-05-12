@@ -25,12 +25,14 @@ public class PlayerCartGrindMovement : MonoBehaviour
 
     [Header("Scripts that need input")]
     [SerializeField] FrontDetector frontDetector;
+    [SerializeField] CartAnimationController cartAnimationController;
 
     //Rigidbody playerRigidbody;
     PlayerGravitySimulator gravitySim;
     PlayerStatusController playerStatusController;
     PlayerCartMovement playerCartMovement;
     private Collider[] overlapingColliders;
+    private Transform cartTranform;
 
     private void Start()
     {
@@ -38,6 +40,7 @@ public class PlayerCartGrindMovement : MonoBehaviour
         //playerRigidbody = GetComponent<Rigidbody>();
         playerStatusController = GetComponent<PlayerStatusController>();
         playerCartMovement = GetComponent<PlayerCartMovement>();
+        cartTranform = cartAnimationController.transform;
     }
     public void HandleJump(InputAction.CallbackContext context)
     {
@@ -50,7 +53,7 @@ public class PlayerCartGrindMovement : MonoBehaviour
     }
     private void Update()
     {
-        if(playerStatusController.playerCurrentStatus != PlayerStatus.Dead)
+        if (playerStatusController.playerCurrentStatus != PlayerStatus.Dead)
         {
             if (onRail && playerStatusController.playerCurrentStatus != PlayerStatus.Jump) //If on the rail and not jumping, move the player along the rail
             {
@@ -74,7 +77,7 @@ public class PlayerCartGrindMovement : MonoBehaviour
             //If progress is less than 0, the player's position is before the start of the rail.
             //If greater than 1, their position is after the end of the rail.
             //In either case, the player has finished their grind.
-            if ((progress < 0 || progress > 1) && !frontDetector._hasRailInFront 
+            if ((progress < 0 || progress > 1) && !frontDetector._hasRailInFront
                 && playerStatusController.playerCurrentStatus != PlayerStatus.Jump)
             {
                 Debug.Log($"Deadend of {currentRailScript.transform.parent.name}!!!");
@@ -112,22 +115,18 @@ public class PlayerCartGrindMovement : MonoBehaviour
                 Vector3 lookRota = nextPos - worldPos;
                 if (playerStatusController.playerCurrentStatus != PlayerStatus.Jump)
                 {
-                    ////Debug.Log("Before calculate moving: " + transform.rotation.eulerAngles);
-                    //transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(lookRota), lerpSpeed);
-                    ////transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(lookRota), lerpSpeed * Time.deltaTime);
-                    ////Lerping the player's up direction to match that of the rail, in relation to the player's current rotation.
-                    //transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.FromToRotation(transform.up, up) * transform.rotation, lerpSpeed * Time.deltaTime);
-                    ////Rotate response to player input tilt control
-                    //transform.rotation = playerCartMovement.GetTiltControlRotation(transform.rotation);
+                    // 1. Get player look direction (forward along the rail)
+                    Quaternion lookRot = Quaternion.LookRotation(lookRota.normalized, up);
 
-                    // 1. Base look direction (forward along the rail)
-                    Quaternion baseLook = Quaternion.LookRotation(lookRota.normalized, up);
+                    // 2. Smoothly blend player rotation
+                    transform.rotation = Quaternion.Slerp(transform.rotation, lookRot, lerpSpeed * Time.deltaTime);
 
-                    // 2. Apply tilt input
-                    Quaternion tilted = playerCartMovement.GetTiltControlRotation(baseLook);
+                    // 3. Apply tilt input for cart
+                    Quaternion cartLookRot = Quaternion.LookRotation(Vector3.forward, Vector3.up);
+                    Quaternion tilted = playerCartMovement.GetTiltControlRotation(cartLookRot);
 
-                    // 3. Smoothly blend from current to final rotation
-                    transform.rotation = Quaternion.Slerp(transform.rotation, tilted, lerpSpeed * Time.deltaTime);
+                    // 4. Apply tilt input for cart
+                    cartTranform.rotation = Quaternion.Slerp(cartTranform.rotation, tilted, lerpSpeed * Time.deltaTime);
                 }
             }
 

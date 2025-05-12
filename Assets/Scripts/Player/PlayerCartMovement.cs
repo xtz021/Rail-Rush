@@ -25,8 +25,9 @@ public class PlayerCartMovement : MonoBehaviour
     private PlayerCartGrindMovement playerCartGrindMovement;
     private CharacterAnimationController characterAnimationController;
 
-    [SerializeField] CartAnimationController cartAnimationController;
+    [SerializeField] private CartAnimationController cartAnimationController;
 
+    private Transform cartTransform;
 
     // Vectors for swipe calculations
     Vector2 firstPressPos;
@@ -44,7 +45,7 @@ public class PlayerCartMovement : MonoBehaviour
         gravitySim = GetComponent<PlayerGravitySimulator>();
         playerStatusController = GetComponent<PlayerStatusController>();
         playerCartGrindMovement = GetComponent<PlayerCartGrindMovement>();
-        characterAnimationController = transform.Find("PlayerCharacter").GetComponent<CharacterAnimationController>();
+        characterAnimationController = transform.GetComponentInChildren<CharacterAnimationController>();
     }
 
     private void Update()
@@ -186,6 +187,10 @@ public class PlayerCartMovement : MonoBehaviour
 
     public Quaternion GetTiltControlRotation(Quaternion baseRotation)  // To use in PlayerCartGrindiMovement while grinding on Spline
     {
+        if(characterAnimationController == null)
+        {
+            Debug.Log("Null characterAnimationController");
+        }
         // Determine target tilt angle based on direction
         float targetTiltAngle = 0f;
         if (tiltDirection < 0)

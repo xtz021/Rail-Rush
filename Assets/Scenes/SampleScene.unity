@@ -317,7 +317,7 @@ Animation:
   - {fileID: 7400000, guid: 11687ff46298bff4ab89ae6024d86fd4, type: 2}
   - {fileID: 7400000, guid: ee855f154e0ee8645971908642f84d23, type: 2}
   m_WrapMode: 0
-  m_PlayAutomatically: 1
+  m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
 --- !u!95 &108091719
@@ -888,20 +888,23 @@ MonoBehaviour:
   lastRailInQueue: {fileID: 281244473}
   railsList_Left:
   - {fileID: 1221605805305978, guid: 1990832215a07d04593045befac118c0, type: 3}
-  - {fileID: 1171868389361689, guid: c5766f16687914d499df82dda333350c, type: 3}
   - {fileID: 1941385477606879, guid: 0e6669eeebd03fe408b981cf7f79c3c1, type: 3}
   - {fileID: 1885669860580302, guid: 2199cab96b7578c49898c7fe711d3787, type: 3}
+  - {fileID: 1171868389361689, guid: c5766f16687914d499df82dda333350c, type: 3}
+  - {fileID: 1171868389361689, guid: c5766f16687914d499df82dda333350c, type: 3}
   railsList_Center:
   - {fileID: 1221605805305978, guid: 1990832215a07d04593045befac118c0, type: 3}
-  - {fileID: 1964510732350518, guid: c84b29a76688976409488258b66652f2, type: 3}
   - {fileID: 1206891254764689, guid: ed638b9214d6f714892033a853e8150b, type: 3}
   - {fileID: 1885669860580302, guid: 2199cab96b7578c49898c7fe711d3787, type: 3}
   - {fileID: 1887190364188153, guid: c4933ae8c502b3e4bbc5b38e2c23d0e6, type: 3}
+  - {fileID: 1964510732350518, guid: c84b29a76688976409488258b66652f2, type: 3}
+  - {fileID: 1964510732350518, guid: c84b29a76688976409488258b66652f2, type: 3}
   railsList_Right:
   - {fileID: 1221605805305978, guid: 1990832215a07d04593045befac118c0, type: 3}
   - {fileID: 1162880611185230, guid: 81ea4f156109c7d48a710385e4fb6b3a, type: 3}
-  - {fileID: 1405901273800531, guid: 7c8495d448a13b049914c64ba1b4ae6d, type: 3}
   - {fileID: 1887190364188153, guid: c4933ae8c502b3e4bbc5b38e2c23d0e6, type: 3}
+  - {fileID: 1405901273800531, guid: 7c8495d448a13b049914c64ba1b4ae6d, type: 3}
+  - {fileID: 1405901273800531, guid: 7c8495d448a13b049914c64ba1b4ae6d, type: 3}
 --- !u!114 &830546001
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1140,6 +1143,10 @@ PrefabInstance:
     - target: {fileID: 1992202703994655, guid: 91ea571ca9301a44b9457dc3cab52a09, type: 3}
       propertyPath: m_Name
       value: Obstacle_Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1992202703994655, guid: 91ea571ca9301a44b9457dc3cab52a09, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4080184487458733, guid: 91ea571ca9301a44b9457dc3cab52a09, type: 3}
       propertyPath: m_RootOrder
@@ -1755,6 +1762,7 @@ MonoBehaviour:
   lerpSpeed: 10
   currentRailScript: {fileID: 0}
   frontDetector: {fileID: 1516007267}
+  cartAnimationController: {fileID: 108091720}
 --- !u!114 &1337166981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1779,6 +1787,10 @@ PrefabInstance:
     - target: {fileID: 1749598739136757, guid: e4248cfdb8aa063449a32b8f7a5d7a3b, type: 3}
       propertyPath: m_Name
       value: Obstacle_Left_LeanRight
+      objectReference: {fileID: 0}
+    - target: {fileID: 1749598739136757, guid: e4248cfdb8aa063449a32b8f7a5d7a3b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4393435161919557, guid: e4248cfdb8aa063449a32b8f7a5d7a3b, type: 3}
       propertyPath: m_RootOrder
