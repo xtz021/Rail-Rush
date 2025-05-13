@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerStatusController : MonoBehaviour
 {
+    public static PlayerStatusController Instance { get; private set; }
+
     public PlayerStatus playerCurrentStatus;
     public int playerCurrentRail;
     public bool canJumpLeft = true;
@@ -16,6 +18,15 @@ public class PlayerStatusController : MonoBehaviour
 
     private void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Debug.LogWarning("Multiple instances of PlayerStatusController detected. Destroying duplicate.");
+            Destroy(gameObject);
+        }
+        else
+        {
+            Instance = this;
+        }
         playerCurrentStatus = PlayerStatus.OffRail;
         playerCurrentRail = 0;
         playerRigidbody = GetComponent<Rigidbody>();

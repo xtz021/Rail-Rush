@@ -40,7 +40,7 @@ public class PlayerCartGrindMovement : MonoBehaviour
         //playerRigidbody = GetComponent<Rigidbody>();
         playerStatusController = GetComponent<PlayerStatusController>();
         playerCartMovement = GetComponent<PlayerCartMovement>();
-        cartTranform = cartAnimationController.transform;
+        cartTranform = cartAnimationController.gameObject.transform;
     }
     public void HandleJump(InputAction.CallbackContext context)
     {

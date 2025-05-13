@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerCartMovement : MonoBehaviour
 {
+    public static PlayerCartMovement Instance {  get; private set; }
+
     // Attributes for jump calculations
     public float jumpHeight = 15f;
     public float jumpOnAirDuration = 0.75f;
@@ -38,6 +40,19 @@ public class PlayerCartMovement : MonoBehaviour
     private int tiltDirection = 0;
     private Coroutine jumpCoroutine;
     private Coroutine touchCooldownCoroutine;
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Debug.LogWarning("Multiple instances of PlayerCartMovement detected. Destroying duplicate.");
+            Destroy(gameObject);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
 
     private void Start()
     {
