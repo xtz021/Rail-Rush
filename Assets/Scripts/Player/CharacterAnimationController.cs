@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CharacterAnimationController : MonoBehaviour
 {
+    public static CharacterAnimationController Instance {  get; private set; }
+
     private const string ANIMATOR_TRIGGER_JUMPCENTER = "JumpCenter";
     private const string ANIMATOR_TRIGGER_JUMPRIGHT = "JumpRight";
     private const string ANIMATOR_TRIGGER_JUMPLEFT = "JumpLeft";
@@ -13,6 +15,19 @@ public class CharacterAnimationController : MonoBehaviour
     Animator animator;
     private float crouchDuration = 1.0f;
     private float jumpDuration = 1.0f;
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Debug.LogWarning("Multiple instances of CharacterAnimationController detected. Destroying duplicate.");
+            Destroy(gameObject);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
 
     private void Start()
     {

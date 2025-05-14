@@ -54,5 +54,11 @@ public class InGameController : MonoBehaviour
         }
     }
 
+    public void GainGold(int gold)
+    {
+        GoldCount += gold;
+        InGameUIController.Instance.SetGoldCountText(GoldCount);
+    }
+
 
 }

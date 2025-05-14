@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class NuggetScript : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider other)
+    int goldValue = 1;
+
+    void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
-            InGameController.GoldCount++;
+            InGameController.Instance.GainGold(goldValue);
             Destroy(gameObject);
         }
     }

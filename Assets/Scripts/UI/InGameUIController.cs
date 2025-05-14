@@ -2,10 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class InGameUIController : MonoBehaviour
 {
+    public static InGameUIController Instance { get; private set; }
     public GameObject PauseMenuPanel;
+    public Text goldCountText;
+
+    private void Awake()
+    {
+        if(Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
+
+    public void SetGoldCountText(int gold)
+    {
+        goldCountText.text = "" + gold;
+    }
 
     public void PauseGame()
     {
