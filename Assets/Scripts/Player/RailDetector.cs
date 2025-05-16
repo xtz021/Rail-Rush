@@ -15,6 +15,7 @@ public class RailDetector : MonoBehaviour
         {
             RailStatusHandler(other);
             playerGrindingScript.OnRailDetectEnter(other);
+            InGameController.Instance.lastRailEntered = other.transform.parent.gameObject;  // Get the lastest rail entered
         }
     }
 

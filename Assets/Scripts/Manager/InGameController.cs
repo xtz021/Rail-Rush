@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,14 +6,26 @@ using UnityEngine;
 public class InGameController : MonoBehaviour
 {
     public static InGameController Instance { get; private set; }
+
     public static int GoldCount;
     public static int DistanceCount;
+
+    [Header("Variables")]
+    public int saveMeBoxPopupCount = 0;
+
+    [Header("Do not need input")]
+    public GameObject lastRailEntered;
+
+    [Header("Need input")]
+    [SerializeField] private GameObject saveMeUIBoxFreeAd;
+    [SerializeField] private GameObject gameOverPanel;
 
     private int totalGold = 0;
     private int best_Distance = 0;
     private bool isProgressSaved = false;
     private const string KEY_TOTALGOLD = "_TotalGold";
     private const string KEY_BESTDISTANT = "_Best_Distant";
+    private Transform player;
 
     private void Awake()
     {
@@ -30,6 +43,13 @@ public class InGameController : MonoBehaviour
     private void Start()
     {
         GetStartGameValues();
+        player = PlayerCartMovement.Instance.transform;
+        saveMeBoxPopupCount = 0;
+    }
+
+    private void Update()
+    {
+        SaveMePanelCheck();
     }
 
     private void GetStartGameValues()
@@ -60,5 +80,53 @@ public class InGameController : MonoBehaviour
         InGameUIController.Instance.SetGoldCountText(GoldCount);
     }
 
+    public void RevivePlayer()
+    {
+        Transform respawnPoint = lastRailEntered.transform.Find("RespawnPoint");
+        if (respawnPoint != null)
+        {
+            player.position = respawnPoint.position;
+            player.rotation = lastRailEntered.transform.rotation;
+            PlayerStatusController.Instance.playerCurrentStatus = PlayerStatus.OffRail;
+            PlayerGravitySimulator.Instance.isFalling = true;
+        }
+    }
+
+    public void ActiveGameObjAfterSecs(GameObject obj, float delay)
+    {
+        if (obj != null)
+        {
+            StartCoroutine(DelayActiveGameObject(obj, delay));
+        }
+        else
+        {
+            Debug.LogWarning("GameObject is null, cannot activate after delay.");
+        }
+    }
+
+    private void SaveMePanelCheck()
+    {
+        if (PlayerStatusController.Instance.playerCurrentStatus == PlayerStatus.Dead     // Player is dead
+            && InGameController.Instance.saveMeBoxPopupCount <= 0)                      // No revive attempted yet in this game
+        {
+            if (saveMeUIBoxFreeAd.activeSelf == false)
+            {
+                saveMeUIBoxFreeAd.SetActive(true);
+                InGameController.Instance.saveMeBoxPopupCount++;
+            }
+        }
+        else if (PlayerStatusController.Instance.playerCurrentStatus == PlayerStatus.Dead     // Player is dead
+            && InGameController.Instance.saveMeBoxPopupCount >= 1                           // Revived once in this game
+            && saveMeUIBoxFreeAd.activeSelf == false)                                          // Revive box is active
+        {
+
+        }
+    }
+
+    IEnumerator DelayActiveGameObject(GameObject obj, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        obj.SetActive(true);
+    }
 
 }

@@ -4086,7 +4086,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Offgame_189
+      name: Highlight
       rect:
         serializedVersion: 2
         x: 190
@@ -4653,13 +4653,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Offgame_216
+      name: distance_ingame_icon
       rect:
         serializedVersion: 2
-        x: 136
-        y: 235
-        width: 51
-        height: 103
+        x: 154
+        y: 274
+        width: 18
+        height: 15
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -5618,6 +5618,48 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: filler_1
+      rect:
+        serializedVersion: 2
+        x: 610
+        y: 0
+        width: 300
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e01b7ce9fa054440b656f1a85f12b71
+      internalID: -1404530704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: filler_2
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 238
+        width: 30
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 038e960ada67c0b4ea1d9021d9e2a157
+      internalID: -1402467274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -5645,6 +5687,7 @@ TextureImporter:
       Cart_01: 575063955
       Cart_02: -337885074
       FacebookButton_UI: 1663591439
+      Highlight: -1366077236
       Label_CartStuff: -1695043156
       Label_Credits: -1365184712
       Label_Gems: -1666801328
@@ -5752,7 +5795,6 @@ TextureImporter:
       Offgame_186: -1530895801
       Offgame_187: -2000913667
       Offgame_188: 1697375521
-      Offgame_189: -1366077236
       Offgame_19: -1477483178
       Offgame_191: -488029936
       Offgame_192: 1251342684
@@ -5778,7 +5820,6 @@ TextureImporter:
       Offgame_212: -1472407555
       Offgame_213: -265213520
       Offgame_215: -459218892
-      Offgame_216: 1732253142
       Offgame_217: -1001710180
       Offgame_218: 1028766580
       Offgame_219: 1099692217
@@ -5887,6 +5928,9 @@ TextureImporter:
       TextBackground_3: 640124139
       TwitterButton_UI: -1973590768
       WaterMark_MiniClip: 1140098702
+      distance_ingame_icon: 1732253142
+      filler_1: -1404530704
+      filler_2: -1402467274
       nugget_icon_1: 1462933476
       nugget_icon_2: 1999011911
       nugget_icon_3: -1847815254

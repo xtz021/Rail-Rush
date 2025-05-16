@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerGravitySimulator : MonoBehaviour
 {
+    public static PlayerGravitySimulator Instance { get; private set; }
     public float verticalVelocity = 0f; // Current vertical speed
     public bool isFalling;
 
@@ -13,7 +14,18 @@ public class PlayerGravitySimulator : MonoBehaviour
 
     private void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            Instance = this;
+        }
         isFalling = true;
+    }
+    private void Start()
+    {
         playerCartGrindMovement = GetComponent<PlayerCartGrindMovement>();
         playerStatusController = GetComponent<PlayerStatusController>();
     }
@@ -27,13 +39,13 @@ public class PlayerGravitySimulator : MonoBehaviour
             transform.Translate(new Vector3 (0, verticalVelocity * Time.fixedDeltaTime, 0), Space.Self);
             //transform.position += new Vector3(0, verticalVelocity * Time.fixedDeltaTime, 0);
 
-            if (transform.position.y <= -5f)
-            {
-                isFalling = false;
-                Debug.Log("Player fall off cliff");
-                verticalVelocity = 0f;
-                playerStatusController.playerCurrentStatus = PlayerStatus.Dead;
-            }
+            //if (transform.position.y <= -5f)
+            //{
+            //    isFalling = false;
+            //    Debug.Log("Player falls off cliff");
+            //    verticalVelocity = 0f;
+            //    playerStatusController.playerCurrentStatus = PlayerStatus.Dead;
+            //}
         }
         else
         {
