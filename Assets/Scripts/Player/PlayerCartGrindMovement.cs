@@ -122,7 +122,6 @@ public class PlayerCartGrindMovement : MonoBehaviour
                     transform.rotation = Quaternion.Slerp(transform.rotation, lookRot, lerpSpeed * Time.deltaTime);
 
                     // 3. Apply tilt input for cart
-                    Quaternion cartLookRot = Quaternion.LookRotation(Vector3.forward, Vector3.up);
                     Quaternion tilted = playerCartMovement.GetTiltControlRotation(lookRot);
 
                     // 4. Apply tilt input for cart
