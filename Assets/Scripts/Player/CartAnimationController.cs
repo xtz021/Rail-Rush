@@ -49,4 +49,9 @@ public class CartAnimationController : MonoBehaviour
         animator.SetTrigger("Dead_" + causeOfDeath);
     }
 
+    public void ResetCartAnimator()
+    {
+        animator.SetTrigger("Revive");
+    }
+
 }
