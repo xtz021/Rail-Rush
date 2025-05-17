@@ -85,10 +85,17 @@ public class InGameController : MonoBehaviour
         Transform respawnPoint = lastRailEntered.transform.Find("RespawnPoint");
         if (respawnPoint != null)
         {
+            PlayerStatusController.Instance.playerCurrentStatus = PlayerStatus.OffRail;
+            Debug.Log("Set back to off rail");
+            CartAnimationController.Instance.ResetCartAnimator();
+            CharacterAnimationController.Instance.ResetCharacterAnimator();
             player.position = respawnPoint.position;
             player.rotation = lastRailEntered.transform.rotation;
-            PlayerStatusController.Instance.playerCurrentStatus = PlayerStatus.OffRail;
             PlayerGravitySimulator.Instance.isFalling = true;
+        }
+        else
+        {
+            Debug.LogWarning("Respawn point not found. Cannot revive player.");
         }
     }
 

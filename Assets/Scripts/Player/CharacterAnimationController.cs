@@ -80,6 +80,11 @@ public class CharacterAnimationController : MonoBehaviour
         animator.SetBool("LeanRight", false);
     }
 
+    public void ResetCharacterAnimator()
+    {
+        animator.SetTrigger("Revive");
+    }
+
 
     private IEnumerator PlayCrouchAnimationWithDuration(float duration)
     {
