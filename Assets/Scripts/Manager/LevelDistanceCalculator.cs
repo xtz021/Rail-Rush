@@ -54,6 +54,7 @@ public class LevelDistanceCalculator : MonoBehaviour
         actualDistance += PlayerCartMovement.Instance._PlayerCartSpeed * updateInterval;
         distanceRun = (int)actualDistance;
         distanceText.text = "" + distanceRun.ToString();
+        InGameController.Instance.Current_DistanceCount = distanceRun;
         yield return new WaitForSeconds(updateInterval);
         addingDistance = false;
         //Debug.Log("Distance: " + distanceRun.ToString());

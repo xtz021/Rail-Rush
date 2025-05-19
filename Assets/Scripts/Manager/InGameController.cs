@@ -7,8 +7,8 @@ public class InGameController : MonoBehaviour
 {
     public static InGameController Instance { get; private set; }
 
-    public static int GoldCount;
-    public static int DistanceCount;
+    public int Current_GoldCount;
+    public int Current_DistanceCount;
 
     [Header("Variables")]
     public int saveMeBoxPopupCount = 0;
@@ -20,12 +20,50 @@ public class InGameController : MonoBehaviour
     [SerializeField] private GameObject saveMeUIBoxFreeAd;
     [SerializeField] private GameObject gameOverPanel;
 
-    private int totalGold = 0;
-    private int best_Distance = 0;
+    private int _totalGold = 0;
+    private int _best_Distance = 0;
+    private int _best_Gold = 0;
     private bool isProgressSaved = false;
-    private const string KEY_TOTALGOLD = "_TotalGold";
-    private const string KEY_BESTDISTANT = "_Best_Distant";
+    public const string KEY_TOTALGOLD = "_TotalGold";
+    public const string KEY_BESTDISTANT = "_Best_Distant";
+    public const string KEY_BESTGOLD = "_Best_Gold";
     private Transform player;
+
+    public int totalGold
+    {
+        get
+        {
+            return this._totalGold;
+        }
+        private set
+        {
+            this._totalGold = value;
+        }
+    }
+
+    public int best_Distance
+    {
+        get
+        {
+            return this._best_Distance;
+        }
+        private set
+        {
+            this._best_Distance = value;
+        }
+    }
+
+    public int best_Gold
+    {
+        get
+        {
+            return this._best_Gold;
+        }
+        private set
+        {
+            this._best_Gold = value;
+        }
+    }
 
     private void Awake()
     {
@@ -54,30 +92,39 @@ public class InGameController : MonoBehaviour
 
     private void GetStartGameValues()
     {
-        GoldCount = 0;
-        DistanceCount = 0;
+        Current_GoldCount = 0;
+        Current_DistanceCount = 0;
         isProgressSaved = false;
-        totalGold = PlayerPrefs.GetInt(KEY_TOTALGOLD, 0);
-        best_Distance = PlayerPrefs.GetInt(KEY_BESTDISTANT, 0);
+        _totalGold = PlayerPrefs.GetInt(KEY_TOTALGOLD, 0);
+        _best_Distance = PlayerPrefs.GetInt(KEY_BESTDISTANT, 0);
+        _best_Gold = PlayerPrefs.GetInt(KEY_BESTGOLD, 0);
     }
 
     public void SaveProgress()
     {
         if (!isProgressSaved)
         {
-            totalGold += GoldCount;
-            PlayerPrefs.SetInt(KEY_TOTALGOLD, totalGold);
-            if(DistanceCount > best_Distance)
+            _totalGold += Current_GoldCount;
+            PlayerPrefs.SetInt(KEY_TOTALGOLD, _totalGold);
+            if (Current_DistanceCount > _best_Distance)
             {
-                PlayerPrefs.SetInt(KEY_BESTDISTANT,DistanceCount);
+                PlayerPrefs.SetInt(KEY_BESTDISTANT, Current_DistanceCount);
             }
+            if (Current_GoldCount > _best_Gold)
+            {
+                PlayerPrefs.SetInt(KEY_BESTGOLD, Current_GoldCount);
+            }
+            isProgressSaved = true;
+            _totalGold = PlayerPrefs.GetInt(KEY_TOTALGOLD, 0);
+            _best_Distance = PlayerPrefs.GetInt(KEY_BESTDISTANT, 0);
+            _best_Gold = PlayerPrefs.GetInt(KEY_BESTGOLD, 0);
         }
     }
 
     public void GainGold(int gold)
     {
-        GoldCount += gold;
-        InGameUIController.Instance.SetGoldCountText(GoldCount);
+        Current_GoldCount += gold;
+        InGameUIController.Instance.SetGoldCountText(Current_GoldCount);
     }
 
     public void RevivePlayer()

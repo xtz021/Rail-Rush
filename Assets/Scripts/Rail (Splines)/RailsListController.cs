@@ -46,7 +46,7 @@ public class RailsListController : MonoBehaviour
             GameObject outtedGameobject;
             currentRailList.TryDequeue(out outtedGameobject);
             Destroy(outtedGameobject);
-            Debug.Log("Removed rail: " + outtedGameobject.name);
+            //Debug.Log("Removed rail: " + outtedGameobject.name);
         }
     }
 
