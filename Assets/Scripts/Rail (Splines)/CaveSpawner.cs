@@ -6,12 +6,16 @@ using UnityEngine;
 public class CaveSpawner : MonoBehaviour
 {
     List<GameObject> cavesList_TurnLeft;
-    List<GameObject> cavesList_Straight;
+    List<GameObject> cavesList_Straight_Big;
+    List<GameObject> cavesList_Straight_Med;
+    List<GameObject> cavesList_Straight_Small;
     List<GameObject> cavesList_TurnRight;
 
     void Start()
     {
-        cavesList_Straight = transform.parent.GetComponent<CavesListController>().GetCaveListStraight();
+        cavesList_Straight_Big = transform.parent.GetComponent<CavesListController>().GetCaveListStraight_Big();
+        cavesList_Straight_Med = transform.parent.GetComponent<CavesListController>().GetCaveListStraight_Med();
+        cavesList_Straight_Small = transform.parent.GetComponent<CavesListController>().GetCaveListStraight_Small();
         cavesList_TurnLeft = transform.parent.GetComponent<CavesListController>().GetCaveListLeft();
         cavesList_TurnRight = transform.parent.GetComponent<CavesListController>().GetCaveListRight();
         SpawnRandomCave();
@@ -23,51 +27,47 @@ public class CaveSpawner : MonoBehaviour
         string railName = transform.name;
         if (CaveType(railName) == 1)
         {
-            SpawnCaveTurnRight(transform);
+            //SpawnCaveTurnRight(transform);
+            SpawnCave(transform, cavesList_TurnRight);
         }
         else if (CaveType(railName) == -1)
         {
-            SpawnCaveTurnLeft(transform);
+            //SpawnCaveTurnLeft(transform);
+            SpawnCave(transform, cavesList_TurnLeft);
         }
         else
         {
-            SpawnCaveStraight(transform);
+            // Check cave size
+            Transform endPoint = transform.Find("EndPoint");
+            float railLength = endPoint.localPosition.z;
+            if (railLength >= 20)
+            {
+                SpawnCave(transform,cavesList_Straight_Big);
+            }
+            else if(railLength < 20 && railLength >= 12)
+            {
+                SpawnCave(transform, cavesList_Straight_Med);
+            }
+            else
+            {
+                SpawnCave(transform,cavesList_Straight_Small);
+            }
         }
     }
 
-    private void SpawnCaveStraight(Transform spawnPoint)
+    private void SpawnCave(Transform spawnPoint, List<GameObject> cavesList)
     {
         Vector3 spawnPos = spawnPoint.position;
         Quaternion spawnRota = transform.rotation;
         GameObject cavePref;
-        cavePref = cavesList_Straight[Random.Range(0, cavesList_Straight.Count)];
+        cavePref = cavesList[Random.Range(0, cavesList.Count)];
         GameObject caveSpawn = Instantiate<GameObject>(cavePref, spawnPos, spawnRota, transform);
-        Debug.Log("Spawn cave straight");
+        Debug.Log($"Spawn cave {cavePref.name}");
     }
 
-    private void SpawnCaveTurnLeft(Transform spawnPoint)
-    {
-        Vector3 spawnPos = spawnPoint.position;
-        Quaternion spawnRota = transform.rotation;               
-        GameObject cavePref;
-        cavePref = cavesList_TurnLeft[Random.Range(0, cavesList_TurnLeft.Count)];
-        GameObject caveSpawn = Instantiate<GameObject>(cavePref, spawnPos, spawnRota, transform);
-        Debug.Log("Spawn cave turn left");
-    }
-
-    private void SpawnCaveTurnRight(Transform spawnPoint)
-    {
-        Vector3 spawnPos = spawnPoint.position;
-        Quaternion spawnRota = transform.rotation;               
-        GameObject cavePref;
-        cavePref = cavesList_TurnRight[Random.Range(0, cavesList_TurnRight.Count)];
-        GameObject caveSpawn = Instantiate<GameObject>(cavePref, spawnPos, spawnRota, transform);
-        Debug.Log("Spawn cave turn right");
-    }
-
-    private int CaveType(string railName)                              // return 0  -> cave straight
-                                                        // return 1  -> cave turn right 45
-                                                        // return -1 -> cave turn left 45
+    private int CaveType(string railName)                               // return 0  -> cave straight
+                                                                        // return 1  -> cave turn right 45
+                                                                        // return -1 -> cave turn left 45
     {
         //Debug.Log($"Rail name: {railName}");
         if(railName.Contains("CurveLeft45"))
@@ -83,5 +83,6 @@ public class CaveSpawner : MonoBehaviour
             return 0;
         }
     }
+
 
 }
