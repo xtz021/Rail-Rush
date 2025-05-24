@@ -52,7 +52,7 @@ AnimationClip:
       m_BitSize: 4
     m_Values:
       m_NumItems: 16
-      m_Data: fbf7df7f7b38a1582b696135b6b33fc73654b9a146f331796670ae4fbe0c342b4f756149a745e96dc786ed8def572ea89ad35533e234407662f1aebaaa6faccd
+      m_Data: fbf7df7f7b38a1582b696135b6b33fc73654b9a146f331796670ae4fbe0c342b4f756149a745e96dc786ed8def57eea79ad35533e234407662f1aebaaa6faccd
     m_Slopes:
       m_NumItems: 64
       m_Range: 15.001876
@@ -116,7 +116,7 @@ AnimationClip:
       m_BitSize: 3
     m_Values:
       m_NumItems: 16
-      m_Data: fbf7df7f5bc824c17aeed3b84aaa53803a07c85377c3ddc7c7931cadff43e0911ff4257937846a63ff83ab50e78369438f74a738f735272b66efd33936515e54
+      m_Data: fbf7df7f5bc824c17aeed3b84aaa53803a07c85377c3ddc7c7931cadff43e0911ff4257937846a63ff83ab50e78369438f74a738f735e72a66efd33936515e54
     m_Slopes:
       m_NumItems: 64
       m_Range: 23.292282
@@ -7424,4 +7424,11 @@ AnimationClip:
     script: {fileID: 0}
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 1
+    functionName: DestroyAfterAnimation
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

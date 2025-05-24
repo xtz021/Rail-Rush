@@ -13,7 +13,7 @@ public class RailDetector : MonoBehaviour
     {
         if (playerStatusController.playerCurrentStatus != PlayerStatus.Dead)
         {
-            RailStatusHandler(other);
+            //RailStatusHandler(other);
             playerGrindingScript.OnRailDetectEnter(other);
             InGameController.Instance.lastRailEntered = other.transform.parent.gameObject;  // Get the lastest rail entered
         }

@@ -100,7 +100,7 @@ public class PlayerCartGrindMovement : MonoBehaviour
             Vector3 worldPos = currentRailScript.LocalToWorldConversion(pos);
             Vector3 nextPos = currentRailScript.LocalToWorldConversion(nextPosfloat);
 
-            if (Vector3.Distance(nextPos, worldPos) < 0.001f && frontDetector._hasRailInFront) // in case the player Cart got stucked between 2 rails
+            if (Vector3.Distance(nextPos, worldPos) == 0 && frontDetector._hasRailInFront) // in case the player Cart got stucked between 2 rails
             {
                 //Debug.Log("Freeze error due to nextPos = worldPos: at " + worldPos);
 

@@ -748,8 +748,8 @@ Animation:
   m_Animations:
   - {fileID: 7400000, guid: c6150e87ca60326429b95019b802dc67, type: 2}
   m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 1
   m_CullingType: 0
 --- !u!82 &82229599203764954
 AudioSource:
@@ -858,8 +858,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 2, z: 0.1}
-  m_Center: {x: -0.5, y: 1, z: 0.1}
+  m_Size: {x: 0.4, y: 2, z: 0.1}
+  m_Center: {x: -0.6, y: 1, z: 0.1}
 --- !u!114 &-1872495299690502182
 MonoBehaviour:
   m_ObjectHideFlags: 0

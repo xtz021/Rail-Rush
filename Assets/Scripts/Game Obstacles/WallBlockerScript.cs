@@ -34,12 +34,16 @@ public class WallBlockerScript : MonoBehaviour
             }
             if (playerStatusController != null && playerStatusController.playerCurrentStatus != PlayerStatus.Dead)
             {
+                Debug.Log($"Player {playerStatusController.transform.name} is dead by {STRING_OBSTACLE_TYPE} obstacle");
                 playerStatusController.Die(STRING_OBSTACLE_TYPE);
                 obsAnimation.Play();
+            } else if (playerStatusController == null)
+            {
+                Debug.Log($"PlayerStatusController is null for {other.name}");
             }
             else
             {
-                //Debug.Log($"Incorrect transform: {playerStatusController.transform.name}");
+                Debug.Log($"Incorrect transform: {playerStatusController.transform.name}");
             }
         }
     }
@@ -68,5 +72,11 @@ public class WallBlockerScript : MonoBehaviour
             Debug.Log($"Incorrect transform from cart: {player.name}");
         }
         return playerStatusController;
+    }
+
+    private void DestroyAfterAnimation()
+    {
+        Debug.Log($"Destroying {gameObject.name} after animation");
+        Destroy(gameObject);
     }
 }
