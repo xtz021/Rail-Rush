@@ -4614,6 +4614,7 @@ GameObject:
   - component: {fileID: 830545999}
   - component: {fileID: 830546000}
   - component: {fileID: 830546001}
+  - component: {fileID: 830546002}
   m_Layer: 0
   m_Name: RailWay
   m_TagString: Untagged
@@ -4694,6 +4695,23 @@ MonoBehaviour:
   - {fileID: 1670794926167554, guid: e8fa9e8166333bd43b89902f2e593feb, type: 3}
   cavesList_TurnRight:
   - {fileID: 1089975338387882, guid: e6ffc4cf165d9044eb92666e096dae59, type: 3}
+--- !u!114 &830546002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 830545998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 333211c2acdcbfd4eb87948a8d525811, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wall_Obstacle: {fileID: 1992202703994655, guid: 91ea571ca9301a44b9457dc3cab52a09, type: 3}
+  left_Obstacle: {fileID: 1749598739136757, guid: e4248cfdb8aa063449a32b8f7a5d7a3b, type: 3}
+  right_Obstacle: {fileID: 1919968986850295, guid: 9fb415776c0b73a439e5a3e883ab12b3, type: 3}
+  up_Obstacle: {fileID: 1475266776537973, guid: 700ce4714aa23b64bb6e58bc1fd9eecd, type: 3}
+  down_Obstacle: {fileID: 1918629879135838, guid: c481bf695f17e5f49922d799998d8fc1, type: 3}
 --- !u!1 &831183784
 GameObject:
   m_ObjectHideFlags: 0
