@@ -168,6 +168,10 @@ public class InGameController : MonoBehaviour
                 saveMeUIBoxFreeAd.SetActive(true);
                 InGameController.Instance.saveMeBoxPopupCount++;
             }
+            else
+            {
+                StartCoroutine(DelayActiveGameObject(gameOverPanel, 1f));
+            }
         }
         else if (PlayerStatusController.Instance.playerCurrentStatus == PlayerStatus.Dead     // Player is dead
             && InGameController.Instance.saveMeBoxPopupCount >= 1                           // Revived once in this game
@@ -181,6 +185,7 @@ public class InGameController : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         obj.SetActive(true);
+        yield break;
     }
 
 }

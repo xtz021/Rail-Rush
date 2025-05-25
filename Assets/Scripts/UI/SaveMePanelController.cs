@@ -48,7 +48,6 @@ public class SaveMePanelController : MonoBehaviour
     {
         playerIsSaved = true;
         InGameController.Instance.RevivePlayer();
-        gameObject.SetActive(false);
     }
 
 }

@@ -31,6 +31,7 @@ public class GameOverMenuController : MonoBehaviour
     private void OnEnable()
     {
         InGameController.Instance.SaveProgress();
+        PlayerInventory.Instance.SaveInventoryData();
         best_DistanceText.text = "" + InGameController.Instance.best_Distance;
         best_GoldText.text = "" + InGameController.Instance.best_Gold;
         //current_DistanceText.text = "" + InGameController.Instance.Current_DistanceCount;
