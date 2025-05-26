@@ -10,6 +10,8 @@ public class InGameUIController : MonoBehaviour
     public GameObject PauseMenuPanel;
     public Text goldCountText;
 
+    private const string SCENE_ID_OPENINGMENU_STRING = "Scenes/OpeningMenu";
+
     private void Awake()
     {
         if(Instance != null && Instance != this)
@@ -43,5 +45,10 @@ public class InGameUIController : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex,LoadSceneMode.Single);
         Time.timeScale = 1f;
+    }
+
+    public void OpenMainMenu()
+    {
+        SceneManager.LoadScene(SCENE_ID_OPENINGMENU_STRING, LoadSceneMode.Single);
     }
 }
