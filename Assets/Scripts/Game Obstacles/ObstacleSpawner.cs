@@ -33,7 +33,7 @@ public class ObstacleSpawner : MonoBehaviour
         obstacleSpawnPointsList = CheckAndGetObstacleList();
         foreach (GameObject spawnPoint in obstacleSpawnPointsList)
         {
-            if(Random.Range(0, 2) == 0) // Randomly decide to spawn obstacle or not
+            if(Random.Range(1, 4) == 1) // Randomly decide to spawn obstacle or not
             {
                 if (spawnPoint.name.Contains("Soft"))
                 {

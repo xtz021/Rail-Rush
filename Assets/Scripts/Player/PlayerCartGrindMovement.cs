@@ -162,7 +162,7 @@ public class PlayerCartGrindMovement : MonoBehaviour
         }
     }
 
-    public void OnRailDetectExit(Collider railCollider, bool _hasRailInFront)
+    public void OnRailDetectExit(Collider railCollider, bool _hasRailInRange)
     {
         if (railCollider.gameObject.tag == "Rail")
         {
@@ -176,7 +176,7 @@ public class PlayerCartGrindMovement : MonoBehaviour
             {
                 playerStatusController.playerCurrentStatus = PlayerStatus.OffRail;
             }
-            if (!_hasRailInFront)
+            if (!_hasRailInRange && !RailDetector.Instance._hasRailInRange)
             {
                 DeadEndJumpOffCliff();
             }

@@ -4,10 +4,31 @@ using UnityEngine;
 
 public class RailDetector : MonoBehaviour
 {
+    public static RailDetector Instance { get; private set; }
+
     [SerializeField] PlayerCartGrindMovement playerGrindingScript;
     [SerializeField] FrontDetector frontDetector;
     [SerializeField] PlayerStatusController playerStatusController;
-    
+
+    public bool _hasRailInRange { get; private set; }
+
+    private RailDetector() { }
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Debug.LogWarning("Multiple instances of RailDetector detected. Destroying duplicate.");
+            Destroy(gameObject);
+        }
+        else
+        {
+            Instance = this;
+        }
+
+        _hasRailInRange = false;
+    }
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -17,6 +38,7 @@ public class RailDetector : MonoBehaviour
             playerGrindingScript.OnRailDetectEnter(other);
             InGameController.Instance.lastRailEntered = other.transform.parent.gameObject;  // Get the lastest rail entered
         }
+        _hasRailInRange = RailInRange(out Collider[] frontRails);
     }
 
     private void OnTriggerExit(Collider other)
@@ -25,6 +47,7 @@ public class RailDetector : MonoBehaviour
         {
             playerGrindingScript.OnRailDetectExit(other, frontDetector._hasRailInFront);
         }
+        _hasRailInRange = RailInRange(out Collider[] frontRails);
     }
 
     private void RailStatusHandler(Collider other)
@@ -92,5 +115,24 @@ public class RailDetector : MonoBehaviour
             }
         }
         return childList;
+    }
+
+    private bool RailInRange(out Collider[] overlapingColliders)
+    {
+        Collider frontCollider = GetComponent<Collider>();
+        Vector3 center = frontCollider.bounds.center;
+        Vector3 halfExtents = frontCollider.bounds.extents;
+        Quaternion rotation = transform.rotation;
+        overlapingColliders = Physics.OverlapBox(center, halfExtents, rotation);
+        //Debug.Log("Number collider in front: " + overlapingColliders.Length);
+        foreach (Collider collider in overlapingColliders)
+        {
+            if (collider.gameObject.tag == "Rail")
+            {
+                //Debug.Log("Has rail in front range: " + collider.transform.parent.name);
+                return true;
+            }
+        }
+        return false;
     }
 }

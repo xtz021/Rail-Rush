@@ -177,7 +177,7 @@ public class InGameController : MonoBehaviour
             && InGameController.Instance.saveMeBoxPopupCount >= 1                           // Revived once in this game
             && saveMeUIBoxFreeAd.activeSelf == false)                                          // Revive box is active
         {
-
+            StartCoroutine(DelayActiveGameObject(gameOverPanel, 1f));
         }
     }
 

@@ -150,8 +150,8 @@ public class PlayerCartMovement : MonoBehaviour
                     }
                 }
             }
-            TiltControlSimulatorForEditor();        // for Editor only
-            //TiltCartControl();
+            //TiltControlSimulatorForEditor();        // for Editor only
+            TiltCartControl();
         }
     }
 
@@ -291,7 +291,7 @@ public class PlayerCartMovement : MonoBehaviour
     IEnumerator TouchControlGoesOnCooldown()
     {
         touchControlOnCooldown = true;
-        yield return new WaitForSeconds(jumpOnAirDuration + 0.1f);
+        yield return new WaitForSeconds(jumpOnAirDuration + 0.05f);
         touchControlOnCooldown = false;
         yield break;
     }
