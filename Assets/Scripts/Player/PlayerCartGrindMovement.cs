@@ -13,7 +13,6 @@ public class PlayerCartGrindMovement : MonoBehaviour
     [SerializeField] Vector3 input;     //But they're here for rail switching
 
     [Header("Variables")]
-    public bool onRail;
     [SerializeField] float grindSpeed;
     [SerializeField] float heightOffset;
     float timeForFullSpline;
@@ -55,7 +54,7 @@ public class PlayerCartGrindMovement : MonoBehaviour
     {
         if (playerStatusController.playerCurrentStatus != PlayerStatus.Dead)
         {
-            if (onRail && playerStatusController.playerCurrentStatus != PlayerStatus.Jump) //If on the rail and not jumping, move the player along the rail
+            if (playerStatusController.playerCurrentStatus == PlayerStatus.OnRail) //If on the rail and not jumping, move the player along the rail
             {
                 MovePlayerAlongRail();
             }
@@ -68,7 +67,7 @@ public class PlayerCartGrindMovement : MonoBehaviour
 
     void MovePlayerAlongRail()
     {
-        if (currentRailScript != null && onRail && playerStatusController.playerCurrentStatus == PlayerStatus.OnRail) //This is just some additional error checking.
+        if (currentRailScript != null && playerStatusController.playerCurrentStatus == PlayerStatus.OnRail) //This is just some additional error checking.
         {
             //Calculate a 0 to 1 normalised time value which is the progress along the rail.
             //Elapsed time divided by the full time needed to traverse the spline will give you that value.
@@ -150,7 +149,6 @@ public class PlayerCartGrindMovement : MonoBehaviour
             playerCartMovement.StopJumpingCoroutines();
             /*When the player hits the rail, onRail is set to true, the current rail script is set to the
              *rail script of the rail the player hits. Then we calculate the player's position on that rail.*/
-            onRail = true;
             currentRailScript = other.gameObject.GetComponent<RailScript>();
             //if (currentRailScript != null)
             //{
@@ -217,7 +215,6 @@ public class PlayerCartGrindMovement : MonoBehaviour
     {
         //Set onRail to false, clear the rail script, and push the player off the rail.
         //It's a little sudden, there might be a better way of doing using coroutines and looping, but this will work.
-        onRail = false;
         currentRailScript = null;
         if (playerStatusController.playerCurrentStatus != PlayerStatus.Jump)
         {
