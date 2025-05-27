@@ -68,7 +68,7 @@ public class PlayerCartGrindMovement : MonoBehaviour
 
     void MovePlayerAlongRail()
     {
-        if (currentRailScript != null && onRail) //This is just some additional error checking.
+        if (currentRailScript != null && onRail && playerStatusController.playerCurrentStatus == PlayerStatus.OnRail) //This is just some additional error checking.
         {
             //Calculate a 0 to 1 normalised time value which is the progress along the rail.
             //Elapsed time divided by the full time needed to traverse the spline will give you that value.
@@ -109,6 +109,7 @@ public class PlayerCartGrindMovement : MonoBehaviour
             }
             else
             {
+                #region Update Player's position and rotation on rail
                 //Setting the player's position and adding a height offset so that they're sitting on top of the rail instead of being in the middle of it.
                 transform.position = worldPos + (transform.up * heightOffset);
                 //Lerping the player's current rotation to the direction of where they are to where they're going.
@@ -127,6 +128,7 @@ public class PlayerCartGrindMovement : MonoBehaviour
                     // 4. Apply tilt input for cart
                     cartTranform.rotation = Quaternion.Slerp(cartTranform.rotation, tilted, lerpSpeed * Time.deltaTime);
                 }
+                #endregion
             }
 
             //Finally incrementing or decrementing elapsed time for the next update based on direction.

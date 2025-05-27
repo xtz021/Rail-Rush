@@ -28,6 +28,7 @@ public class PlayerCartMovement : MonoBehaviour
     private CharacterAnimationController characterAnimationController;
 
     [SerializeField] private CartAnimationController cartAnimationController;
+    [SerializeField] private SwipeControl swipeControl;
 
     private Transform cartTransform;
 
@@ -88,69 +89,41 @@ public class PlayerCartMovement : MonoBehaviour
     }
 
 
-    public void TouchControl()
+
+    private void TouchControl()
     {
-        if(!touchControlOnCooldown && playerStatusController.playerCurrentStatus == PlayerStatus.OnRail)
+        if (!touchControlOnCooldown && playerStatusController.playerCurrentStatus == PlayerStatus.OnRail)
         {
-            if (Input.touches.Length > 0)
+            if(swipeControl.SwipeUp)
             {
-                Touch t = Input.GetTouch(0);
-                if (t.phase == TouchPhase.Began)
-                {
-                    //save began touch 2d point
-                    firstPressPos = new Vector2(t.position.x, t.position.y);
-                }
-                if (t.phase == TouchPhase.Ended)
-                {
-                    //save ended touch 2d point
-                    secondPressPos = new Vector2(t.position.x, t.position.y);
-
-                    //create vector from the two points
-                    currentSwipe = new Vector3(secondPressPos.x - firstPressPos.x, secondPressPos.y - firstPressPos.y);
-
-                    //normalize the 2d vector
-                    currentSwipe.Normalize();
-
-                    //swipe upwards
-                    if (currentSwipe.y > 0 && currentSwipe.x > -0.25f && currentSwipe.x < 0.25f)
-                    {
-                        PremNormalPos();
-                        Jump(0);
-                        characterAnimationController.JumpCenter();
-                        //JumpForce();
-                        Debug.Log("up swipe");
-                    }
-                    //swipe down
-                    if (currentSwipe.y < 0 && currentSwipe.x > -0.25f && currentSwipe.x < 0.25f)
-                    {
-                        characterAnimationController.Crouch();                                  // Play Crouch animation
-                        Debug.Log("down swipe");
-                    }
-                    //swipe left
-                    if (currentSwipe.x < 0 && currentSwipe.y > -0.25f && currentSwipe.y < 0.25f)
-                    {
-                        if (playerStatusController.canJumpLeft)
-                        {
-                            PremNormalPos();
-                            Jump(-1);
-                            characterAnimationController.JumpLeft();
-                        }
-                        Debug.Log("left swipe");
-                    }
-                    //swipe right
-                    if (currentSwipe.x > 0 && currentSwipe.y > -0.25f && currentSwipe.y < 0.25f)
-                    {
-                        if (playerStatusController.canJumpRight)
-                        {
-                            PremNormalPos();
-                            Jump(1);
-                            characterAnimationController.JumpRight();
-                        }
-                        Debug.Log("right swipe");
-                    }
-                }
+                PremNormalPos();
+                Jump(0);
+                characterAnimationController.JumpCenter();
+                //JumpForce();
+                Debug.Log("up swipe");
             }
-            //TiltControlSimulatorForEditor();        // for Editor only
+            else if(swipeControl.SwipeDown)
+            {
+                characterAnimationController.Crouch();                                  // Play Crouch animation
+                Debug.Log("down swipe");
+            }
+            else if(swipeControl.SwipeLeft)
+            {
+                PremNormalPos();
+                Jump(-1);
+                characterAnimationController.JumpLeft();
+                Debug.Log("left swipe");
+            } 
+            else if (swipeControl.SwipeRight)
+            {
+                if (playerStatusController.canJumpRight)
+                {
+                    PremNormalPos();
+                    Jump(1);
+                    characterAnimationController.JumpRight();
+                }
+                Debug.Log("right swipe");
+            }
             TiltCartControl();
         }
     }
@@ -250,7 +223,6 @@ public class PlayerCartMovement : MonoBehaviour
     {
         float timer = 0f;
         float jumpOnAirDuration = 0.5f;
-        playerCartGrindMovement.onRail = false;
         jumpDirection = NormalizedIntDirection(jumpDirection);
         playerStatusController.playerCurrentStatus = PlayerStatus.Jump;
 
