@@ -9,6 +9,11 @@ public class GameMenuUIController : MonoBehaviour
 
     private const string SCENE_ID_MININGCAVE_STRING = "Scenes/MiningCave_Gameplay";
 
+    [SerializeField] GameObject mainMenuButtons;
+    [SerializeField] GameObject shopPanel;
+    [SerializeField] GameObject optionPanel;
+
+
     private GameMenuUIController() { }
 
     private void Awake()
@@ -23,9 +28,31 @@ public class GameMenuUIController : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        CheckOpenShopOnLoad();
+    }
+
     public void StartGame()
     {
         SceneManager.LoadScene(SCENE_ID_MININGCAVE_STRING, LoadSceneMode.Single);
         Time.timeScale = 1f;
+    }
+
+
+    public void OpenShop()
+    {
+        shopPanel.SetActive(true);
+        //optionPanel.SetActive(false);
+        mainMenuButtons.SetActive(false);
+    }
+
+    private void CheckOpenShopOnLoad()
+    {
+        if (SaveGameController.Instance.openShopFromGame)
+        {
+            SaveGameController.Instance.ResetOpenShop();
+            OpenShop();
+        }
     }
 }

@@ -51,4 +51,10 @@ public class InGameUIController : MonoBehaviour
     {
         SceneManager.LoadScene(SCENE_ID_OPENINGMENU_STRING, LoadSceneMode.Single);
     }
+
+    public void OpenShopFromInGameMenu()
+    {
+        SaveGameController.Instance.OpenShopFromGame();
+        OpenMainMenu();
+    }
 }
