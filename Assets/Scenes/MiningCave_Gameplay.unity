@@ -3919,6 +3919,7 @@ GameObject:
   - component: {fileID: 619080286}
   - component: {fileID: 619080285}
   - component: {fileID: 619080287}
+  - component: {fileID: 619080288}
   m_Layer: 0
   m_Name: GameControllers
   m_TagString: Untagged
@@ -3972,6 +3973,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dca9053c1dc11b14e9daaf8a021099e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &619080288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 619080284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c50164676a0b71742ad392d26c7ea194, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GemList:
+  - Name: Amethyst
+    Value: 10
+  - Name: Garnet
+    Value: 15
+  - Name: Topaz
+    Value: 20
+  - Name: Spinel
+    Value: 50
+  - Name: Ruby
+    Value: 100
+  - Name: Sapphire
+    Value: 500
+  - Name: Emerald
+    Value: 1000
+  - Name: Diamond
+    Value: 5000
+  commonGems:
+  - {fileID: 1640572201101093582, guid: 2f0380d3f7d83124fbb1bad64d58bf34, type: 3}
+  - {fileID: 1220592630714931563, guid: d3d9195d3ffb87849a28aac041ccf4f6, type: 3}
+  - {fileID: 8807306327557713077, guid: 2af4ff53eb87cd84aae802bf15064116, type: 3}
+  - {fileID: 4734608953028837186, guid: d56e5474443778b4fa9f5479d113c9f6, type: 3}
+  rareGems:
+  - {fileID: 1249741552100640747, guid: 411dac095f16d124499855ad0bd5196b, type: 3}
+  - {fileID: 4443072682451048337, guid: 05bd333a1fb97984b82bb49b75063b0e, type: 3}
+  jackPotGems:
+  - {fileID: 9209861560325277418, guid: b380165c0555a694e8dc2cb4f249ecde, type: 3}
+  - {fileID: 7988574290160283790, guid: 9dafc4a6f7f10094da8070146c759587, type: 3}
 --- !u!1 &657428465
 GameObject:
   m_ObjectHideFlags: 0

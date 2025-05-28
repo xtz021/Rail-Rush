@@ -1353,6 +1353,7 @@ Transform:
   - {fileID: 4979298455187300}
   - {fileID: 4250204192282856}
   - {fileID: 4543327509292604}
+  - {fileID: 6833673377199173247}
   m_Father: {fileID: 4973937201670593}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
@@ -2099,6 +2100,50 @@ Transform:
   m_Father: {fileID: 4137465772405925}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!1 &380600153337411220
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6833673377199173247}
+  - component: {fileID: 3117208872019564830}
+  m_Layer: 0
+  m_Name: GemSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6833673377199173247
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 380600153337411220}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.4, y: 1.4, z: 5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4722368694439209}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3117208872019564830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 380600153337411220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77140e8247e1f4b4e87cc49e0c14eaf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4189694064018534005
 GameObject:
   m_ObjectHideFlags: 0
