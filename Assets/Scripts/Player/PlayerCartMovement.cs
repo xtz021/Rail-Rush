@@ -7,10 +7,10 @@ public class PlayerCartMovement : MonoBehaviour
     public static PlayerCartMovement Instance {  get; private set; }
 
     // Attributes for jump calculations
-    public float jumpHeight = 15f;
-    public float jumpOnAirDuration = 0.75f;
+    public float jumpHeight = 20;
+    public float jumpOnAirDuration = 0.8f;
     public float distantBetweenRails = 2.75f;
-    public float _PlayerCartSpeed = 8f;
+    public float _PlayerCartSpeed = 9f;
 
     public bool _movePhysic = false;
 

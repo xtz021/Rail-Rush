@@ -6,7 +6,10 @@ public class GemSpawner : MonoBehaviour
 {
     List<GameObject> gemPrefabList;
     Rarity rarity;
-    int spawnRate = 20;                 // Gem has 20% spawn rate
+    int spawnRate = 100;                 // Gem has 10% spawn rate (spawnRate/totalWeight * 100)
+    int totalWeight = 1000;          // Total weight for gacha system
+    int jackpotRange = 50;       // Range rate for Jackpot rarity (5%)
+    int rareRange = 250;          // Range rate for Rare rarity (20%) rate = (rareRange - jackpotRange) / totalWeight * 100
 
     private void Start()
     {
@@ -31,12 +34,12 @@ public class GemSpawner : MonoBehaviour
 
     private Rarity GetGemRarity()
     {
-        int gacha = Random.Range(0, 100);
-        if(gacha >= 0 && gacha < 5)         // Rate 5% return JackPot
+        int gacha = Random.Range(0, totalWeight);
+        if(gacha >= 0 && gacha < jackpotRange)         // Rate 5% return JackPot
         {
             return Rarity.Jackpot;
         }
-        else if(gacha >= 5 && gacha < 25)   // Rate 20% return Rare
+        else if(gacha >= jackpotRange && gacha < rareRange)   // Rate 20% return Rare
         {
             return Rarity.Rare;
         }
@@ -54,7 +57,7 @@ public class GemSpawner : MonoBehaviour
 
     private bool CheckIfGemSpawn()
     {
-        int gacha = Random.Range(0, 100);
+        int gacha = Random.Range(0, totalWeight);
         if(gacha < spawnRate)
         {
             return true;

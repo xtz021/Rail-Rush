@@ -18,20 +18,7 @@ public class WallBlockerScript : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             Debug.Log($"Obstacle hits the character! Gameobject: {other.name}");
-            PlayerStatusController playerStatusController;
-            if(other.name.Contains("head"))  // Get PlayerStatusController from the player
-            {
-                playerStatusController = GetStatusControllerFromHead(other.transform);
-            }
-            else if(other.name.Contains("Cart"))
-            {
-                playerStatusController = GetStatusControllerFromCart(other.transform);
-            }
-            else
-            {
-                Debug.Log("Not cart or head");
-                return;
-            }
+            PlayerStatusController playerStatusController = PlayerStatusController.Instance;
             if (playerStatusController != null && playerStatusController.playerCurrentStatus != PlayerStatus.Dead)
             {
                 Debug.Log($"Player {playerStatusController.transform.name} is dead by {STRING_OBSTACLE_TYPE} obstacle");
