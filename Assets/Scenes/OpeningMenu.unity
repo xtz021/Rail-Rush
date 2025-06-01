@@ -4687,6 +4687,17 @@ MonoBehaviour:
   mainMenuButtons: {fileID: 1326231104}
   shopPanel: {fileID: 1097274596}
   optionPanel: {fileID: 732983878}
+--- !u!114 &1709426568 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3728162392813001252, guid: 5db24ac53213aec479805e1c32b2509e, type: 3}
+  m_PrefabInstance: {fileID: 3728162394505289132}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc0f57053a72f8549afc082cb7a8733a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1762649244
 GameObject:
   m_ObjectHideFlags: 0
@@ -5905,3 +5916,114 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2098379818}
   m_CullTransparentMesh: 1
+--- !u!1 &2108314764
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2108314766}
+  - component: {fileID: 2108314765}
+  m_Layer: 0
+  m_Name: AdsManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2108314765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2108314764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13447dad1ff668344875a3b8cc9624a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _androidGameId: 5867189
+  _iOSGameId: 5867188
+  _testMode: 1
+  _rewarded_ads_instance: {fileID: 1709426568}
+  rewarded_ads_prefab: {fileID: 3728162392813001259, guid: 5db24ac53213aec479805e1c32b2509e, type: 3}
+  _showAdButton: {fileID: 2098379820}
+--- !u!4 &2108314766
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2108314764}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &3728162394505289132
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3728162392813001252, guid: 5db24ac53213aec479805e1c32b2509e, type: 3}
+      propertyPath: _showAdButton
+      value: 
+      objectReference: {fileID: 2098379820}
+    - target: {fileID: 3728162392813001253, guid: 5db24ac53213aec479805e1c32b2509e, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3728162392813001253, guid: 5db24ac53213aec479805e1c32b2509e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3728162392813001253, guid: 5db24ac53213aec479805e1c32b2509e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3728162392813001253, guid: 5db24ac53213aec479805e1c32b2509e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3728162392813001253, guid: 5db24ac53213aec479805e1c32b2509e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3728162392813001253, guid: 5db24ac53213aec479805e1c32b2509e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3728162392813001253, guid: 5db24ac53213aec479805e1c32b2509e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3728162392813001253, guid: 5db24ac53213aec479805e1c32b2509e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3728162392813001253, guid: 5db24ac53213aec479805e1c32b2509e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3728162392813001253, guid: 5db24ac53213aec479805e1c32b2509e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3728162392813001253, guid: 5db24ac53213aec479805e1c32b2509e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3728162392813001259, guid: 5db24ac53213aec479805e1c32b2509e, type: 3}
+      propertyPath: m_Name
+      value: RewardedAds
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5db24ac53213aec479805e1c32b2509e, type: 3}
