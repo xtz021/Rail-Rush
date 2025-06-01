@@ -7,7 +7,7 @@ using GooglePlayGames.BasicApi;
 
 public class GooglePlayGamesController : MonoBehaviour
 {
-    public Text SyncStatusButton;
+    public Text UserNameText;
 
     public string Token;
     public string Error;
@@ -69,12 +69,12 @@ public class GooglePlayGamesController : MonoBehaviour
             string ImgUrl = PlayGamesPlatform.Instance.GetUserImageUrl();
 
             isLoggedIn = true;
-            SyncStatusButton.text = "Linked";
+            UserNameText.text = "" + name;
 
         }
         else
         {
-            SyncStatusButton.text = "Not Linked";
+            UserNameText.text = "(Not Linked)";
             isLoggedIn = false;
             // Disable your integration with Play Games Services or show a login button
             // to ask users to sign-in. Clicking it should call

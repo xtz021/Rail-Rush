@@ -9,6 +9,7 @@ public class GameMenuUIController : MonoBehaviour
 
     private const string SCENE_ID_MININGCAVE_STRING = "Scenes/MiningCave_Gameplay";
 
+    [Header("UI objects in the main menu:")]
     [SerializeField] GameObject mainMenuButtons;
     [SerializeField] GameObject shopPanel;
     [SerializeField] GameObject optionPanel;
@@ -43,8 +44,22 @@ public class GameMenuUIController : MonoBehaviour
     public void OpenShop()
     {
         shopPanel.SetActive(true);
-        //optionPanel.SetActive(false);
+        optionPanel.SetActive(false);
         mainMenuButtons.SetActive(false);
+    }
+
+    public void OpenOptionsMenu()
+    {
+        optionPanel.SetActive(true);
+        shopPanel.SetActive(false);
+        mainMenuButtons.SetActive(false);
+    }
+
+    public void ReturnToMainMenu()
+    {
+        optionPanel.SetActive(false);
+        shopPanel.SetActive(false);
+        mainMenuButtons.SetActive(true);
     }
 
     private void CheckOpenShopOnLoad()
