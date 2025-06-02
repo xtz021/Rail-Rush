@@ -11,7 +11,7 @@ public class PlayerStatusController : MonoBehaviour
     public bool canJumpLeft = true;
     public bool canJumpRight = true;
 
-    private Rigidbody playerRigidbody;
+    //private Rigidbody playerRigidbody;
     private Collider playerCollider;
     private CartAnimationController cartAnim;
     private CharacterAnimationController characterAnim;
@@ -29,19 +29,22 @@ public class PlayerStatusController : MonoBehaviour
         }
         playerCurrentStatus = PlayerStatus.OffRail;
         playerCurrentRail = 0;
-        playerRigidbody = GetComponent<Rigidbody>();
+        //playerRigidbody = GetComponent<Rigidbody>();
         playerCollider = GetComponent<Collider>();
-        cartAnim = transform.Find("MiningCart").GetComponent<CartAnimationController>();
-        characterAnim = transform.Find("PlayerCharacter").GetComponent<CharacterAnimationController>();
+        cartAnim = CartAnimationController.Instance;
+        characterAnim = CharacterAnimationController.Instance;
     }
 
     public void Die(string obstacleType)
     {
-        playerCurrentStatus = PlayerStatus.Dead;
-        Debug.Log($"Player is dead by {obstacleType}");
-        playerRigidbody.useGravity = false;
-        cartAnim.DeadAnimation(obstacleType);
-        characterAnim.Dead(obstacleType);
+        if(playerCurrentStatus != PlayerStatus.Dead)
+        {
+            playerCurrentStatus = PlayerStatus.Dead;
+            Debug.Log($"Player is dead by {obstacleType}");
+            //playerRigidbody.useGravity = false;
+            cartAnim.DeadAnimation(obstacleType);
+            characterAnim.Dead(obstacleType);
+        }
     }
 
 

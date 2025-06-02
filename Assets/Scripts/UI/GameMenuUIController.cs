@@ -62,6 +62,11 @@ public class GameMenuUIController : MonoBehaviour
         mainMenuButtons.SetActive(true);
     }
 
+    public void OpenWebInfo()
+    {
+        Application.OpenURL("https://miniclip.com/");
+    }
+
     private void CheckOpenShopOnLoad()
     {
         if (SaveGameController.Instance.openShopFromGame)

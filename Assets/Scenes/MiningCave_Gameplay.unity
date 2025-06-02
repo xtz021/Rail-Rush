@@ -2474,9 +2474,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 240976127}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9fb205b01aba3da42ac12b502774a593, type: 3}
+  m_Script: {fileID: 11500000, guid: c718d6e0c7f8d3044b25bef911024ec9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerInventorySO: {fileID: 11400000, guid: 854ae34ffdbeef04780772054c5c704a, type: 2}
+  totalGold: 0
   passTicketCount: 0
   secondChanceCount: 0
   isDoubleNuggetUnlocked: 0
@@ -2776,8 +2778,8 @@ Transform:
   - {fileID: 1437746875}
   - {fileID: 121163689}
   - {fileID: 998264642}
-  - {fileID: 1072096828}
   - {fileID: 1498505525}
+  - {fileID: 1072096828}
   - {fileID: 1587303195}
   - {fileID: 1473364082}
   - {fileID: 2110545905}
@@ -6850,8 +6852,8 @@ Transform:
   - {fileID: 1462364892}
   - {fileID: 823803898}
   - {fileID: 1729643813}
-  - {fileID: 2053273341}
   - {fileID: 1126464402}
+  - {fileID: 2053273341}
   - {fileID: 988065078}
   - {fileID: 591476672}
   - {fileID: 853492815}
@@ -7647,7 +7649,7 @@ Transform:
   - {fileID: 674502183}
   - {fileID: 48375051}
   m_Father: {fileID: 1036514242}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
 --- !u!114 &1126464403
 MonoBehaviour:
@@ -9117,10 +9119,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0af56bcfe9aa8141848610caf7706bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpHeight: 2
-  jumpOnAirDuration: 0.5
+  jumpHeight: 2.5
+  jumpOnAirDuration: 0.8
   distantBetweenRails: 2.75
-  _PlayerCartSpeed: 8
+  _PlayerCartSpeed: 10
   _movePhysic: 0
   cartAnimationController: {fileID: 108091720}
   swipeControl: {fileID: 619080287}
@@ -10122,7 +10124,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 285236122}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
 --- !u!1 &1501124719
 GameObject:

@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerInventory : MonoBehaviour
+public class PlayerInventoryManager : MonoBehaviour
 {
-    public static PlayerInventory Instance { get; private set; }
+    public static PlayerInventoryManager Instance { get; private set; }
 
     public const string KEY_PASSTICKET_COUNT = "PassTicketCount";
     public const string KEY_SECONDCHANCE_COUNT = "SecondChanceCount";
@@ -14,7 +14,9 @@ public class PlayerInventory : MonoBehaviour
     public const string KEY_MAGNET_SUPER_USECOUNT_INT = "Magnet_Super_UseCount";
     public const string KEY_MAGNET_MEGA_USECOUNT_INT = "Magnet_Mega_UseCount";
 
+    public PlayerInventory playerInventorySO;
 
+    public int totalGold;
     public int passTicketCount;
     public int secondChanceCount;
     public bool isDoubleNuggetUnlocked;
@@ -23,7 +25,7 @@ public class PlayerInventory : MonoBehaviour
     public int magnetSuperUseCount;
     public int magnetMegaUseCount;
 
-    private PlayerInventory() { }
+    private PlayerInventoryManager() { }
 
     private void Awake()
     {
@@ -34,6 +36,7 @@ public class PlayerInventory : MonoBehaviour
         else
         {
             Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
     }
 
@@ -49,6 +52,7 @@ public class PlayerInventory : MonoBehaviour
 
     private void GetInventorySaveData()
     {
+        totalGold = PlayerPrefs.GetInt(SaveGameController.KEY_TOTALGOLD, 0);
         passTicketCount = PlayerPrefs.GetInt(KEY_PASSTICKET_COUNT, 0);
         secondChanceCount = PlayerPrefs.GetInt(KEY_SECONDCHANCE_COUNT, 0);
         isDoubleNuggetUnlocked = PlayerPrefs.GetInt(KEY_DOUBLENUGGET_UNLOCKED, 0) == 1;
@@ -57,10 +61,19 @@ public class PlayerInventory : MonoBehaviour
         magnetStandardUseCount = PlayerPrefs.GetInt(KEY_MAGNET_STANDARD_USECOUNT_INT, 0);
         magnetSuperUseCount = PlayerPrefs.GetInt(KEY_MAGNET_SUPER_USECOUNT_INT, 0);
         magnetMegaUseCount = PlayerPrefs.GetInt(KEY_MAGNET_MEGA_USECOUNT_INT, 0);
+        playerInventorySO.Gold = totalGold;
+        playerInventorySO.PassTicket = passTicketCount;
+        playerInventorySO.SecondChance = secondChanceCount;
+        playerInventorySO.IsDoubleNuggetUnlocked = isDoubleNuggetUnlocked;
+        playerInventorySO.MagnetEquiped = magnetEquiped;
+        playerInventorySO.MagnetStandard = magnetStandardUseCount;
+        playerInventorySO.MagnetSuper = magnetSuperUseCount;
+        playerInventorySO.MagnetMega = magnetMegaUseCount;
     }
 
     public void SaveInventoryData()         // Is called when GameOverPanel pop up
     {
+        PlayerPrefs.SetInt(SaveGameController.KEY_TOTALGOLD, totalGold);
         PlayerPrefs.SetInt(KEY_PASSTICKET_COUNT, passTicketCount);
         PlayerPrefs.SetInt(KEY_SECONDCHANCE_COUNT, secondChanceCount);
         PlayerPrefs.SetInt(KEY_DOUBLENUGGET_UNLOCKED, isDoubleNuggetUnlocked ? 1 : 0);
@@ -71,6 +84,16 @@ public class PlayerInventory : MonoBehaviour
         PlayerPrefs.SetInt(KEY_MAGNET_MEGA_USECOUNT_INT, magnetMegaUseCount);
         PlayerPrefs.Save();
     }
+
+    public void GainGoldFromGame(int amount)
+    {
+        if(amount > 0)
+        {
+            totalGold += amount;
+            playerInventorySO.Gold = totalGold;
+        }
+    }
+
 }
 
 public enum MagnetType

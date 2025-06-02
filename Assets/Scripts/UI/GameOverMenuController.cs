@@ -26,13 +26,14 @@ public class GameOverMenuController : MonoBehaviour
         {
             Instance = this;
         }
+        Debug.Log("" + gameObject.name);
     }
 
     private void OnEnable()
     {
         InGameController.Instance.SaveProgress();
-        PlayerInventory.Instance.SaveInventoryData();
-        passTicketCountText.text = "" + PlayerInventory.Instance.passTicketCount;
+        PlayerInventoryManager.Instance.SaveInventoryData();
+        passTicketCountText.text = "" + PlayerInventoryManager.Instance.passTicketCount;
         best_DistanceText.text = "" + InGameController.Instance.best_Distance;
         best_GoldText.text = "" + InGameController.Instance.best_Gold;
         //current_DistanceText.text = "" + InGameController.Instance.Current_DistanceCount;

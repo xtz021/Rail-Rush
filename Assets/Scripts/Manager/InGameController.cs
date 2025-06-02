@@ -20,23 +20,23 @@ public class InGameController : MonoBehaviour
     [SerializeField] private GameObject saveMeUIBoxFreeAd;
     [SerializeField] private GameObject gameOverPanel;
 
-    private int _totalGold = 0;
+    //private int _totalGold = 0;
     private int _best_Distance = 0;
     private int _best_Gold = 0;
     private bool isProgressSaved = false;
     private Transform player;
 
-    public int totalGold
-    {
-        get
-        {
-            return this._totalGold;
-        }
-        private set
-        {
-            this._totalGold = value;
-        }
-    }
+    //public int totalGold
+    //{
+    //    get
+    //    {
+    //        return this._totalGold;
+    //    }
+    //    private set
+    //    {
+    //        this._totalGold = value;
+    //    }
+    //}
 
     public int best_Distance
     {
@@ -92,7 +92,7 @@ public class InGameController : MonoBehaviour
         Current_GoldCount = 0;
         Current_DistanceCount = 0;
         isProgressSaved = false;
-        _totalGold = PlayerPrefs.GetInt(SaveGameController.KEY_TOTALGOLD, 0);
+        //_totalGold = PlayerPrefs.GetInt(SaveGameController.KEY_TOTALGOLD, 0);
         _best_Distance = PlayerPrefs.GetInt(SaveGameController.KEY_BESTDISTANT, 0);
         _best_Gold = PlayerPrefs.GetInt(SaveGameController.KEY_BESTGOLD, 0);
     }
@@ -101,8 +101,8 @@ public class InGameController : MonoBehaviour
     {
         if (!isProgressSaved)
         {
-            _totalGold += Current_GoldCount;
-            PlayerPrefs.SetInt(SaveGameController.KEY_TOTALGOLD, _totalGold);
+            //_totalGold += Current_GoldCount;
+            //PlayerPrefs.SetInt(SaveGameController.KEY_TOTALGOLD, _totalGold);
             if (Current_DistanceCount > _best_Distance)
             {
                 SaveGameController.Instance.SetNewBestDistance(Current_DistanceCount);
@@ -113,7 +113,7 @@ public class InGameController : MonoBehaviour
             }
             SaveGameController.Instance.SaveProgress();
             isProgressSaved = true;
-            _totalGold = PlayerPrefs.GetInt(SaveGameController.KEY_TOTALGOLD, 0);
+            //_totalGold = PlayerPrefs.GetInt(SaveGameController.KEY_TOTALGOLD, 0);
             _best_Distance = PlayerPrefs.GetInt(SaveGameController.KEY_BESTDISTANT, 0);
             _best_Gold = PlayerPrefs.GetInt(SaveGameController.KEY_BESTGOLD, 0);
         }

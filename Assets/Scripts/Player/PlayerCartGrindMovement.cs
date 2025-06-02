@@ -142,7 +142,7 @@ public class PlayerCartGrindMovement : MonoBehaviour
 
     public void OnRailDetectEnter(Collider other)
     {
-        if (other.gameObject.tag == "Rail")
+        if (other.gameObject.tag == "Rail" && playerStatusController.playerCurrentStatus != PlayerStatus.Dead)
         {
             playerStatusController.playerCurrentStatus = PlayerStatus.OnRail;
             gravitySim.isFalling = false;
@@ -164,7 +164,7 @@ public class PlayerCartGrindMovement : MonoBehaviour
 
     public void OnRailDetectExit(Collider railCollider, bool _hasRailInRange)
     {
-        if (railCollider.gameObject.tag == "Rail")
+        if (railCollider.gameObject.tag == "Rail" && playerStatusController.playerCurrentStatus != PlayerStatus.Dead)
         {
             //Debug.Log("Exit rail: " + railCollider.transform.parent.name);
             gravitySim.isFalling = true;
