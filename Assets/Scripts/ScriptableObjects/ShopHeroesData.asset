@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd8813257c6f806408ca0d29172782cb, type: 3}
+  m_Name: ShopHeroesData
+  m_EditorClassIdentifier: 
+  shopItems:
+  - iconImage: {fileID: 4091435, guid: 96dd160df13ac7e4f97c9d75485b2add, type: 3}
+    name: Bob Molechaser
+    description: 
+    price: 0
+    itemType: 0
+    isIAP: 0
+    isPurchased: 1
+    isEquipped: 1
+  - iconImage: {fileID: -386208175, guid: 96dd160df13ac7e4f97c9d75485b2add, type: 3}
+    name: Axek Firechief
+    description: 
+    price: 26000
+    itemType: 0
+    isIAP: 0
+    isPurchased: 0
+    isEquipped: 0
+  - iconImage: {fileID: -1864704584, guid: 96dd160df13ac7e4f97c9d75485b2add, type: 3}
+    name: Daryl Plankbuster
+    description: 
+    price: 50000
+    itemType: 0
+    isIAP: 1
+    isPurchased: 0
+    isEquipped: 0

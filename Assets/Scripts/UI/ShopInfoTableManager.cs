@@ -44,4 +44,36 @@ public class ShopInfoTableManager : MonoBehaviour
             passCountText.text = "" + PlayerInventoryManager.Instance.playerInventorySO.PassTicket;
         }
     }
+
+    public void ReturnToMainShop()
+    {
+        mainShop.SetActive(true);
+        heroesShop.SetActive(false);
+        cartStuffShop.SetActive(false);
+        extrasShop.SetActive(false);
+    }
+
+    public void OpenHeroesShop()
+    {
+        mainShop.SetActive(false);
+        heroesShop.SetActive(true);
+        cartStuffShop.SetActive(false);
+        extrasShop.SetActive(false);
+    }
+
+    public void OpenCartStuffShop()
+    {
+        mainShop.SetActive(false);
+        heroesShop.SetActive(false);
+        cartStuffShop.SetActive(true);
+        extrasShop.SetActive(false);
+    }
+
+    public void OpenExtrasShop()
+    {
+        mainShop.SetActive(false);
+        heroesShop.SetActive(false);
+        cartStuffShop.SetActive(false);
+        extrasShop.SetActive(true);
+    }
 }
