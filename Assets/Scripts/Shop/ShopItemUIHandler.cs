@@ -9,12 +9,15 @@ public class ShopItemUIHandler : MonoBehaviour
 {
     [SerializeField] Image iconImage;
     [SerializeField] TMP_Text nameText;
-    //[SerializeField] TextMeshPro descriptionText;
+    [SerializeField] TMP_Text descriptionText;
+    [SerializeField] Image descriptionImage;
     [SerializeField] TMP_Text priceText;
+    [SerializeField] Button equipButton;
     [SerializeField] Button purchaseButton;
 
-    [Space (10f)]
+    [Space (20f)]
     [SerializeField] Button itemButton;
+    [SerializeField] GameObject dropDownField;
 
     private string priceCurrency_gold = "<sprite index=0>";
     private string priceCurrency_iap = "đ";
@@ -35,6 +38,22 @@ public class ShopItemUIHandler : MonoBehaviour
         }
     }
 
+    public void SetDescription(string description)
+    {
+        if (descriptionText != null)
+        {
+            descriptionText.text = description;
+        }
+    }
+
+    public void SetDescriptionImage(Sprite descriptionSprite)
+    {
+        if (descriptionImage != null)
+        {
+            descriptionImage.sprite = descriptionSprite;
+        }
+    }
+
     public void SetPrice(int price, bool isIAP)
     {
         if (priceText != null)
@@ -46,6 +65,24 @@ public class ShopItemUIHandler : MonoBehaviour
             else
             {
                 priceText.text = price.ToString() + priceCurrency_gold;
+            }
+        }
+    }
+
+    public void DropDown()
+    {
+        Animator animator = dropDownField.GetComponent<Animator>();
+        if (animator != null)
+        {
+            animator.SetTrigger("OnClickDropDown");
+            if (dropDownField.transform.IsChildOf(itemButton.transform))
+            {
+                dropDownField.transform.SetParent(itemButton.transform.parent);
+                dropDownField.transform.SetSiblingIndex(itemButton.transform.GetSiblingIndex()+1);
+            }
+            else
+            {
+                dropDownField.transform.SetParent(itemButton.transform);
             }
         }
     }

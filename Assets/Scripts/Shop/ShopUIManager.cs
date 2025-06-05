@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ShopInfoTableManager : MonoBehaviour
+public class ShopUIManager : MonoBehaviour
 {
-    public static ShopInfoTableManager Instance { get; private set; }
+    public static ShopUIManager Instance { get; private set; }
     [Header("Shop Panels")]
     [SerializeField] GameObject mainShop;
     [SerializeField] GameObject heroesShop;

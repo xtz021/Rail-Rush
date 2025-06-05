@@ -8,6 +8,7 @@ public class ShopItem
     public Sprite iconImage;
     public string name;
     public string description;
+    public Sprite descriptionImage;
     public int price;
     public ShopItemType itemType; // Type of the shop item
     public bool isIAP; // In-App Purchase item

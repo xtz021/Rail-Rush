@@ -53,6 +53,7 @@ public class ShopItemsData : ScriptableObject
     }
 
 
+
     public void EquipItem(int index)
     {
         if (index < 0 || index >= shopItems.Count)
