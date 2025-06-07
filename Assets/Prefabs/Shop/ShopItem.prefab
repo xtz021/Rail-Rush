@@ -627,8 +627,9 @@ MonoBehaviour:
   descriptionText: {fileID: 8749135642735849946}
   descriptionImage: {fileID: 8297252244735914391}
   priceText: {fileID: 3588715722277870298}
-  equipButton: {fileID: 487881055470646347}
   purchaseButton: {fileID: 5134473727515125347}
+  equipButton: {fileID: 487881055470646347}
+  equipButtonText: {fileID: 3905586344277444509}
   itemButton: {fileID: 1766745704344985194}
   dropDownField: {fileID: 4116966900109611669}
 --- !u!114 &1766745704344985194
@@ -869,14 +870,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.8588236, g: 0.7294118, b: 0.40784317, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1404530704, guid: 96dd160df13ac7e4f97c9d75485b2add, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

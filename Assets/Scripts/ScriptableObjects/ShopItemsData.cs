@@ -54,6 +54,7 @@ public class ShopItemsData : ScriptableObject
 
 
 
+
     public void EquipItem(int index)
     {
         if (index < 0 || index >= shopItems.Count)
@@ -80,6 +81,25 @@ public class ShopItemsData : ScriptableObject
         else
         {
             Debug.LogWarning("Item not purchased: " + item.name);
+        }
+    }
+
+    public void UnequipItem(int index)
+    {
+        if (index < 0 || index >= shopItems.Count)
+        {
+            Debug.LogError("Index out of range: " + index);
+            return;
+        }
+        ShopItem item = shopItems[index];
+        if (item.isEquipped)
+        {
+            item.isEquipped = false;
+            Debug.Log("Unequipped item: " + item.name);
+        }
+        else
+        {
+            Debug.LogWarning("Item is not equipped: " + item.name);
         }
     }
 }

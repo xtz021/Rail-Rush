@@ -19,3 +19,18 @@ public class PlayerInventory : ScriptableObject
         Gold = value;
     }
 }
+
+public class InventoryItem
+{
+    public string Name;
+    public int Quantity;
+    public bool IsPurchased;
+    public bool IsEquipped;
+    public InventoryItem(string name, int quantity)
+    {
+        Name = name;
+        Quantity = quantity;
+        IsPurchased = false;
+        IsEquipped = false;
+    }
+}

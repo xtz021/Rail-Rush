@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ShopUIManager : MonoBehaviour
 {
     public static ShopUIManager Instance { get; private set; }
+
     [Header("Shop Panels")]
     [SerializeField] GameObject mainShop;
     [SerializeField] GameObject heroesShop;
@@ -15,6 +16,12 @@ public class ShopUIManager : MonoBehaviour
     [Header("Gold and Pass Ticket Count UI Texts for Shop Info")]
     public List<Text> goldTexts;
     public List<Text> passCountTexts;
+
+    [Header("Shop Buttons")]
+    [SerializeField] List<Button> returnToMainShopButtons;
+    [SerializeField] Button heroesShopButton;
+    [SerializeField] Button cartStuffShopButton;
+    [SerializeField] Button extrasShopButton;
 
     private void Awake()
     {
@@ -27,13 +34,17 @@ public class ShopUIManager : MonoBehaviour
             Instance = this;
         }
     }
+    private void Start()
+    {
+        AddShopButtonEvents();
+    }
 
     private void OnEnable()
     {
-        UpdateShopInfo();
+        UpdateCurrenciesIntoShopInfo();
     }
 
-    public void UpdateShopInfo()
+    public void UpdateCurrenciesIntoShopInfo()
     {
         foreach (Text goldText in goldTexts)
         {
@@ -42,6 +53,37 @@ public class ShopUIManager : MonoBehaviour
         foreach (Text passCountText in passCountTexts)
         {
             passCountText.text = "" + PlayerInventoryManager.Instance.playerInventorySO.PassTicket;
+        }
+    }
+
+
+    public void AddShopButtonEvents()
+    { 
+        if (returnToMainShopButtons != null)
+        {
+            foreach (Button returnButton in returnToMainShopButtons)
+            {
+                if (returnButton != null)
+                {
+                    returnButton.onClick.RemoveAllListeners(); // Clear previous listeners to avoid duplicates
+                    returnButton.onClick.AddListener(ReturnToMainShop);
+                }
+            }
+        }
+        if (heroesShopButton != null)
+        {
+            heroesShopButton.onClick.RemoveAllListeners();
+            heroesShopButton.onClick.AddListener(OpenHeroesShop);
+        }
+        if (cartStuffShopButton != null)
+        {
+            cartStuffShopButton.onClick.RemoveAllListeners();
+            cartStuffShopButton.onClick.AddListener(OpenCartStuffShop);
+        }
+        if (extrasShopButton != null)
+        {
+            extrasShopButton.onClick.RemoveAllListeners();
+            extrasShopButton.onClick.AddListener(OpenExtrasShop);
         }
     }
 
@@ -76,4 +118,5 @@ public class ShopUIManager : MonoBehaviour
         cartStuffShop.SetActive(false);
         extrasShop.SetActive(true);
     }
+
 }

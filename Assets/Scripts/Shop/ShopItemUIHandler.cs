@@ -12,8 +12,9 @@ public class ShopItemUIHandler : MonoBehaviour
     [SerializeField] TMP_Text descriptionText;
     [SerializeField] Image descriptionImage;
     [SerializeField] TMP_Text priceText;
-    [SerializeField] Button equipButton;
     [SerializeField] Button purchaseButton;
+    [SerializeField] Button equipButton;
+    [SerializeField] TMP_Text equipButtonText;
 
     [Space (20f)]
     [SerializeField] Button itemButton;
@@ -87,11 +88,81 @@ public class ShopItemUIHandler : MonoBehaviour
         }
     }
 
-    public void SetItemAsPurchase()
+    public void SetBuyButtonEvent(UnityAction action)
     {
         if (purchaseButton != null)
         {
-            purchaseButton.gameObject.SetActive(false);
+            purchaseButton.onClick.RemoveAllListeners();
+            purchaseButton.onClick.AddListener(action);
+        }
+    }
+
+    public void SetEquipButtonEvent(UnityAction action)
+    {
+        if (equipButton != null)
+        {
+            equipButton.onClick.RemoveAllListeners();
+            equipButton.onClick.AddListener(action);
+        }
+    }
+
+    public void SetItemAsPurchased(bool isConsumable, bool isEquipable)
+    {
+        if (purchaseButton != null)
+        {
+            if (isConsumable)
+            {
+                purchaseButton.gameObject.SetActive(true);
+            }
+            else
+            {
+                purchaseButton.gameObject.SetActive(false);
+            }
+            if (isEquipable)
+            {
+                equipButton.gameObject.SetActive(true);
+                equipButtonText.text = "Equip";
+            }
+            else
+            {
+                equipButton.gameObject.SetActive(false);
+            }
+        }
+    }
+
+    public void SetItemAsNotPurchased()
+    {
+        if (purchaseButton != null)
+        {
+            purchaseButton.gameObject.SetActive(true);
+            equipButton.gameObject.SetActive(false);
+        }
+    }
+
+
+    public void SetActiveEquipButton(bool active)
+    {
+        equipButton.gameObject.SetActive(active);
+    }
+
+
+    public void SetItemAsEquipped(UnityAction unequipAction)
+    {
+        if (equipButton != null)
+        {
+            equipButtonText.text = "Unequip";
+            equipButton.onClick.RemoveAllListeners();
+            equipButton.onClick.AddListener(unequipAction);
+        }
+    }
+
+    public void SetItemAsUnequipped(UnityAction equipAction)
+    {
+        if (equipButton != null)
+        {
+            equipButtonText.text = "Equip";
+            equipButton.onClick.RemoveAllListeners();
+            equipButton.onClick.AddListener(equipAction);
         }
     }
 
