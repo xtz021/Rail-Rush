@@ -43,13 +43,14 @@ public class ShopItemsData : ScriptableObject
             {
                 PlayerInventoryManager.Instance.playerInventorySO.Gold -= item.price;
                 Debug.Log("Purchased item: " + item.name);
+                ShopUIManager.Instance.UpdateCurrenciesIntoShopInfo(); // Update the UI after purchase
+                item.isPurchased = true; // Mark the item as purchased
             }
             else
             {
                 Debug.LogWarning("Not enough gold to purchase: " + item.name);
             }
         }
-        item.isPurchased = true; // Mark the item as purchased
     }
 
 

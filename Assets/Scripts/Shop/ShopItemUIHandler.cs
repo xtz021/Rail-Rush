@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class ShopItemUIHandler : MonoBehaviour
 {
     [SerializeField] Image iconImage;
+    [SerializeField] Image quantityImg;
     [SerializeField] TMP_Text nameText;
     [SerializeField] TMP_Text descriptionText;
     [SerializeField] Image descriptionImage;
@@ -19,6 +20,9 @@ public class ShopItemUIHandler : MonoBehaviour
     [Space (20f)]
     [SerializeField] Button itemButton;
     [SerializeField] GameObject dropDownField;
+
+    [Space(20f)]
+    [SerializeField] List<Sprite> quantitySprites;
 
     private string priceCurrency_gold = "<sprite index=0>";
     private string priceCurrency_iap = "đ";
@@ -70,6 +74,31 @@ public class ShopItemUIHandler : MonoBehaviour
         }
     }
 
+    public void SetQuantity(int quantity)
+    {
+        if (quantityImg != null && quantitySprites != null && quantitySprites.Count > 0)
+        {
+            quantityImg.gameObject.SetActive(true);
+            if (quantity > 0 && quantity < quantitySprites.Count)
+            {
+                quantityImg.sprite = quantitySprites[quantity];
+            }
+            else if(quantity > 20)
+            {
+                quantityImg.sprite = quantitySprites[0];
+            }
+            else
+            {
+                quantityImg.gameObject.SetActive(false);
+                Debug.LogWarning("Quantity out of range for sprites list.");
+            }
+        }
+        else
+        {
+            Debug.LogWarning("Quantity image or sprites list is not set.");
+        }
+    }
+
     public void DropDown()
     {
         Animator animator = dropDownField.GetComponent<Animator>();
@@ -117,6 +146,7 @@ public class ShopItemUIHandler : MonoBehaviour
             else
             {
                 purchaseButton.gameObject.SetActive(false);
+                priceText.text = "Owned";
             }
             if (isEquipable)
             {
@@ -146,13 +176,20 @@ public class ShopItemUIHandler : MonoBehaviour
     }
 
 
-    public void SetItemAsEquipped(UnityAction unequipAction)
+    public void SetItemAsEquipped(UnityAction unequipAction, ShopItemType itemType)
     {
-        if (equipButton != null)
+        if (equipButton != null && itemType != ShopItemType.Chacter)
         {
             equipButtonText.text = "Unequip";
             equipButton.onClick.RemoveAllListeners();
             equipButton.onClick.AddListener(unequipAction);
+            equipButton.interactable = true; // Enable the button for unequipping
+        }
+        else
+        {
+            equipButtonText.text = "Equipped";
+            equipButton.onClick.RemoveAllListeners();
+            equipButton.interactable = false; // Disable the button if it's a character item
         }
     }
 
@@ -163,6 +200,7 @@ public class ShopItemUIHandler : MonoBehaviour
             equipButtonText.text = "Equip";
             equipButton.onClick.RemoveAllListeners();
             equipButton.onClick.AddListener(equipAction);
+            equipButton.interactable = true; // Enable the button for equipping
         }
     }
 

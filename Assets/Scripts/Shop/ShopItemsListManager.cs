@@ -56,7 +56,7 @@ public class ShopItemsListManager : MonoBehaviour
                             if (item.isEquipped)
                             {
                                 // If the item is already equipped, set the text to "Unequip" and set the listener to unequip the item
-                                itemUIHandler.SetItemAsEquipped(() => itemsData.UnequipItem(i));
+                                itemUIHandler.SetItemAsEquipped(() => itemsData.UnequipItem(i),item.itemType);
                             }
                             else
                             {
@@ -72,6 +72,22 @@ public class ShopItemsListManager : MonoBehaviour
                     else
                     {                         
                         itemUIHandler.SetItemAsNotPurchased(); // Mark the item as not purchased and disable the equip button
+                    }
+                    if (item.isConsumable)
+                    {
+                        if (item.quantity > 0 && item.quantity <= 20)
+                        {
+                            itemUIHandler.SetQuantity(item.quantity); // Set the quantity for consumable items
+                        }
+                        else if (item.quantity > 20)
+                        {
+                            itemUIHandler.SetQuantity(0); // Cap the quantity at 20
+                        }
+                        else
+                        {
+                            Debug.LogWarning($"Item {item.name} has an invalid quantity: {item.quantity}. Setting to 0.");
+                            item.quantity = 0; // Set to 0 if quantity is invalid
+                        }
                     }
                 }
             }
