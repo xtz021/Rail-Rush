@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Data", menuName = "Scriptable Objects/Player Inventory", order = 1)]
 public class PlayerInventory : ScriptableObject
 {
-    public int Gold;
+    public int Gold { get; private set; } = 0;
     public int PassTicket;
     public int SecondChance;
     public bool IsDoubleNuggetUnlocked;

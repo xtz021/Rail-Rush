@@ -45,6 +45,10 @@ public class ShopItemsData : ScriptableObject
                 PlayerInventoryManager.Instance.PayGold(item.price);
                 Debug.Log("Purchased item: " + item.name);
                 item.isPurchased = true; // Mark the item as purchased
+                /*
+                 * Gain item quantity logic can be added here
+                 * 
+                 */
             }
             else
             {
