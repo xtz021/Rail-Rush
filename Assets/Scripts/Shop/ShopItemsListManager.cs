@@ -37,6 +37,7 @@ public class ShopItemsListManager : MonoBehaviour
             ShopItem item = itemsData.GetItem(i);
             if (item != null)
             {
+                int index = i; // Capture the current index for the lambda expression
                 GameObject itemGO = Instantiate(shopItemPrefab, shopItemsContainer);
                 ShopItemUIHandler itemUIHandler = itemGO.GetComponent<ShopItemUIHandler>();
                 if (itemUIHandler != null)
@@ -46,7 +47,7 @@ public class ShopItemsListManager : MonoBehaviour
                     itemUIHandler.SetDescription(item.description);
                     itemUIHandler.SetDescriptionImage(item.descriptionImage);
                     itemUIHandler.SetPrice(item.price, item.isIAP);
-                    itemUIHandler.SetBuyButtonEvent(() => itemsData.PurchaseItem(i));
+                    itemUIHandler.SetBuyButtonEvent(() => itemsData.PurchaseItem(index));
                     if (item.isPurchased)
                     {
                         itemUIHandler.SetItemAsPurchased(item.isConsumable, item.isEquippable); // Mark the item as purchased
@@ -56,12 +57,12 @@ public class ShopItemsListManager : MonoBehaviour
                             if (item.isEquipped)
                             {
                                 // If the item is already equipped, set the text to "Unequip" and set the listener to unequip the item
-                                itemUIHandler.SetItemAsEquipped(() => itemsData.UnequipItem(i),item.itemType);
+                                itemUIHandler.SetItemAsEquipped(() => itemsData.UnequipItem(index),item.itemType);
                             }
                             else
                             {
                                 // If the item is not equipped, set the text to "Equip" and set the listener to equip the item
-                                itemUIHandler.SetItemAsUnequipped(() => itemsData.EquipItem(i));
+                                itemUIHandler.SetItemAsUnequipped(() => itemsData.EquipItem(index));
                             }
                         }
                         else
