@@ -41,9 +41,9 @@ public class ShopItemsData : ScriptableObject
             // Handle gold purchase here
             if (PlayerInventoryManager.Instance.playerInventorySO.Gold >= item.price)
             {
-                PlayerInventoryManager.Instance.playerInventorySO.Gold -= item.price;
+                //PlayerInventoryManager.Instance.playerInventorySO.Gold -= item.price;
+                PlayerInventoryManager.Instance.PayGold(item.price);
                 Debug.Log("Purchased item: " + item.name);
-                ShopUIManager.Instance.UpdateCurrenciesIntoShopInfo(); // Update the UI after purchase
                 item.isPurchased = true; // Mark the item as purchased
             }
             else

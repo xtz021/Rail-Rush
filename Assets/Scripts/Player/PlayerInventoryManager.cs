@@ -85,12 +85,31 @@ public class PlayerInventoryManager : MonoBehaviour
         PlayerPrefs.Save();
     }
 
-    public void GainGoldFromGame(int amount)
+    public void GainGold(int amount)
     {
         if(amount > 0)
         {
             totalGold += amount;
             playerInventorySO.Gold = totalGold;
+            ShopUIManager.Instance.UpdateCurrenciesIntoShopInfo();
+        }
+        else
+        {
+            Debug.LogWarning("Cannot gain negative or zero gold: " + amount);
+        }
+    }
+
+    public void PayGold(int amount)
+    {
+        if (amount > 0 && totalGold >= amount)
+        {
+            totalGold -= amount;
+            playerInventorySO.Gold = totalGold;
+            ShopUIManager.Instance.UpdateCurrenciesIntoShopInfo();
+        }
+        else
+        {
+            Debug.LogWarning("Not enough gold to pay: " + amount);
         }
     }
 

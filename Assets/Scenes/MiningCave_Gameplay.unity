@@ -1075,8 +1075,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.05, z: 1.25}
-  m_Center: {x: 0, y: 0.75, z: 0}
+  m_Size: {x: 1, y: 1, z: 0.8}
+  m_Center: {x: 0, y: 0.75, z: 0.2}
 --- !u!1 &113445608
 GameObject:
   m_ObjectHideFlags: 0
@@ -6998,7 +6998,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1036602670}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 823231773}
+        m_TargetAssemblyTypeName: InGameUIController, Assembly-CSharp
+        m_MethodName: OpenShopFromInGameMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1036602670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9187,7 +9199,7 @@ MonoBehaviour:
   input: {x: 0, y: 0, z: 0}
   grindSpeed: 10
   heightOffset: 0.08
-  lerpSpeed: 10
+  lerpSpeed: 12
   currentRailScript: {fileID: 0}
   frontDetector: {fileID: 1516007267}
   cartAnimationController: {fileID: 108091720}
