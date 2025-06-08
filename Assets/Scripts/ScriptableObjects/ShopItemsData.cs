@@ -27,7 +27,7 @@ public class ShopItemsData : ScriptableObject
     {
         if (index < 0 || index >= shopItems.Count)
         {
-            Debug.LogError("Index out of range: " + index);
+            Debug.LogError($"Index {index} out of range: " + shopItems.Count);
             return;
         }
         ShopItem item = shopItems[index];
