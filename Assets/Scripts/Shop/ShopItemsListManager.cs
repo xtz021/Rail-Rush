@@ -94,26 +94,4 @@ public class ShopItemsListManager : MonoBehaviour
         GenerateShopItems(); // Regenerate the shop items list
     }
 
-    public void SaveShopData(ShopItemsData shopData)
-    {
-        string json = JsonUtility.ToJson(shopData, true);
-        File.WriteAllText(Application.persistentDataPath + $"/{shopData.name}.json", json);
-    }
-
-    public ShopItemsData LoadShopData(ShopItemsData shopData)
-    {
-        string fileName = shopData.name;
-        string path = Application.persistentDataPath + $"/{fileName}.json";
-        if(File.Exists(path))
-        {
-            string json = File.ReadAllText(path);
-            ShopItemsData loadedData = JsonUtility.FromJson<ShopItemsData>(json);
-            return shopData;
-        }
-        else
-        {
-            Debug.LogError("Shop data file not found: " + path);
-            return null;
-        }
-    }
 }
