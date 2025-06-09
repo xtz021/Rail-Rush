@@ -1,6 +1,7 @@
 using System.Collections;
 using System.IO;
 using UnityEngine;
+using static PlayerInventorySO;
 
 public class ShopItemsListManager : MonoBehaviour
 {
@@ -48,13 +49,15 @@ public class ShopItemsListManager : MonoBehaviour
                     itemUIHandler.SetDescriptionImage(item.descriptionImage);
                     itemUIHandler.SetPrice(item.price, item.isIAP);
                     itemUIHandler.SetBuyButtonEvent(() => itemsData.PurchaseItem(index));
-                    if (item.isPurchased)
+                    itemUIHandler.AddBuyButtonEvent(RefreshShopItems);
+                    itemUIHandler.AddBuyButtonEvent(ShopUIManager.Instance.UpdateCurrenciesIntoShopInfo);
+                    if (InventoryManager.Instance.IsPurchased(item.itemID))
                     {
                         itemUIHandler.SetItemAsPurchased(item.isConsumable, item.isEquippable); // Mark the item as purchased
                         if (item.isEquippable)
                         {
                             itemUIHandler.SetActiveEquipButton(true);
-                            if (item.isEquipped)
+                            if (InventoryManager.Instance.IsEquipped(item.itemID))
                             {
                                 // If the item is already equipped, set the text to "Unequip" and set the listener to unequip the item
                                 itemUIHandler.SetItemAsEquipped(() => itemsData.UnequipItem(index),item.itemType);
@@ -64,6 +67,8 @@ public class ShopItemsListManager : MonoBehaviour
                                 // If the item is not equipped, set the text to "Equip" and set the listener to equip the item
                                 itemUIHandler.SetItemAsUnequipped(() => itemsData.EquipItem(index));
                             }
+
+                            itemUIHandler.AddEquipButtonEvent(RefreshShopItems); // Add event to refresh shop items after equipping/unequipping
                         }
                         else
                         {
@@ -76,19 +81,8 @@ public class ShopItemsListManager : MonoBehaviour
                     }
                     if (item.isConsumable)
                     {
-                        //if (item.quantity > 0 && item.quantity <= 20)
-                        //{
-                        //    itemUIHandler.SetQuantity(item.quantity); // Set the UI quantity for consumable items
-                        //}
-                        //else if (item.quantity > 20)
-                        //{
-                        //    itemUIHandler.SetQuantity(0); // Cap the quantity at 20
-                        //}
-                        //else
-                        //{
-                        //    Debug.LogWarning($"Item {item.name} has an invalid quantity: {item.quantity}. Setting to 0.");
-                        //    item.quantity = 0; // Set to 0 if quantity is invalid
-                        //}
+                        int itemQuantity = InventoryManager.Instance.inventory.GetItemQuantity(item.itemID);
+                        itemUIHandler.SetQuantity(itemQuantity); // Set the UI quantity for consumable items
                     }
                 }
             }

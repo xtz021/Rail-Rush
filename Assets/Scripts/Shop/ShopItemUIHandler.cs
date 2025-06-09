@@ -126,11 +126,27 @@ public class ShopItemUIHandler : MonoBehaviour
         }
     }
 
+    public void AddBuyButtonEvent(UnityAction action)
+    {
+        if (purchaseButton != null)
+        {
+            purchaseButton.onClick.AddListener(action);
+        }
+    }
+
     public void SetEquipButtonEvent(UnityAction action)
     {
         if (equipButton != null)
         {
             equipButton.onClick.RemoveAllListeners();
+            equipButton.onClick.AddListener(action);
+        }
+    }
+
+    public void AddEquipButtonEvent(UnityAction action)
+    {
+        if (equipButton != null)
+        {
             equipButton.onClick.AddListener(action);
         }
     }
@@ -157,6 +173,10 @@ public class ShopItemUIHandler : MonoBehaviour
             {
                 equipButton.gameObject.SetActive(false);
             }
+        }
+        else
+        {
+            Debug.LogError("Purchase button is not assigned.");
         }
     }
 
@@ -212,6 +232,5 @@ public class ShopItemUIHandler : MonoBehaviour
             purchaseButton.onClick.AddListener(() => action.Invoke(itemIndex));
         }
     }
-
 
 }

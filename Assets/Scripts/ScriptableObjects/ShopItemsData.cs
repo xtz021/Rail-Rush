@@ -8,6 +8,8 @@ public class ShopItemsData : ScriptableObject
 {
     public List<ShopItem> shopItems;
 
+    [HideInInspector] public const string PASSTICKET_ID = "ID_Pass"; // ID for the pass ticket item
+
     public int ItemsCount
     {
         get { return shopItems != null ? shopItems.Count : 0; }
@@ -39,16 +41,18 @@ public class ShopItemsData : ScriptableObject
         else
         {
             // Handle gold purchase here
-            if (PlayerInventoryManager.Instance.playerInventorySO.Gold >= item.price)
+            if (InventoryManager.Instance.inventory.Gold >= item.price)
             {
-                //PlayerInventoryManager.Instance.playerInventorySO.Gold -= item.price;
-                PlayerInventoryManager.Instance.PayGold(item.price);
+                InventoryManager.Instance.inventory.PayGold(item.price);
                 Debug.Log("Purchased item: " + item.name);
-                item.isPurchased = true; // Mark the item as purchased
-                /*
-                 * Gain item quantity logic can be added here
-                 * 
-                 */
+                if(item.itemID == PASSTICKET_ID)        // Check if the item is a pass ticket pack
+                {
+                    InventoryManager.Instance.inventory.GainPassTickets(item.purchaseAmount); // Add pass tickets to inventory
+                }
+                else
+                {
+                    InventoryManager.Instance.inventory.AddItem(item.itemID,item.purchaseAmount); // Add item to inventory
+                }
             }
             else
             {
@@ -56,8 +60,6 @@ public class ShopItemsData : ScriptableObject
             }
         }
     }
-
-
 
 
     public void EquipItem(int index)
@@ -68,19 +70,10 @@ public class ShopItemsData : ScriptableObject
             return;
         }
         ShopItem item = shopItems[index];
-        if (item.isPurchased)
+        if (InventoryManager.Instance.IsPurchased(item.itemID))
         {
-            // Un-equip previously equipped item of the same type
-            foreach (var shopItem in shopItems)
-            {
-                if (shopItem.isEquipped && shopItem.itemType == item.itemType)
-                {
-                    shopItem.isEquipped = false;
-                    break;
-                }
-            }
-            // Equip this item
-            item.isEquipped = true;
+            // Equip this item  - this will also unequip any other item of the same type
+            InventoryManager.Instance.EquipItem(item.itemID, item.itemType);
             Debug.Log("Equipped item: " + item.name);
         }
         else
@@ -97,9 +90,9 @@ public class ShopItemsData : ScriptableObject
             return;
         }
         ShopItem item = shopItems[index];
-        if (item.isEquipped)
+        if (InventoryManager.Instance.IsEquipped(item.itemID))
         {
-            item.isEquipped = false;
+            InventoryManager.Instance.UnequipItem(item.itemID);
             Debug.Log("Unequipped item: " + item.name);
         }
         else
@@ -107,4 +100,6 @@ public class ShopItemsData : ScriptableObject
             Debug.LogWarning("Item is not equipped: " + item.name);
         }
     }
+
+
 }

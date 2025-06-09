@@ -48,11 +48,11 @@ public class ShopUIManager : MonoBehaviour
     {
         foreach (Text goldText in goldTexts)
         {
-            goldText.text = "" + PlayerInventoryManager.Instance.totalGold;
+            goldText.text = "" + InventoryManager.Instance.inventory.Gold;
         }
         foreach (Text passCountText in passCountTexts)
         {
-            passCountText.text = "" + PlayerInventoryManager.Instance.passTicketCount;
+            passCountText.text = "" + InventoryManager.Instance.inventory.PassTickets;
         }
     }
 

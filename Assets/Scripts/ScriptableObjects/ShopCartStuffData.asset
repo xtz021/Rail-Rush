@@ -13,39 +13,36 @@ MonoBehaviour:
   m_Name: ShopCartStuffData
   m_EditorClassIdentifier: 
   shopItems:
-  - iconImage: {fileID: 1247508308, guid: 96dd160df13ac7e4f97c9d75485b2add, type: 3}
+  - itemID: ID_Magnet1
+    iconImage: {fileID: 1247508308, guid: 96dd160df13ac7e4f97c9d75485b2add, type: 3}
     name: Magnet
     description: It attracts only nuggets for the whole run.
     descriptionImage: {fileID: 1636840824, guid: 44fc888d08db9594884ee5fff8e90c97, type: 3}
     price: 600
     itemType: 1
     isIAP: 0
-    isPurchased: 0
     isEquippable: 1
-    isEquipped: 0
     isConsumable: 0
-    quantity: 0
-  - iconImage: {fileID: -1798942199, guid: 96dd160df13ac7e4f97c9d75485b2add, type: 3}
+    purchaseAmount: 3
+  - itemID: ID_Magnet2
+    iconImage: {fileID: -1798942199, guid: 96dd160df13ac7e4f97c9d75485b2add, type: 3}
     name: Super Magnet
     description: It aattacts all bonuses for the whole run.
     descriptionImage: {fileID: -742120594, guid: 44fc888d08db9594884ee5fff8e90c97, type: 3}
     price: 1000
     itemType: 1
     isIAP: 0
-    isPurchased: 0
     isEquippable: 1
-    isEquipped: 0
     isConsumable: 0
-    quantity: 0
-  - iconImage: {fileID: 1120573401, guid: 96dd160df13ac7e4f97c9d75485b2add, type: 3}
+    purchaseAmount: 3
+  - itemID: ID_Magnet3
+    iconImage: {fileID: 1120573401, guid: 96dd160df13ac7e4f97c9d75485b2add, type: 3}
     name: Mega Magnet Force
     description: It attacts all bonuses forever.
     descriptionImage: {fileID: 1390087960, guid: 44fc888d08db9594884ee5fff8e90c97, type: 3}
     price: 113000
     itemType: 0
     isIAP: 1
-    isPurchased: 0
     isEquippable: 1
-    isEquipped: 0
     isConsumable: 0
-    quantity: 0
+    purchaseAmount: 1

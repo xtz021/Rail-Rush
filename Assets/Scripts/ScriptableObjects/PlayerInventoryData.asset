@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 427f299657d57524f9323af0f61d9c5a, type: 3}
   m_Name: PlayerInventoryData
   m_EditorClassIdentifier: 
-  passTicketCount: 0
-  secondChanceCount: 0
-  isDoubleNuggetUnlocked: 0
-  magnetEquiped: 0
-  magnetStandardUseCount: 0
-  magnetSuperUseCount: 0
-  magnetMegaUseCount: 0
+  items:
+  - itemID: ID_Magnet1
+    quantity: 3
+    isEquipped: 1
+  - itemID: ID_Char1
+    quantity: 1
+    isEquipped: 1
