@@ -59,7 +59,7 @@ public class SwipeControl : MonoBehaviour
         }
 
         // Check if the swipe is long enough
-        if (swipeDelta.magnitude > 100)
+        if (swipeDelta.magnitude > 40)
         {
             float x = swipeDelta.x;
             float y = swipeDelta.y;

@@ -7,8 +7,12 @@ using GooglePlayGames.BasicApi;
 
 public class GooglePlayGamesController : MonoBehaviour
 {
+    public static GooglePlayGamesController Instance { get; private set; }
+    [Header("Google Play Games UI Settings")]
     public Text UserNameText;
+    [SerializeField] Button loginButton;
 
+    [Header("No need to assign these fields")]
     public string Token;
     public string Error;
 
@@ -16,6 +20,17 @@ public class GooglePlayGamesController : MonoBehaviour
 
     void Awake()
     {
+        // Singleton pattern to ensure only one instance of this controller exists
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        else
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
         //Initialize PlayGamesPlatform
         PlayGamesPlatform.Activate();
         LoginGooglePlayGames();
@@ -29,30 +44,6 @@ public class GooglePlayGamesController : MonoBehaviour
 
     public void LoginGooglePlayGames()
     {
-        //PlayGamesPlatform.Instance.Authenticate((success) =>
-        //{
-        //    if (success == SignInStatus.Success)
-        //    {
-        //        Debug.Log("Login with Google Play games successful.");
-
-        //        PlayGamesPlatform.Instance.RequestServerSideAccess(true, code =>
-        //        {
-        //            Debug.Log("Authorization code: " + code);
-        //            Token = code;
-        //            // This token serves as an example to be used for SignInWithGooglePlayGames
-        //        });
-        //        SyncStatusButton.text = "Linked";
-        //        isLoggedIn = true;
-        //    }
-        //    else
-        //    {
-        //        isLoggedIn = false;
-        //        Error = "Failed to retrieve Google play games authorization code";
-        //        Debug.Log("Login Unsuccessful");
-        //        SyncStatusButton.text = "Not Linked";
-        //        PlayGamesPlatform.Instance.ManuallyAuthenticate(ProcessAuthentication);
-        //    }
-        //});
         PlayGamesPlatform.Instance.Authenticate(ProcessAuthentication);
     }
 
@@ -70,12 +61,13 @@ public class GooglePlayGamesController : MonoBehaviour
 
             isLoggedIn = true;
             UserNameText.text = "" + name;
-
+            loginButton.gameObject.SetActive(false);
         }
         else
         {
             UserNameText.text = "(Not Linked)";
             isLoggedIn = false;
+            loginButton.gameObject.SetActive(true);
             // Disable your integration with Play Games Services or show a login button
             // to ask users to sign-in. Clicking it should call
         }
@@ -94,18 +86,34 @@ public class GooglePlayGamesController : MonoBehaviour
         }
     }
 
-    public void PostLeaderBoardScore(int _score)
+    public void PostLeaderBoardGoldScore(int _score)
     {
-        Social.ReportScore(_score, GGPSids.LEADERBOARD_HIGHSCORE,
+        Social.ReportScore(_score, GGPSids.LEADERBOARD_BESTDISTANCE,
             (bool success) =>
             {
                 if (success)
                 {
-                    Debug.Log("HighScore" + _score + " submitted successfully!!!");
+                    Debug.Log("Distance HighScore" + _score + " submitted successfully!!!");
                 }
                 else
                 {
-                    Debug.Log("Failed to submit" + _score + " to HighScore Leaderboard!!!");
+                    Debug.Log("Failed to submit" + _score + " to Distance HighScore Leaderboard!!!");
+                }
+            });
+    }
+
+    public void PostLeaderBoardDistanceScore(int _score)
+    {
+        Social.ReportScore(_score, GGPSids.LEADERBOARD_MOSTGOLDEARN_INAGAME,
+            (bool success) =>
+            {
+                if (success)
+                {
+                    Debug.Log("Gold HighScore" + _score + " submitted successfully!!!");
+                }
+                else
+                {
+                    Debug.Log("Failed to submit" + _score + " to Gold HighScore Leaderboard!!!");
                 }
             });
     }
@@ -116,5 +124,6 @@ public class GooglePlayGamesController : MonoBehaviour
 
 public static class GGPSids
 {
-    public const string LEADERBOARD_HIGHSCORE = "CgkI0oHbk_4KEAIQAQ";
+    public const string LEADERBOARD_BESTDISTANCE = "CgkIutam_aQNEAIQAQ";
+    public const string LEADERBOARD_MOSTGOLDEARN_INAGAME = "CgkIutam_aQNEAIQAg";
 }

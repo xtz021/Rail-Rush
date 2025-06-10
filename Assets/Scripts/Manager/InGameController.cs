@@ -106,10 +106,12 @@ public class InGameController : MonoBehaviour
             if (Current_DistanceCount > _best_Distance)
             {
                 SaveGameController.Instance.SetNewBestDistance(Current_DistanceCount);
+                GooglePlayGamesController.Instance.PostLeaderBoardDistanceScore(Current_DistanceCount);
             }
             if (Current_GoldCount > _best_Gold)
             {
                 SaveGameController.Instance.SetNewBestGold(Current_GoldCount);
+                GooglePlayGamesController.Instance.PostLeaderBoardGoldScore(Current_GoldCount);
             }
             SaveGameController.Instance.SaveProgress();
             isProgressSaved = true;
