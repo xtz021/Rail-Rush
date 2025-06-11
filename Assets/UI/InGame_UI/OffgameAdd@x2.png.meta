@@ -621,12 +621,12 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: OffgameAdd@x2_47
+      name: GemCollectionBorder_Left
       rect:
         serializedVersion: 2
-        x: 802
+        x: 808
         y: 0
-        width: 203
+        width: 100
         height: 664
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -893,6 +893,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: GemCollectionBorder_Right
+      rect:
+        serializedVersion: 2
+        x: 909
+        y: 0
+        width: 100
+        height: 664
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 607dd78aa4b075a4587f37ec769d9dbc
+      internalID: 1278808346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -904,6 +925,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      GemCollectionBorder_Left: 533703426
+      GemCollectionBorder_Right: 1278808346
       HeartIcon: -1584606874
       NuggetIcon_Dropping: -212088887
       OffgameAdd@x2_0: -891352287
@@ -970,7 +993,6 @@ TextureImporter:
       OffgameAdd@x2_44: -529377041
       OffgameAdd@x2_45: -155102326
       OffgameAdd@x2_46: 1605027460
-      OffgameAdd@x2_47: 533703426
       OffgameAdd@x2_48: 1813768969
       OffgameAdd@x2_49: -1552543632
       OffgameAdd@x2_5: -1293165231

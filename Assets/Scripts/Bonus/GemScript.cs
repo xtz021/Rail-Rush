@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class GemScript : MonoBehaviour
 {
-    int gemValue;
+    int gemValue = 0;
+    string gemName;
     AudioSource audioSource;
 
     private void Start()
@@ -20,6 +21,7 @@ public class GemScript : MonoBehaviour
             if(gameObject.name.Contains(gem.Name))
             {
                 gemValue = gem.Value;
+                gemName = gem.Name;
                 break;
             }
         }

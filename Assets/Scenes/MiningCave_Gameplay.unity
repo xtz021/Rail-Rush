@@ -2442,6 +2442,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 240976128}
+  - component: {fileID: 240976130}
   - component: {fileID: 240976129}
   m_Layer: 0
   m_Name: PlayerInventory
@@ -2474,9 +2475,44 @@ MonoBehaviour:
   m_GameObject: {fileID: 240976127}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c718d6e0c7f8d3044b25bef911024ec9, type: 3}
+  m_Script: {fileID: 11500000, guid: 9bf867feaffe2b54aa18760b65d1c8d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gemDatas:
+  - gemName: Amethyst
+    collectedCount: 0
+  - gemName: Garnet
+    collectedCount: 0
+  - gemName: Spinel
+    collectedCount: 0
+  - gemName: Ruby
+    collectedCount: 0
+  - gemName: Sapphire
+    collectedCount: 0
+  - gemName: Emerald
+    collectedCount: 0
+  - gemName: Diamond
+    collectedCount: 0
+  Amethyst: 0
+  Garnet: 0
+  Spinel: 0
+  Ruby: 0
+  Sapphire: 0
+  Emerald: 0
+  Diamond: 0
+--- !u!114 &240976130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 240976127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c87455312fc2064b99c7d9e2864a383, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: {fileID: 11400000, guid: 854ae34ffdbeef04780772054c5c704a, type: 2}
 --- !u!1 &251096816
 GameObject:
   m_ObjectHideFlags: 0
