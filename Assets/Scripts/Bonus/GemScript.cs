@@ -16,7 +16,7 @@ public class GemScript : MonoBehaviour
 
     private void GetGemValue()
     {
-        foreach(GemValueHandler.Gem gem in GemValueHandler.Instance.GetGemList())
+        foreach(Gem gem in GemValueHandler.Instance.GetGemList())
         {
             if(gameObject.name.Contains(gem.Name))
             {

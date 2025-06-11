@@ -2478,6 +2478,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bf867feaffe2b54aa18760b65d1c8d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gemDataSO: {fileID: 11400000, guid: f8f65fc7487ae874e931ea4a852c31ee, type: 2}
   gemDatas:
   - gemName: Amethyst
     collectedCount: 0
@@ -2493,13 +2494,6 @@ MonoBehaviour:
     collectedCount: 0
   - gemName: Diamond
     collectedCount: 0
-  Amethyst: 0
-  Garnet: 0
-  Spinel: 0
-  Ruby: 0
-  Sapphire: 0
-  Emerald: 0
-  Diamond: 0
 --- !u!114 &240976130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4696,23 +4690,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c50164676a0b71742ad392d26c7ea194, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GemList:
-  - Name: Amethyst
-    Value: 10
-  - Name: Garnet
-    Value: 15
-  - Name: Topaz
-    Value: 20
-  - Name: Spinel
-    Value: 50
-  - Name: Ruby
-    Value: 100
-  - Name: Sapphire
-    Value: 500
-  - Name: Emerald
-    Value: 1000
-  - Name: Diamond
-    Value: 5000
+  gemsDataSO: {fileID: 11400000, guid: f8f65fc7487ae874e931ea4a852c31ee, type: 2}
   commonGems:
   - {fileID: 1640572201101093582, guid: 2f0380d3f7d83124fbb1bad64d58bf34, type: 3}
   - {fileID: 1220592630714931563, guid: d3d9195d3ffb87849a28aac041ccf4f6, type: 3}

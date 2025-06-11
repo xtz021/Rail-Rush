@@ -7,9 +7,9 @@ public class GemsCollectionInventory : MonoBehaviour
 {
     public static GemsCollectionInventory Instance {  get; private set; }
 
-    public List<GemCollectedData> gemDatas;
+    public GemsDataSO gemDataSO; // Reference to the ScriptableObject data containing names of the gems
 
-
+    [HideInInspector] public List<GemCollectedData> gemDatas; // List to hold gem data
 
     private void Awake()
     {
@@ -25,12 +25,40 @@ public class GemsCollectionInventory : MonoBehaviour
 
     private void Start()
     {
-        LoadCollectionData();
+        if (gemDataSO != null)
+        {
+            GetGemNamesData();
+        }
+        else
+        {
+            Debug.LogError("GemsDataSO is not assigned in GemsCollectionInventory.");
+        }
+        LoadCollectionData();       // Load previously saved gem collection data
     }
 
     private void OnDisable()
     {
         SaveCollectionData();
+    }
+
+    private void GetGemNamesData()
+    {
+        if (gemDataSO != null)
+        {
+            for (int i = 0; i < gemDataSO.gemDatas.Count; i++)
+            {
+                GemCollectedData gemData = new GemCollectedData
+                {
+                    gemName = gemDataSO.gemDatas[i].Name,
+                    collectedCount = 0 // Initialize collected count to 0
+                };
+                gemDatas.Add(gemData);
+            }
+        }
+        else
+        {
+            Debug.LogError("GemsDataSO is not assigned in GemsCollectionInventory.");
+        }
     }
 
     public void SaveCollectionData()
