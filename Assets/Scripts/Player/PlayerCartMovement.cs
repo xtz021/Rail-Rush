@@ -223,6 +223,7 @@ public class PlayerCartMovement : MonoBehaviour
     {
         float timer = 0f;
         float jumpOnAirDuration = 0.5f;
+        playerCartGrindMovement.onRail = false;
         jumpDirection = NormalizedIntDirection(jumpDirection);
         playerStatusController.playerCurrentStatus = PlayerStatus.Jump;
 

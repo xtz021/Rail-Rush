@@ -54,7 +54,7 @@ public class InGameUIController : MonoBehaviour
 
     public void OpenShopFromInGameMenu()
     {
-        SaveGameController.Instance.OpenShopFromGame();
+        GameStatsController.Instance.OpenShopFromGame();
         OpenMainMenu();
     }
 }

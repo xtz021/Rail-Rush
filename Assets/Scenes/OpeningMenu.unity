@@ -1741,7 +1741,7 @@ RectTransform:
   m_Children:
   - {fileID: 989820702}
   m_Father: {fileID: 1326231105}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -3539,7 +3539,7 @@ RectTransform:
   m_Children:
   - {fileID: 700922893}
   m_Father: {fileID: 1326231105}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -6111,7 +6111,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1013426469
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7955,8 +7955,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 327313396}
   - {fileID: 641109205}
+  - {fileID: 327313396}
   - {fileID: 124083655}
   - {fileID: 2098379819}
   - {fileID: 1244776194}
@@ -10908,6 +10908,9 @@ MonoBehaviour:
   mainMenuButtons: {fileID: 1326231104}
   shopPanel: {fileID: 1097274596}
   optionPanel: {fileID: 732983878}
+  scoreButton: {fileID: 327313397}
+  userNameText: {fileID: 1620539841}
+  loginButton: {fileID: 628405843}
 --- !u!114 &1709426568 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3728162392813001252, guid: 5db24ac53213aec479805e1c32b2509e, type: 3}

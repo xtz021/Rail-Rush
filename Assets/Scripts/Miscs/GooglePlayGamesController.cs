@@ -29,7 +29,7 @@ public class GooglePlayGamesController : MonoBehaviour
         else
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
         }
         //Initialize PlayGamesPlatform
         PlayGamesPlatform.Activate();

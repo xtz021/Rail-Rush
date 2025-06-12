@@ -4,32 +4,19 @@ using System.ComponentModel;
 using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
 
-public class SaveGameController : MonoBehaviour
+public class GameStatsController : MonoBehaviour
 {
-    public static SaveGameController Instance { get; private set; }
+    public static GameStatsController Instance { get; private set; }
 
-    public const string KEY_TOTALGOLD = "_TotalGold";
     public const string KEY_BESTDISTANT = "_Best_Distant";
     public const string KEY_BESTGOLD = "_Best_Gold";
 
 
-    private int _totalGold = 0;
     private int _best_Distance = 0;
     private int _best_Gold = 0;
 
     public bool openShopFromGame { get; private set; } = false;
 
-    public int totalGold
-    {
-        get
-        {
-            return this._totalGold;
-        }
-        private set
-        {
-            this._totalGold = value;
-        }
-    }
 
     public int best_Distance
     {
@@ -75,16 +62,14 @@ public class SaveGameController : MonoBehaviour
 
     private void GetSaveGameValues()
     {
-        _totalGold = PlayerPrefs.GetInt(KEY_TOTALGOLD, 0);
         _best_Distance = PlayerPrefs.GetInt(KEY_BESTDISTANT, 0);
         _best_Gold = PlayerPrefs.GetInt(KEY_BESTGOLD, 0);
     }
 
     public void SaveProgress()
     {
-        PlayerPrefs.SetInt(SaveGameController.KEY_TOTALGOLD, _totalGold);
-        PlayerPrefs.SetInt(SaveGameController.KEY_BESTDISTANT, _best_Distance);
-        PlayerPrefs.SetInt(SaveGameController.KEY_BESTGOLD, _best_Gold);
+        PlayerPrefs.SetInt(GameStatsController.KEY_BESTDISTANT, _best_Distance);
+        PlayerPrefs.SetInt(GameStatsController.KEY_BESTGOLD, _best_Gold);
         PlayerPrefs.Save();
         GetSaveGameValues();
     }
@@ -112,19 +97,6 @@ public class SaveGameController : MonoBehaviour
         }
     }
 
-    public void SpendGold(int spendAmount)
-    {
-        if (spendAmount <= _totalGold)
-        {
-            _totalGold -= spendAmount;
-            PlayerPrefs.SetInt(KEY_TOTALGOLD, _totalGold);
-            PlayerPrefs.Save();
-        }
-        else
-        {
-            Debug.LogWarning("Not enough gold to spend.");
-        }
-    }
 
     public void OpenShopFromGame()
     {

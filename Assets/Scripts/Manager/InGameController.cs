@@ -92,9 +92,9 @@ public class InGameController : MonoBehaviour
         Current_GoldCount = 0;
         Current_DistanceCount = 0;
         isProgressSaved = false;
-        //_totalGold = PlayerPrefs.GetInt(SaveGameController.KEY_TOTALGOLD, 0);
-        _best_Distance = PlayerPrefs.GetInt(SaveGameController.KEY_BESTDISTANT, 0);
-        _best_Gold = PlayerPrefs.GetInt(SaveGameController.KEY_BESTGOLD, 0);
+        //_totalGold = PlayerPrefs.GetInt(GameStatsController.KEY_TOTALGOLD, 0);
+        _best_Distance = PlayerPrefs.GetInt(GameStatsController.KEY_BESTDISTANT, 0);
+        _best_Gold = PlayerPrefs.GetInt(GameStatsController.KEY_BESTGOLD, 0);
     }
 
     public void SaveProgress()
@@ -102,22 +102,22 @@ public class InGameController : MonoBehaviour
         if (!isProgressSaved)
         {
             //_totalGold += Current_GoldCount;
-            //PlayerPrefs.SetInt(SaveGameController.KEY_TOTALGOLD, _totalGold);
+            //PlayerPrefs.SetInt(GameStatsController.KEY_TOTALGOLD, _totalGold);
             if (Current_DistanceCount > _best_Distance)
             {
-                SaveGameController.Instance.SetNewBestDistance(Current_DistanceCount);
+                GameStatsController.Instance.SetNewBestDistance(Current_DistanceCount);
                 GooglePlayGamesController.Instance.PostLeaderBoardDistanceScore(Current_DistanceCount);
             }
             if (Current_GoldCount > _best_Gold)
             {
-                SaveGameController.Instance.SetNewBestGold(Current_GoldCount);
+                GameStatsController.Instance.SetNewBestGold(Current_GoldCount);
                 GooglePlayGamesController.Instance.PostLeaderBoardGoldScore(Current_GoldCount);
             }
-            SaveGameController.Instance.SaveProgress();
+            GameStatsController.Instance.SaveProgress();
             isProgressSaved = true;
-            //_totalGold = PlayerPrefs.GetInt(SaveGameController.KEY_TOTALGOLD, 0);
-            _best_Distance = PlayerPrefs.GetInt(SaveGameController.KEY_BESTDISTANT, 0);
-            _best_Gold = PlayerPrefs.GetInt(SaveGameController.KEY_BESTGOLD, 0);
+            //_totalGold = PlayerPrefs.GetInt(GameStatsController.KEY_TOTALGOLD, 0);
+            _best_Distance = PlayerPrefs.GetInt(GameStatsController.KEY_BESTDISTANT, 0);
+            _best_Gold = PlayerPrefs.GetInt(GameStatsController.KEY_BESTGOLD, 0);
         }
     }
 

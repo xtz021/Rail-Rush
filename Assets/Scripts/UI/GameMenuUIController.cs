@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameMenuUIController : MonoBehaviour
 {
@@ -14,6 +15,10 @@ public class GameMenuUIController : MonoBehaviour
     [SerializeField] GameObject shopPanel;
     [SerializeField] GameObject optionPanel;
 
+    [Header("UI for GGPS:")]
+    public Button scoreButton;
+    public Text userNameText;
+    public Button loginButton;
 
     private GameMenuUIController() { }
 
@@ -69,9 +74,9 @@ public class GameMenuUIController : MonoBehaviour
 
     private void CheckOpenShopOnLoad()
     {
-        if (SaveGameController.Instance.openShopFromGame)
+        if (GameStatsController.Instance.openShopFromGame)
         {
-            SaveGameController.Instance.ResetOpenShop();
+            GameStatsController.Instance.ResetOpenShop();
             OpenShop();
         }
     }
