@@ -14,6 +14,7 @@ public class GameMenuUIController : MonoBehaviour
     [SerializeField] GameObject mainMenuButtons;
     [SerializeField] GameObject shopPanel;
     [SerializeField] GameObject optionPanel;
+    [SerializeField] GameObject gemsCollectionPanel;
 
     [Header("UI for GGPS:")]
     public Button scoreButton;
@@ -51,6 +52,7 @@ public class GameMenuUIController : MonoBehaviour
         shopPanel.SetActive(true);
         optionPanel.SetActive(false);
         mainMenuButtons.SetActive(false);
+        gemsCollectionPanel.SetActive(false);
     }
 
     public void OpenOptionsMenu()
@@ -58,13 +60,23 @@ public class GameMenuUIController : MonoBehaviour
         optionPanel.SetActive(true);
         shopPanel.SetActive(false);
         mainMenuButtons.SetActive(false);
+        gemsCollectionPanel.SetActive(false);
     }
 
     public void ReturnToMainMenu()
     {
+        mainMenuButtons.SetActive(true);
         optionPanel.SetActive(false);
         shopPanel.SetActive(false);
-        mainMenuButtons.SetActive(true);
+        gemsCollectionPanel.SetActive(false);
+    }
+
+    public void OpenGemsCollectionPanel()
+    {
+        gemsCollectionPanel.SetActive(true);
+        shopPanel.SetActive(false);
+        optionPanel.SetActive(false);
+        mainMenuButtons.SetActive(false);
     }
 
     public void OpenWebInfo()

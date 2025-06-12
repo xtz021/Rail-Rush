@@ -10,13 +10,20 @@ public class GemCollectionUI : MonoBehaviour
     {
         for (int i = 0; i < gemCollection.Count; i++)
         {
-            if (gemCollection[i] != null && GemsCollectionInventory.Instance.gemDatas[i].collectedCount > 0)
+            if (gemCollection[i] != null)
             {
-                gemCollection[i].SetActive(true);
+                if(GemsCollectionInventory.Instance.gemDatas[i].collectedCount > 0)
+                {
+                    gemCollection[i].SetActive(true);
+                }
+                else
+                {
+                    gemCollection[i].SetActive(false);
+                }
             }
             else
             {
-                gemCollection[i].SetActive(false);
+                Debug.LogWarning($"Gem collection object at index {i} is null.");
             }
         }
     }

@@ -9070,7 +9070,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1513601135}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1709112267}
+        m_TargetAssemblyTypeName: GameMenuUIController, Assembly-CSharp
+        m_MethodName: OpenGemsCollectionPanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1513601135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9433,7 +9445,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1709112267}
         m_TargetAssemblyTypeName: GameMenuUIController, Assembly-CSharp
-        m_MethodName: ReturnToMainMenu
+        m_MethodName: OpenOptionsMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10908,6 +10920,7 @@ MonoBehaviour:
   mainMenuButtons: {fileID: 1326231104}
   shopPanel: {fileID: 1097274596}
   optionPanel: {fileID: 732983878}
+  gemsCollectionPanel: {fileID: 1013426468}
   scoreButton: {fileID: 327313397}
   userNameText: {fileID: 1620539841}
   loginButton: {fileID: 628405843}
