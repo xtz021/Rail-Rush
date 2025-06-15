@@ -16,8 +16,8 @@ public class NuggetScript : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            InGameController.Instance.GainGold(goldValue);
-            if(audioSource != null)
+            InGameController.Instance.GainGold(goldValue * InventoryManager.Instance.NuggetBonusMultiplier);
+            if (audioSource != null)
             {
                 audioSource.Play();
             }

@@ -18,10 +18,6 @@ public class SaveMePanelController : MonoBehaviour
         StartCoroutine(RunOutTimerSaveMePanel());
     }
 
-    private void Update()
-    {
-        
-    }
 
     IEnumerator RunOutTimerSaveMePanel()
     {
@@ -46,8 +42,11 @@ public class SaveMePanelController : MonoBehaviour
 
     public void OnClickRevive()
     {
-        playerIsSaved = true;
-        InGameController.Instance.RevivePlayer();
+        if (InventoryManager.Instance.UseConsumable(ItemIDsContainers.Instance.itemID_SecondChance))
+        {
+            InGameController.Instance.RevivePlayer();
+            playerIsSaved = true;
+        }
     }
 
 }

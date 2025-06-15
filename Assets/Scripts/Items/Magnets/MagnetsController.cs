@@ -24,19 +24,33 @@ public class MagnetsController : MonoBehaviour
             {
                 if (item.itemID == ItemIDsContainers.Instance.itemID_MagnetStandard && item.quantity > 0)
                 {
-                    Instantiate(standardMagnetPrefab, Vector3.zero, Quaternion.identity, transform);
-                    Debug.Log("Standard Magnet Spawned");
+                    if(InventoryManager.Instance.UseConsumable(ItemIDsContainers.Instance.itemID_MagnetStandard, 1))
+                    {
+                        Instantiate(standardMagnetPrefab, transform.position, Quaternion.identity, transform);
+                        Debug.Log("Standard Magnet Spawned");
+                    }
+                    else
+                    {
+                        Debug.LogWarning("Failed to consume Standard Magnet item from inventory.");
+                    }
                     return;
                 }
                 else if (item.itemID == ItemIDsContainers.Instance.itemID_MagnetSuper && item.quantity > 0)
                 {
-                    Instantiate(superMagnetPrefab, Vector3.zero, Quaternion.identity, transform);
-                    Debug.Log("Super Magnet Spawned");
+                    if(InventoryManager.Instance.UseConsumable(ItemIDsContainers.Instance.itemID_MagnetSuper, 1))
+                    {
+                        Instantiate(superMagnetPrefab, transform.position, Quaternion.identity, transform);
+                        Debug.Log("Super Magnet Spawned");
+                    }
+                    else
+                    {
+                        Debug.LogWarning("Failed to consume Super Magnet item from inventory.");
+                    }
                     return;
                 }
                 else if (item.itemID == ItemIDsContainers.Instance.itemID_MagnetMega && item.quantity > 0)
                 {
-                    Instantiate(megaMagnetPrefab, Vector3.zero, Quaternion.identity, transform);
+                    Instantiate(megaMagnetPrefab, transform.position, Quaternion.identity, transform);
                     Debug.Log("Mega Magnet Spawned");
                     return;
                 }

@@ -160,22 +160,30 @@ public class InGameController : MonoBehaviour
 
     private void SaveMePanelCheck()
     {
-        if (PlayerStatusController.Instance.playerCurrentStatus == PlayerStatus.Dead     // Player is dead
-            && InGameController.Instance.saveMeBoxPopupCount <= 0)                      // No revive attempted yet in this game
+        if (PlayerStatusController.Instance.playerCurrentStatus == PlayerStatus.Dead                        // Player is dead
+            && InGameController.Instance.saveMeBoxPopupCount <= 0                                           // No revive attempted yet in this game
+            && InventoryManager.Instance.IsPurchased(ItemIDsContainers.Instance.itemID_SecondChance))       // Has second chance item in inventory             
         {
             if (saveMeUIBoxFreeAd.activeSelf == false)
             {
                 saveMeUIBoxFreeAd.SetActive(true);
-                InGameController.Instance.saveMeBoxPopupCount++;
             }
             else
             {
                 StartCoroutine(DelayActiveGameObject(gameOverPanel, 1f));
             }
+            if(InGameController.Instance.saveMeBoxPopupCount < 0)
+            {
+                InGameController.Instance.saveMeBoxPopupCount = 1;
+            }
+            else
+            {
+                InGameController.Instance.saveMeBoxPopupCount++;
+            }
         }
-        else if (PlayerStatusController.Instance.playerCurrentStatus == PlayerStatus.Dead     // Player is dead
-            && InGameController.Instance.saveMeBoxPopupCount >= 1                           // Revived once in this game
-            && saveMeUIBoxFreeAd.activeSelf == false)                                          // Revive box is active
+        else if (PlayerStatusController.Instance.playerCurrentStatus == PlayerStatus.Dead       // Player is dead
+            && InGameController.Instance.saveMeBoxPopupCount >= 1                               // Revived once in this game
+            && saveMeUIBoxFreeAd.activeSelf == false)                                           // Revive box is active
         {
             StartCoroutine(DelayActiveGameObject(gameOverPanel, 1f));
         }

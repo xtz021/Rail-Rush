@@ -3,8 +3,10 @@ using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
 {
-    public static InventoryManager Instance;
+    public static InventoryManager Instance { get; private set; }
     public PlayerInventorySO inventory;
+
+    public int NuggetBonusMultiplier = 1; // Multiplier for nugget bonus
 
     private void Awake()
     {
@@ -19,6 +21,11 @@ public class InventoryManager : MonoBehaviour
             LoadInventory();
             AddStartingItem();
         }
+    }
+
+    private void Start()
+    {
+        CheckNuggetBonusX2(); // Check if Nugget Bonus X2 is purchased
     }
 
     public void SaveInventory()
@@ -63,12 +70,18 @@ public class InventoryManager : MonoBehaviour
     }
 
     // Called when using a consumable
-    public void UseConsumable(string itemID, int amount = 1)
+    public bool UseConsumable(string itemID, int amount = 1)
     {
         if (inventory.ConsumeItem(itemID))
         {
             // Apply item effect here
             SaveInventory();
+            return true; // Consumable used successfully
+        }
+        else
+        {
+            Debug.LogWarning("Consumable not found or insufficient quantity: " + itemID);
+            return false; // Consumable not found or insufficient quantity
         }
     }
 
@@ -122,6 +135,18 @@ public class InventoryManager : MonoBehaviour
         }
         Debug.LogError("Inventory is not initialized.");
         return false; // Item not found or not equipped
+    }
+
+    private void CheckNuggetBonusX2()
+    {
+        if (IsPurchased("ID_NuggetBonusX2"))
+        {
+            NuggetBonusMultiplier = 2; // Set multiplier to 2 if the item is purchased
+        }
+        else
+        {
+            NuggetBonusMultiplier = 1; // Default multiplier
+        }
     }
 
 }
