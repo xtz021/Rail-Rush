@@ -123,4 +123,5 @@ public class InventoryManager : MonoBehaviour
         Debug.LogError("Inventory is not initialized.");
         return false; // Item not found or not equipped
     }
+
 }

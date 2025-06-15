@@ -16,6 +16,7 @@ public class ShopItem
     public bool isEquippable; // Indicates if the item can be equipped
     public bool isConsumable; // Indicates if the item is consumable (e.g., life, magnet)
     public int purchaseAmount = 1; // Amount to purchase, default is 1
+    public GameObject prefab; // Prefab for the item, if applicable
 }
 
 public enum ShopItemType

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(CharacterSpawner))]
 public class CharacterAnimationController : MonoBehaviour
 {
     public static CharacterAnimationController Instance {  get; private set; }
@@ -31,8 +32,9 @@ public class CharacterAnimationController : MonoBehaviour
 
     private void Start()
     {
-        characterAnimation = transform.GetChild(0).GetComponent<Animation>();
-        animator = transform.GetChild(0).GetComponent<Animator>();
+        GetComponent<CharacterSpawner>().SpawnEquipedCharacter();               // Spawn the equipped character at the start
+        characterAnimation = transform.GetChild(0).GetComponent<Animation>();   // Then get its component
+        animator = transform.GetChild(0).GetComponent<Animator>();              //
     }
     public void JumpCenter()
     {

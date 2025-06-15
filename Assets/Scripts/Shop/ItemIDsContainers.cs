@@ -42,13 +42,83 @@ public class ItemIDsContainers : MonoBehaviour
 
     private void AssignIDs()
     {
-        itemID_MagnetStandard = shopCartStuffsData.GetItem(0).itemID;
-        itemID_MagnetSuper = shopCartStuffsData.GetItem(1).itemID;
-        itemID_MagnetMega = shopCartStuffsData.GetItem(2).itemID;
-        itemID_SecondChance = shopExtrasData.GetItem(0).itemID;
-        itemID_NuggetX2 = shopExtrasData.GetItem(2).itemID;
-        itemID_Char1 = shopHeroesData.GetItem(0).itemID;
-        itemID_Char2 = shopHeroesData.GetItem(1).itemID;
-        itemID_Char3 = shopHeroesData.GetItem(2).itemID;
+        itemID_MagnetStandard = GetCartItemIDByIndex(0);
+        itemID_MagnetSuper = GetCartItemIDByIndex(1);
+        itemID_MagnetMega = GetCartItemIDByIndex(2);
+        itemID_SecondChance = GetExtraItemIDByName("Second Chance");
+        itemID_NuggetX2 = GetExtraItemIDByName("Nuggets x2");
+        itemID_Char1 = GetCharacterIDByIndex(0);
+        itemID_Char2 = GetCharacterIDByIndex(1);
+        itemID_Char3 = GetCharacterIDByIndex(2);
+    }
+
+    public string GetCharacterIDByIndex(int index)
+    {
+        if (index < 0 || index >= shopHeroesData.ItemsCount)
+        {
+            Debug.LogError("Index out of range: " + index);
+            return null;
+        }
+        return shopHeroesData.GetItem(index).itemID;
+    }
+
+    public string GetCharacterIDByName(string name)
+    {
+        foreach (ShopItem item in shopHeroesData.shopItems)
+        {
+            if (item.name.Contains(name))
+            {
+                return item.itemID;
+            }
+        }
+        Debug.LogError("Character with name " + name + " not found in shopHeroesData.");
+        return null;
+    }
+
+
+    public string GetCartItemIDByIndex(int index)
+    {
+        if (index < 0 || index >= shopCartStuffsData.ItemsCount)
+        {
+            Debug.LogError("Index out of range: " + index);
+            return null;
+        }
+        return shopCartStuffsData.GetItem(index).itemID;
+    }
+
+    public string GetCartItemIDByName(string name)
+    {
+        foreach (ShopItem item in shopCartStuffsData.shopItems)
+        {
+            if (item.name.Contains(name))
+            {
+                return item.itemID;
+            }
+        }
+        Debug.LogError("Cart item with name " + name + " not found in shopCartStuffsData.");
+        return null;
+    }
+
+    public string GetExtraItemIDByIndex(int index)
+    {
+        if (index < 0 || index >= shopExtrasData.ItemsCount)
+        {
+            Debug.LogError("Index out of range: " + index);
+            return null;
+        }
+        return shopExtrasData.GetItem(index).itemID;
+    }
+
+    public string GetExtraItemIDByName(string name)
+    {
+        foreach (ShopItem item in shopExtrasData.shopItems)
+        {
+            if (item.name.Contains(name))
+            {
+                return item.itemID;
+            }
+        }
+        Debug.LogError("Extra item with name " + name + " not found in shopExtrasData.");
+        return null;
     }
 }
