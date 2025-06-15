@@ -53,9 +53,11 @@ public class ShopItemsData : ScriptableObject
                 {
                     InventoryManager.Instance.inventory.AddItem(item.itemID,item.purchaseAmount); // Add item to inventory
                 }
+                GameMenuUIController.Instance.PopUpNotice("Purchase successful!");
             }
             else
             {
+                GameMenuUIController.Instance.PopUpNotice("Not enough gold!");
                 Debug.LogWarning("Not enough gold to purchase: " + item.name);
             }
         }

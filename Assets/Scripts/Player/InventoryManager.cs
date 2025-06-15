@@ -19,13 +19,13 @@ public class InventoryManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
             LoadInventory();
-            AddStartingItem();
+            //AddStartingItem();
         }
     }
 
     private void Start()
     {
-        CheckNuggetBonusX2(); // Check if Nugget Bonus X2 is purchased
+        CheckBonusItems();
     }
 
     public void SaveInventory()
@@ -42,6 +42,15 @@ public class InventoryManager : MonoBehaviour
         {
             string json = File.ReadAllText(path);
             JsonUtility.FromJsonOverwrite(json, inventory);
+        }
+        else
+        {
+            Debug.LogWarning("Inventory file not found, initializing new inventory.");
+            inventory = ScriptableObject.CreateInstance<PlayerInventorySO>();
+            inventory.items = new System.Collections.Generic.List<PlayerInventorySO.InventoryItem>();
+            inventory.Gold = 0;
+            inventory.PassTickets = 0;
+            AddStartingItem(); // Add starting item if inventory is empty
         }
     }
 
@@ -67,6 +76,7 @@ public class InventoryManager : MonoBehaviour
     {
         inventory.AddItem(itemID, isConsumable ? 1 : 1); // Add 1 quantity
         SaveInventory();
+        CheckBonusItems(); // Check for bonus items
     }
 
     // Called when using a consumable
@@ -135,6 +145,11 @@ public class InventoryManager : MonoBehaviour
         }
         Debug.LogError("Inventory is not initialized.");
         return false; // Item not found or not equipped
+    }
+
+    public void CheckBonusItems()
+    {
+        CheckNuggetBonusX2(); // Check if Nugget Bonus X2 is purchased
     }
 
     private void CheckNuggetBonusX2()

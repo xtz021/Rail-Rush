@@ -76,7 +76,9 @@ public class RewardedAdsButton : MonoBehaviour, IUnityAdsLoadListener, IUnityAds
         {
             Debug.Log("Unity Ads Rewarded Ad Completed");
             // Grant a reward.
-            InventoryManager.Instance.inventory.GainGold(300 * InventoryManager.Instance.NuggetBonusMultiplier); // Example: Add 100 gold as a reward
+            int rewardAmount = 300 * InventoryManager.Instance.NuggetBonusMultiplier; // Calculate the reward amount
+            InventoryManager.Instance.inventory.GainGold(rewardAmount); // Add 300 gold as a reward
+            GameMenuUIController.Instance.PopUpNotice($"You have received {rewardAmount} gold as a reward!"); // Show a notice pop-up
             //handler.DoubleReward();
             //DailyArchivementHandler.adsWatchedOfDay++;
             AdsInitializer.Instance.NewRewardedAdsInstance(); // Load a new ad instance after showing the ad

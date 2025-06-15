@@ -21,6 +21,10 @@ public class GameMenuUIController : MonoBehaviour
     public Text userNameText;
     public Button loginButton;
 
+    [Header("PopUp Notice components:")]
+    [SerializeField] GameObject noticePopUpPrefab;
+    [SerializeField] Transform canvasParent;
+
     private GameMenuUIController() { }
 
     private void Awake()
@@ -92,4 +96,19 @@ public class GameMenuUIController : MonoBehaviour
             OpenShop();
         }
     }
+
+    public void PopUpNotice(string noticeText)
+    {
+        GameObject noticePopUp = Instantiate(noticePopUpPrefab, canvasParent);
+        NoticePopUpController noticeController = noticePopUp.GetComponent<NoticePopUpController>();
+        if (noticeController != null)
+        {
+            noticeController.SetNoticeText(noticeText);
+        }
+        else
+        {
+            Debug.LogWarning("NoticePopUpController component not found on the instantiated prefab.");
+        }
+    }
+
 }
