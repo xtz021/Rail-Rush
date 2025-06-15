@@ -8,17 +8,22 @@ using GooglePlayGames.BasicApi;
 public class GooglePlayGamesController : MonoBehaviour
 {
     public static GooglePlayGamesController Instance { get; private set; }
-    [Header("Google Play Games UI Settings")]
-    public Text UserNameText;
-    [SerializeField] Button loginButton;
+    //[Header("Google Play Games UI Settings")]
+    //public Text UserNameText;
+    //[SerializeField] Button loginButton;
 
     [Header("No need to assign these fields")]
     public string Token;
     public string Error;
 
-    private bool isLoggedIn = false;
+    public bool isLoggedIn { get; private set; }
 
-    void Awake()
+    [HideInInspector] public string UserId;
+    [HideInInspector] public string UserName;
+    [HideInInspector] public string UserImageUrl;
+
+
+void Awake()
     {
         // Singleton pattern to ensure only one instance of this controller exists
         if (Instance != null && Instance != this)
@@ -29,8 +34,9 @@ public class GooglePlayGamesController : MonoBehaviour
         else
         {
             Instance = this;
-            //DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(gameObject);
         }
+        isLoggedIn = false;
         //Initialize PlayGamesPlatform
         PlayGamesPlatform.Activate();
         LoginGooglePlayGames();
@@ -55,19 +61,19 @@ public class GooglePlayGamesController : MonoBehaviour
         {
             // Continue with Play Games Services
 
-            string name = PlayGamesPlatform.Instance.GetUserDisplayName();
-            string id = PlayGamesPlatform.Instance.GetUserId();
-            string ImgUrl = PlayGamesPlatform.Instance.GetUserImageUrl();
+            UserName = PlayGamesPlatform.Instance.GetUserDisplayName();
+            UserId = PlayGamesPlatform.Instance.GetUserId();
+            UserImageUrl = PlayGamesPlatform.Instance.GetUserImageUrl();
 
             isLoggedIn = true;
-            UserNameText.text = "" + name;
-            loginButton.gameObject.SetActive(false);
+            //UserNameText.text = "" + name;
+            //loginButton.gameObject.SetActive(false);
         }
         else
         {
-            UserNameText.text = "(Not Linked)";
+            //UserNameText.text = "(Not Linked)";
             isLoggedIn = false;
-            loginButton.gameObject.SetActive(true);
+            //loginButton.gameObject.SetActive(true);
             // Disable your integration with Play Games Services or show a login button
             // to ask users to sign-in. Clicking it should call
         }
@@ -86,9 +92,9 @@ public class GooglePlayGamesController : MonoBehaviour
         }
     }
 
-    public void PostLeaderBoardGoldScore(int _score)
+    public static void PostLeaderBoardGoldScore(int _score)
     {
-        Social.ReportScore(_score, GGPSids.LEADERBOARD_BESTDISTANCE,
+        Social.ReportScore(_score, GGPSids.LEADERBOARD_MOSTGOLDEARN_INAGAME,
             (bool success) =>
             {
                 if (success)
@@ -102,9 +108,9 @@ public class GooglePlayGamesController : MonoBehaviour
             });
     }
 
-    public void PostLeaderBoardDistanceScore(int _score)
+    public static void PostLeaderBoardDistanceScore(int _score)
     {
-        Social.ReportScore(_score, GGPSids.LEADERBOARD_MOSTGOLDEARN_INAGAME,
+        Social.ReportScore(_score, GGPSids.LEADERBOARD_BESTDISTANCE,
             (bool success) =>
             {
                 if (success)

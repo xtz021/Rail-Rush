@@ -17,7 +17,7 @@ public class InGameController : MonoBehaviour
     public GameObject lastRailEntered;
 
     [Header("Need input")]
-    [SerializeField] private GameObject saveMeUIBoxFreeAd;
+    [SerializeField] private GameObject saveMeUIBox;
     [SerializeField] private GameObject gameOverPanel;
 
     //private int _totalGold = 0;
@@ -25,6 +25,8 @@ public class InGameController : MonoBehaviour
     private int _best_Gold = 0;
     private bool isProgressSaved = false;
     private Transform player;
+
+    private bool isGameOver = false;
 
     //public int totalGold
     //{
@@ -84,7 +86,10 @@ public class InGameController : MonoBehaviour
 
     private void Update()
     {
-        SaveMePanelCheck();
+        if(!isGameOver)
+        {
+            SaveMePanelCheck();
+        }
     }
 
     private void GetStartGameValues()
@@ -103,15 +108,17 @@ public class InGameController : MonoBehaviour
         {
             //_totalGold += Current_GoldCount;
             //PlayerPrefs.SetInt(GameStatsController.KEY_TOTALGOLD, _totalGold);
+            InventoryManager.Instance.inventory.GainGold(Current_GoldCount);
+            InventoryManager.Instance.SaveInventory();
             if (Current_DistanceCount > _best_Distance)
             {
                 GameStatsController.Instance.SetNewBestDistance(Current_DistanceCount);
-                GooglePlayGamesController.Instance.PostLeaderBoardDistanceScore(Current_DistanceCount);
+                GooglePlayGamesController.PostLeaderBoardDistanceScore(Current_DistanceCount);
             }
             if (Current_GoldCount > _best_Gold)
             {
                 GameStatsController.Instance.SetNewBestGold(Current_GoldCount);
-                GooglePlayGamesController.Instance.PostLeaderBoardGoldScore(Current_GoldCount);
+                GooglePlayGamesController.PostLeaderBoardGoldScore(Current_GoldCount);
             }
             GameStatsController.Instance.SaveProgress();
             isProgressSaved = true;
@@ -160,32 +167,26 @@ public class InGameController : MonoBehaviour
 
     private void SaveMePanelCheck()
     {
-        if (PlayerStatusController.Instance.playerCurrentStatus == PlayerStatus.Dead                        // Player is dead
-            && InGameController.Instance.saveMeBoxPopupCount <= 0                                           // No revive attempted yet in this game
-            && InventoryManager.Instance.IsPurchased(ItemIDsContainers.Instance.itemID_SecondChance))       // Has second chance item in inventory             
+        if (PlayerStatusController.Instance.playerCurrentStatus == PlayerStatus.Dead && saveMeUIBox.activeSelf == false)                       // Player is dead     
         {
-            if (saveMeUIBoxFreeAd.activeSelf == false)
+            if (InGameController.Instance.saveMeBoxPopupCount <= 0                                           // No revive attempted yet in this game
+            && InventoryManager.Instance.IsPurchased(ItemIDsContainers.Instance.itemID_SecondChance))       // Has second chance item in inventory             
             {
-                saveMeUIBoxFreeAd.SetActive(true);
+                saveMeUIBox.SetActive(true);
+                if (InGameController.Instance.saveMeBoxPopupCount < 0)
+                {
+                    InGameController.Instance.saveMeBoxPopupCount = 1;
+                }
+                else
+                {
+                    InGameController.Instance.saveMeBoxPopupCount++;
+                }
             }
             else
             {
                 StartCoroutine(DelayActiveGameObject(gameOverPanel, 1f));
+                isGameOver = true;
             }
-            if(InGameController.Instance.saveMeBoxPopupCount < 0)
-            {
-                InGameController.Instance.saveMeBoxPopupCount = 1;
-            }
-            else
-            {
-                InGameController.Instance.saveMeBoxPopupCount++;
-            }
-        }
-        else if (PlayerStatusController.Instance.playerCurrentStatus == PlayerStatus.Dead       // Player is dead
-            && InGameController.Instance.saveMeBoxPopupCount >= 1                               // Revived once in this game
-            && saveMeUIBoxFreeAd.activeSelf == false)                                           // Revive box is active
-        {
-            StartCoroutine(DelayActiveGameObject(gameOverPanel, 1f));
         }
     }
 

@@ -7,17 +7,37 @@ public class SaveMePanelController : MonoBehaviour
 {
     [SerializeField] private Image TimeOutFiller;
     [SerializeField] private GameObject gameOverPanel;
+    [SerializeField] private Image quantityImage;
+
+    [SerializeField] private List<Sprite> quantitySprites;
 
     private float timeOutDuration = 3f; // Duration in seconds
     private bool playerIsSaved = false;
 
     private void OnEnable()
     {
+        SetQuantityImage();
         playerIsSaved = false;
         TimeOutFiller.fillAmount = 1;
         StartCoroutine(RunOutTimerSaveMePanel());
     }
 
+    private void SetQuantityImage()
+    {
+        int quantity = InventoryManager.Instance.inventory.GetItemQuantity(ItemIDsContainers.Instance.itemID_SecondChance);
+        if (quantity > 0 && quantity < quantitySprites.Count)
+        {
+            quantityImage.sprite = quantitySprites[quantity];
+        }
+        else if (quantity >= quantitySprites.Count)
+        {
+            quantityImage.sprite = quantitySprites[quantitySprites.Count - 1]; // Use the last sprite for more than available sprites
+        }
+        else
+        {
+            quantityImage.sprite = null; // No sprite if quantity is 0
+        }
+    }
 
     IEnumerator RunOutTimerSaveMePanel()
     {
