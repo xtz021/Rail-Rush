@@ -44,6 +44,8 @@ public class PlayerStatusController : MonoBehaviour
             //playerRigidbody.useGravity = false;
             cartAnim.DeadAnimation(obstacleType);
             characterAnim.Dead(obstacleType);
+
+            PlayerStatsDataHandler.playerStats.Deaths++;            // Update player stats info
         }
     }
 

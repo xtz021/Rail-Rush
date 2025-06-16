@@ -82,6 +82,7 @@ public class InGameController : MonoBehaviour
         GetStartGameValues();
         player = PlayerCartMovement.Instance.transform;
         saveMeBoxPopupCount = 0;
+        PlayerStatsDataHandler.playerStats.TotalPlays++;
     }
 
     private void Update()

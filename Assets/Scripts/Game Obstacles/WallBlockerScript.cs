@@ -23,6 +23,7 @@ public class WallBlockerScript : MonoBehaviour
             {
                 Debug.Log($"Player {playerStatusController.transform.name} is dead by {STRING_OBSTACLE_TYPE} obstacle");
                 playerStatusController.Die(STRING_OBSTACLE_TYPE);
+                UpdatePlayerStats(); // Update player stats info
                 obsAnimation.Play();
             } else if (playerStatusController == null)
             {
@@ -35,30 +36,24 @@ public class WallBlockerScript : MonoBehaviour
         }
     }
 
-    private PlayerStatusController GetStatusControllerFromHead(Transform head)
+    private void UpdatePlayerStats()
     {
-        Transform player = head;
-        for (int i = 0; i < 9; i++)                             // Get Player transform
+        if(gameObject.name.Contains("Upper"))
         {
-            player = player.parent;
+            PlayerStatsDataHandler.playerStats.DeathsByUpperObs++;
         }
-        PlayerStatusController playerStatusController = player.GetComponent<PlayerStatusController>();
-        if (playerStatusController == null)
+        else if(gameObject.name.Contains("Lower"))
         {
-            Debug.Log($"Incorrect transform from head: {player.name}");
+            PlayerStatsDataHandler.playerStats.DeathsByLowerObs++;
         }
-        return playerStatusController;
-    }
-
-    private PlayerStatusController GetStatusControllerFromCart(Transform cart)
-    {
-        Transform player = cart.parent;             // Get Player transform
-        PlayerStatusController playerStatusController = player.GetComponent<PlayerStatusController>();
-        if (playerStatusController == null)
+        else if(gameObject.name.Contains("Left"))
         {
-            Debug.Log($"Incorrect transform from cart: {player.name}");
+            PlayerStatsDataHandler.playerStats.DeathsByLeftObs++; 
         }
-        return playerStatusController;
+        else if (gameObject.name.Contains("Right"))
+        {
+            PlayerStatsDataHandler.playerStats.DeathsByRightObs++;
+        }
     }
 
     private void DestroyAfterAnimation()

@@ -133,6 +133,7 @@ public class PlayerInventorySO : ScriptableObject
     public void GainGold(int amount)
     {
         Gold += amount;
+        PlayerStatsDataHandler.playerStats.NuggetsCollected += amount; // Update player stats
     }
 
     public void PayGold(int amount)

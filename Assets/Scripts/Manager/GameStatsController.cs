@@ -79,6 +79,7 @@ public class GameStatsController : MonoBehaviour
         if (_best_Gold <= goldCount)
         {
             _best_Gold = goldCount;
+            PlayerStatsDataHandler.playerStats.MaxNuggetsCollectedInAGame = _best_Gold;
         }
         else
         {
@@ -90,6 +91,7 @@ public class GameStatsController : MonoBehaviour
         if (_best_Distance <= distanceCount)
         {
             _best_Distance = distanceCount;
+            PlayerStatsDataHandler.playerStats.BestRun = _best_Distance;
         }
         else
         {

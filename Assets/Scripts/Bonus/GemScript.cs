@@ -22,6 +22,7 @@ public class GemScript : MonoBehaviour
             {
                 gemValue = gem.Value;
                 gemName = gem.Name;
+                UpdatePlayerStats(gem.Name);
                 break;
             }
         }
@@ -37,6 +38,41 @@ public class GemScript : MonoBehaviour
                 audioSource.Play();
             }
             Destroy(gameObject);
+        }
+    }
+
+    private void UpdatePlayerStats(string gemName)
+    {
+        PlayerStatsDataHandler.playerStats.TotalGemsCollected++;
+        switch (gemName)
+        {
+            case "Amethyst":
+                PlayerStatsDataHandler.playerStats.AmethystCollected++;
+                break;
+            case "Garnet":
+                PlayerStatsDataHandler.playerStats.GarnetCollected++;
+                break;
+            case "Topaz":
+                PlayerStatsDataHandler.playerStats.TopazCollected++;
+                break;
+            case "Spinel":
+                PlayerStatsDataHandler.playerStats.SpinelCollected++;
+                break;
+            case "Ruby":
+                PlayerStatsDataHandler.playerStats.RubyCollected++;
+                break;
+            case "Sapphire":
+                PlayerStatsDataHandler.playerStats.SapphireCollected++;
+                break;
+            case "Emerald":
+                PlayerStatsDataHandler.playerStats.EmeraldCollected++;
+                break;
+            case "Diamond":
+                PlayerStatsDataHandler.playerStats.DiamondCollected++;
+                break;
+            default:
+                Debug.LogWarning("Unknown gem type: " + gemName);
+                break;
         }
     }
 
