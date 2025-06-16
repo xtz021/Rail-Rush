@@ -12,6 +12,7 @@ public class ShopUIManager : MonoBehaviour
     [SerializeField] GameObject heroesShop;
     [SerializeField] GameObject cartStuffShop;
     [SerializeField] GameObject extrasShop;
+    [SerializeField] GameObject nuggetsShop;
 
     [Header("Gold and Pass Ticket Count UI Texts for Shop Info")]
     public List<Text> goldTexts;
@@ -22,6 +23,7 @@ public class ShopUIManager : MonoBehaviour
     [SerializeField] Button heroesShopButton;
     [SerializeField] Button cartStuffShopButton;
     [SerializeField] Button extrasShopButton;
+    [SerializeField] Button nuggetsShopButton;
 
     private void Awake()
     {
@@ -85,6 +87,11 @@ public class ShopUIManager : MonoBehaviour
             extrasShopButton.onClick.RemoveAllListeners();
             extrasShopButton.onClick.AddListener(OpenExtrasShop);
         }
+        if(nuggetsShopButton != null)
+        {
+            nuggetsShopButton.onClick.RemoveAllListeners();
+            nuggetsShopButton.onClick.AddListener (OpenNuggetsShop);
+        }
     }
 
     public void ReturnToMainShop()
@@ -93,6 +100,7 @@ public class ShopUIManager : MonoBehaviour
         heroesShop.SetActive(false);
         cartStuffShop.SetActive(false);
         extrasShop.SetActive(false);
+        nuggetsShop.SetActive(false);
     }
 
     public void OpenHeroesShop()
@@ -101,6 +109,7 @@ public class ShopUIManager : MonoBehaviour
         heroesShop.SetActive(true);
         cartStuffShop.SetActive(false);
         extrasShop.SetActive(false);
+        nuggetsShop.SetActive(false);
     }
 
     public void OpenCartStuffShop()
@@ -109,6 +118,7 @@ public class ShopUIManager : MonoBehaviour
         heroesShop.SetActive(false);
         cartStuffShop.SetActive(true);
         extrasShop.SetActive(false);
+        nuggetsShop.SetActive(false);
     }
 
     public void OpenExtrasShop()
@@ -117,6 +127,16 @@ public class ShopUIManager : MonoBehaviour
         heroesShop.SetActive(false);
         cartStuffShop.SetActive(false);
         extrasShop.SetActive(true);
+        nuggetsShop.SetActive(false);
+    }
+
+    public void OpenNuggetsShop()
+    {
+        mainShop.SetActive(false);
+        heroesShop.SetActive(false);
+        cartStuffShop.SetActive(false);
+        extrasShop.SetActive(false);
+        nuggetsShop.SetActive(true);
     }
 
 }

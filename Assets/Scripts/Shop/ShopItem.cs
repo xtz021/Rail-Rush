@@ -29,5 +29,6 @@ public enum ShopItemType
     Gemx2,
     TNT,
     Brake,
+    Nuggets,
     NoType
 }
