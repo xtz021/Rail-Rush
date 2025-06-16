@@ -1,0 +1,259 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &-5041859803577849707
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: TextMeshPro/Sprite
+  m_Shader: {fileID: 4800000, guid: cf81c85f95fe47e1a27f6ae460cf182c, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 84d569840655fd24eb5a075f0924cf20, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ColorMask: 15
+    - _CullMode: 0
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UseUIAlphaClip: 0
+    m_Colors:
+    - _ClipRect: {r: -32767, g: -32767, b: 32767, a: 32767}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+  m_BuildTextureStacks: []
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84a92b25f83d49b9bc132d206b370281, type: 3}
+  m_Name: GemIcons
+  m_EditorClassIdentifier: 
+  hashCode: -1649595785
+  material: {fileID: -5041859803577849707}
+  materialHashCode: 0
+  m_Version: 1.1.0
+  m_FaceInfo:
+    m_FaceIndex: 0
+    m_FamilyName: 
+    m_StyleName: 
+    m_PointSize: 0
+    m_Scale: 0
+    m_UnitsPerEM: 0
+    m_LineHeight: 0
+    m_AscentLine: 0
+    m_CapLine: 0
+    m_MeanLine: 0
+    m_Baseline: 0
+    m_DescentLine: 0
+    m_SuperscriptOffset: 0
+    m_SuperscriptSize: 0
+    m_SubscriptOffset: 0
+    m_SubscriptSize: 0
+    m_UnderlineOffset: 0
+    m_UnderlineThickness: 0
+    m_StrikethroughOffset: 0
+    m_StrikethroughThickness: 0
+    m_TabWidth: 0
+  spriteSheet: {fileID: 2800000, guid: 84d569840655fd24eb5a075f0924cf20, type: 3}
+  m_SpriteCharacterTable:
+  - m_ElementType: 2
+    m_Unicode: 65534
+    m_GlyphIndex: 5
+    m_Scale: 1
+    m_Name: Gem_Amethyst
+    m_HashCode: -19342693
+  - m_ElementType: 2
+    m_Unicode: 65534
+    m_GlyphIndex: 3
+    m_Scale: 1
+    m_Name: Gem_Garnet
+    m_HashCode: -1233560709
+  - m_ElementType: 2
+    m_Unicode: 65534
+    m_GlyphIndex: 2
+    m_Scale: 1
+    m_Name: Gem_Topaz
+    m_HashCode: 1890371072
+  - m_ElementType: 2
+    m_Unicode: 65534
+    m_GlyphIndex: 1
+    m_Scale: 1
+    m_Name: Gem_Spinel
+    m_HashCode: -1997315875
+  - m_ElementType: 2
+    m_Unicode: 65534
+    m_GlyphIndex: 7
+    m_Scale: 1
+    m_Name: Gem_Ruby
+    m_HashCode: -1634594900
+  - m_ElementType: 2
+    m_Unicode: 65534
+    m_GlyphIndex: 4
+    m_Scale: 1
+    m_Name: Gem_Sapphire
+    m_HashCode: 472746388
+  - m_ElementType: 2
+    m_Unicode: 65534
+    m_GlyphIndex: 0
+    m_Scale: 1
+    m_Name: Gem_Emerald
+    m_HashCode: -865144154
+  - m_ElementType: 2
+    m_Unicode: 65534
+    m_GlyphIndex: 6
+    m_Scale: 1
+    m_Name: Gem_Diamond
+    m_HashCode: 421707476
+  m_SpriteGlyphTable:
+  - m_Index: 5
+    m_Metrics:
+      m_Width: 160
+      m_Height: 150
+      m_HorizontalBearingX: -30
+      m_HorizontalBearingY: 120
+      m_HorizontalAdvance: 170
+    m_GlyphRect:
+      m_X: 660
+      m_Y: 345
+      m_Width: 190
+      m_Height: 150
+    m_Scale: 1
+    m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
+    sprite: {fileID: -1732609791, guid: 84d569840655fd24eb5a075f0924cf20, type: 3}
+  - m_Index: 3
+    m_Metrics:
+      m_Width: 175
+      m_Height: 140
+      m_HorizontalBearingX: -35
+      m_HorizontalBearingY: 120
+      m_HorizontalAdvance: 160
+    m_GlyphRect:
+      m_X: 455
+      m_Y: 535
+      m_Width: 175
+      m_Height: 140
+    m_Scale: 1
+    m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
+    sprite: {fileID: -61374944, guid: 84d569840655fd24eb5a075f0924cf20, type: 3}
+  - m_Index: 2
+    m_Metrics:
+      m_Width: 175
+      m_Height: 175
+      m_HorizontalBearingX: -10
+      m_HorizontalBearingY: 140
+      m_HorizontalAdvance: 200
+    m_GlyphRect:
+      m_X: 260
+      m_Y: 571
+      m_Width: 175
+      m_Height: 175
+    m_Scale: 1
+    m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
+    sprite: {fileID: -1487424229, guid: 84d569840655fd24eb5a075f0924cf20, type: 3}
+  - m_Index: 1
+    m_Metrics:
+      m_Width: 160
+      m_Height: 160
+      m_HorizontalBearingX: -20
+      m_HorizontalBearingY: 130
+      m_HorizontalAdvance: 190
+    m_GlyphRect:
+      m_X: 260
+      m_Y: 760
+      m_Width: 160
+      m_Height: 160
+    m_Scale: 1
+    m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
+    sprite: {fileID: 2044489798, guid: 84d569840655fd24eb5a075f0924cf20, type: 3}
+  - m_Index: 7
+    m_Metrics:
+      m_Width: 220
+      m_Height: 190
+      m_HorizontalBearingX: -30
+      m_HorizontalBearingY: 150
+      m_HorizontalAdvance: 220
+    m_GlyphRect:
+      m_X: 775
+      m_Y: 0
+      m_Width: 220
+      m_Height: 190
+    m_Scale: 1
+    m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
+    sprite: {fileID: -1335193674, guid: 84d569840655fd24eb5a075f0924cf20, type: 3}
+  - m_Index: 4
+    m_Metrics:
+      m_Width: 180
+      m_Height: 220
+      m_HorizontalBearingX: 10
+      m_HorizontalBearingY: 180
+      m_HorizontalAdvance: 260
+    m_GlyphRect:
+      m_X: 264
+      m_Y: 345
+      m_Width: 180
+      m_Height: 220
+    m_Scale: 1
+    m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
+    sprite: {fileID: 2092212881, guid: 84d569840655fd24eb5a075f0924cf20, type: 3}
+  - m_Index: 0
+    m_Metrics:
+      m_Width: 190
+      m_Height: 200
+      m_HorizontalBearingX: -20
+      m_HorizontalBearingY: 160
+      m_HorizontalAdvance: 230
+    m_GlyphRect:
+      m_X: 0
+      m_Y: 804
+      m_Width: 190
+      m_Height: 200
+    m_Scale: 1
+    m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
+    sprite: {fileID: -823838229, guid: 84d569840655fd24eb5a075f0924cf20, type: 3}
+  - m_Index: 6
+    m_Metrics:
+      m_Width: 250
+      m_Height: 200
+      m_HorizontalBearingX: -40
+      m_HorizontalBearingY: 160
+      m_HorizontalAdvance: 240
+    m_GlyphRect:
+      m_X: 256
+      m_Y: 0
+      m_Width: 250
+      m_Height: 200
+    m_Scale: 1
+    m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
+    sprite: {fileID: -2061098170, guid: 84d569840655fd24eb5a075f0924cf20, type: 3}
+  spriteInfoList: []
+  fallbackSpriteAssets: []
