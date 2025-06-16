@@ -9,8 +9,8 @@ public class PlayerStatsDataHandler : MonoBehaviour
     [SerializeField] TMP_Text tmp_BestRun;
     [SerializeField] TMP_Text tmp_NuggetsCollected;
     [SerializeField] TMP_Text tmp_MaxNuggetsCollectedInAGame;
-    [SerializeField] TMP_Text tmp_TotalPlay;
-    [SerializeField] TMP_Text tmp_TotalMissionCompleted;
+    [SerializeField] TMP_Text tmp_TotalPlays;
+    [SerializeField] TMP_Text tmp_TotalMissionsCompleted;
     [Space(20f)]
     [SerializeField] TMP_Text tmp_Deaths;
     [SerializeField] TMP_Text tmp_DeathsByUpperObs;
@@ -26,7 +26,7 @@ public class PlayerStatsDataHandler : MonoBehaviour
     [SerializeField] TMP_Text tmp_SapphireCollected;
     [SerializeField] TMP_Text tmp_EmeraldCollected;
     [SerializeField] TMP_Text tmp_DiamondCollected;
-
+    [SerializeField] TMP_Text tmp_TotalGemsCollected;
 }
 
 public class PlayerStats
