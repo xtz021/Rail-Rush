@@ -33,6 +33,19 @@ public class RewardedAdsButton : MonoBehaviour, IUnityAdsLoadListener, IUnityAds
             _showAdButton.interactable = true;
         }
     }
+
+    private void OnEnable()
+    {
+        LoadAdForAdsButton(); // Load the ad when the script is enabled
+    }
+    private void OnDisable()
+    {
+        if (_showAdButton != null)
+        {
+            _showAdButton.onClick.RemoveAllListeners(); // Remove listeners to prevent memory leaks
+        }
+    }
+
     private void LoadAdForAdsButton()
     {
         if (GooglePlayUIHandler.Instance != null && GooglePlayUIHandler.Instance.showAdsClaimNuggetButton != null)
@@ -48,10 +61,6 @@ public class RewardedAdsButton : MonoBehaviour, IUnityAdsLoadListener, IUnityAds
         }
     }
 
-    private void OnLevelWasLoaded(int level)
-    {
-         LoadAdForAdsButton(); // Load the ad when the level is loaded
-    }
 
     public void AssignUI(Button showAdButton)
     {

@@ -11,6 +11,7 @@ public class GooglePlayUIHandler : MonoBehaviour
     public Text UserNameText;
     [SerializeField] Button loginButton;
     public Button showAdsClaimNuggetButton;
+    public Button leaderBoardButton;
 
     private void Awake()
     {
@@ -32,10 +33,11 @@ public class GooglePlayUIHandler : MonoBehaviour
             Debug.LogError("GooglePlayGamesController instance is not initialized. Please ensure it is set up correctly.");
             return;
         }
-        UpdatSignInUI();
+        UpdateSignInUI();
+        AddShowLeaderBoardFunction();
     }
 
-    private void UpdatSignInUI()
+    private void UpdateSignInUI()
     {
         if (GooglePlayGamesController.Instance.isLoggedIn)
         {
@@ -48,4 +50,18 @@ public class GooglePlayUIHandler : MonoBehaviour
             loginButton.gameObject.SetActive(true);
         }
     }
+
+    private void AddShowLeaderBoardFunction()
+    {
+        if (leaderBoardButton != null)
+        {
+            leaderBoardButton.onClick.RemoveAllListeners();
+            leaderBoardButton.onClick.AddListener(() => GooglePlayGamesController.Instance.ShowLeaderBoard());
+        }
+        else
+        {
+            Debug.LogWarning("LeaderBoard button is not assigned in the GooglePlayUIHandler.");
+        }
+    }
+
 }
