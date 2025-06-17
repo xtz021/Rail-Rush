@@ -28,7 +28,29 @@ public class RewardedAdsButton : MonoBehaviour, IUnityAdsLoadListener, IUnityAds
     void Start()
     {
         // Disable the button until the ad is ready to show:
-        _showAdButton.interactable = true;
+        if(_showAdButton != null)
+        {
+            _showAdButton.interactable = true;
+        }
+    }
+    private void LoadAdForAdsButton()
+    {
+        if (GooglePlayUIHandler.Instance != null && GooglePlayUIHandler.Instance.showAdsClaimNuggetButton != null)
+        {
+            _showAdButton = GooglePlayUIHandler.Instance.showAdsClaimNuggetButton;     // Assign the button from GooglePlayUIHandler
+            _showAdButton.onClick.RemoveAllListeners(); // Clear any existing listeners to avoid duplicates
+            _showAdButton.onClick.AddListener(ShowAd);
+            _showAdButton.interactable = true;
+        }
+        else
+        {
+            Debug.LogWarning("GooglePlayUIHandler or showAdsClaimNuggetButton is not initialized.");
+        }
+    }
+
+    private void OnLevelWasLoaded(int level)
+    {
+         LoadAdForAdsButton(); // Load the ad when the level is loaded
     }
 
     public void AssignUI(Button showAdButton)

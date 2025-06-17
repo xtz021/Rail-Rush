@@ -5,9 +5,25 @@ using UnityEngine.UI;
 
 public class GooglePlayUIHandler : MonoBehaviour
 {
+    public static GooglePlayUIHandler Instance { get; private set; }
+
     [Header("Google Play Games UI Settings")]
     public Text UserNameText;
     [SerializeField] Button loginButton;
+    public Button showAdsClaimNuggetButton;
+
+    private void Awake()
+    {
+        if(Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
 
     private void Start()
     {

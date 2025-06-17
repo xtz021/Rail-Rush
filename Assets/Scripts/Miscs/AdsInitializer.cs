@@ -52,7 +52,7 @@ public class AdsInitializer : MonoBehaviour, IUnityAdsInitializationListener
         Destroy(oldRewarded.gameObject);
         var newRewarded = Instantiate(rewarded_ads_prefab, Vector3.zero, Quaternion.identity);
         RewardedAdsButton rewardedAds = newRewarded.GetComponent<RewardedAdsButton>();
-        rewardedAds.AssignUI(_showAdButton);
+        rewardedAds.AssignUI(GooglePlayUIHandler.Instance.showAdsClaimNuggetButton);
         StartCoroutine(DelayLoadRewardAds(rewardedAds));
     }
 
