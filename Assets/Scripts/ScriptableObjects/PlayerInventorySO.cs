@@ -54,7 +54,6 @@ public class PlayerInventorySO : ScriptableObject
             }
             return true;
         }
-        return false;
     }
 
     // Equip an item (also unequips others of same type)
@@ -133,7 +132,7 @@ public class PlayerInventorySO : ScriptableObject
     public void GainGold(int amount)
     {
         Gold += amount;
-        PlayerStatsDataHandler.playerStats.NuggetsCollected += amount; // Update player stats
+        GameStatsController.Instance.playerStats.NuggetsCollected += amount; // Update player stats
     }
 
     public void PayGold(int amount)

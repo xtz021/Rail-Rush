@@ -22,7 +22,6 @@ public class GemScript : MonoBehaviour
             {
                 gemValue = gem.Value;
                 gemName = gem.Name;
-                UpdatePlayerStats(gem.Name);
                 break;
             }
         }
@@ -33,6 +32,7 @@ public class GemScript : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             InGameController.Instance.GainGold(gemValue);
+            UpdatePlayerGemStats(gemName, GameStatsController.Instance.playerStats);
             if (audioSource != null)
             {
                 audioSource.Play();
@@ -41,34 +41,34 @@ public class GemScript : MonoBehaviour
         }
     }
 
-    private void UpdatePlayerStats(string gemName)
+    private void UpdatePlayerGemStats(string gemName, PlayerStats playerStats)
     {
-        PlayerStatsDataHandler.playerStats.TotalGemsCollected++;
+        playerStats.TotalGemsCollected++;
         switch (gemName)
         {
             case "Amethyst":
-                PlayerStatsDataHandler.playerStats.AmethystCollected++;
+                playerStats.AmethystCollected++;
                 break;
             case "Garnet":
-                PlayerStatsDataHandler.playerStats.GarnetCollected++;
+                playerStats.GarnetCollected++;
                 break;
             case "Topaz":
-                PlayerStatsDataHandler.playerStats.TopazCollected++;
+                playerStats.TopazCollected++;
                 break;
             case "Spinel":
-                PlayerStatsDataHandler.playerStats.SpinelCollected++;
+                playerStats.SpinelCollected++;
                 break;
             case "Ruby":
-                PlayerStatsDataHandler.playerStats.RubyCollected++;
+                playerStats.RubyCollected++;
                 break;
             case "Sapphire":
-                PlayerStatsDataHandler.playerStats.SapphireCollected++;
+                playerStats.SapphireCollected++;
                 break;
             case "Emerald":
-                PlayerStatsDataHandler.playerStats.EmeraldCollected++;
+                playerStats.EmeraldCollected++;
                 break;
             case "Diamond":
-                PlayerStatsDataHandler.playerStats.DiamondCollected++;
+                playerStats.DiamondCollected++;
                 break;
             default:
                 Debug.LogWarning("Unknown gem type: " + gemName);

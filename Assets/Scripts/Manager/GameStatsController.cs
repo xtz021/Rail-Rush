@@ -8,6 +8,8 @@ public class GameStatsController : MonoBehaviour
 {
     public static GameStatsController Instance { get; private set; }
 
+    public PlayerStats playerStats;
+
     public const string KEY_BESTDISTANT = "_Best_Distant";
     public const string KEY_BESTGOLD = "_Best_Gold";
 
@@ -17,6 +19,22 @@ public class GameStatsController : MonoBehaviour
 
     public bool openShopFromGame { get; private set; } = false;
 
+    private void OnDisable()
+    {
+        if(Instance != null && Instance != this)
+        {
+            return;
+        }
+        SaveProgress();
+        if (playerStats != null)
+        {
+            PlayerStatsUIHandler.SaveData(playerStats);
+        }
+        else
+        {
+            Debug.LogWarning("PlayerStats is null, cannot save data.");
+        }
+    }
 
     public int best_Distance
     {
@@ -47,12 +65,14 @@ public class GameStatsController : MonoBehaviour
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
+            Debug.LogWarning("Multiple instances of GameStatsController detected. Destroying duplicate instance.");
         }
         else
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
+        playerStats = PlayerStatsUIHandler.LoadData();
     }
 
     private void Start()
@@ -79,7 +99,7 @@ public class GameStatsController : MonoBehaviour
         if (_best_Gold <= goldCount)
         {
             _best_Gold = goldCount;
-            PlayerStatsDataHandler.playerStats.MaxNuggetsCollectedInAGame = _best_Gold;
+            playerStats.MaxNuggetsCollectedInAGame = _best_Gold;
         }
         else
         {
@@ -91,7 +111,7 @@ public class GameStatsController : MonoBehaviour
         if (_best_Distance <= distanceCount)
         {
             _best_Distance = distanceCount;
-            PlayerStatsDataHandler.playerStats.BestRun = _best_Distance;
+            playerStats.BestRun = _best_Distance;
         }
         else
         {

@@ -4,9 +4,8 @@ using System.IO;
 using TMPro;
 using UnityEngine;
 
-public class PlayerStatsDataHandler : MonoBehaviour
+public class PlayerStatsUIHandler : MonoBehaviour
 {
-    public static PlayerStats playerStats;
 
     [Header("Stats UI Text")]
     [SerializeField] TMP_Text tmp_BestRun;
@@ -44,11 +43,12 @@ public class PlayerStatsDataHandler : MonoBehaviour
 
     public void UpdateUITexts()
     {
-        if (playerStats == null)
+        if (GameStatsController.Instance.playerStats == null)
         {
             Debug.LogWarning("PlayerStats is null, initializing new PlayerStats.");
-            playerStats = new PlayerStats();
+            GameStatsController.Instance.playerStats = new PlayerStats();
         }
+        PlayerStats playerStats = GameStatsController.Instance.playerStats;
         tmp_BestRun.text = "" + playerStats.BestRun + "m";
         tmp_NuggetsCollected.text = "" + playerStats.NuggetsCollected;
         tmp_MaxNuggetsCollectedInAGame.text = "" + playerStats.MaxNuggetsCollectedInAGame;
@@ -68,30 +68,56 @@ public class PlayerStatsDataHandler : MonoBehaviour
         tmp_EmeraldCollected.text = "" + playerStats.EmeraldCollected;
         tmp_DiamondCollected.text = "" + playerStats.DiamondCollected;
         tmp_TotalGemsCollected.text = "" + playerStats.TotalGemsCollected;
-    }    
-
-    public static void SaveData()
-    {
-        string json = JsonUtility.ToJson(playerStats);
-        string path = Path.Combine(Application.persistentDataPath, "playerStats.json");
-        File.WriteAllText(path, json);
-        Debug.Log("Player stats saved to: " + path);
     }
 
-    public static void LoadData()
+    public static void SaveData(PlayerStats playerStats)
     {
-        string path = Path.Combine(Application.persistentDataPath, "playerStats.json");
-        if (File.Exists(path))
-        {
-            string json = File.ReadAllText(path);
-            JsonUtility.FromJsonOverwrite(json, playerStats);
-            Debug.Log("Player stats loaded from: " + path);
-        }
-        else
-        {
-            playerStats = new PlayerStats();
-            Debug.Log(path + " not found, initializing new player stats.");
-        }
+        PlayerPrefs.SetInt("Stats_BestRun", playerStats.BestRun);
+        PlayerPrefs.SetInt("Stats_NuggetsCollected", playerStats.NuggetsCollected);
+        PlayerPrefs.SetInt("Stats_MaxNuggetsCollectedInAGame", playerStats.MaxNuggetsCollectedInAGame);
+        PlayerPrefs.SetInt("Stats_TotalPlays", playerStats.TotalPlays);
+        PlayerPrefs.SetInt("Stats_TotalMissionsCompleted", playerStats.TotalMissionsCompleted);
+        PlayerPrefs.SetInt("Stats_Deaths", playerStats.Deaths);
+        PlayerPrefs.SetInt("Stats_DeathsByUpperObs", playerStats.DeathsByUpperObs);
+        PlayerPrefs.SetInt("Stats_DeathsByLowerObs", playerStats.DeathsByLowerObs);
+        PlayerPrefs.SetInt("Stats_DeathsByRightObs", playerStats.DeathsByRightObs);
+        PlayerPrefs.SetInt("Stats_DeathsByLeftObs", playerStats.DeathsByLeftObs);
+        PlayerPrefs.SetInt("Stats_AmethystCollected", playerStats.AmethystCollected);
+        PlayerPrefs.SetInt("Stats_GarnetCollected", playerStats.GarnetCollected);
+        PlayerPrefs.SetInt("Stats_TopazCollected", playerStats.TopazCollected);
+        PlayerPrefs.SetInt("Stats_SpinelCollected", playerStats.SpinelCollected);
+        PlayerPrefs.SetInt("Stats_RubyCollected", playerStats.RubyCollected);
+        PlayerPrefs.SetInt("Stats_SapphireCollected", playerStats.SapphireCollected);
+        PlayerPrefs.SetInt("Stats_EmeraldCollected", playerStats.EmeraldCollected);
+        PlayerPrefs.SetInt("Stats_DiamondCollected", playerStats.DiamondCollected);
+        PlayerPrefs.SetInt("Stats_TotalGemsCollected", playerStats.TotalGemsCollected);
+        PlayerPrefs.Save();
+
+    }
+
+    public static PlayerStats LoadData()
+    {
+        PlayerStats playerStats = new PlayerStats();
+        playerStats.BestRun = PlayerPrefs.GetInt("Stats_BestRun", 0);
+        playerStats.NuggetsCollected = PlayerPrefs.GetInt("Stats_NuggetsCollected", 0);
+        playerStats.MaxNuggetsCollectedInAGame = PlayerPrefs.GetInt("Stats_MaxNuggetsCollectedInAGame", 0);
+        playerStats.TotalPlays = PlayerPrefs.GetInt("Stats_TotalPlays", 0);
+        playerStats.TotalMissionsCompleted = PlayerPrefs.GetInt("Stats_TotalMissionsCompleted", 0);
+        playerStats.Deaths = PlayerPrefs.GetInt("Stats_Deaths", 0);
+        playerStats.DeathsByUpperObs = PlayerPrefs.GetInt("Stats_DeathsByUpperObs", 0);
+        playerStats.DeathsByLowerObs = PlayerPrefs.GetInt("Stats_DeathsByLowerObs", 0);
+        playerStats.DeathsByRightObs = PlayerPrefs.GetInt("Stats_DeathsByRightObs", 0);
+        playerStats.DeathsByLeftObs = PlayerPrefs.GetInt("Stats_DeathsByLeftObs", 0);
+        playerStats.AmethystCollected = PlayerPrefs.GetInt("Stats_AmethystCollected", 0);
+        playerStats.GarnetCollected = PlayerPrefs.GetInt("Stats_GarnetCollected", 0);
+        playerStats.TopazCollected = PlayerPrefs.GetInt("Stats_TopazCollected", 0);
+        playerStats.SpinelCollected = PlayerPrefs.GetInt("Stats_SpinelCollected", 0);
+        playerStats.RubyCollected = PlayerPrefs.GetInt("Stats_RubyCollected", 0);
+        playerStats.SapphireCollected = PlayerPrefs.GetInt("Stats_SapphireCollected", 0);
+        playerStats.EmeraldCollected = PlayerPrefs.GetInt("Stats_EmeraldCollected", 0);
+        playerStats.DiamondCollected = PlayerPrefs.GetInt("Stats_DiamondCollected", 0);
+        playerStats.TotalGemsCollected = PlayerPrefs.GetInt("Stats_TotalGemsCollected", 0);
+        return playerStats;
     }
 }
 

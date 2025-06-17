@@ -40,19 +40,19 @@ public class WallBlockerScript : MonoBehaviour
     {
         if(gameObject.name.Contains("Upper"))
         {
-            PlayerStatsDataHandler.playerStats.DeathsByUpperObs++;
+            GameStatsController.Instance.playerStats.DeathsByUpperObs++;
         }
         else if(gameObject.name.Contains("Lower"))
         {
-            PlayerStatsDataHandler.playerStats.DeathsByLowerObs++;
+            GameStatsController.Instance.playerStats.DeathsByLowerObs++;
         }
         else if(gameObject.name.Contains("Left"))
         {
-            PlayerStatsDataHandler.playerStats.DeathsByLeftObs++; 
+            GameStatsController.Instance.playerStats.DeathsByLeftObs++; 
         }
         else if (gameObject.name.Contains("Right"))
         {
-            PlayerStatsDataHandler.playerStats.DeathsByRightObs++;
+            GameStatsController.Instance.playerStats.DeathsByRightObs++;
         }
     }
 
