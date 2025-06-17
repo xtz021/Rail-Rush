@@ -23,7 +23,7 @@ public class GooglePlayGamesController : MonoBehaviour
     [HideInInspector] public string UserImageUrl;
 
 
-void Awake()
+    void Awake()
     {
         // Singleton pattern to ensure only one instance of this controller exists
         if (Instance != null && Instance != this)
