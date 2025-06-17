@@ -213,7 +213,7 @@ public class PlayerCartMovement : MonoBehaviour
     private void Jump(int jumpDirection)
     {
         //Debug.Log("Before jump: " + transform.rotation.eulerAngles);
-        jumpCoroutine = StartCoroutine(JumpIE2(jumpDirection));
+        jumpCoroutine = StartCoroutine(JumpIE(jumpDirection));
         touchCooldownCoroutine = StartCoroutine(TouchControlGoesOnCooldown());
         cartAnimationController.JumpAnimation(jumpDirection);                   // Playing jump animation
         playerCartGrindMovement.EmptyCurrentRailScript();
@@ -236,14 +236,14 @@ public class PlayerCartMovement : MonoBehaviour
 
         // Calculate the jump direction based on initial rotation
         Vector3 jumpOffset = startRotation * Vector3.right * jumpDirection * distantBetweenRails;
-        Vector3 forwardOffset = startRotation * Vector3.forward * _PlayerCartSpeed * jumpOnAirDuration;
+        Vector3 forwardOffset = startRotation * Vector3.forward * _PlayerCartSpeed * jumpOnAirDuration * jumpForceMultiplier;
 
         while (timer < jumpOnAirDuration && playerStatusController.playerCurrentStatus != PlayerStatus.OnRail)
         {
             float t = timer / jumpOnAirDuration;
 
             Vector3 basePosition = startPosition + jumpOffset * t + forwardOffset * t;
-            float vertical = Mathf.Sin(t * Mathf.PI) * jumpHeight;
+            float vertical = Mathf.Sin(t * Mathf.PI) * jumpHeight * 2;
 
             transform.position = new Vector3(basePosition.x, normalY + vertical, basePosition.z);
 
@@ -315,10 +315,10 @@ public class PlayerCartMovement : MonoBehaviour
             gravitySim.isFalling = true;
 
             // Snap to ground if near
-            if (Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, .5f))
-            {
-                transform.position = hit.point + Vector3.up * 0.5f;
-            }
+            //if (Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, .5f))
+            //{
+            //    transform.position = hit.point + Vector3.up * 0.5f;
+            //}
         }
         else
         {
