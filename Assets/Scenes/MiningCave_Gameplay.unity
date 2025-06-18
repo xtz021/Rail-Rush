@@ -2500,7 +2500,6 @@ GameObject:
   m_Component:
   - component: {fileID: 240976128}
   - component: {fileID: 240976130}
-  - component: {fileID: 240976129}
   m_Layer: 0
   m_Name: PlayerInventory
   m_TagString: Untagged
@@ -2523,34 +2522,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &240976129
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 240976127}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bf867feaffe2b54aa18760b65d1c8d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gemDataSO: {fileID: 11400000, guid: f8f65fc7487ae874e931ea4a852c31ee, type: 2}
-  gemDatas:
-  - gemName: Amethyst
-    collectedCount: 0
-  - gemName: Garnet
-    collectedCount: 0
-  - gemName: Spinel
-    collectedCount: 0
-  - gemName: Ruby
-    collectedCount: 0
-  - gemName: Sapphire
-    collectedCount: 0
-  - gemName: Emerald
-    collectedCount: 0
-  - gemName: Diamond
-    collectedCount: 0
 --- !u!114 &240976130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9164,11 +9135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0af56bcfe9aa8141848610caf7706bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpHeight: 1.5
-  jumpOnAirDuration: 0.5
-  distantBetweenRails: 2.75
   _PlayerCartSpeed: 10
-  mobileJumpDurationMultiplier: 1.2
   _movePhysic: 0
   cartAnimationController: {fileID: 108091720}
   swipeControl: {fileID: 619080287}
