@@ -50,6 +50,7 @@ public class InGameUIController : MonoBehaviour
     public void OpenMainMenu()
     {
         SceneManager.LoadScene(SCENE_ID_OPENINGMENU_STRING, LoadSceneMode.Single);
+        Time.timeScale = 1f;
     }
 
     public void OpenShopFromInGameMenu()
