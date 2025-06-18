@@ -4,27 +4,46 @@ using UnityEngine;
 
 public class GemCollectionUI : MonoBehaviour
 {
-    [SerializeField] List<GameObject> gemCollection;
+    [SerializeField] GameObject amethyst;
+    [SerializeField] GameObject garnet;
+    [SerializeField] GameObject topaz;
+    [SerializeField] GameObject spinel;
+    [SerializeField] GameObject ruby;
+    [SerializeField] GameObject sapphire;
+    [SerializeField] GameObject emerald;
+    [SerializeField] GameObject diamond;
+
+    private void OnEnable()
+    {
+        CheckCollectionStatus();
+    }
+
 
     public void CheckCollectionStatus()
     {
-        for (int i = 0; i < gemCollection.Count; i++)
+        PlayerStats playerStats = GameStatsController.Instance.playerStats;
+        if (playerStats != null)
         {
-            if (gemCollection[i] != null)
-            {
-                if(GemsCollectionInventory.Instance.gemDatas[i].collectedCount > 0)
-                {
-                    gemCollection[i].SetActive(true);
-                }
-                else
-                {
-                    gemCollection[i].SetActive(false);
-                }
-            }
-            else
-            {
-                Debug.LogWarning($"Gem collection object at index {i} is null.");
-            }
+            if(playerStats.AmethystCollected > 0) 
+                amethyst.SetActive(true);
+            if (playerStats.GarnetCollected > 0)
+                garnet.SetActive(true);
+            if (playerStats.TopazCollected > 0)
+                topaz.SetActive(true);
+            if(playerStats.SpinelCollected > 0)
+                spinel.SetActive(true);
+            if(playerStats.RubyCollected > 0)
+                ruby.SetActive(true);
+            if(playerStats.SapphireCollected > 0)
+                sapphire.SetActive(true);
+            if(playerStats.EmeraldCollected > 0)
+                emerald.SetActive(true);
+            if(playerStats.DiamondCollected > 0)
+                diamond.SetActive(true);
+        }
+        else
+        {
+            Debug.LogWarning("Unable to load player stats to get gem collection data.");
         }
     }
 }

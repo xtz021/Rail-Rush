@@ -9,7 +9,7 @@ public class PlayerCartMovement : MonoBehaviour
     // Attributes for jump calculations
     public float _PlayerCartSpeed = 10f;
 
-    private float jumpHeight = 1.7f;
+    private float jumpHeight = 1.8f;
     private float jumpOnAirDuration = 0.5f;
     private float distantBetweenRails = 2.75f;
     private float mobileJumpDurationMultiplier = 1.2f;
@@ -243,7 +243,7 @@ public class PlayerCartMovement : MonoBehaviour
             float t = timer / jumpOnAirDuration;
 
             Vector3 basePosition = startPosition + jumpOffset * t + forwardOffset * t;
-            float vertical = Mathf.Sin(t * Mathf.PI) * jumpHeight * 2;
+            float vertical = Mathf.Sin(t * Mathf.PI) * jumpHeight;
 
             transform.position = new Vector3(basePosition.x, normalY + vertical, basePosition.z);
 
