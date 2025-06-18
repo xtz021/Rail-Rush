@@ -74,7 +74,7 @@ public class ShopItemUIHandler : MonoBehaviour
         }
     }
 
-    public void SetQuantity(int quantity)
+    public void SetQuantitySprite(int quantity)
     {
         if (quantityImg != null && quantitySprites != null && quantitySprites.Count > 0)
         {
@@ -86,6 +86,11 @@ public class ShopItemUIHandler : MonoBehaviour
             else if(quantity > 20)
             {
                 quantityImg.sprite = quantitySprites[0];
+            }
+            else if (quantity == 0)
+            {
+                quantityImg.gameObject.SetActive(false);
+                Debug.LogWarning("No item in inventory.");
             }
             else
             {

@@ -35,8 +35,9 @@ public class ShopItemsData : ScriptableObject
         ShopItem item = shopItems[index];
         if (item.isIAP)
         {
-            // Handle IAP logic here
+            // Handle IAP here
             Debug.Log("Purchasing IAP item: " + item.name);
+            IAPManager.Instance.BuyProduct(item.iapID);
         }
         else
         {

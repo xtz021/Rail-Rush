@@ -82,7 +82,7 @@ public class ShopItemsListManager : MonoBehaviour
                     if (item.isConsumable)
                     {
                         int itemQuantity = InventoryManager.Instance.inventory.GetItemQuantity(item.itemID);
-                        itemUIHandler.SetQuantity(itemQuantity); // Set the UI quantity for consumable items
+                        itemUIHandler.SetQuantitySprite(itemQuantity); // Set the UI quantity for consumable items
                     }
                 }
             }
