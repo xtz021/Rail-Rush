@@ -13,6 +13,7 @@ public class GameMenuUIController : MonoBehaviour
     [Header("UI objects in the main menu:")]
     [SerializeField] GameObject mainMenuButtons;
     [SerializeField] GameObject shopPanel;
+    [SerializeField] GameObject missionsPanel;
     [SerializeField] GameObject optionPanel;
     [SerializeField] GameObject gemsCollectionPanel;
     [SerializeField] GameObject statsPanel;
@@ -55,6 +56,7 @@ public class GameMenuUIController : MonoBehaviour
     public void OpenShop()
     {
         shopPanel.SetActive(true);
+        missionsPanel.SetActive(false);
         optionPanel.SetActive(false);
         mainMenuButtons.SetActive(false);
         gemsCollectionPanel.SetActive(false);
@@ -64,6 +66,7 @@ public class GameMenuUIController : MonoBehaviour
     public void OpenOptionsMenu()
     {
         optionPanel.SetActive(true);
+        missionsPanel.SetActive(false);
         shopPanel.SetActive(false);
         mainMenuButtons.SetActive(false);
         gemsCollectionPanel.SetActive(false);
@@ -73,6 +76,7 @@ public class GameMenuUIController : MonoBehaviour
     public void ReturnToMainMenu()
     {
         mainMenuButtons.SetActive(true);
+        missionsPanel.SetActive(false);
         optionPanel.SetActive(false);
         shopPanel.SetActive(false);
         gemsCollectionPanel.SetActive(false);
@@ -82,6 +86,7 @@ public class GameMenuUIController : MonoBehaviour
     public void OpenGemsCollectionPanel()
     {
         gemsCollectionPanel.SetActive(true);
+        missionsPanel.SetActive(false);
         shopPanel.SetActive(false);
         optionPanel.SetActive(false);
         mainMenuButtons.SetActive(false);
@@ -94,7 +99,18 @@ public class GameMenuUIController : MonoBehaviour
         shopPanel.SetActive(false);
         optionPanel.SetActive(false);
         mainMenuButtons.SetActive(false);
+        missionsPanel.SetActive(false);
         gemsCollectionPanel.SetActive(false);
+    }
+
+    public void OpenMissionsPanel()
+    {
+        missionsPanel.SetActive(true);
+        shopPanel.SetActive(false);
+        optionPanel.SetActive(false);
+        mainMenuButtons.SetActive(false);
+        gemsCollectionPanel.SetActive(false);
+        statsPanel.SetActive(false);
     }
 
     public void OpenWebInfo()

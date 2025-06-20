@@ -5456,7 +5456,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 652
-        width: 190
+        width: 170
         height: 68
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -5765,6 +5765,48 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: MissionProgress_pickaxe_enable
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 650
+        width: 20
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8839c27914c3fe94398f714a84d4f98b
+      internalID: -251699322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MissionProgress_pickaxe_unable
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 673
+        width: 20
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20fc0403c21764b45a5df2b5e3adb56d
+      internalID: 1627841249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -5815,6 +5857,8 @@ TextureImporter:
       Label_Stats: -826108257
       Label_Yellow_DailyChallenge: 533130439
       Ladder_Icon: 1021708993
+      MissionProgress_pickaxe_enable: -251699322
+      MissionProgress_pickaxe_unable: 1627841249
       Nugget_shopicon_1: 1028403502
       Nugget_shopicon_2: 1942033264
       Nugget_shopicon_3: -977397917
