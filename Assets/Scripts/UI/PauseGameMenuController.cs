@@ -9,7 +9,7 @@ public class PauseGameMenuController : MonoBehaviour
 
     private void OnEnable()
     {
-        bestScoreText.text = "" + InGameController.Instance.best_Distance;
+        bestScoreText.text = "" + GameStatsController.Instance.playerStats.BestRun;
     }
 
 }
