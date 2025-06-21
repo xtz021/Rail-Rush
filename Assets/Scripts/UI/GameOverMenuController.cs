@@ -33,8 +33,6 @@ public class GameOverMenuController : MonoBehaviour
     {
         InGameController.Instance.SaveProgress();
         InventoryManager.Instance.SaveInventory();
-        GameStatsController.Instance.SetNewBestDistance(InGameController.Instance.Current_DistanceCount);
-        GameStatsController.Instance.SetNewBestGold(InGameController.Instance.Current_GoldCount);
         GameStatsController.SaveData(GameStatsController.Instance.playerStats);
         passTicketCountText.text = "" + InventoryManager.Instance.inventory.PassTickets;
         best_DistanceText.text = "" + InGameController.Instance.best_Distance;

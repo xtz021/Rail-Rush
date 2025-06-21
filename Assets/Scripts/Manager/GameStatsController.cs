@@ -140,6 +140,14 @@ public class GameStatsController : MonoBehaviour
         {
             _best_Gold = goldCount;
             playerStats.MaxNuggetsCollectedInAGame = _best_Gold;
+            if (InGameController.Instance != null)
+            {
+                InGameController.Instance.UpdateBestScores();
+            }
+            else
+            {
+                Debug.LogWarning("InGameController instance is null, cannot update best gold in-game.");
+            }
         }
         else
         {
@@ -152,6 +160,14 @@ public class GameStatsController : MonoBehaviour
         {
             _best_Distance = distanceCount;
             playerStats.BestRun = _best_Distance;
+            if(InGameController.Instance != null)
+            {
+                InGameController.Instance.UpdateBestScores();
+            }
+            else
+            {
+                Debug.LogWarning("InGameController instance is null, cannot update best distance in-game.");
+            }
         }
         else
         {

@@ -1,7 +1,8 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Purchasing;
 using UnityEngine.Purchasing.Extension;
-using System.Collections.Generic;
 
 public class IAPManager : MonoBehaviour, IDetailedStoreListener
 {
@@ -14,6 +15,8 @@ public class IAPManager : MonoBehaviour, IDetailedStoreListener
     [SerializeField] ShopItemsData cartStuffShopData;
     [SerializeField] ShopItemsData extraShopData;
     [SerializeField] ShopItemsData nuggetShopData;
+
+    private DateTime? lastPurchaseTime = null;
 
     void Awake()
     {
@@ -129,13 +132,17 @@ public class IAPManager : MonoBehaviour, IDetailedStoreListener
 
     public PurchaseProcessingResult ProcessPurchase(PurchaseEventArgs args)
     {
+        bool isNewPurchase = (lastPurchaseTime == null || (DateTime.Now - lastPurchaseTime.Value).TotalSeconds > 0);
+        lastPurchaseTime = DateTime.Now;
+
         foreach (var item in characterShopData.shopItems)
         {
             if (item.iapID == args.purchasedProduct.definition.id)
             {
                 Debug.Log("Purchase successful: " + item.iapID);
                 InventoryManager.Instance.inventory.AddItem(item.itemID, item.purchaseAmount);
-                GameMenuUIController.Instance.PopUpNotice("Purchase successful!");
+                if (isNewPurchase)                  // Only show notice for new purchases, to prevent pop-up on game launch
+                    GameMenuUIController.Instance.PopUpNotice("Purchase successful!");
                 break;
             }
         }
@@ -145,7 +152,8 @@ public class IAPManager : MonoBehaviour, IDetailedStoreListener
             {
                 Debug.Log("Purchase successful: " + item.iapID);
                 InventoryManager.Instance.inventory.AddItem(item.itemID, item.purchaseAmount);
-                GameMenuUIController.Instance.PopUpNotice("Purchase successful!");
+                if (isNewPurchase)                  // Only show notice for new purchases, to prevent pop-up on game launch
+                    GameMenuUIController.Instance.PopUpNotice("Purchase successful!");
                 break;
             }
         }
@@ -155,7 +163,8 @@ public class IAPManager : MonoBehaviour, IDetailedStoreListener
             {
                 Debug.Log("Purchase successful: " + item.iapID);
                 InventoryManager.Instance.inventory.AddItem(item.itemID, item.purchaseAmount);
-                GameMenuUIController.Instance.PopUpNotice("Purchase successful!");
+                if (isNewPurchase)                  // Only show notice for new purchases, to prevent pop-up on game launch
+                    GameMenuUIController.Instance.PopUpNotice("Purchase successful!");
                 break;
             }
         }
@@ -165,7 +174,8 @@ public class IAPManager : MonoBehaviour, IDetailedStoreListener
             {
                 Debug.Log("Purchase successful: " + item.iapID);
                 InventoryManager.Instance.inventory.GainGold(item.purchaseAmount);
-                GameMenuUIController.Instance.PopUpNotice("Purchase successful!");
+                if (isNewPurchase)                   // Only show notice for new purchases, to prevent pop-up on game launch
+                    GameMenuUIController.Instance.PopUpNotice("Purchase successful!");
                 break;
             }
         }

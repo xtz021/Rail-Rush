@@ -102,6 +102,12 @@ public class InGameController : MonoBehaviour
         _best_Gold = GameStatsController.Instance.playerStats.MaxNuggetsCollectedInAGame;
     }
 
+    public void UpdateBestScores()
+    {
+        _best_Distance = GameStatsController.Instance.playerStats.BestRun;
+        _best_Gold = GameStatsController.Instance.playerStats.MaxNuggetsCollectedInAGame;
+    }
+
     public void SaveProgress()
     {
         if (!isProgressSaved)

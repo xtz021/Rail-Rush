@@ -25,6 +25,7 @@ public class InventoryManager : MonoBehaviour
 
     private void Start()
     {
+        CheckForIAPPurchases(); // Check for IAP purchases and add them to inventory
         CheckBonusItems();
     }
 
@@ -52,7 +53,6 @@ public class InventoryManager : MonoBehaviour
             inventory.PassTickets = 0;
             AddStartingItem(); // Add starting item if inventory is empty
         }
-        CheckForIAPPurchases(); // Check for IAP purchases and add them to inventory
     }
 
     private void CheckForIAPPurchases()
