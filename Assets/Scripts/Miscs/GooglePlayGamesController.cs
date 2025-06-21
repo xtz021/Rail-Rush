@@ -10,7 +10,7 @@ public class GooglePlayGamesController : MonoBehaviour
     public static GooglePlayGamesController Instance { get; private set; }
     //[Header("Google Play Games UI Settings")]
     //public Text UserNameText;
-    //[SerializeField] Button loginButton;
+    Button loginButton;
 
     [Header("No need to assign these fields")]
     public string Token;
@@ -35,11 +35,21 @@ public class GooglePlayGamesController : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+            if(loginButton != null )
+            {
+                loginButton.onClick.RemoveAllListeners();
+                loginButton.onClick.AddListener(() => SignIn());
+            }
         }
         isLoggedIn = false;
         //Initialize PlayGamesPlatform
         PlayGamesPlatform.Activate();
         LoginGooglePlayGames();
+    }
+    private void Start()
+    {
+        loginButton = GooglePlayUIHandler.Instance.loginButton;
+        GooglePlayUIHandler.Instance.UpdateSignInUI();
     }
 
     public void SignIn()
@@ -52,6 +62,8 @@ public class GooglePlayGamesController : MonoBehaviour
     {
         PlayGamesPlatform.Instance.Authenticate(ProcessAuthentication);
     }
+
+   
 
 
 

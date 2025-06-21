@@ -148,6 +148,14 @@ public class ShopItemUIHandler : MonoBehaviour
         }
     }
 
+    public void AddPurchaseButtonEvent(UnityAction action)
+    {
+        if (purchaseButton != null)
+        {
+            purchaseButton.onClick.AddListener(action);
+        }
+    }
+
     public void AddEquipButtonEvent(UnityAction action)
     {
         if (equipButton != null)

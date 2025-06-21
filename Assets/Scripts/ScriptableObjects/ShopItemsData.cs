@@ -50,9 +50,13 @@ public class ShopItemsData : ScriptableObject
                 {
                     InventoryManager.Instance.inventory.GainPassTickets(item.purchaseAmount); // Add pass tickets to inventory
                 }
-                else
+                else if(item.isConsumable) // If the item is consumable, add it to the inventory
                 {
                     InventoryManager.Instance.inventory.AddItem(item.itemID,item.purchaseAmount); // Add item to inventory
+                }
+                else // If the item is not consumable, just add it to the inventory
+                {
+                    InventoryManager.Instance.inventory.AddItem(item.itemID); // Add item to inventory
                 }
                 GameMenuUIController.Instance.PopUpNotice("Purchase successful!");
             }

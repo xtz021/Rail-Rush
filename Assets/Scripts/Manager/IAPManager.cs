@@ -43,21 +43,35 @@ public class IAPManager : MonoBehaviour, IDetailedStoreListener
         {
             if (item.isIAP)
             {
-                builder.AddProduct(item.iapID, ProductType.Consumable);
+                builder.AddProduct(item.iapID, ProductType.NonConsumable);
             }
         }
         foreach (var item in cartStuffShopData.shopItems)
         {
             if (item.isIAP)
             {
-                builder.AddProduct(item.iapID, ProductType.Consumable);
+                if (item.isConsumable)
+                {
+                    builder.AddProduct(item.iapID, ProductType.Consumable);
+                }
+                else
+                {
+                    builder.AddProduct(item.iapID, ProductType.NonConsumable);
+                }
             }
         }
         foreach (var item in extraShopData.shopItems)
         {
             if (item.isIAP)
             {
-                builder.AddProduct(item.iapID, ProductType.Consumable);
+                if (item.isConsumable)
+                {
+                    builder.AddProduct(item.iapID, ProductType.Consumable);
+                }
+                else
+                {
+                    builder.AddProduct(item.iapID, ProductType.NonConsumable);
+                }
             }
         }
         foreach (var item in nuggetShopData.shopItems)
@@ -138,19 +152,21 @@ public class IAPManager : MonoBehaviour, IDetailedStoreListener
                 break;
             }
         }
-        foreach (var item in extraShopData.shopItems)
+        foreach (var item in nuggetShopData.shopItems)
         {
             if (item.iapID == args.purchasedProduct.definition.id)
             {
                 Debug.Log("Purchase successful: " + item.iapID);
-                InventoryManager.Instance.inventory.AddItem(item.itemID, item.purchaseAmount);
+                InventoryManager.Instance.inventory.GainGold(item.purchaseAmount);
                 GameMenuUIController.Instance.PopUpNotice("Purchase successful!");
                 break;
             }
         }
-
+        ShopUIManager.Instance.UpdateCurrenciesIntoShopInfo(); // Update shop currencies
+        //ShopItemsListManager.Instance.RefreshShopItems(); // Refresh shop items after purchase
         return PurchaseProcessingResult.Complete;
     }
+
 
     public void OnPurchaseFailed(Product product, PurchaseFailureReason failureReason)
     {

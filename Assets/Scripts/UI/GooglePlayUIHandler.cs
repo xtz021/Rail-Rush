@@ -9,7 +9,7 @@ public class GooglePlayUIHandler : MonoBehaviour
 
     [Header("Google Play Games UI Settings")]
     public Text UserNameText;
-    [SerializeField] Button loginButton;
+    public Button loginButton;
     public Button showAdsClaimNuggetButton;
     public Button leaderBoardButton;
 
@@ -37,7 +37,7 @@ public class GooglePlayUIHandler : MonoBehaviour
         AddShowLeaderBoardFunction();
     }
 
-    private void UpdateSignInUI()
+    public void UpdateSignInUI()
     {
         if (GooglePlayGamesController.Instance.isLoggedIn)
         {
