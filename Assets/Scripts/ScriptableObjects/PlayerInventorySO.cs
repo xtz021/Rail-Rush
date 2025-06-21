@@ -22,12 +22,19 @@ public class PlayerInventorySO : ScriptableObject
     public int PassTickets { get; set; } // Total pass tickets the player has
 
     // Add item to inventory (or increase quantity if exists)
-    public void AddItem(string itemID, int quantity = 1)
+    public void AddItem(string itemID, int quantity = 1, bool isConsumeable = true)
     {
         var existingItem = items.Find(i => i.itemID == itemID);
         if (existingItem != null)
         {
-            existingItem.quantity += quantity;
+            if (isConsumeable)
+            {
+                existingItem.quantity += quantity;
+            }
+            else
+            {
+                Debug.LogWarning("Attempted to add a non-consumable item that already exists in inventory: " + itemID);
+            }
         }
         else
         {
@@ -37,6 +44,7 @@ public class PlayerInventorySO : ScriptableObject
                 quantity = quantity,
                 isEquipped = false
             });
+            Debug.Log("Added new item to inventory: " + itemID);
         }
     }
 
@@ -102,6 +110,7 @@ public class PlayerInventorySO : ScriptableObject
         if (item == null) return false;
         else if (item != null && item.quantity > 0)
         {
+            Debug.Log("Consuming item: " + itemID + ", Current quantity: " + item.quantity);
             item.quantity-= quantity;
             if (item.quantity <= 0)
             {
@@ -120,6 +129,30 @@ public class PlayerInventorySO : ScriptableObject
     {
         var item = items.Find(i => i.itemID == itemID);
         if (item == null) return ShopItemType.Chacter; // Default type if not found
+        else
+        {
+            foreach (var shopItem in ItemIDsContainers.Instance.shopHeroesData.shopItems)
+            {
+                if (shopItem.itemID == itemID)
+                {
+                    return shopItem.itemType;
+                }
+            }
+            foreach (var shopItem in ItemIDsContainers.Instance.shopCartStuffsData.shopItems)
+            {
+                if (shopItem.itemID == itemID)
+                {
+                    return shopItem.itemType;
+                }
+            }
+            foreach (var shopItem in ItemIDsContainers.Instance.shopExtrasData.shopItems)
+            {
+                if (shopItem.itemID == itemID)
+                {
+                    return shopItem.itemType;
+                }
+            }
+        }
         Debug.Log("Item ID not found in Inventory: " + itemID);
         return ShopItemType.NoType;
     }

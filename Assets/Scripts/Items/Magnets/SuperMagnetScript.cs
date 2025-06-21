@@ -6,11 +6,6 @@ public class SuperMagnetScript : MagnetBase
 {
     float attractionRange = 15f; // The range within which the magnet can attract items.
 
-    private void Start()
-    {
-        // Consume the magnet item in the inventory when the script starts
-        InventoryManager.Instance.UseConsumable(ItemIDsContainers.Instance.itemID_MagnetSuper);
-    }
 
     public override List<GameObject> AttractedItems()
     {

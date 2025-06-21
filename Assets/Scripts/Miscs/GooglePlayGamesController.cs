@@ -35,11 +35,12 @@ public class GooglePlayGamesController : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
-            if(loginButton != null )
-            {
-                loginButton.onClick.RemoveAllListeners();
-                loginButton.onClick.AddListener(() => SignIn());
-            }
+        }
+        loginButton = GooglePlayUIHandler.Instance?.loginButton;
+        if (loginButton != null)
+        {
+            loginButton.onClick.RemoveAllListeners();
+            loginButton.onClick.AddListener(() => SignIn());
         }
         isLoggedIn = false;
         //Initialize PlayGamesPlatform
@@ -88,6 +89,11 @@ public class GooglePlayGamesController : MonoBehaviour
             //loginButton.gameObject.SetActive(true);
             // Disable your integration with Play Games Services or show a login button
             // to ask users to sign-in. Clicking it should call
+        }
+        // Update UI after login status changes
+        if (GooglePlayUIHandler.Instance != null)
+        {
+            GooglePlayUIHandler.Instance.UpdateSignInUI();
         }
     }
 

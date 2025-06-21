@@ -6,9 +6,9 @@ public class ItemIDsContainers : MonoBehaviour
 {
     public static ItemIDsContainers Instance { get; private set; }
 
-    [SerializeField] ShopItemsData shopCartStuffsData;
-    [SerializeField] ShopItemsData shopExtrasData;
-    [SerializeField] ShopItemsData shopHeroesData;
+    public ShopItemsData shopCartStuffsData;
+    public ShopItemsData shopExtrasData;
+    public ShopItemsData shopHeroesData;
 
     [HideInInspector] public string itemID_MagnetStandard;
     [HideInInspector] public string itemID_MagnetSuper;

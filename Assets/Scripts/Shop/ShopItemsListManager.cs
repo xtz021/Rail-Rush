@@ -10,7 +10,7 @@ public class ShopItemsListManager : MonoBehaviour
     [SerializeField] GameObject shopItemPrefab; // Prefab for each shop item
     [SerializeField] Transform shopItemsContainer; // Parent container for shop items
 
-    private void Start()
+    private void OnEnable()
     {
         if (itemsData != null && shopItemsContainer != null && shopItemPrefab != null)
         {

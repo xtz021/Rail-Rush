@@ -52,6 +52,44 @@ public class InventoryManager : MonoBehaviour
             inventory.PassTickets = 0;
             AddStartingItem(); // Add starting item if inventory is empty
         }
+        CheckForIAPPurchases(); // Check for IAP purchases and add them to inventory
+    }
+
+    private void CheckForIAPPurchases()
+    {
+        ShopItemsData heroesShopData = ItemIDsContainers.Instance.shopHeroesData;
+        ShopItemsData cartStuffShopData = ItemIDsContainers.Instance.shopCartStuffsData;
+        ShopItemsData extraShopData = ItemIDsContainers.Instance.shopExtrasData;
+        foreach (var item in heroesShopData.shopItems)
+        {
+            if (item.isIAP && IAPManager.Instance.IsPurchased(item.iapID) && !IsPurchased(item.itemID))
+            {
+                if(!item.isConsumable)          // Only load a non-consumable item since cannot buy it again
+                {
+                    inventory.AddItem(item.itemID, 1, false);
+                }
+            }
+        }
+        foreach (var item in cartStuffShopData.shopItems)
+        {
+            if (item.isIAP && IAPManager.Instance.IsPurchased(item.iapID) && !IsPurchased(item.itemID))
+            {
+                if(!item.isConsumable)          // Only load a non-consumable item since cannot buy it again
+                {
+                    inventory.AddItem(item.itemID, 1, false);
+                }
+            }
+        }
+        foreach (var item in extraShopData.shopItems)
+        {
+            if (item.isIAP && IAPManager.Instance.IsPurchased(item.iapID) && !IsPurchased(item.itemID))
+            {
+                if(!item.isConsumable)          // Only load a non-consumable item since cannot buy it again
+                {
+                    inventory.AddItem(item.itemID, 1, false);
+                }
+            }
+        }
     }
 
     private void AddStartingItem()

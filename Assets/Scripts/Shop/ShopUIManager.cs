@@ -46,6 +46,11 @@ public class ShopUIManager : MonoBehaviour
         UpdateCurrenciesIntoShopInfo();
     }
 
+    private void OnDisable()
+    {
+        InventoryManager.Instance.SaveInventory(); // Save inventory when shop UI is closed
+    }
+
     public void UpdateCurrenciesIntoShopInfo()
     {
         foreach (Text goldText in goldTexts)

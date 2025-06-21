@@ -110,6 +110,13 @@ public class IAPManager : MonoBehaviour, IDetailedStoreListener
         }
     }
 
+    public bool IsPurchased(string productId)
+    {
+        if (storeController == null) return false;
+        Product product = storeController.products.WithID(productId);
+        return product != null && product.hasReceipt;
+    }
+
     public void OnInitialized(IStoreController controller, IExtensionProvider extensions)
     {
         storeController = controller;

@@ -2,17 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MegaMagnetScript : MonoBehaviour
+public class MegaMagnetScript : MagnetBase
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    float attractionRange = 15f; // The range within which the magnet can attract items.
 
-    // Update is called once per frame
-    void Update()
+
+    public override List<GameObject> AttractedItems()
     {
-        
+        Collider[] hits = Physics.OverlapSphere(transform.position, attractionRange);
+        List<GameObject> nearbyBonus = new List<GameObject>();
+
+        foreach (Collider hit in hits)
+        {
+            if (hit.gameObject.CompareTag("Bonus")) // Assuming bonus items have the tag "BonusItem"
+            {
+                nearbyBonus.Add(hit.gameObject);
+            }
+        }
+        return nearbyBonus;
     }
 }

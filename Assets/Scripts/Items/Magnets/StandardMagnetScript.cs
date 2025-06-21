@@ -8,11 +8,6 @@ public class StandardMagnetScript : MagnetBase
 
     string nuggetNameTag = "Nugget"; // The name of the bonus item to be attracted
 
-    private void Start()
-    {
-        // Consume the magnet item in the inventory when the script starts
-        InventoryManager.Instance.UseConsumable(ItemIDsContainers.Instance.itemID_MagnetStandard);
-    }
 
     public override List<GameObject> AttractedItems()
     {
