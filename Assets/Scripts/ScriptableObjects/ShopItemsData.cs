@@ -58,7 +58,10 @@ public class ShopItemsData : ScriptableObject
                 {
                     InventoryManager.Instance.inventory.AddItem(item.itemID); // Add item to inventory
                 }
-                GameMenuUIController.Instance.PopUpNotice("Purchase successful!");
+                if(ShopUIManager.Instance.gameObject.activeSelf == true)
+                {
+                    GameMenuUIController.Instance.PopUpNotice($"{item.name}\nPurchase successful!");
+                }
             }
             else
             {

@@ -16,7 +16,6 @@ public class IAPManager : MonoBehaviour, IDetailedStoreListener
     [SerializeField] ShopItemsData extraShopData;
     [SerializeField] ShopItemsData nuggetShopData;
 
-    private DateTime? lastPurchaseTime = null;
 
     void Awake()
     {
@@ -132,17 +131,16 @@ public class IAPManager : MonoBehaviour, IDetailedStoreListener
 
     public PurchaseProcessingResult ProcessPurchase(PurchaseEventArgs args)
     {
-        bool isNewPurchase = (lastPurchaseTime == null || (DateTime.Now - lastPurchaseTime.Value).TotalSeconds > 0);
-        lastPurchaseTime = DateTime.Now;
-
         foreach (var item in characterShopData.shopItems)
         {
             if (item.iapID == args.purchasedProduct.definition.id)
             {
-                Debug.Log("Purchase successful: " + item.iapID);
                 InventoryManager.Instance.inventory.AddItem(item.itemID, item.purchaseAmount);
-                if (isNewPurchase)                  // Only show notice for new purchases, to prevent pop-up on game launch
-                    GameMenuUIController.Instance.PopUpNotice("Purchase successful!");
+                Debug.Log("Purchase successful: " + item.iapID);
+                if (ShopUIManager.Instance.gameObject.activeSelf == true)
+                {
+                    GameMenuUIController.Instance.PopUpNotice($"Purchase successful!");
+                }
                 break;
             }
         }
@@ -150,10 +148,12 @@ public class IAPManager : MonoBehaviour, IDetailedStoreListener
         {
             if (item.iapID == args.purchasedProduct.definition.id)
             {
-                Debug.Log("Purchase successful: " + item.iapID);
                 InventoryManager.Instance.inventory.AddItem(item.itemID, item.purchaseAmount);
-                if (isNewPurchase)                  // Only show notice for new purchases, to prevent pop-up on game launch
-                    GameMenuUIController.Instance.PopUpNotice("Purchase successful!");
+                Debug.Log("Purchase successful: " + item.iapID);
+                if (ShopUIManager.Instance.gameObject.activeSelf == true)
+                {
+                    GameMenuUIController.Instance.PopUpNotice($"Purchase successful!");
+                }
                 break;
             }
         }
@@ -161,10 +161,12 @@ public class IAPManager : MonoBehaviour, IDetailedStoreListener
         {
             if (item.iapID == args.purchasedProduct.definition.id)
             {
-                Debug.Log("Purchase successful: " + item.iapID);
                 InventoryManager.Instance.inventory.AddItem(item.itemID, item.purchaseAmount);
-                if (isNewPurchase)                  // Only show notice for new purchases, to prevent pop-up on game launch
-                    GameMenuUIController.Instance.PopUpNotice("Purchase successful!");
+                Debug.Log("Purchase successful: " + item.iapID);
+                if (ShopUIManager.Instance.gameObject.activeSelf == true)
+                {
+                    GameMenuUIController.Instance.PopUpNotice($"Purchase successful!");
+                }
                 break;
             }
         }
@@ -172,10 +174,12 @@ public class IAPManager : MonoBehaviour, IDetailedStoreListener
         {
             if (item.iapID == args.purchasedProduct.definition.id)
             {
-                Debug.Log("Purchase successful: " + item.iapID);
                 InventoryManager.Instance.inventory.GainGold(item.purchaseAmount);
-                if (isNewPurchase)                   // Only show notice for new purchases, to prevent pop-up on game launch
-                    GameMenuUIController.Instance.PopUpNotice("Purchase successful!");
+                Debug.Log("Purchase successful: " + item.iapID);
+                if (ShopUIManager.Instance.gameObject.activeSelf == true)
+                {
+                    GameMenuUIController.Instance.PopUpNotice($"Purchase successful!");
+                }
                 break;
             }
         }
