@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fd6f9918d27a5949882e644b32dc725, type: 3}
+  m_Name: RanksData
+  m_EditorClassIdentifier: 
+  Ranks:
+  - rankTier: 0
+    rankName: Passer By
+    pickAxesRequired: 3
+  - rankTier: 1
+    rankName: Novice
+    pickAxesRequired: 3
+  - rankTier: 2
+    rankName: Entrant
+    pickAxesRequired: 4
+  - rankTier: 3
+    rankName: Pit Worker
+    pickAxesRequired: 4
+  - rankTier: 4
+    rankName: Stone Hunter
+    pickAxesRequired: 5
+  - rankTier: 5
+    rankName: Rail Runner
+    pickAxesRequired: 5
+  - rankTier: 6
+    rankName: Cart Rider
+    pickAxesRequired: 6
+  - rankTier: 7
+    rankName: Gold Digger
+    pickAxesRequired: 6
+  - rankTier: 8
+    rankName: Master Carter
+    pickAxesRequired: 7
+  - rankTier: 9
+    rankName: King Of Rails
+    pickAxesRequired: 7
+  CurrentRankIndex: 0
+  CurrentRankProgress: 0
