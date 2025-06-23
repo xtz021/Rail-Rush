@@ -26,5 +26,19 @@ public class CharacterSpawner : MonoBehaviour
             }
         }
         Debug.LogError("No equipped character found to spawn.");
+        ShopItem defaultCharacter = shopHeroesData.shopItems[0]; 
+        InventoryManager.Instance.EquipItem(defaultCharacter.itemID, defaultCharacter.itemType);    // Equip the default character if no equipped character is found
+        // Spawn the default character
+        GameObject defaultCharacterPrefab = defaultCharacter.prefab;
+        if (defaultCharacterPrefab != null)
+        {
+            Instantiate(defaultCharacterPrefab, transform.position, Quaternion.identity, transform);
+            Debug.Log("Spawned default character: " + defaultCharacter.name);
+        }
+        else
+        {
+            Debug.LogError("Default character prefab is not assigned for item: " + defaultCharacter.name);
+        }
+
     }
 }
