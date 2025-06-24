@@ -11,6 +11,8 @@ public class RankListDataSO : ScriptableObject
 
     public List<Rank> Ranks;
 
+    public List<Sprite> missionIcons;
+
     public int CurrentRankIndex;
     public int CurrentRankProgress;
 

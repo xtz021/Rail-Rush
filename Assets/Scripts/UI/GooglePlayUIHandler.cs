@@ -15,15 +15,7 @@ public class GooglePlayUIHandler : MonoBehaviour
 
     private void Awake()
     {
-        if(Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-        else
-        {
-            Instance = this;
-        }
+        Instance = this;
     }
 
     private void Start()

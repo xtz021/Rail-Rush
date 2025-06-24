@@ -1,7 +1,16 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
+
+[System.Serializable]
+public class MissionData
+{
+    public MissionType type;
+    public string missionDescription;
+    public int targetValue;
+    public int pickAxesReward = 1;
+}
 
 [System.Serializable]
 public class Mission
@@ -12,15 +21,14 @@ public class Mission
     public string missionDescription;
     public bool isCompleted;
     public int pickAxesReward;
+    public Sprite icon;
 }
 
 public enum MissionType
 {
     Play,
-    ClooectGems,
-    CollectCoins,
+    CollectGems,
+    CollectNuggets,
     TravelDistance,
-    DuckObstacles,
-    Jump,
-    UseCartStuffItem
+    Jump
 }

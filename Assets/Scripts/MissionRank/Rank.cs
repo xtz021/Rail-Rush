@@ -9,6 +9,7 @@ public class Rank
     public RankTier rankTier;
     public string rankName; // 0 to 9
     public int pickAxesRequired; // Based on rank tier
+    public List<MissionData> missions; // List of missions for this rank
     public int NuggetReward => (int)rankTier * 300;
 
 }

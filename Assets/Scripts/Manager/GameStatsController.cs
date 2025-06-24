@@ -19,6 +19,21 @@ public class GameStatsController : MonoBehaviour
 
     public bool openShopFromGame { get; private set; } = false;
 
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            Debug.LogWarning("Multiple instances of GameStatsController detected. Destroying duplicate instance.");
+        }
+        else
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        playerStats = GameStatsController.LoadData();
+    }
+
     private void OnDisable()
     {
         if(Instance != null && Instance != this)
@@ -59,20 +74,6 @@ public class GameStatsController : MonoBehaviour
         }
     }
 
-    private void Awake()
-    {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            Debug.LogWarning("Multiple instances of GameStatsController detected. Destroying duplicate instance.");
-        }
-        else
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        playerStats = GameStatsController.LoadData();
-    }
 
     private void Start()
     {
@@ -131,6 +132,7 @@ public class GameStatsController : MonoBehaviour
         playerStats.EmeraldCollected = PlayerPrefs.GetInt("Stats_EmeraldCollected", 0);
         playerStats.DiamondCollected = PlayerPrefs.GetInt("Stats_DiamondCollected", 0);
         playerStats.TotalGemsCollected = PlayerPrefs.GetInt("Stats_TotalGemsCollected", 0);
+        Debug.Log("GameStatsController: Loaded player stats from PlayerPrefs.");
         return playerStats;
     }
 

@@ -1104,7 +1104,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Offgame_47
+      name: mission_icon_collectgem
       rect:
         serializedVersion: 2
         x: 432
@@ -1587,7 +1587,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Offgame_70
+      name: mission_icon_play
       rect:
         serializedVersion: 2
         x: 696
@@ -2406,7 +2406,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Offgame_109
+      name: mission_icon_collectnugget
       rect:
         serializedVersion: 2
         x: 908
@@ -2910,7 +2910,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Offgame_133
+      name: mission_icon_jump
       rect:
         serializedVersion: 2
         x: 698
@@ -4254,7 +4254,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Offgame_197
+      name: mission_icon_traveldistance
       rect:
         serializedVersion: 2
         x: 703
@@ -5774,7 +5774,7 @@ TextureImporter:
         width: 20
         height: 23
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -5787,7 +5787,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MissionProgress_pickaxe_unable
+      name: MissionProgress_pickaxe_disable
       rect:
         serializedVersion: 2
         x: 170
@@ -5795,7 +5795,7 @@ TextureImporter:
         width: 20
         height: 23
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -5857,8 +5857,8 @@ TextureImporter:
       Label_Stats: -826108257
       Label_Yellow_DailyChallenge: 533130439
       Ladder_Icon: 1021708993
+      MissionProgress_pickaxe_disable: 1627841249
       MissionProgress_pickaxe_enable: -251699322
-      MissionProgress_pickaxe_unable: 1627841249
       Nugget_shopicon_1: 1028403502
       Nugget_shopicon_2: 1942033264
       Nugget_shopicon_3: -977397917
@@ -5873,7 +5873,6 @@ TextureImporter:
       Offgame_104: 1085138484
       Offgame_106: -1684720750
       Offgame_107: -1345284433
-      Offgame_109: 1874525075
       Offgame_110: 2142536094
       Offgame_112: -990727707
       Offgame_113: -1190572359
@@ -5894,7 +5893,6 @@ TextureImporter:
       Offgame_130: 2012985927
       Offgame_131: -425578533
       Offgame_132: -1111070024
-      Offgame_133: 52462586
       Offgame_135: 1712526889
       Offgame_136: -993903524
       Offgame_137: 2045185106
@@ -5945,7 +5943,6 @@ TextureImporter:
       Offgame_194: 2031969979
       Offgame_195: 213638413
       Offgame_196: -1182312815
-      Offgame_197: -1494211166
       Offgame_198: -1294017822
       Offgame_199: 1815540091
       Offgame_200: 379058772
@@ -5999,7 +5996,6 @@ TextureImporter:
       Offgame_41: 735161051
       Offgame_43: -553378429
       Offgame_46: 1535235681
-      Offgame_47: 1271855204
       Offgame_48: 875416968
       Offgame_49: 76118302
       Offgame_5: 164435343
@@ -6018,7 +6014,6 @@ TextureImporter:
       Offgame_66: 1579153509
       Offgame_67: 16442671
       Offgame_69: 1670726762
-      Offgame_70: 1026674710
       Offgame_72: -1789804848
       Offgame_73: 589710818
       Offgame_74: 212641344
@@ -6060,6 +6055,11 @@ TextureImporter:
       distance_ingame_icon: 1732253142
       facebook_btn: -346031943
       filler_2: -1402467274
+      mission_icon_collectgem: 1271855204
+      mission_icon_collectnugget: 1874525075
+      mission_icon_jump: 52462586
+      mission_icon_play: 1026674710
+      mission_icon_traveldistance: -1494211166
       music_btn_off_disabled: 231627940
       music_btn_off_enable: -1697163212
       music_btn_on_disabled: 2056357440
