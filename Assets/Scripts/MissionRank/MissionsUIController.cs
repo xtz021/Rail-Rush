@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class MissionsUIController : MonoBehaviour
 {
@@ -51,6 +52,17 @@ public class MissionsUIController : MonoBehaviour
                 missionUIs[i].SetMissionDescription(currentMissions[i].missionDescription);
             }
             missionUIs[i].SetMissionPickAxesReward(currentMissions[i].pickAxesReward);
+            if (currentMissions[i].isCompleted)
+            {
+                missionUIs[i].SetMissionCompleted(true);
+                UnityAction action = () =>                      // This action will be called when the mission button is clicked
+                {
+                    MissionsManager.Instance.CompleteMission(i);
+                    UpdateMissionUI();
+                };
+                missionUIs[i].SetMissionButtonListener(action);
+            }
         }
     }
+
 }

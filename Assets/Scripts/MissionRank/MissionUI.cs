@@ -2,13 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class MissionUI : MonoBehaviour
 {
+    [SerializeField] private Button missionButton;
     [SerializeField] private Image missionIcon;
     [SerializeField] private TMP_Text missionDescription;
     [SerializeField] private List<GameObject> missionRewardIcons;
+    [SerializeField] private Image completedIcon;
 
     public void SetMissionIcon(Sprite icon)
     {
@@ -58,6 +61,43 @@ public class MissionUI : MonoBehaviour
         else
         {
             Debug.LogError("Mission Reward Icons are not assigned or empty.");
+        }
+    }
+
+    public void SetMissionCompleted(bool isCompleted)
+    {
+        if (completedIcon != null)
+        {
+            completedIcon.gameObject.SetActive(isCompleted);
+        }
+        else
+        {
+            Debug.LogError("Completed Icon Image is not assigned.");
+        }
+    }
+
+    public void SetMissionButtonListener(UnityAction action)
+    {
+        if (missionButton != null)
+        {
+            missionButton.onClick.RemoveAllListeners();
+            missionButton.onClick.AddListener(action);
+        }
+        else
+        {
+            Debug.LogError("Mission Button is not assigned.");
+        }
+    }
+
+    public void SetMissionIsCompleted(bool isCompleted)
+    {
+        if (completedIcon != null)
+        {
+            completedIcon.gameObject.SetActive(isCompleted);
+        }
+        else
+        {
+            Debug.LogError("Completed Icon Image is not assigned.");
         }
     }
 }

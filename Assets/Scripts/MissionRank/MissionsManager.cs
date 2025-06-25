@@ -21,6 +21,7 @@ public class MissionsManager : MonoBehaviour
             Instance = this;
         }
         LoadCurrentMissionData();
+        //ResetCurrentMissions();
     }
 
 
@@ -128,6 +129,28 @@ public class MissionsManager : MonoBehaviour
         PlayerPrefs.DeleteKey("CurrentMissions");
         FillCurrentMissions();
         Debug.Log("Current missions have been reset.");
+    }
+
+    public void CompleteMission(int index)
+    {
+        if (currentMissions == null)
+        {
+            Debug.LogError("Cannot complete a null mission.");
+            return;
+        }
+        if (index < 0 || index >= currentMissions.Count)
+        {
+            Debug.LogError($"Index {index} is out of bounds for current missions list.");
+            return;
+        }
+        else if (currentMissions[index].isCompleted)
+        {
+            Debug.Log($"Mission {currentMissions[index].type} completed! You earned {currentMissions[index].pickAxesReward} pick axes.");
+            currentMissions.RemoveAt(index);
+            GameMenuUIController.Instance.PopUpNotice($"Mission completed! You earned {currentMissions[index].pickAxesReward} pick axes.");
+            RankManager.Instance.GainCurrentRankProgress(currentMissions[index].pickAxesReward);
+            FillCurrentMissions();
+        }
     }
 }
 

@@ -28,4 +28,11 @@ public class RankListDataSO : ScriptableObject
         CurrentRankIndex = PlayerPrefs.GetInt(KEY_CURRENT_RANKTIER,0);
         CurrentRankProgress = PlayerPrefs.GetInt(KEY_CURRENT_RANKPROGRESS,0);
     }
+
+    public void ResetRankData()
+    {
+        CurrentRankIndex = 0;
+        CurrentRankProgress = 0;
+        SaveCurrentRankData();
+    }
 }

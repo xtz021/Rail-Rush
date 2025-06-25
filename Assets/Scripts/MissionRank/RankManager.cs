@@ -60,6 +60,12 @@ public class RankManager : MonoBehaviour
             {
                 ranksData.CurrentRankIndex = ranksData.Ranks.Count - 1; // Cap at max rank
             }
+            else
+            {
+                int goldEarned = GetCurrentRank().NuggetReward;
+                InventoryManager.Instance.inventory.GainGold(goldEarned);
+                GameMenuUIController.Instance.PopUpNotice($"Promoted to {GetCurrentRank().rankName} and earned {goldEarned}!");
+            }
         }
         SaveCurrentRankData();
     }
