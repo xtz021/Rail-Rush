@@ -14,7 +14,7 @@ public class InGameUIController : MonoBehaviour
 
     private void Awake()
     {
-        if(Instance != null && Instance != this)
+        if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
         }
@@ -43,7 +43,7 @@ public class InGameUIController : MonoBehaviour
 
     public void RestartGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex,LoadSceneMode.Single);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);
         Time.timeScale = 1f;
     }
 
@@ -57,5 +57,13 @@ public class InGameUIController : MonoBehaviour
     {
         GameStatsController.Instance.OpenShopFromGame();
         OpenMainMenu();
+        Time.timeScale = 1f;
+    }
+
+    public void OpenMissionsFromInGameMenu()
+    {
+        GameStatsController.Instance.OpenMissionsFromGame();
+        OpenMainMenu();
+        Time.timeScale = 1f;
     }
 }

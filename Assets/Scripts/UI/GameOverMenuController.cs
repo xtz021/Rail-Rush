@@ -31,11 +31,7 @@ public class GameOverMenuController : MonoBehaviour
 
     private void OnEnable()
     {
-        InGameController.Instance.SaveProgress();
-        InventoryManager.Instance.SaveInventory();
-        GameStatsController.Instance.SetNewBestDistance(InGameController.Instance.Current_DistanceCount);
-        GameStatsController.Instance.SetNewBestGold(InGameController.Instance.Current_GoldCount);
-        GameStatsController.SaveData(GameStatsController.Instance.playerStats);
+        SaveProgressData();                                 // Save the current game progress when the game is over
         passTicketCountText.text = "" + InventoryManager.Instance.inventory.PassTickets;
         best_DistanceText.text = "" + InGameController.Instance.best_Distance;
         best_GoldText.text = "" + InGameController.Instance.best_Gold;
@@ -44,6 +40,20 @@ public class GameOverMenuController : MonoBehaviour
         //current_GoldText.text = "" + InGameController.Instance.Current_GoldCount;
         SetScoreTextAnimation(goldCoroutine,current_GoldText,InGameController.Instance.Current_GoldCount);
     }
+
+    public void SaveProgressData()
+    {
+        InGameController.Instance.SaveProgress();
+        InventoryManager.Instance.SaveInventory();
+        GameStatsController.Instance.SetNewBestDistance(InGameController.Instance.Current_DistanceCount);
+        GameStatsController.Instance.SetNewBestGold(InGameController.Instance.Current_GoldCount);
+        GameStatsController.SaveData(GameStatsController.Instance.playerStats);
+        MissionsManager.Instance.UpdateMissionProgressByType(MissionType.TravelDistance, InGameController.Instance.Current_DistanceCount);
+        MissionsManager.Instance.SaveCurrentMissionsData();
+        RankManager.Instance.SaveCurrentRankData();
+    }
+
+
 
     private void SetScoreTextAnimation(Coroutine corr, Text scoreText, int score)
     {

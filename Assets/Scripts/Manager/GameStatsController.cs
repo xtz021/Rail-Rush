@@ -17,7 +17,8 @@ public class GameStatsController : MonoBehaviour
     private int _best_Distance = 0;
     private int _best_Gold = 0;
 
-    public bool openShopFromGame { get; private set; } = false;
+    public static bool openShopFromGame = false;
+    public static bool openMissionsFromGame = false;
 
     private void Awake()
     {
@@ -181,10 +182,23 @@ public class GameStatsController : MonoBehaviour
     public void OpenShopFromGame()
     {
         openShopFromGame = true;
+        openMissionsFromGame = false;
     }
+
 
     public void ResetOpenShop()
     {
         openShopFromGame = false;
+    }
+
+    public void OpenMissionsFromGame()
+    {
+        openMissionsFromGame = true;
+        openShopFromGame = false;
+    }
+
+    public void ResetOpenMission()
+    {
+        openMissionsFromGame = false;
     }
 }

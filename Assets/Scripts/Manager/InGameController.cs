@@ -79,11 +79,14 @@ public class InGameController : MonoBehaviour
 
     private void Start()
     {
+        MissionsManager.Instance.UpdateMissionProgressByType(MissionType.Play);
+        MissionsManager.Instance.SaveCurrentMissionsData();
         GetStartGameValues();
         player = PlayerCartMovement.Instance.transform;
         saveMeBoxPopupCount = 0;
         GameStatsController.Instance.playerStats.TotalPlays++;
     }
+
 
     private void Update()
     {

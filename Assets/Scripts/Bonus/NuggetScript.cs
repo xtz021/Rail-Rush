@@ -17,6 +17,7 @@ public class NuggetScript : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             InGameController.Instance.GainGold(goldValue * InventoryManager.Instance.NuggetBonusMultiplier);
+            MissionsManager.Instance.UpdateMissionProgressByType(MissionType.CollectNuggets);
             if (audioSource != null)
             {
                 audioSource.Play();
@@ -24,4 +25,5 @@ public class NuggetScript : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
 }

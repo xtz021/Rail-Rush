@@ -14,8 +14,18 @@ public class MissionsUIController : MonoBehaviour
 
     private void Awake()
     {
-        Instance = this;
+        if (Instance != null && Instance != this)
+        {
+            Destroy(Instance.gameObject); // Destroy the previous instance if it exists
+            Instance = this; // Set the new instance
+        }
+        else
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
     }
+
 
     private void OnEnable()
     {
@@ -39,6 +49,7 @@ public class MissionsUIController : MonoBehaviour
             GameMenuUIController.Instance.PopUpNotice($"You have been promoted to rank {RankManager.Instance.GetCurrentRank().rankName}!");
         }
         List<Mission> currentMissions = MissionsManager.Instance.currentMissions;
+        RemoveMissionButtonsEventListers();
         for (int i = 0; i < missionUIs.Count; i++)
         {
             missionUIs[i].SetMissionIcon(currentMissions[i].icon);
@@ -54,14 +65,30 @@ public class MissionsUIController : MonoBehaviour
             missionUIs[i].SetMissionPickAxesReward(currentMissions[i].pickAxesReward);
             if (currentMissions[i].isCompleted)
             {
-                missionUIs[i].SetMissionCompleted(true);
+                missionUIs[i].SetMissionIsCompletedUI(true);
+                int capturedIndex = i; // Capture the current index for the closure
                 UnityAction action = () =>                      // This action will be called when the mission button is clicked
                 {
-                    MissionsManager.Instance.CompleteMission(i);
+                    MissionsManager.Instance.CompleteMission(capturedIndex);
                     UpdateMissionUI();
+                    RankingUIController.Instance.UpdateRankUI();
                 };
-                missionUIs[i].SetMissionButtonListener(action);
+                missionUIs[i].RemoveMissionButtonEventListerners();
+                missionUIs[i].AddMissionButtonEventListener(action);
             }
+            else
+            {
+                missionUIs[i].RemoveMissionButtonEventListerners();
+                missionUIs[i].SetMissionIsCompletedUI(false);
+            }
+        }
+    }
+
+    private void RemoveMissionButtonsEventListers()
+    {
+        foreach (MissionUI missionUI in missionUIs)
+        {
+            missionUI.RemoveMissionButtonEventListerners();
         }
     }
 

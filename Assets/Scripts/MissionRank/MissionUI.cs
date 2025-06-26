@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MissionUI : MonoBehaviour
@@ -64,36 +65,37 @@ public class MissionUI : MonoBehaviour
         }
     }
 
-    public void SetMissionCompleted(bool isCompleted)
-    {
-        if (completedIcon != null)
+    public void RemoveMissionButtonEventListerners()
         {
-            completedIcon.gameObject.SetActive(isCompleted);
-        }
-        else
-        {
-            Debug.LogError("Completed Icon Image is not assigned.");
-        }
-    }
-
-    public void SetMissionButtonListener(UnityAction action)
-    {
         if (missionButton != null)
         {
             missionButton.onClick.RemoveAllListeners();
-            missionButton.onClick.AddListener(action);
         }
         else
+        {
+            Debug.LogWarning("Mission Button is not assigned.");
+        }
+    }
+
+
+    public void AddMissionButtonEventListener(UnityAction action)
+    {
+        if (missionButton != null)
+        {
+            missionButton.onClick.AddListener(action);
+        }
+        else if(SceneManager.GetActiveScene().buildIndex == 0)
         {
             Debug.LogError("Mission Button is not assigned.");
         }
     }
 
-    public void SetMissionIsCompleted(bool isCompleted)
+    public void SetMissionIsCompletedUI(bool isCompleted)
     {
         if (completedIcon != null)
         {
             completedIcon.gameObject.SetActive(isCompleted);
+            Debug.Log($"Mission completion status set to: {isCompleted}");
         }
         else
         {

@@ -44,6 +44,7 @@ public class GameMenuUIController : MonoBehaviour
     private void Start()
     {
         CheckOpenShopOnLoad();
+        CheckOpenMissionsOnLoad();
     }
 
     public void StartGame()
@@ -120,10 +121,19 @@ public class GameMenuUIController : MonoBehaviour
 
     private void CheckOpenShopOnLoad()
     {
-        if (GameStatsController.Instance.openShopFromGame)
+        if (GameStatsController.openShopFromGame)
         {
             GameStatsController.Instance.ResetOpenShop();
             OpenShop();
+        }
+    }
+
+    private void CheckOpenMissionsOnLoad()
+    {
+        if (GameStatsController.openMissionsFromGame)
+        {
+            GameStatsController.Instance.ResetOpenMission();
+            OpenMissionsPanel();
         }
     }
 

@@ -12,13 +12,25 @@ public class MissionsManager : MonoBehaviour
 
     private void Awake()
     {
+        //if (Instance != null && Instance != this)
+        //{
+        //    Destroy(gameObject);
+        //}
+        //else
+        //{
+        //    Instance = this;
+        //    DontDestroyOnLoad(gameObject);
+        //}
         if (Instance != null && Instance != this)
         {
-            Destroy(gameObject);
+            Destroy(Instance.gameObject); // Destroy the previous instance if it exists
+            Debug.LogWarning("Multiple instances of MissionsManager detected. Destroying older duplicate instance.");
+            Instance = this; // Set the new instance
         }
         else
         {
             Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         LoadCurrentMissionData();
         //ResetCurrentMissions();
@@ -28,7 +40,7 @@ public class MissionsManager : MonoBehaviour
 
     private void OnDisable()
     {
-        SaveCurrentMissionData();
+        SaveCurrentMissionsData();
     }
 
     public Mission GetMissionFromMissionData(MissionData missionData, Sprite sprite)
@@ -77,9 +89,9 @@ public class MissionsManager : MonoBehaviour
     }
 
 
-    public void SaveCurrentMissionData()
+    public void SaveCurrentMissionsData()
     {
-        MissionListWrapper wrapper = new MissionListWrapper { missions = currentMissions }; 
+        MissionListSaveHolder wrapper = new MissionListSaveHolder { missions = currentMissions }; 
         string json = JsonUtility.ToJson(wrapper);
         PlayerPrefs.SetString("CurrentMissions", json);
         PlayerPrefs.Save();
@@ -91,7 +103,7 @@ public class MissionsManager : MonoBehaviour
         string json = PlayerPrefs.GetString("CurrentMissions", "");
         if (!string.IsNullOrEmpty(json))
         {
-            MissionListWrapper wrapper = JsonUtility.FromJson<MissionListWrapper>(json);
+            MissionListSaveHolder wrapper = JsonUtility.FromJson<MissionListSaveHolder>(json);
             currentMissions = wrapper.missions;
 
             if (currentMissions == null || currentMissions.Count == 0)
@@ -120,7 +132,7 @@ public class MissionsManager : MonoBehaviour
         {
             AddNewMission();
         }
-        SaveCurrentMissionData();
+        SaveCurrentMissionsData();
     }
 
     public void ResetCurrentMissions()
@@ -146,16 +158,35 @@ public class MissionsManager : MonoBehaviour
         else if (currentMissions[index].isCompleted)
         {
             Debug.Log($"Mission {currentMissions[index].type} completed! You earned {currentMissions[index].pickAxesReward} pick axes.");
+            int pickAxesReward = currentMissions[index].pickAxesReward;
             currentMissions.RemoveAt(index);
-            GameMenuUIController.Instance.PopUpNotice($"Mission completed! You earned {currentMissions[index].pickAxesReward} pick axes.");
-            RankManager.Instance.GainCurrentRankProgress(currentMissions[index].pickAxesReward);
+            RankManager.Instance.GainCurrentRankProgress(pickAxesReward);
+            GameMenuUIController.Instance.PopUpNotice($"Mission completed! You earned {pickAxesReward} pick axes.");
             FillCurrentMissions();
         }
+    }
+
+    public void UpdateMissionProgressByType(MissionType type, int progress = 1)
+    {
+        foreach (var mission in currentMissions)
+        {
+            if (mission.type == type)
+            {
+                mission.currentValue += progress;
+                if (mission.currentValue >= mission.targetValue)
+                {
+                    mission.isCompleted = true;
+                }
+                SaveCurrentMissionsData();
+                return;
+            }
+        }
+        Debug.LogWarning($"No mission of type {type} found to update progress.");
     }
 }
 
 [System.Serializable]
-public class MissionListWrapper             // For JSON saving since List<Mission> cannot be serialized directly
+public class MissionListSaveHolder             // For JSON saving since List<Mission> cannot be serialized directly
 {
     public List<Mission> missions;
 }

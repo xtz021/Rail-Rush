@@ -13,13 +13,25 @@ public class RankManager : MonoBehaviour
 
     private void Awake()
     {
+        //if (Instance != null && Instance != this)
+        //{
+        //    Destroy(gameObject);
+        //}
+        //else
+        //{
+        //    Instance = this;
+        //    DontDestroyOnLoad(gameObject);
+        //}
         if (Instance != null && Instance != this)
         {
-            Destroy(gameObject);
+            Destroy(Instance.gameObject); // Destroy the previous instance if it exists
+            Debug.LogWarning("Multiple instances of RankManager detected. Destroying older duplicate instance.");
+            Instance = this; // Set the new instance
         }
         else
         {
             Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         ranksData.LoadCurrentRankData();
     }
@@ -27,6 +39,11 @@ public class RankManager : MonoBehaviour
     private void Start()
     {
         
+    }
+
+    private void OnDisable()
+    {
+        SaveCurrentRankData();
     }
 
     public void SaveCurrentRankData()
@@ -37,6 +54,12 @@ public class RankManager : MonoBehaviour
     public void LoadCurrentRankData()
     {
         ranksData.LoadCurrentRankData();
+    }
+
+    public void ResetRankData()
+    {
+        ranksData.ResetRankData();
+        SaveCurrentRankData();
     }
 
     public Rank GetCurrentRank()
@@ -65,6 +88,7 @@ public class RankManager : MonoBehaviour
                 int goldEarned = GetCurrentRank().NuggetReward;
                 InventoryManager.Instance.inventory.GainGold(goldEarned);
                 GameMenuUIController.Instance.PopUpNotice($"Promoted to {GetCurrentRank().rankName} and earned {goldEarned}!");
+                RankingUIController.Instance.UpdateRankUI();
             }
         }
         SaveCurrentRankData();

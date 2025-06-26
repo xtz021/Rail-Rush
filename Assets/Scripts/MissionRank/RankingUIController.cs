@@ -6,12 +6,27 @@ using UnityEngine.UI;
 
 public class RankingUIController : MonoBehaviour
 {
+    public static RankingUIController Instance { get; private set; }
     public TMP_Text currentRank_text;
     public TMP_Text nextRank_text;
     public List<Image> currentRank_Progress_Images;
 
     private const string CurrentRankBaseText = "Current rank - ";
     private const string NextRankBaseText = "Next rank - ";
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(Instance.gameObject); // Destroy the previous instance if it exists
+            Instance = this; // Set the new instance
+        }
+        else
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+    }
 
     private void Start()
     {
@@ -25,6 +40,15 @@ public class RankingUIController : MonoBehaviour
     private void OnEnable()
     {
         UpdateRankUI();
+        //ResetRankData();
+    }
+
+    private void OnDisable()
+    {
+        if (RankManager.Instance != null)
+        {
+            RankManager.Instance.SaveCurrentRankData();
+        }
     }
 
     public void UpdateRankUI()

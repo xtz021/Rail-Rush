@@ -102,6 +102,7 @@ public class PlayerCartMovement : MonoBehaviour
                 PremNormalPos();
                 Jump(0);
                 characterAnimationController.JumpCenter();
+                MissionsManager.Instance.UpdateMissionProgressByType(MissionType.Jump); // Update mission progress for jumping
                 //JumpForce();
                 Debug.Log("up swipe");
             }
@@ -130,6 +131,7 @@ public class PlayerCartMovement : MonoBehaviour
             TiltCartControl();
         }
     }
+
 
     private void TiltCartControl()
     {

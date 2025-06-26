@@ -37,6 +37,7 @@ public class GemScript : MonoBehaviour
             {
                 audioSource.Play();
             }
+            MissionsManager.Instance.UpdateMissionProgressByType(MissionType.CollectGems);
             Destroy(gameObject);
         }
     }

@@ -19,7 +19,7 @@ public class Mission
     public int targetValue;
     public int currentValue;
     public string missionDescription;
-    public bool isCompleted;
+    public bool isCompleted = false;
     public int pickAxesReward;
     public Sprite icon;
 }
