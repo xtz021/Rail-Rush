@@ -21,12 +21,12 @@ public class AdsInitializer : MonoBehaviour, IUnityAdsInitializationListener
     { 
         if (Instance != null && Instance != this)
         { 
-            Destroy(gameObject); // Ensure only one instance exists
+            Destroy(gameObject);
         }
         else
         {
-            Instance = this; // Set the singleton instance
-            DontDestroyOnLoad(gameObject); // Persist across scenes
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         InitializeAds();
     }

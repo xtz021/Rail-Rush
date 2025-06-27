@@ -13,7 +13,7 @@ public class PlayerCartGrindMovement : MonoBehaviour
 
     [Header("Variables")]
     public bool onRail;
-    [SerializeField] float grindSpeed;
+    [SerializeField] float grindSpeed = 10;
     [SerializeField] float heightOffset;
     float timeForFullSpline;
     float elapsedTime;
@@ -32,6 +32,10 @@ public class PlayerCartGrindMovement : MonoBehaviour
     PlayerCartMovement playerCartMovement;
     private Collider[] overlapingColliders;
     private Transform cartTranform;
+    private int speedMultiplier = 2;
+    private int speedUpdateDistance = 500;
+
+    private const int defaultSpeedUpdateDistance = 500;
 
     private void Start()
     {
@@ -41,6 +45,12 @@ public class PlayerCartGrindMovement : MonoBehaviour
         playerCartMovement = GetComponent<PlayerCartMovement>();
         cartTranform = cartAnimationController.transform;
     }
+
+    private void OnEnable()
+    {
+        ResetDefaultValue();
+    }
+
     public void HandleMovement(InputAction.CallbackContext context)
     {
         Vector2 rawInput = context.ReadValue<Vector2>();
@@ -50,6 +60,7 @@ public class PlayerCartGrindMovement : MonoBehaviour
     {
         if (playerStatusController.playerCurrentStatus != PlayerStatus.Dead)
         {
+            UpdateSpeedByDistance();
             //if (playerStatusController.playerCurrentStatus == PlayerStatus.OnRail) //If on the rail and not jumping, move the player along the rail
             if (onRail && playerStatusController.playerCurrentStatus != PlayerStatus.Jump) //If on the rail and not jumping, move the player along the rail
             {
@@ -113,16 +124,14 @@ public class PlayerCartGrindMovement : MonoBehaviour
                 Vector3 lookRota = nextPos - worldPos;
                 if (playerStatusController.playerCurrentStatus != PlayerStatus.Jump)
                 {
-                    // 1. Get player look direction (forward along the rail)
+                    // Get player look direction (forward along the rail)
                     Quaternion lookRot = Quaternion.LookRotation(lookRota.normalized, up);
 
-                    // 2. Smoothly blend player rotation
+                    // Smoothly blend player rotation
                     transform.rotation = Quaternion.Slerp(transform.rotation, lookRot, lerpSpeed * Time.deltaTime);
 
-                    // 3. Apply tilt input for cart
+                    // Apply tilt input for cart
                     Quaternion tilted = playerCartMovement.GetTiltControlRotation(lookRot);
-
-                    // 4. Apply tilt input for cart
                     cartTranform.rotation = Quaternion.Slerp(cartTranform.rotation, tilted, lerpSpeed * Time.deltaTime);
                 }
                 #endregion
@@ -135,6 +144,7 @@ public class PlayerCartGrindMovement : MonoBehaviour
                 elapsedTime -= Time.deltaTime;
         }
     }
+
 
 
 
@@ -245,5 +255,19 @@ public class PlayerCartGrindMovement : MonoBehaviour
         playerCartMovement._movePhysic = true;
     }
 
+
+    private void UpdateSpeedByDistance()
+    {
+        if(InGameController.Instance.Current_DistanceCount > speedUpdateDistance)
+        {
+            speedUpdateDistance += defaultSpeedUpdateDistance;
+            grindSpeed += speedMultiplier;
+        }
+    }
+
+    private void ResetDefaultValue()
+    {
+        speedUpdateDistance = defaultSpeedUpdateDistance;
+    }
 
 }
