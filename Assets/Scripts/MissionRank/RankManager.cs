@@ -124,4 +124,20 @@ public class RankManager : MonoBehaviour
         return ranksData.missionIcons[index];
     }
 
+    public void RankUp()
+    {
+        if(ranksData.CurrentRankIndex <  ranksData.Ranks.Count - 1)
+        {
+            ranksData.CurrentRankIndex++;
+            if(RankingUIController.Instance != null)
+            {
+                if(RankingUIController.Instance.gameObject.activeSelf)
+                {
+                    RankingUIController.Instance.UpdateRankUI();
+                }
+            }
+        }
+
+    }
+
 }

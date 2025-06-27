@@ -18,15 +18,15 @@ public class RankListDataSO : ScriptableObject
 
     public void SaveCurrentRankData()
     {
-        PlayerPrefs.SetInt(KEY_CURRENT_RANKPROGRESS, CurrentRankIndex);
+        PlayerPrefs.SetInt(KEY_CURRENT_RANKTIER, CurrentRankIndex);
         PlayerPrefs.SetInt(KEY_CURRENT_RANKPROGRESS, CurrentRankProgress);
         PlayerPrefs.Save();
     }
 
     public void LoadCurrentRankData()
     {
-        CurrentRankIndex = PlayerPrefs.GetInt(KEY_CURRENT_RANKTIER,0);
-        CurrentRankProgress = PlayerPrefs.GetInt(KEY_CURRENT_RANKPROGRESS,0);
+        CurrentRankIndex = PlayerPrefs.GetInt(KEY_CURRENT_RANKTIER, 0);
+        CurrentRankProgress = PlayerPrefs.GetInt(KEY_CURRENT_RANKPROGRESS, 0);
     }
 
     public void ResetRankData()
