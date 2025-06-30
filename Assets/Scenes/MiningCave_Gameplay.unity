@@ -6466,7 +6466,7 @@ Transform:
   - {fileID: 1656523419}
   - {fileID: 823231774}
   - {fileID: 181873067}
-  - {fileID: 1963417224}
+  - {fileID: 2103551921}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -13935,57 +13935,6 @@ RectTransform:
   m_AnchoredPosition: {x: 20, y: 0}
   m_SizeDelta: {x: 720, y: 300}
   m_Pivot: {x: 1, y: 1}
---- !u!1 &1963417223
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1963417224}
-  - component: {fileID: 1963417225}
-  m_Layer: 0
-  m_Name: AudioManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1963417224
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1963417223}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 846336415}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1963417225
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1963417223}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab9884db64da9384aaac0a8551013d0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enableMusic: 0
-  enableSound: 0
-  soundsList: []
-  sprite_enableMusic: {fileID: 815564007, guid: 96dd160df13ac7e4f97c9d75485b2add, type: 3}
-  sprite_disableMusic: {fileID: -1697163212, guid: 96dd160df13ac7e4f97c9d75485b2add, type: 3}
-  sprite_enableSound: {fileID: -488029936, guid: 96dd160df13ac7e4f97c9d75485b2add, type: 3}
-  sprite_disableSound: {fileID: 866183857, guid: 96dd160df13ac7e4f97c9d75485b2add, type: 3}
 --- !u!1 &1977424567
 GameObject:
   m_ObjectHideFlags: 0
@@ -14742,6 +14691,73 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1 &2103551920
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2103551921}
+  - component: {fileID: 2103551923}
+  - component: {fileID: 2103551922}
+  m_Layer: 0
+  m_Name: 'AudioManager '
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2103551921
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2103551920}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 846336415}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2103551922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2103551920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7359dbb59660ffd4f86a0307a73bd961, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSoundsData: {fileID: 11400000, guid: 8912c9616e6a41348bd858994a8f1377, type: 2}
+  sounds: []
+--- !u!114 &2103551923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2103551920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab9884db64da9384aaac0a8551013d0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enableMusic: 0
+  enableSound: 0
+  musicButtonImg: {fileID: 0}
+  soundButtonImg: {fileID: 0}
+  sprite_enableMusic: {fileID: 815564007, guid: 96dd160df13ac7e4f97c9d75485b2add, type: 3}
+  sprite_disableMusic: {fileID: -1697163212, guid: 96dd160df13ac7e4f97c9d75485b2add, type: 3}
+  sprite_enableSound: {fileID: -488029936, guid: 96dd160df13ac7e4f97c9d75485b2add, type: 3}
+  sprite_disableSound: {fileID: 866183857, guid: 96dd160df13ac7e4f97c9d75485b2add, type: 3}
 --- !u!1 &2110545904
 GameObject:
   m_ObjectHideFlags: 0

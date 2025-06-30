@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ed4bf1206d1f99498c3997c3d4e1855, type: 3}
+  m_Name: AudioSoundsData
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: MenuMusic
+    clip: {fileID: 8300000, guid: cc108c8e8a2f9bc4cb24d2256a4f1d73, type: 3}
+    volume: 1
+    pitch: 1
+    isLooping: 1
+    isMuted: 0
+    settingType: 0
+    source: {fileID: 0}
+  - name: CaveMusic
+    clip: {fileID: 8300000, guid: df0aabd19d029844587253fc245c029a, type: 3}
+    volume: 1
+    pitch: 1
+    isLooping: 1
+    isMuted: 0
+    settingType: 0
+    source: {fileID: 0}
+  - name: EndGame
+    clip: {fileID: 8300000, guid: 9fc5d384cee318e4faae7e564d087b8e, type: 3}
+    volume: 1
+    pitch: 1
+    isLooping: 0
+    isMuted: 0
+    settingType: 0
+    source: {fileID: 0}
+  - name: Nugget
+    clip: {fileID: 8300000, guid: f1e572601a903604c9e7cdd22f2b843f, type: 3}
+    volume: 1
+    pitch: 1
+    isLooping: 0
+    isMuted: 0
+    settingType: 1
+    source: {fileID: 0}
+  - name: Gem
+    clip: {fileID: 8300000, guid: 63b0d78c3f07bb04f817e5eaaf46fa6e, type: 3}
+    volume: 1
+    pitch: 1
+    isLooping: 0
+    isMuted: 0
+    settingType: 1
+    source: {fileID: 0}
+  - name: Purchase
+    clip: {fileID: 8300000, guid: a910ff1b61e63934bb880587f98935c9, type: 3}
+    volume: 1
+    pitch: 1
+    isLooping: 0
+    isMuted: 0
+    settingType: 1
+    source: {fileID: 0}
+  - name: CartMoving
+    clip: {fileID: 8300000, guid: a3e7bf69c74d2be45b841c43e0c09fdd, type: 3}
+    volume: 1
+    pitch: 1
+    isLooping: 1
+    isMuted: 0
+    settingType: 1
+    source: {fileID: 0}
+  - name: CartJump
+    clip: {fileID: 8300000, guid: 77ea897a9ae1f104197164d367489bc4, type: 3}
+    volume: 1
+    pitch: 1
+    isLooping: 0
+    isMuted: 0
+    settingType: 1
+    source: {fileID: 0}

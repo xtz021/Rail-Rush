@@ -1330,7 +1330,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 124858246}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 203138408}
+        m_TargetAssemblyTypeName: AudioSettingsHandler, Assembly-CSharp
+        m_MethodName: ToggleMusic
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &128112093
 GameObject:
   m_ObjectHideFlags: 0
@@ -2775,6 +2787,7 @@ GameObject:
   m_Component:
   - component: {fileID: 203138407}
   - component: {fileID: 203138408}
+  - component: {fileID: 203138409}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -2811,11 +2824,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enableMusic: 0
   enableSound: 0
-  soundsList: []
+  musicButtonImg: {fileID: 124858246}
+  soundButtonImg: {fileID: 1964082560}
   sprite_enableMusic: {fileID: 815564007, guid: 96dd160df13ac7e4f97c9d75485b2add, type: 3}
   sprite_disableMusic: {fileID: -1697163212, guid: 96dd160df13ac7e4f97c9d75485b2add, type: 3}
   sprite_enableSound: {fileID: -488029936, guid: 96dd160df13ac7e4f97c9d75485b2add, type: 3}
   sprite_disableSound: {fileID: 866183857, guid: 96dd160df13ac7e4f97c9d75485b2add, type: 3}
+--- !u!114 &203138409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 203138406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7359dbb59660ffd4f86a0307a73bd961, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSoundsData: {fileID: 11400000, guid: 8912c9616e6a41348bd858994a8f1377, type: 2}
+  sounds: []
 --- !u!1 &206387844
 GameObject:
   m_ObjectHideFlags: 0
@@ -25714,7 +25742,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1964082560}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 203138408}
+        m_TargetAssemblyTypeName: AudioSettingsHandler, Assembly-CSharp
+        m_MethodName: ToggleSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1977374644
 GameObject:
   m_ObjectHideFlags: 0

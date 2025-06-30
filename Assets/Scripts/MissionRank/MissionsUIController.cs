@@ -52,7 +52,8 @@ public class MissionsUIController : MonoBehaviour
         RemoveMissionButtonsEventListers();
         for (int i = 0; i < missionUIs.Count; i++)
         {
-            missionUIs[i].SetMissionIcon(currentMissions[i].icon);
+            //missionUIs[i].SetMissionIcon(currentMissions[i].icon);
+            missionUIs[i].SetMissionIcon(RankManager.Instance.GetIconByMissionType(currentMissions[i].type));       // To avoid destroyed asset bug
             int currentProgress = currentMissions[i].currentValue;
             if (currentProgress > 0)
             {

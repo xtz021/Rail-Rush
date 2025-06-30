@@ -124,6 +124,33 @@ public class RankManager : MonoBehaviour
         return ranksData.missionIcons[index];
     }
 
+
+    public Sprite GetIconByMissionType(MissionType type)
+    {
+        Rank currentRank = GetCurrentRank();
+        if (currentRank == null)
+        {
+            Debug.LogError("Current rank is null. Cannot get icon by mission type.");
+            return null;
+        }
+        if (ranksData.missionIcons.Count == 0)
+        {
+            Debug.LogWarning("No mission icons available.");
+            return null; // Return null if no icons are available
+        }
+        MissionData mission = currentRank.missions.Find(m => m.type == type);
+        if(mission != null)
+        {
+            int index = (int)mission.type;
+            if (index >= 0 && index < ranksData.missionIcons.Count)
+            {
+                return ranksData.missionIcons[index];
+            }
+        }
+        Debug.LogWarning($"No mission of type {type} found to get icon.");
+        return null; // Return null if no matching mission is found
+    }
+
     public void RankUp()
     {
         if(ranksData.CurrentRankIndex <  ranksData.Ranks.Count - 1)
