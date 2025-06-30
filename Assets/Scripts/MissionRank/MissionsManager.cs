@@ -12,26 +12,13 @@ public class MissionsManager : MonoBehaviour
 
     private void Awake()
     {
-        //if (Instance != null && Instance != this)
-        //{
-        //    Destroy(gameObject);
-        //}
-        //else
-        //{
-        //    Instance = this;
-        //    DontDestroyOnLoad(gameObject);
-        //}
         if (Instance != null && Instance != this)
         {
             Destroy(Instance.gameObject); // Destroy the previous instance if it exists
             Debug.LogWarning("Multiple instances of MissionsManager detected. Destroying older duplicate instance.");
-            Instance = this; // Set the new instance
         }
-        else
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
         LoadCurrentMissionData();
         //ResetCurrentMissions();
     }
@@ -100,7 +87,7 @@ public class MissionsManager : MonoBehaviour
 
     public void LoadCurrentMissionData()
     {
-        string json = PlayerPrefs.GetString("CurrentMissions", "");
+        string json = PlayerPrefs.GetString("CurrentMissions", null);
         if (!string.IsNullOrEmpty(json))
         {
             MissionListSaveHolder wrapper = JsonUtility.FromJson<MissionListSaveHolder>(json);

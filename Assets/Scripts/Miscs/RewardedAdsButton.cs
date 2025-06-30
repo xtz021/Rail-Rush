@@ -4,7 +4,8 @@ using UnityEngine.Advertisements;
 
 public class RewardedAdsButton : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowListener
 {
-    [SerializeField] Button _showAdButton;
+    public static RewardedAdsButton Instance { get; private set; }
+    [SerializeField] Button showAdButton;
     string _androidAdUnitId;
     string _iOSAdUnitId;
     string _adUnitId = null; // This will remain null for unsupported platforms
@@ -13,6 +14,11 @@ public class RewardedAdsButton : MonoBehaviour, IUnityAdsLoadListener, IUnityAds
 
     private void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(Instance.gameObject);
+        }
+        Instance = this;
         _androidAdUnitId = "Rewarded_Android";
         _iOSAdUnitId = "Rewarded_iOS";
         // Get the Ad Unit ID for the current platform:
@@ -28,43 +34,25 @@ public class RewardedAdsButton : MonoBehaviour, IUnityAdsLoadListener, IUnityAds
     void Start()
     {
         // Disable the button until the ad is ready to show:
-        if(_showAdButton != null)
+        if(showAdButton != null)
         {
-            _showAdButton.interactable = true;
+            showAdButton.interactable = true;
         }
     }
 
-    private void OnEnable()
-    {
-        LoadAdForAdsButton(); // Load the ad when the script is enabled
-    }
     private void OnDisable()
     {
-        if (_showAdButton != null)
+        if (showAdButton != null)
         {
-            _showAdButton.onClick.RemoveAllListeners(); // Remove listeners to prevent memory leaks
+            showAdButton.onClick.RemoveAllListeners(); // Remove listeners to prevent memory leaks
         }
     }
 
-    private void LoadAdForAdsButton()
-    {
-        if (GooglePlayUIHandler.Instance != null && GooglePlayUIHandler.Instance.showAdsClaimNuggetButton != null)
-        {
-            _showAdButton = GooglePlayUIHandler.Instance.showAdsClaimNuggetButton;     // Assign the button from GooglePlayUIHandler
-            _showAdButton.onClick.RemoveAllListeners(); // Clear any existing listeners to avoid duplicates
-            _showAdButton.onClick.AddListener(ShowAd);
-            _showAdButton.interactable = true;
-        }
-        else
-        {
-            Debug.LogWarning("GooglePlayUIHandler or showAdsClaimNuggetButton is not initialized.");
-        }
-    }
 
 
     public void AssignUI(Button showAdButton)
     {
-        _showAdButton = showAdButton;
+        this.showAdButton = showAdButton;
     }
 
     // Call this public method when you want to get an ad ready to show.
@@ -83,9 +71,10 @@ public class RewardedAdsButton : MonoBehaviour, IUnityAdsLoadListener, IUnityAds
         if (adUnitId.Equals(_adUnitId))
         {
             // Configure the button to call the ShowAd() method when clicked:
-            _showAdButton.onClick.AddListener(ShowAd);
+            showAdButton.onClick.RemoveAllListeners();
+            showAdButton.onClick.AddListener(ShowAd);
             // Enable the button for users to click:
-            _showAdButton.interactable = true;
+            showAdButton.interactable = true;
         }
     }
 
@@ -94,7 +83,7 @@ public class RewardedAdsButton : MonoBehaviour, IUnityAdsLoadListener, IUnityAds
     public void ShowAd()
     {
         // Disable the button:
-        _showAdButton.interactable = false;
+        showAdButton.interactable = false;
         // Then show the ad:
         Advertisement.Show(_adUnitId, this);
         //handler.StopAllCoroutines();
@@ -138,6 +127,6 @@ public class RewardedAdsButton : MonoBehaviour, IUnityAdsLoadListener, IUnityAds
     void OnDestroy()
     {
         // Clean up the button listeners:
-        _showAdButton.onClick.RemoveAllListeners();
+        showAdButton.onClick.RemoveAllListeners();
     }
 }

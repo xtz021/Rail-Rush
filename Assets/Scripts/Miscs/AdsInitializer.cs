@@ -13,7 +13,7 @@ public class AdsInitializer : MonoBehaviour, IUnityAdsInitializationListener
     [SerializeField] bool _testMode = true;
     private string _gameId;
 
-    public RewardedAdsButton _rewarded_ads_instance;
+    public RewardedAdsButton rewarded_ads_instance;
     [SerializeField] GameObject rewarded_ads_prefab;
     [SerializeField] Button _showAdButton;
 
@@ -28,6 +28,7 @@ public class AdsInitializer : MonoBehaviour, IUnityAdsInitializationListener
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
+        NewRewardedAdsInstance();
         InitializeAds();
     }
 
@@ -48,19 +49,22 @@ public class AdsInitializer : MonoBehaviour, IUnityAdsInitializationListener
 
     public void NewRewardedAdsInstance()
     {
-        var oldRewarded = FindObjectOfType<RewardedAdsButton>();
-        Destroy(oldRewarded.gameObject);
+        if (rewarded_ads_instance != null)
+        {
+            var oldRewarded = FindObjectOfType<RewardedAdsButton>();
+            Destroy(oldRewarded.gameObject);
+        }
         var newRewarded = Instantiate(rewarded_ads_prefab, Vector3.zero, Quaternion.identity);
-        RewardedAdsButton rewardedAds = newRewarded.GetComponent<RewardedAdsButton>();
-        rewardedAds.AssignUI(GooglePlayUIHandler.Instance.showAdsClaimNuggetButton);
-        StartCoroutine(DelayLoadRewardAds(rewardedAds));
+        rewarded_ads_instance = newRewarded.GetComponent<RewardedAdsButton>();
+        rewarded_ads_instance.AssignUI(GooglePlayUIHandler.Instance.showAdsClaimNuggetButton);
+        StartCoroutine(DelayLoadRewardAds(rewarded_ads_instance));
     }
 
 
     public void OnInitializationComplete()
     {
         Debug.Log("Unity Ads initialization complete.");
-        _rewarded_ads_instance.LoadAd();
+        rewarded_ads_instance.LoadAd();
     }
 
     public void OnInitializationFailed(UnityAdsInitializationError error, string message)
