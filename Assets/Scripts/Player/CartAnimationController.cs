@@ -54,4 +54,17 @@ public class CartAnimationController : MonoBehaviour
         animator.SetTrigger("Revive");
     }
 
+    public void PlayCartMovingAudio()
+    {
+        AudioManager.Instance.Play("CartMoving");
+        AudioManager.Instance.Stop("CartJump");
+    }
+
+    public void PlayCartJumpAudio()
+    {
+        AudioManager.Instance.Play("CartJump");
+        AudioManager.Instance.Stop("CartMoving");
+    }
+
+
 }

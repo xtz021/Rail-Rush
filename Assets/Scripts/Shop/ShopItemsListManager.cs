@@ -10,6 +10,7 @@ public class ShopItemsListManager : MonoBehaviour
     [SerializeField] GameObject shopItemPrefab; // Prefab for each shop item
     [SerializeField] Transform shopItemsContainer; // Parent container for shop items
 
+
     private void OnEnable()
     {
         if (itemsData != null && shopItemsContainer != null && shopItemPrefab != null)
@@ -49,6 +50,7 @@ public class ShopItemsListManager : MonoBehaviour
                     itemUIHandler.SetDescriptionImage(item.descriptionImage);
                     itemUIHandler.SetPrice(item.price, item.isIAP);
                     itemUIHandler.SetBuyButtonEvent(() => itemsData.PurchaseItem(index));
+                    itemUIHandler.AddBuyButtonEvent(PlayPurchaseAudio);
                     itemUIHandler.AddBuyButtonEvent(RefreshShopItems);
                     itemUIHandler.AddBuyButtonEvent(ShopUIManager.Instance.UpdateCurrenciesIntoShopInfo);
                     if (InventoryManager.Instance.IsPurchased(item.itemID))
@@ -94,4 +96,8 @@ public class ShopItemsListManager : MonoBehaviour
         GenerateShopItems(); // Regenerate the shop items list
     }
 
+    public void PlayPurchaseAudio()
+    {
+        AudioManager.Instance.Play("Purchase");
+    }
 }

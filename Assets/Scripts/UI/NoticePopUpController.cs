@@ -7,6 +7,11 @@ public class NoticePopUpController : MonoBehaviour
 {
     [SerializeField] private TMP_Text noticeText;
 
+    private void Start()
+    {
+        AudioManager.Instance.Play("PopUp");
+    }
+
     public void SetNoticeText(string text)
     {
         if (noticeText != null)

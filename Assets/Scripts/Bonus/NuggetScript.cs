@@ -9,7 +9,7 @@ public class NuggetScript : MonoBehaviour
 
     private void Start()
     {
-        audioSource = GetComponent<AudioSource>();
+        //audioSource = GetComponent<AudioSource>();
     }
 
     void OnTriggerEnter(Collider other)
@@ -18,10 +18,11 @@ public class NuggetScript : MonoBehaviour
         {
             InGameController.Instance.GainGold(goldValue * InventoryManager.Instance.NuggetBonusMultiplier);
             MissionsManager.Instance.UpdateMissionProgressByType(MissionType.CollectNuggets);
-            if (audioSource != null)
-            {
-                audioSource.Play();
-            }
+            //if (audioSource != null)
+            //{
+            //    audioSource.Play();
+            //}
+            AudioManager.Instance.Play("Nugget");
             Destroy(gameObject);
         }
     }

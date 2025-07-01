@@ -11,7 +11,7 @@ public class GemScript : MonoBehaviour
     private void Start()
     {
         GetGemValue();
-        audioSource = GetComponent<AudioSource>();
+        //audioSource = GetComponent<AudioSource>();
     }
 
     private void GetGemValue()
@@ -33,10 +33,11 @@ public class GemScript : MonoBehaviour
         {
             InGameController.Instance.GainGold(gemValue);
             UpdatePlayerGemStats(gemName, GameStatsController.Instance.playerStats);
-            if (audioSource != null)
-            {
-                audioSource.Play();
-            }
+            //if (audioSource != null)
+            //{
+            //    audioSource.Play();
+            //}
+            AudioManager.Instance.Play("Gem");
             MissionsManager.Instance.UpdateMissionProgressByType(MissionType.CollectGems);
             Destroy(gameObject);
         }

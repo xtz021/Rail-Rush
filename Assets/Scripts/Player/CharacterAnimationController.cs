@@ -95,4 +95,21 @@ public class CharacterAnimationController : MonoBehaviour
         characterAnimation.Play("CrouchCenterExit");
         yield break;
     }
+    public void Char1Fall()
+    {
+        AudioManager.Instance.Play("Char1_fall");
+        AudioManager.Instance.Stop("CartMoving");
+    }
+
+    public void Char2Fall()
+    {
+        AudioManager.Instance.Play("Char2_fall");
+        AudioManager.Instance.Stop("CartMoving");
+    }
+
+    public void Char3Fall()
+    {
+        AudioManager.Instance.Play("Char3_fall");
+        AudioManager.Instance.Stop("CartMoving");
+    }
 }
