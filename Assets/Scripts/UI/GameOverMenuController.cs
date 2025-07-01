@@ -31,6 +31,7 @@ public class GameOverMenuController : MonoBehaviour
 
     private void OnEnable()
     {
+        AudioManager.Instance.StopBackgroundAudio(); // Stop background audio when game over menu is enabled
         SaveProgressData();                                 // Save the current game progress when the game is over
         passTicketCountText.text = "" + InventoryManager.Instance.inventory.PassTickets;
         best_DistanceText.text = "" + InGameController.Instance.best_Distance;

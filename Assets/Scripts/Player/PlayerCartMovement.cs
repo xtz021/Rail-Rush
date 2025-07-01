@@ -267,66 +267,6 @@ public class PlayerCartMovement : MonoBehaviour
         yield break;
     }
 
-    IEnumerator JumpIE2(int jumpDirection)
-    {
-        float timer = 0f;
-        float jumpOnAirDuration = 0.5f;
-        float duration = jumpOnAirDuration;
-
-#if UNITY_ANDROID || UNITY_IOS
-        duration *= mobileJumpDurationMultiplier; // Slightly longer jumps on mobile
-#endif
-
-        playerCartGrindMovement.onRail = false;
-        jumpDirection = NormalizedIntDirection(jumpDirection);
-        playerStatusController.playerCurrentStatus = PlayerStatus.Jump;
-
-        // Capture starting state
-        Vector3 startPosition = transform.position;
-        Quaternion startRotation = transform.rotation;
-
-        // Calculate movement vectors
-        Vector3 rightMovement = transform.right * jumpDirection * distantBetweenRails;
-        Vector3 forwardMovement = transform.forward * _PlayerCartSpeed * duration * jumpForceMultiplier;
-        Vector3 totalHorizontalMovement = rightMovement + forwardMovement;
-
-        while (timer < duration && playerStatusController.playerCurrentStatus != PlayerStatus.OnRail)
-        {
-            float t = timer / duration;
-
-            // Calculate vertical arc (sin curve)
-            float vertical = Mathf.Sin(t * Mathf.PI) * jumpHeight;
-
-            // Calculate horizontal movement (lerp)
-            Vector3 horizontal = Vector3.Lerp(Vector3.zero, totalHorizontalMovement, t);
-
-            // Apply movement relative to start position
-            transform.position = startPosition + horizontal + Vector3.up * vertical;
-
-            // Maintain rotation
-            transform.rotation = startRotation;
-
-            timer += Time.deltaTime;
-            yield return null;
-        }
-
-        // Landing logic
-        if (playerStatusController.playerCurrentStatus != PlayerStatus.OnRail)
-        {
-            playerStatusController.playerCurrentStatus = PlayerStatus.OffRail;
-            gravitySim.isFalling = true;
-
-            // Snap to ground if near
-            //if (Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, .5f))
-            //{
-            //    transform.position = hit.point + Vector3.up * 0.5f;
-            //}
-        }
-        else
-        {
-            yield break;
-        }    
-    }
 
     IEnumerator TouchControlGoesOnCooldown()
     {

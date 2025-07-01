@@ -9,6 +9,7 @@ public class CartAnimationController : MonoBehaviour
 
     Animator animator;
     bool animationTriggered = false;
+    private int currentChacterIndex = 0; // Index of the current character
 
     private void Awake()
     {
@@ -44,6 +45,11 @@ public class CartAnimationController : MonoBehaviour
         }
     }
 
+    public void BackToIdle()
+    {
+        animator.SetTrigger("BackToRail");
+    }
+
     public void DeadAnimation(string causeOfDeath)
     {
         animator.SetTrigger("Dead_" + causeOfDeath);
@@ -66,5 +72,23 @@ public class CartAnimationController : MonoBehaviour
         AudioManager.Instance.Stop("CartMoving");
     }
 
+    public void SetCurrentCharacterIndex(int index)
+    {
+        currentChacterIndex = index;
+    }
 
+    public void PlayDeadAudioByCharacter()
+    {
+        if(currentChacterIndex != 0)
+        {
+            AudioManager.Instance.Play($"Char{currentChacterIndex}_fall");
+            Debug.Log($"Playing dead audio for character index: {currentChacterIndex}");
+            AudioManager.Instance.Stop("CartMoving");
+            AudioManager.Instance.Stop("CartJump");
+        }
+        else
+        {
+            Debug.LogWarning("Current character index is 0, no specific dead audio for this character.");
+        }
+    }
 }

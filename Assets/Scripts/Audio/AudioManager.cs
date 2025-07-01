@@ -55,6 +55,28 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    public void StopBackgroundAudio()
+    {
+        string backgroundSoundName = null;
+        if (SceneManager.GetActiveScene().buildIndex == 0) // Assuming 0 is the main menu scene
+        {
+            backgroundSoundName = "MenuMusic";
+        }
+        else if (SceneManager.GetActiveScene().buildIndex == 1) // Assuming 1 is the game scene
+        {
+            backgroundSoundName = "CaveMusic";
+        }
+        if (backgroundSoundName != null)
+        {
+            Stop(backgroundSoundName);
+        }
+        else
+        {
+            Debug.LogWarning($"Background music name {backgroundSoundName} sound not found.");
+            return;
+        }
+    }
+
     private void LoadAudioSettings()
     {
         if (audioSoundsData == null)

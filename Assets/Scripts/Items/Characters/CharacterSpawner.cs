@@ -22,6 +22,8 @@ public class CharacterSpawner : MonoBehaviour
                 {
                     Debug.LogError("Character prefab is not assigned for item: " + item.name);
                 }
+                int charIndex = shopHeroesData.shopItems.IndexOf(item) + 1;
+                CartAnimationController.Instance.SetCurrentCharacterIndex(charIndex); // Set the current character index in the CartAnimationController
                 return; // Exit after spawning the equipped character
             }
         }

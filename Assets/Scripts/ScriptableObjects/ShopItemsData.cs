@@ -111,5 +111,9 @@ public class ShopItemsData : ScriptableObject
         }
     }
 
+    public int GetItemIndex(ShopItem item)
+    {
+        return shopItems.IndexOf(item);
+    }
 
 }

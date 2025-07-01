@@ -36,7 +36,7 @@ AnimationClip:
       m_BitSize: 4
     m_Values:
       m_NumItems: 17
-      m_Data: fbf7df639357e063c3f62064336621651b66a165a3b6e0659b27e0667358a16a93f95f651bba9e616b495f613b58a0610b6761626bd621635bd661635b97e063fbf7df63
+      m_Data: fbf7df639357e063c3f6e063336621651b66a165a3b6e0659b27e0667358a16a93f95f651bba9e616b495f613b58a0610b6761626bd621635bd661635b97e063fbf7df63
     m_Slopes:
       m_NumItems: 68
       m_Range: 5.417256
@@ -2674,4 +2674,11 @@ AnimationClip:
     script: {fileID: 0}
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0
+    functionName: PlayCartJumpAudio
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

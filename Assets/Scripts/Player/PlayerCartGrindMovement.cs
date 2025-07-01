@@ -78,6 +78,7 @@ public class PlayerCartGrindMovement : MonoBehaviour
         //if (currentRailScript != null && playerStatusController.playerCurrentStatus == PlayerStatus.OnRail) //This is just some additional error checking.
         if (currentRailScript != null && onRail) //This is just some additional error checking.
         {
+            #region Calculate the position on rail by calculate progress based on Time to get time for full Spline (by speed) and elapsed time on spline
             //Calculate a 0 to 1 normalised time value which is the progress along the rail.
             //Elapsed time divided by the full time needed to traverse the spline will give you that value.
             float progress = elapsedTime / timeForFullSpline;
@@ -107,6 +108,8 @@ public class PlayerCartGrindMovement : MonoBehaviour
             //Converting the local positions into world positions.
             Vector3 worldPos = currentRailScript.LocalToWorldConversion(pos);
             Vector3 nextPos = currentRailScript.LocalToWorldConversion(nextPosfloat);
+
+            #endregion
 
             if (Vector3.Distance(nextPos, worldPos) == 0 && frontDetector._hasRailInFront) // in case the player Cart got stucked between 2 rails
             {
@@ -159,6 +162,7 @@ public class PlayerCartGrindMovement : MonoBehaviour
              *rail script of the rail the player hits. Then we calculate the player's position on that rail.*/
             onRail = true;
             currentRailScript = other.gameObject.GetComponent<RailScript>();
+            CartAnimationController.Instance.BackToIdle();
             //if (currentRailScript != null)
             //{
             //    Debug.Log("Enter " + other.transform.parent.name + " rail!");
