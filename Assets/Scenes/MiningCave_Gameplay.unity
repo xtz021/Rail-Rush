@@ -729,7 +729,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 251096817}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
@@ -955,7 +955,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1612823677}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
@@ -2707,7 +2707,7 @@ RectTransform:
   - {fileID: 1718624478}
   - {fileID: 1286126452}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3190,7 +3190,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 251096817}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
@@ -4289,7 +4289,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &509698002
 MonoBehaviour:
@@ -6197,7 +6197,7 @@ Transform:
   - {fileID: 1036514242}
   - {fileID: 285236122}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &830546000
 MonoBehaviour:
@@ -6468,7 +6468,7 @@ Transform:
   - {fileID: 181873067}
   - {fileID: 2103551921}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &853492814
 GameObject:
@@ -8970,7 +8970,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1252594953
 MonoBehaviour:
@@ -9314,6 +9314,7 @@ GameObject:
   - component: {fileID: 1286126454}
   - component: {fileID: 1286126453}
   - component: {fileID: 1286126455}
+  - component: {fileID: 1286126456}
   m_Layer: 5
   m_Name: GameOverMenuPanel
   m_TagString: Untagged
@@ -9400,6 +9401,27 @@ MonoBehaviour:
   best_GoldText: {fileID: 555565529}
   current_DistanceText: {fileID: 73511920}
   current_GoldText: {fileID: 298376723}
+--- !u!114 &1286126456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1286126451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a6332e9e2aee904483d85dd32d5ab6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveInFromRightList:
+  - {fileID: 865950441}
+  - {fileID: 1036602668}
+  - {fileID: 1125322563}
+  moveInFromLeftList:
+  - {fileID: 45524623}
+  - {fileID: 739799205}
+  moveInFromTopList:
+  - {fileID: 1316198339}
 --- !u!1 &1308527978
 GameObject:
   m_ObjectHideFlags: 0
@@ -9658,7 +9680,7 @@ Transform:
   - {fileID: 168282092}
   - {fileID: 2099588091}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1337166975
 MonoBehaviour:
@@ -10595,7 +10617,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1612823677}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
@@ -12652,6 +12674,7 @@ GameObject:
   - component: {fileID: 1718624480}
   - component: {fileID: 1718624479}
   - component: {fileID: 1718624481}
+  - component: {fileID: 1718624482}
   m_Layer: 5
   m_Name: PauseMenuPanel
   m_TagString: Untagged
@@ -12735,6 +12758,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bestScoreText: {fileID: 521406003}
+--- !u!114 &1718624482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1718624477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a6332e9e2aee904483d85dd32d5ab6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveInFromRightList:
+  - {fileID: 136512445}
+  - {fileID: 2072356403}
+  moveInFromLeftList:
+  - {fileID: 2111852224}
+  - {fileID: 1113231385}
+  moveInFromTopList:
+  - {fileID: 1181892373}
 --- !u!1 &1729643812
 GameObject:
   m_ObjectHideFlags: 0

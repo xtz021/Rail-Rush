@@ -3859,7 +3859,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: -1350.0771}
+  m_SizeDelta: {x: 0, y: -1349.0186}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &274850570
 MonoBehaviour:
@@ -5060,6 +5060,7 @@ GameObject:
   m_Component:
   - component: {fileID: 372998742}
   - component: {fileID: 372998743}
+  - component: {fileID: 372998744}
   m_Layer: 5
   m_Name: ShopPanel - Extras
   m_TagString: Untagged
@@ -5106,6 +5107,24 @@ MonoBehaviour:
   itemsData: {fileID: 11400000, guid: 9968917f12e034a439909a19ad026ff5, type: 2}
   shopItemPrefab: {fileID: 3588715723468332035, guid: be7502a15c627134a89f209d54cc4b7b, type: 3}
   shopItemsContainer: {fileID: 1236255876}
+--- !u!114 &372998744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 372998741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a6332e9e2aee904483d85dd32d5ab6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveInFromRightList:
+  - {fileID: 1341438747}
+  moveInFromLeftList:
+  - {fileID: 1615221842}
+  moveInFromTopList:
+  - {fileID: 1262476037}
 --- !u!1 &377142221
 GameObject:
   m_ObjectHideFlags: 0
@@ -5906,6 +5925,7 @@ GameObject:
   m_Component:
   - component: {fileID: 420513526}
   - component: {fileID: 420513527}
+  - component: {fileID: 420513528}
   m_Layer: 5
   m_Name: ShopPanel - CartStuff
   m_TagString: Untagged
@@ -5952,6 +5972,24 @@ MonoBehaviour:
   itemsData: {fileID: 11400000, guid: fe5b08a715c9f7c4883223916d4ebd21, type: 2}
   shopItemPrefab: {fileID: 3588715723468332035, guid: be7502a15c627134a89f209d54cc4b7b, type: 3}
   shopItemsContainer: {fileID: 1366829027}
+--- !u!114 &420513528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 420513525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a6332e9e2aee904483d85dd32d5ab6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveInFromRightList:
+  - {fileID: 1995789046}
+  moveInFromLeftList:
+  - {fileID: 1885593157}
+  moveInFromTopList:
+  - {fileID: 1006962928}
 --- !u!1 &422417876
 GameObject:
   m_ObjectHideFlags: 0
@@ -9517,6 +9555,7 @@ GameObject:
   - component: {fileID: 732983879}
   - component: {fileID: 732983882}
   - component: {fileID: 732983881}
+  - component: {fileID: 732983883}
   m_Layer: 5
   m_Name: OptionMenuPanel
   m_TagString: Untagged
@@ -9585,6 +9624,31 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 732983878}
   m_CullTransparentMesh: 1
+--- !u!114 &732983883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 732983878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a6332e9e2aee904483d85dd32d5ab6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveInFromRightList:
+  - {fileID: 1796727175}
+  - {fileID: 1513601133}
+  - {fileID: 718334811}
+  - {fileID: 1034876479}
+  moveInFromLeftList:
+  - {fileID: 124858245}
+  - {fileID: 1964082559}
+  - {fileID: 1573851592}
+  - {fileID: 2065424441}
+  moveInFromTopList:
+  - {fileID: 1623404629}
+  - {fileID: 1762649245}
 --- !u!1 &734167486
 GameObject:
   m_ObjectHideFlags: 0
@@ -12402,7 +12466,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 969883915}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -12415,12 +12479,12 @@ RectTransform:
   - {fileID: 1730188733}
   - {fileID: 757612129}
   - {fileID: 478831146}
-  m_Father: {fileID: 1013426469}
-  m_RootOrder: 3
+  m_Father: {fileID: 1083560917}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -100}
+  m_AnchoredPosition: {x: 0, y: 120}
   m_SizeDelta: {x: 1600, y: 2400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &971766333
@@ -12435,6 +12499,7 @@ GameObject:
   - component: {fileID: 971766337}
   - component: {fileID: 971766336}
   - component: {fileID: 971766338}
+  - component: {fileID: 971766339}
   m_Layer: 5
   m_Name: StatsPanel
   m_TagString: Untagged
@@ -12535,6 +12600,23 @@ MonoBehaviour:
   tmp_EmeraldCollected: {fileID: 547384110}
   tmp_DiamondCollected: {fileID: 656067843}
   tmp_TotalGemsCollected: {fileID: 40123138}
+--- !u!114 &971766339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 971766333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a6332e9e2aee904483d85dd32d5ab6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveInFromRightList: []
+  moveInFromLeftList:
+  - {fileID: 236085617}
+  moveInFromTopList:
+  - {fileID: 452305528}
 --- !u!1 &982174808
 GameObject:
   m_ObjectHideFlags: 0
@@ -12956,6 +13038,7 @@ GameObject:
   - component: {fileID: 1013426471}
   - component: {fileID: 1013426470}
   - component: {fileID: 1013426472}
+  - component: {fileID: 1013426473}
   m_Layer: 5
   m_Name: GemCollectionPanel
   m_TagString: Untagged
@@ -12978,7 +13061,6 @@ RectTransform:
   - {fileID: 1763829447}
   - {fileID: 411113651}
   - {fileID: 1083560917}
-  - {fileID: 969883916}
   - {fileID: 1552978389}
   m_Father: {fileID: 143054812}
   m_RootOrder: 4
@@ -13046,6 +13128,25 @@ MonoBehaviour:
   sapphire: {fileID: 1730188732}
   emerald: {fileID: 757612128}
   diamond: {fileID: 478831145}
+--- !u!114 &1013426473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1013426468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a6332e9e2aee904483d85dd32d5ab6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveInFromRightList:
+  - {fileID: 1083560917}
+  moveInFromLeftList:
+  - {fileID: 1552978389}
+  moveInFromTopList:
+  - {fileID: 1763829447}
+  - {fileID: 411113651}
 --- !u!1 &1014664458
 GameObject:
   m_ObjectHideFlags: 0
@@ -14007,6 +14108,7 @@ RectTransform:
   m_Children:
   - {fileID: 148687705}
   - {fileID: 1869488142}
+  - {fileID: 969883916}
   m_Father: {fileID: 1013426469}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -17687,6 +17789,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1326231105}
+  - component: {fileID: 1326231106}
   m_Layer: 5
   m_Name: MainScreenButtons
   m_TagString: Untagged
@@ -17720,6 +17823,27 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1326231106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1326231104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a6332e9e2aee904483d85dd32d5ab6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveInFromRightList:
+  - {fileID: 327313396}
+  - {fileID: 641109205}
+  - {fileID: 124083655}
+  moveInFromLeftList:
+  - {fileID: 2098379819}
+  - {fileID: 1244776194}
+  - {fileID: 1136770446}
+  moveInFromTopList: []
 --- !u!1 &1341438746
 GameObject:
   m_ObjectHideFlags: 0
@@ -18916,6 +19040,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1478643487}
   - component: {fileID: 1478643488}
+  - component: {fileID: 1478643489}
   m_Layer: 5
   m_Name: ShopPanel - Heroes
   m_TagString: Untagged
@@ -18962,6 +19087,24 @@ MonoBehaviour:
   itemsData: {fileID: 11400000, guid: ca0038504563cf54780d936ca05345fd, type: 2}
   shopItemPrefab: {fileID: 3588715723468332035, guid: be7502a15c627134a89f209d54cc4b7b, type: 3}
   shopItemsContainer: {fileID: 619562041}
+--- !u!114 &1478643489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1478643486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a6332e9e2aee904483d85dd32d5ab6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveInFromRightList:
+  - {fileID: 982174809}
+  moveInFromLeftList:
+  - {fileID: 1466967647}
+  moveInFromTopList:
+  - {fileID: 319094934}
 --- !u!1 &1478949820
 GameObject:
   m_ObjectHideFlags: 0
@@ -19914,6 +20057,7 @@ GameObject:
   - component: {fileID: 1548260271}
   - component: {fileID: 1548260274}
   - component: {fileID: 1548260273}
+  - component: {fileID: 1548260275}
   m_Layer: 5
   m_Name: MissionsMenuPanel
   m_TagString: Untagged
@@ -19982,6 +20126,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1548260270}
   m_CullTransparentMesh: 1
+--- !u!114 &1548260275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1548260270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a6332e9e2aee904483d85dd32d5ab6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveInFromRightList:
+  - {fileID: 695558607}
+  moveInFromLeftList:
+  - {fileID: 1895107864}
+  moveInFromTopList:
+  - {fileID: 1636688661}
 --- !u!1 &1550403038
 GameObject:
   m_ObjectHideFlags: 0
@@ -20063,7 +20225,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1013426469}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -24011,7 +24173,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -17, y: 800}
+  m_SizeDelta: {x: -17, y: 645}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1816313365
 MonoBehaviour:
@@ -24651,6 +24813,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1858098308}
   - component: {fileID: 1858098309}
+  - component: {fileID: 1858098310}
   m_Layer: 5
   m_Name: ShopPanel - Nuggets
   m_TagString: Untagged
@@ -24697,6 +24860,24 @@ MonoBehaviour:
   itemsData: {fileID: 11400000, guid: 7994f396229b41b468ede626e78a5d5d, type: 2}
   shopItemPrefab: {fileID: 3588715723468332035, guid: be7502a15c627134a89f209d54cc4b7b, type: 3}
   shopItemsContainer: {fileID: 274850569}
+--- !u!114 &1858098310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1858098307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a6332e9e2aee904483d85dd32d5ab6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveInFromRightList:
+  - {fileID: 1080768438}
+  moveInFromLeftList:
+  - {fileID: 129148430}
+  moveInFromTopList:
+  - {fileID: 388895981}
 --- !u!1 &1869488141
 GameObject:
   m_ObjectHideFlags: 0
@@ -27537,6 +27718,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2119706693}
+  - component: {fileID: 2119706694}
   m_Layer: 5
   m_Name: ShopPanel - MainShop
   m_TagString: Untagged
@@ -27571,6 +27753,27 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2119706694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2119706692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a6332e9e2aee904483d85dd32d5ab6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveInFromRightList:
+  - {fileID: 910945775}
+  - {fileID: 891135964}
+  moveInFromLeftList:
+  - {fileID: 1835272744}
+  - {fileID: 1195317862}
+  - {fileID: 1670966568}
+  moveInFromTopList:
+  - {fileID: 1490402306}
 --- !u!1 &2120827164
 GameObject:
   m_ObjectHideFlags: 0
