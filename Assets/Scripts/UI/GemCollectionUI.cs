@@ -24,21 +24,21 @@ public class GemCollectionUI : MonoBehaviour
         PlayerStats playerStats = GameStatsController.Instance.playerStats;
         if (playerStats != null)
         {
-            if(playerStats.AmethystCollected > 0) 
+            if(playerStats.GemCollectedByTypes[GemType.Amethyst] > 0) 
                 amethyst.SetActive(true);
-            if (playerStats.GarnetCollected > 0)
+            if (playerStats.GemCollectedByTypes[GemType.Garnet] > 0)
                 garnet.SetActive(true);
-            if (playerStats.TopazCollected > 0)
+            if (playerStats.GemCollectedByTypes[GemType.Topaz] > 0)
                 topaz.SetActive(true);
-            if(playerStats.SpinelCollected > 0)
+            if(playerStats.GemCollectedByTypes[GemType.Spinel] > 0)
                 spinel.SetActive(true);
-            if(playerStats.RubyCollected > 0)
+            if(playerStats.GemCollectedByTypes[GemType.Ruby] > 0)
                 ruby.SetActive(true);
-            if(playerStats.SapphireCollected > 0)
+            if(playerStats.GemCollectedByTypes[GemType.Sapphire] > 0)
                 sapphire.SetActive(true);
-            if(playerStats.EmeraldCollected > 0)
+            if(playerStats.GemCollectedByTypes[GemType.Emerald] > 0)
                 emerald.SetActive(true);
-            if(playerStats.DiamondCollected > 0)
+            if(playerStats.GemCollectedByTypes[GemType.Diamond] > 0)
                 diamond.SetActive(true);
         }
         else

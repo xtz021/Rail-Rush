@@ -6,6 +6,7 @@ using UnityEngine;
 public class WallBlockerScript : MonoBehaviour
 {
     private const string STRING_OBSTACLE_TYPE = "Wall";
+    [SerializeField] private ObstacleType obstacleType = ObstacleType.Wall;
     private Animation obsAnimation;
 
     private void Awake()
@@ -25,6 +26,14 @@ public class WallBlockerScript : MonoBehaviour
                 playerStatusController.Die(STRING_OBSTACLE_TYPE);
                 UpdatePlayerStats(); // Update player stats info
                 obsAnimation.Play();
+                if(obstacleType == ObstacleType.Wall)
+                {
+                    AudioManager.Instance.Play("PanelBreak");
+                }
+                else
+                {
+                    AudioManager.Instance.Play("WoodCrash");
+                }
             } else if (playerStatusController == null)
             {
                 Debug.Log($"PlayerStatusController is null for {other.name}");
@@ -38,19 +47,19 @@ public class WallBlockerScript : MonoBehaviour
 
     private void UpdatePlayerStats()
     {
-        if(gameObject.name.Contains("Upper"))
+        if(obstacleType == ObstacleType.Upper)
         {
             GameStatsController.Instance.playerStats.DeathsByUpperObs++;
         }
-        else if(gameObject.name.Contains("Lower"))
+        else if(obstacleType == ObstacleType.Lower)
         {
             GameStatsController.Instance.playerStats.DeathsByLowerObs++;
         }
-        else if(gameObject.name.Contains("Left"))
+        else if(obstacleType == ObstacleType.Left)
         {
             GameStatsController.Instance.playerStats.DeathsByLeftObs++; 
         }
-        else if (gameObject.name.Contains("Right"))
+        else if(obstacleType == ObstacleType.Right)
         {
             GameStatsController.Instance.playerStats.DeathsByRightObs++;
         }
@@ -61,4 +70,15 @@ public class WallBlockerScript : MonoBehaviour
         Debug.Log($"Destroying {gameObject.name} after animation");
         Destroy(gameObject);
     }
+
+    public ObstacleType GetObstacleType()
+    {
+        return obstacleType;
+    }
+}
+
+[System.Serializable]
+public enum ObstacleType
+{
+    Wall, Upper, Lower, Left, Right
 }

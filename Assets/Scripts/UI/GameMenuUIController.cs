@@ -17,6 +17,7 @@ public class GameMenuUIController : MonoBehaviour
     [SerializeField] GameObject optionPanel;
     [SerializeField] GameObject gemsCollectionPanel;
     [SerializeField] GameObject statsPanel;
+    [SerializeField] GameObject creditsPanel;
 
     [Header("UI for GGPS:")]
     public Button scoreButton;
@@ -62,6 +63,7 @@ public class GameMenuUIController : MonoBehaviour
         mainMenuButtons.SetActive(false);
         gemsCollectionPanel.SetActive(false);
         statsPanel.SetActive(false);
+        creditsPanel.SetActive(false);
     }
 
     public void OpenOptionsMenu()
@@ -72,6 +74,7 @@ public class GameMenuUIController : MonoBehaviour
         mainMenuButtons.SetActive(false);
         gemsCollectionPanel.SetActive(false);
         statsPanel.SetActive(false);
+        creditsPanel.SetActive(false);
     }
 
     public void ReturnToMainMenu()
@@ -82,6 +85,7 @@ public class GameMenuUIController : MonoBehaviour
         shopPanel.SetActive(false);
         gemsCollectionPanel.SetActive(false);
         statsPanel.SetActive(false);
+        creditsPanel.SetActive(false);
     }
 
     public void OpenGemsCollectionPanel()
@@ -92,6 +96,7 @@ public class GameMenuUIController : MonoBehaviour
         optionPanel.SetActive(false);
         mainMenuButtons.SetActive(false);
         statsPanel.SetActive(false);
+        creditsPanel.SetActive(false);
     }
 
     public void OpenStatsPanel()
@@ -102,11 +107,24 @@ public class GameMenuUIController : MonoBehaviour
         mainMenuButtons.SetActive(false);
         missionsPanel.SetActive(false);
         gemsCollectionPanel.SetActive(false);
+        creditsPanel.SetActive(false);
     }
 
     public void OpenMissionsPanel()
     {
         missionsPanel.SetActive(true);
+        shopPanel.SetActive(false);
+        optionPanel.SetActive(false);
+        mainMenuButtons.SetActive(false);
+        gemsCollectionPanel.SetActive(false);
+        statsPanel.SetActive(false);
+        creditsPanel.SetActive(false);
+    }
+
+    public void OpenCreditsPanel()
+    {
+        creditsPanel.SetActive(true);
+        missionsPanel.SetActive(false);
         shopPanel.SetActive(false);
         optionPanel.SetActive(false);
         mainMenuButtons.SetActive(false);

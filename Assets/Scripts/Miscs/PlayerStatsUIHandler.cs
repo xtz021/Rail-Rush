@@ -59,14 +59,22 @@ public class PlayerStatsUIHandler : MonoBehaviour
         tmp_DeathsByLowerObs.text = "" + playerStats.DeathsByLowerObs;
         tmp_DeathsByRightObs.text = "" + playerStats.DeathsByRightObs;
         tmp_DeathsByleftObs.text = "" + playerStats.DeathsByLeftObs;
-        tmp_AmethystCollected.text = "" + playerStats.AmethystCollected;
-        tmp_GarnetCollected.text = "" + playerStats.GarnetCollected;
-        tmp_TopazCollected.text = "" + playerStats.TopazCollected;
-        tmp_SpinelCollected.text = "" + playerStats.SpinelCollected;
-        tmp_RubyCollected.text = "" + playerStats.RubyCollected;
-        tmp_SapphireCollected.text = "" + playerStats.SapphireCollected;
-        tmp_EmeraldCollected.text = "" + playerStats.EmeraldCollected;
-        tmp_DiamondCollected.text = "" + playerStats.DiamondCollected;
+        //tmp_AmethystCollected.text = "" + playerStats.AmethystCollected;
+        tmp_AmethystCollected.text = "" + playerStats.GemCollectedByTypes[GemType.Amethyst];
+        //tmp_GarnetCollected.text = "" + playerStats.GarnetCollected;
+        tmp_GarnetCollected.text = "" + playerStats.GemCollectedByTypes[GemType.Garnet];
+        //tmp_TopazCollected.text = "" + playerStats.TopazCollected;
+        tmp_TopazCollected.text = "" + playerStats.GemCollectedByTypes[GemType.Topaz];
+        //tmp_SpinelCollected.text = "" + playerStats.SpinelCollected;
+        tmp_SpinelCollected.text = "" + playerStats.GemCollectedByTypes[GemType.Spinel];
+        //tmp_RubyCollected.text = "" + playerStats.RubyCollected;
+        tmp_RubyCollected.text = "" + playerStats.GemCollectedByTypes[GemType.Ruby];
+        //tmp_SapphireCollected.text = "" + playerStats.SapphireCollected;
+        tmp_SapphireCollected.text = "" + playerStats.GemCollectedByTypes[GemType.Sapphire];
+        //tmp_EmeraldCollected.text = "" + playerStats.EmeraldCollected;
+        tmp_EmeraldCollected.text = "" + playerStats.GemCollectedByTypes[GemType.Emerald];
+        //tmp_DiamondCollected.text = "" + playerStats.DiamondCollected;
+        tmp_DiamondCollected.text = "" + playerStats.GemCollectedByTypes[GemType.Diamond];
         tmp_TotalGemsCollected.text = "" + playerStats.TotalGemsCollected;
     }
     
@@ -85,15 +93,27 @@ public class PlayerStats
     public int DeathsByLowerObs;
     public int DeathsByRightObs;
     public int DeathsByLeftObs;
-    public int AmethystCollected;
-    public int GarnetCollected;
-    public int TopazCollected;
-    public int SpinelCollected;
-    public int RubyCollected;
-    public int SapphireCollected;
-    public int EmeraldCollected;
-    public int DiamondCollected;
+    //public int AmethystCollected;
+    //public int GarnetCollected;
+    //public int TopazCollected;
+    //public int SpinelCollected;
+    //public int RubyCollected;
+    //public int SapphireCollected;
+    //public int EmeraldCollected;
+    //public int DiamondCollected;
     public int TotalGemsCollected;
+
+    public Dictionary <GemType, int> GemCollectedByTypes = new Dictionary<GemType, int>()
+    {
+        { GemType.Amethyst, 0 },
+        { GemType.Garnet, 0 },
+        { GemType.Topaz, 0 },
+        { GemType.Spinel, 0 },
+        { GemType.Ruby, 0 },
+        { GemType.Sapphire, 0 },
+        { GemType.Emerald, 0 },
+        { GemType.Diamond, 0 }
+    };
 
     public PlayerStats()
     {
@@ -107,14 +127,22 @@ public class PlayerStats
         DeathsByLowerObs = 0;
         DeathsByRightObs = 0;
         DeathsByLeftObs = 0;
-        AmethystCollected = 0;
-        GarnetCollected = 0;
-        TopazCollected = 0;
-        SpinelCollected = 0;
-        RubyCollected = 0;
-        SapphireCollected = 0;
-        EmeraldCollected = 0;
-        DiamondCollected = 0;
+        //AmethystCollected = 0;
+        //GarnetCollected = 0;
+        //TopazCollected = 0;
+        //SpinelCollected = 0;
+        //RubyCollected = 0;
+        //SapphireCollected = 0;
+        //EmeraldCollected = 0;
+        //DiamondCollected = 0;
+        GemCollectedByTypes[GemType.Amethyst] = 0;
+        GemCollectedByTypes[GemType.Garnet] = 0;
+        GemCollectedByTypes[GemType.Topaz] = 0;
+        GemCollectedByTypes[GemType.Spinel] = 0;
+        GemCollectedByTypes[GemType.Ruby] = 0;
+        GemCollectedByTypes[GemType.Sapphire] = 0;
+        GemCollectedByTypes[GemType.Emerald] = 0;
+        GemCollectedByTypes[GemType.Diamond] = 0;
         TotalGemsCollected = 0;
     }
 }

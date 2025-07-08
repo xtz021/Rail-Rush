@@ -14,5 +14,6 @@ public class GemsDataSO : ScriptableObject
 public struct Gem
 {
     public string Name;
+    public GemType gemType;
     public int Value;
 }

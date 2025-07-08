@@ -6,6 +6,7 @@ public class GemScript : MonoBehaviour
 {
     int gemValue = 0;
     string gemName;
+    [SerializeField] GemType gemType = GemType.Amethyst;
     AudioSource audioSource;
 
     private void Start()
@@ -18,7 +19,7 @@ public class GemScript : MonoBehaviour
     {
         foreach(Gem gem in GemValueHandler.Instance.GetGemList())
         {
-            if(gameObject.name.Contains(gem.Name))
+            if(gemType == gem.gemType)
             {
                 gemValue = gem.Value;
                 gemName = gem.Name;
@@ -46,36 +47,19 @@ public class GemScript : MonoBehaviour
     private void UpdatePlayerGemStats(string gemName, PlayerStats playerStats)
     {
         playerStats.TotalGemsCollected++;
-        switch (gemName)
-        {
-            case "Amethyst":
-                playerStats.AmethystCollected++;
-                break;
-            case "Garnet":
-                playerStats.GarnetCollected++;
-                break;
-            case "Topaz":
-                playerStats.TopazCollected++;
-                break;
-            case "Spinel":
-                playerStats.SpinelCollected++;
-                break;
-            case "Ruby":
-                playerStats.RubyCollected++;
-                break;
-            case "Sapphire":
-                playerStats.SapphireCollected++;
-                break;
-            case "Emerald":
-                playerStats.EmeraldCollected++;
-                break;
-            case "Diamond":
-                playerStats.DiamondCollected++;
-                break;
-            default:
-                Debug.LogWarning("Unknown gem type: " + gemName);
-                break;
-        }
+        playerStats.GemCollectedByTypes[gemType]++;
     }
 
+}
+
+public enum GemType
+{
+    Amethyst,
+    Garnet,
+    Topaz,
+    Spinel,
+    Ruby,
+    Sapphire,
+    Emerald,
+    Diamond
 }
