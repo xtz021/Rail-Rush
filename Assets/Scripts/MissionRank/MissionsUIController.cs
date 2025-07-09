@@ -55,9 +55,9 @@ public class MissionsUIController : MonoBehaviour
             //missionUIs[i].SetMissionIcon(currentMissions[i].icon);
             missionUIs[i].SetMissionIcon(RankManager.Instance.GetIconByMissionType(currentMissions[i].type));       // To avoid destroyed asset bug
             int currentProgress = currentMissions[i].currentValue;
-            if (currentProgress > 0)
+            if (currentProgress > 0 && !currentMissions[i].isCompleted)
             {
-                missionUIs[i].SetMissionDescription(currentMissions[i].missionDescription + $" {currentMissions[i].targetValue - currentMissions[i].currentValue} to go.");
+                missionUIs[i].SetMissionDescription(currentMissions[i].missionDescription + $" {currentMissions[i].targetValue - currentProgress} to go.");
             }
             else
             {
