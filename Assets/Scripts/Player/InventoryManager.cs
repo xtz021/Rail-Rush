@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
@@ -19,7 +20,7 @@ public class InventoryManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
             LoadInventory();
-            //AddStartingItem();
+            //ResetInventoryData();
         }
     }
 
@@ -53,11 +54,30 @@ public class InventoryManager : MonoBehaviour
         {
             Debug.LogWarning("Inventory file not found, initializing new inventory.");
             inventory = ScriptableObject.CreateInstance<PlayerInventorySO>();
-            inventory.items = new System.Collections.Generic.List<PlayerInventorySO.InventoryItem>();
+            inventory.items = new List<PlayerInventorySO.InventoryItem>();
             inventory.Gold = 0;
             inventory.PassTickets = 0;
             AddStartingItem(); // Add starting item if inventory is empty
         }
+    }
+
+    public void ResetInventoryData()
+    {
+        string path = Path.Combine(Application.persistentDataPath, "inventory.json");
+        if (File.Exists(path))
+        {
+            File.Delete(path);
+        }
+        else
+        {
+            Debug.LogWarning("Inventory file not found, initializing new inventory.");
+        }
+        inventory = ScriptableObject.CreateInstance<PlayerInventorySO>();
+        inventory.items = new List<PlayerInventorySO.InventoryItem>();
+        inventory.Gold = 0;
+        inventory.PassTickets = 0;
+        AddStartingItem();
+        SaveInventory();
     }
 
     private void CheckForIAPPurchases()
