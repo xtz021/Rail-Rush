@@ -184,6 +184,7 @@ public class IAPManager : MonoBehaviour, IDetailedStoreListener
             }
         }
         ShopUIManager.Instance.UpdateCurrenciesIntoShopInfo(); // Update shop currencies
+        InventoryManager.Instance.SaveInventory(); // Save inventory after purchase
         //ShopItemsListManager.Instance.RefreshShopItems(); // Refresh shop items after purchase
         return PurchaseProcessingResult.Complete;
     }

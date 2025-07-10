@@ -29,6 +29,11 @@ public class InventoryManager : MonoBehaviour
         CheckBonusItems();
     }
 
+    private void OnDisable()
+    {
+        SaveInventory(); // Save inventory when the game is closed or this object is destroyed
+    }
+
     public void SaveInventory()
     {
         string json = JsonUtility.ToJson(inventory);

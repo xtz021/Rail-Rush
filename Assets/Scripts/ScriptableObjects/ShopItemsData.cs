@@ -69,6 +69,7 @@ public class ShopItemsData : ScriptableObject
                 Debug.LogWarning("Not enough gold to purchase: " + item.name);
             }
         }
+        InventoryManager.Instance.SaveInventory(); // Save inventory after purchase
     }
 
 
