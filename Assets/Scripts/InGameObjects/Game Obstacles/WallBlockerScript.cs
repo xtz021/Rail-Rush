@@ -8,6 +8,7 @@ public class WallBlockerScript : MonoBehaviour
     private const string STRING_OBSTACLE_TYPE = "Wall";
     [SerializeField] private ObstacleType obstacleType = ObstacleType.Wall;
     private Animation obsAnimation;
+    private bool isDestroyed = false;
 
     private void Awake()
     {
@@ -16,7 +17,7 @@ public class WallBlockerScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player" && !isDestroyed)
         {
             Debug.Log($"Obstacle hits the character! Gameobject: {other.name}");
             PlayerStatusController playerStatusController = PlayerStatusController.Instance;
@@ -34,6 +35,7 @@ public class WallBlockerScript : MonoBehaviour
                 {
                     AudioManager.Instance.Play("WoodCrash");
                 }
+                isDestroyed = true;
             } else if (playerStatusController == null)
             {
                 Debug.Log($"PlayerStatusController is null for {other.name}");
@@ -74,6 +76,13 @@ public class WallBlockerScript : MonoBehaviour
     public ObstacleType GetObstacleType()
     {
         return obstacleType;
+    }
+
+    public void DestroyedByPlayer()
+    {
+        isDestroyed = true;
+        obsAnimation.Play();
+        Debug.Log($"Obstacle {gameObject.name} is set as destroyed");
     }
 }
 

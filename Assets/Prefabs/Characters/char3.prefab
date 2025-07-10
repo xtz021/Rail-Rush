@@ -227,7 +227,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4252433199167371
 Transform:
   m_ObjectHideFlags: 0
@@ -900,6 +900,8 @@ GameObject:
   - component: {fileID: 4452901978690589}
   - component: {fileID: 111143020659946715}
   - component: {fileID: 7499117366216679100}
+  - component: {fileID: 7122003712877560863}
+  - component: {fileID: 6754176212457709895}
   m_Layer: 0
   m_Name: char3
   m_TagString: Untagged
@@ -994,6 +996,31 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!65 &7122003712877560863
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1741394435830720}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.5, y: 1.2, z: 3}
+  m_Center: {x: 0, y: 1.2, z: 4}
+--- !u!114 &6754176212457709895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1741394435830720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 281d4f2c3292fa249a6e0e816e6c688d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1742789136048834
 GameObject:
   m_ObjectHideFlags: 0
@@ -1457,7 +1484,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4581518973082210
 Transform:
   m_ObjectHideFlags: 0

@@ -18,8 +18,8 @@ public class PlayerInventorySO : ScriptableObject
     }
 
     public List<InventoryItem> items = new List<InventoryItem>();
-    public int Gold { get; set; } // Total gold the player has
-    public int PassTickets { get; set; } // Total pass tickets the player has
+    public int Gold; // Total gold the player has
+    public int PassTickets; // Total pass tickets the player has
 
     // Add item to inventory (or increase quantity if exists)
     public void AddItem(string itemID, int quantity = 1, bool isConsumeable = true)
