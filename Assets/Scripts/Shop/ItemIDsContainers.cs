@@ -32,12 +32,8 @@ public class ItemIDsContainers : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+            AssignIDs();
         }
-    }
-
-    private void Start()
-    {
-        AssignIDs();
     }
 
     private void AssignIDs()
