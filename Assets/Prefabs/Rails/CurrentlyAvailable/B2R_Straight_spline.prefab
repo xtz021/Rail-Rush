@@ -671,6 +671,7 @@ GameObject:
   - component: {fileID: 8725665137764243941}
   - component: {fileID: 8200604597915380625}
   - component: {fileID: 5560362031468934697}
+  - component: {fileID: 8607979910145089851}
   m_Layer: 0
   m_Name: R2
   m_TagString: Rail
@@ -813,6 +814,18 @@ MonoBehaviour:
   railSpline: {fileID: 0}
   totalSplineLength: 0
   playerExit: 0
+--- !u!114 &8607979910145089851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1411847792922157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b8ec9cbdea655b47ba2505849fd37f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1416378874416809
 GameObject:
   m_ObjectHideFlags: 0
@@ -1776,6 +1789,7 @@ GameObject:
   - component: {fileID: 1316318994024647044}
   - component: {fileID: 3347438147485722792}
   - component: {fileID: 5857753282564515385}
+  - component: {fileID: 2614529420153092380}
   m_Layer: 0
   m_Name: R1
   m_TagString: Rail
@@ -1920,6 +1934,18 @@ MonoBehaviour:
   railSpline: {fileID: 0}
   totalSplineLength: 0
   playerExit: 0
+--- !u!114 &2614529420153092380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1937652639400141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b8ec9cbdea655b47ba2505849fd37f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1943626324301369
 GameObject:
   m_ObjectHideFlags: 0

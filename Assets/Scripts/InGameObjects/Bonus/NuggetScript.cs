@@ -5,7 +5,7 @@ using UnityEngine;
 public class NuggetScript : MonoBehaviour
 {
     int goldValue = 1;
-    AudioSource audioSource;
+    //AudioSource audioSource;
 
     private void Start()
     {
@@ -23,8 +23,10 @@ public class NuggetScript : MonoBehaviour
             //    audioSource.Play();
             //}
             AudioManager.Instance.Play("Nugget");
-            Destroy(gameObject);
+            //Destroy(gameObject);
+            PoolManager.Instance.nuggetPool.AddToPool(gameObject);                   // Return to pool instead of destroying
         }
     }
+
 
 }

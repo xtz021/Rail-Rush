@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -34,18 +33,5 @@ public class MyPool
     {
         go.SetActive(false);
         poolStack.Push(go);
-    }
-}
-
-public class ReturnToMyPool : MonoBehaviour
-{
-    public MyPool myPool;
-
-    public void OnDisable()
-    {
-        if (myPool != null)
-        {
-            myPool.AddToPool(gameObject);
-        }
     }
 }

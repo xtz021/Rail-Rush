@@ -157,6 +157,7 @@ GameObject:
   - component: {fileID: 2631283356502047527}
   - component: {fileID: 6641868434087831288}
   - component: {fileID: 7050062820269971102}
+  - component: {fileID: 5307294177858852027}
   m_Layer: 0
   m_Name: R0
   m_TagString: Rail
@@ -497,6 +498,18 @@ MonoBehaviour:
   railSpline: {fileID: 0}
   totalSplineLength: 0
   playerExit: 0
+--- !u!114 &5307294177858852027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1055414674924288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b8ec9cbdea655b47ba2505849fd37f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1110642508757540
 GameObject:
   m_ObjectHideFlags: 0
