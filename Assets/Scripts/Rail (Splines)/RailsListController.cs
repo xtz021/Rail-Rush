@@ -49,7 +49,7 @@ public class RailsListController : MonoBehaviour
             {
                 foreach (Transform child in outtedGameobject.transform)
                 {
-                    if (child.tag == "Bonus" && child.name.Contains("Nugget"))
+                    if (child.TryGetComponent<NuggetScript>(out NuggetScript nuggetScript))
                     {
                         child.transform.SetParent(null);
                         child.gameObject.SetActive(false);

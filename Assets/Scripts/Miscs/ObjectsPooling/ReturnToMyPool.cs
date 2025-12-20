@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ReturnToMyPool : MonoBehaviour
@@ -20,7 +21,7 @@ public class ReturnToMyPool : MonoBehaviour
 
     public void OnDisable()
     {
-        if (myPool != null)
+        if (myPool != null && !gameObject.IsDestroyed())
         {
             myPool.AddToPool(gameObject);
         }
