@@ -16,11 +16,15 @@ public class NuggetSpawner : MonoBehaviour
     private void SpawnNuggets()
     {
         nuggetSpawnPointsList = CheckAndGetNuggetsList();
-        foreach (GameObject spawnPoint in nuggetSpawnPointsList)
+        if(nuggetSpawnPointsList.Count > 0)
         {
-            GameObject nugget = PoolManager.Instance.nuggetPool.Get();
-            nugget.transform.position = spawnPoint.transform.position;
-            nugget.transform.rotation = spawnPoint.transform.rotation;
+            foreach (GameObject spawnPoint in nuggetSpawnPointsList)
+            {
+                GameObject nugget = PoolManager.Instance.nuggetPool.Get();
+                nugget.transform.position = spawnPoint.transform.position;
+                nugget.transform.rotation = spawnPoint.transform.rotation;
+                nugget.transform.SetParent(transform.parent);
+            }
         }
     }
 

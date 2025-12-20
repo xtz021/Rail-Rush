@@ -45,6 +45,17 @@ public class RailsListController : MonoBehaviour
         {
             GameObject outtedGameobject;
             currentRailList.TryDequeue(out outtedGameobject);
+            if(outtedGameobject.TryGetComponent<RailSpawner>(out RailSpawner railSpawner))
+            {
+                foreach (Transform child in outtedGameobject.transform)
+                {
+                    if (child.tag == "Bonus" && child.name.Contains("Nugget"))
+                    {
+                        child.transform.SetParent(null);
+                        child.gameObject.SetActive(false);
+                    }
+                }
+            }
             Destroy(outtedGameobject);
             //Debug.Log("Removed rail: " + outtedGameobject.name);
         }

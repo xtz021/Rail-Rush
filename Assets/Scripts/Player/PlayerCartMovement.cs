@@ -12,7 +12,7 @@ public class PlayerCartMovement : MonoBehaviour
     private float jumpHeight = 1.8f;
     private float jumpOnAirDuration = 0.5f;
     private float distantBetweenRails = 2.75f;
-    private float mobileJumpDurationMultiplier = 1.2f;
+    //private float mobileJumpDurationMultiplier = 1.2f;
     private float jumpForceMultiplier = 1.2f; // Force applied when jumping
 
     public bool _movePhysic = false;
@@ -21,7 +21,7 @@ public class PlayerCartMovement : MonoBehaviour
     private float normalX;
     private float normalY;
     private float maxTiltAngle = 30f;
-    private float tiltMagnitude = 20f;
+    //private float tiltMagnitude = 20f;
     private float tiltSpeed = 200f;
     private float currentTiltAngle = 0f;
     //private Rigidbody playerRigidBody;

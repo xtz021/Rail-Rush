@@ -33,5 +33,6 @@ public class MyPool
     {
         go.SetActive(false);
         poolStack.Push(go);
+        Debug.Log("Added to pool: " + go.name + ". Pool size: " + poolStack.Count);
     }
 }
